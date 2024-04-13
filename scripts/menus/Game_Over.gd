@@ -43,6 +43,7 @@ func gameover_visibility():
 		go_stats_container.visible = false
 		go_title_succ.visible = true
 		go_title_fail.visible = false
+		$TextFlash_Player.play("Button_Flash")
 	else:
 		go_succ_container.visible = false
 		go_stats_container.visible = true
