@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdf1kujrb35xc"]
+
+[ext_resource type="PackedScene" uid="uid://cjpdcltsjfr2m" path="res://scenes/menus/Main_Menu.tscn" id="1_nfybi"]
+[ext_resource type="PackedScene" uid="uid://3hktxq1p4qdr" path="res://scenes/menus/Options_Menu.tscn" id="2_t1vus"]
+[ext_resource type="PackedScene" uid="uid://cgtj810lqgwsc" path="res://scenes/menus/Splash_Menu.tscn" id="3_w588a"]
+
+[node name="HubMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" parent="." instance=ExtResource("1_nfybi")]
+layout_mode = 1
+
+[node name="OptionsMenu" parent="." instance=ExtResource("2_t1vus")]
+visible = false
+layout_mode = 1
+
+[node name="SplashMenu" parent="." instance=ExtResource("3_w588a")]
+visible = false
+layout_mode = 1

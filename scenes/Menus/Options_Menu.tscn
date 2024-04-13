@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://3hktxq1p4qdr"]
+[gd_scene load_steps=5 format=3 uid="uid://3hktxq1p4qdr"]
 
+[ext_resource type="Texture2D" uid="uid://5ag0vw2x6v5f" path="res://assets/particle/Hug1.png" id="3_kdprp"]
 [ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_uopnn"]
+[ext_resource type="Texture2D" uid="uid://b758vknemqg0i" path="res://assets/particle/Kiss.png" id="4_6moat"]
 [ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_pfcdr"]
 
 [node name="OptionsMenu" type="Control"]
@@ -10,13 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -35,22 +30,144 @@ theme_override_constants/margin_bottom = 120
 [node name="OptionsMenu" type="Control" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="MM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/OptionsMenu"]
+[node name="O_VBoxContainer" type="VBoxContainer" parent="MarginContainer/OptionsMenu"]
 layout_mode = 2
 offset_right = 1680.0
 offset_bottom = 892.0
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="MM_Title" type="Label" parent="MarginContainer/OptionsMenu/MM_VBoxContainer"]
+[node name="O_Title" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
 layout_mode = 2
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("3_uopnn")
 theme_override_font_sizes/font_size = 100
-text = "Options"
+text = "OPTIONS"
 horizontal_alignment = 1
 
-[node name="MM_LEAVE" type="Button" parent="MarginContainer/OptionsMenu/MM_VBoxContainer"]
+[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="O_Window" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "WIndow Mode"
+horizontal_alignment = 1
+
+[node name="O_WindowCheckBox" type="CheckBox" parent="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+theme_override_icons/checked = ExtResource("3_kdprp")
+theme_override_icons/unchecked = ExtResource("4_6moat")
+
+[node name="WindowMode2" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="O_Window" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode2"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "Resolution"
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode2"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+
+[node name="Overall_Volume" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="O_OverallTitle" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/Overall_Volume"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "Overall Volume"
+horizontal_alignment = 1
+
+[node name="O_OverallSlider" type="HSlider" parent="MarginContainer/OptionsMenu/O_VBoxContainer/Overall_Volume"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="O_OverallPercent" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/Overall_Volume"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "100%"
+horizontal_alignment = 1
+
+[node name="FX_Volume" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="O_FXTitle" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/FX_Volume"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "Effects Volume"
+horizontal_alignment = 1
+
+[node name="O_FXSlider" type="HSlider" parent="MarginContainer/OptionsMenu/O_VBoxContainer/FX_Volume"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="O_FXPercent" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/FX_Volume"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "100%"
+horizontal_alignment = 1
+
+[node name="Music_Volume" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="O_MusicTitle" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/Music_Volume"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="O_MusicSlider" type="HSlider" parent="MarginContainer/OptionsMenu/O_VBoxContainer/Music_Volume"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="O_MusicPercent" type="Label" parent="MarginContainer/OptionsMenu/O_VBoxContainer/Music_Volume"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_pfcdr")
+theme_override_font_sizes/font_size = 100
+text = "100%"
+horizontal_alignment = 1
+
+[node name="O_LEAVE3" type="Button" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_pfcdr")
 theme_override_font_sizes/font_size = 100
 text = "Back"
