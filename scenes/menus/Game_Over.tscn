@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfaav2r3gbjnr"]
+
+[ext_resource type="Script" path="res://scenes/menus/Game_Over.gd" id="1_f26fg"]
+[ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_emsji"]
+[ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_gs1r7"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f26fg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="MainMenu" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainMenu"]
+layout_mode = 2
+offset_right = 1680.0
+offset_bottom = 892.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="GO_Title" type="Label" parent="MarginContainer/MainMenu/PM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("3_emsji")
+theme_override_font_sizes/font_size = 240
+text = "SUCCESS or FAILURE"
+horizontal_alignment = 1
+
+[node name="GO_Cultists" type="HBoxContainer" parent="MarginContainer/MainMenu/PM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="GO_Cult" type="Label" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_Cultists"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Cultists Killed"
+horizontal_alignment = 1
+
+[node name="GO_Cult_Kills" type="Label" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_Cultists"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="GO_Heroes" type="HBoxContainer" parent="MarginContainer/MainMenu/PM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="GO_Hero" type="Label" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_Heroes"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Heroes Killed"
+horizontal_alignment = 1
+
+[node name="GO_Hero_Kills" type="Label" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_Heroes"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="GO_Civilians" type="HBoxContainer" parent="MarginContainer/MainMenu/PM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="GO_Civil" type="Label" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_Civilians"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Civilians Killed"
+horizontal_alignment = 1
+
+[node name="GO_Civil_Kills" type="Label" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_Civilians"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="GO_HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainMenu/PM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GO_Retry" type="Button" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_HBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Retry"
+
+[node name="GO_Leave" type="Button" parent="MarginContainer/MainMenu/PM_VBoxContainer/GO_HBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Leave"

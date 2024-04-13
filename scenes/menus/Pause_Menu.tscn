@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://qombbu5s0f57"]
+
+[ext_resource type="Script" path="res://scripts/menus/Pause_Menu.gd" id="1_vmxwa"]
+[ext_resource type="FontFile" uid="uid://sesjq0p2svxy" path="res://assets/fonts/Spinnaker.ttf" id="2_hhonm"]
+[ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_2dr2l"]
+[ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_cjxlq"]
+[ext_resource type="PackedScene" uid="uid://3hktxq1p4qdr" path="res://scenes/menus/Options_Menu.tscn" id="5_80sc3"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vmxwa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="PauseMenu_Holder" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu_Holder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 200.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="PauseMenu" type="Control" parent="PauseMenu_Holder/MarginContainer"]
+layout_mode = 2
+
+[node name="GWJ68" type="Label" parent="PauseMenu_Holder/MarginContainer/PauseMenu"]
+layout_mode = 2
+offset_right = 1680.0
+offset_bottom = 77.0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_hhonm")
+theme_override_font_sizes/font_size = 30
+text = "GODOTWILDJAM
+68 - FORGE"
+vertical_alignment = 2
+
+[node name="DeveloperInfo" type="Label" parent="PauseMenu_Holder/MarginContainer/PauseMenu"]
+layout_mode = 2
+offset_top = 815.0
+offset_right = 1680.0
+offset_bottom = 892.0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_hhonm")
+theme_override_font_sizes/font_size = 30
+text = "VERSION 1.0
+HANGOVER SUNSHINE"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="PM_VBoxContainer" type="VBoxContainer" parent="PauseMenu_Holder/MarginContainer/PauseMenu"]
+layout_mode = 2
+offset_right = 1680.0
+offset_bottom = 892.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PM_Title" type="Label" parent="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("3_2dr2l")
+theme_override_font_sizes/font_size = 240
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="PM_HBoxContainer" type="HBoxContainer" parent="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PM_VBoxContainer" type="VBoxContainer" parent="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PM_Continue" type="Button" parent="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_cjxlq")
+theme_override_font_sizes/font_size = 100
+text = "Continue"
+
+[node name="PM_Options" type="Button" parent="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_cjxlq")
+theme_override_font_sizes/font_size = 100
+text = "Options"
+
+[node name="PM_Leave" type="Button" parent="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_cjxlq")
+theme_override_font_sizes/font_size = 100
+text = "Leave"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("5_80sc3")]
+visible = false
+layout_mode = 1

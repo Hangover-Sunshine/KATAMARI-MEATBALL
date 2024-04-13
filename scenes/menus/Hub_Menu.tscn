@@ -18,13 +18,13 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
+[node name="SplashMenu" parent="." instance=ExtResource("3_w588a")]
+visible = false
+layout_mode = 1
+
 [node name="MainMenu" parent="." instance=ExtResource("1_nfybi")]
 layout_mode = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_t1vus")]
-visible = false
-layout_mode = 1
-
-[node name="SplashMenu" parent="." instance=ExtResource("3_w588a")]
 visible = false
 layout_mode = 1
