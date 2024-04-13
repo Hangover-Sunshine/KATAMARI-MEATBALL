@@ -12,6 +12,7 @@ signal goto_options_menu
 func _ready():
 	handle_connecting_signals()
 
+#Managing which menu is visible / scene switching / leaving
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
 
@@ -21,6 +22,7 @@ func on_options_pressed() -> void:
 func on_exit_pressed() -> void:
 	get_tree().quit()
 
+#Handling signal connection for options
 func handle_connecting_signals() -> void:
 	mm_start.button_down.connect(on_start_pressed)
 	mm_options.button_down.connect(on_options_pressed)

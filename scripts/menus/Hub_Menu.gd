@@ -11,6 +11,7 @@ func _ready():
 	menu_open()
 	handle_connecting_signals()
 
+#Managing which menu is visible 
 func _input(event):
 	if event.is_pressed() and splash_menu.visible == true:
 		splash_menu.visible = false
@@ -26,10 +27,6 @@ func menu_open():
 		main_menu.visible = true
 		options_menu.visible = false
 
-func handle_connecting_signals() -> void:
-	main_menu.goto_options_menu.connect(show_options)
-	options_menu.leave_options_menu.connect(leave_options)
-	
 func show_options():
 	splash_menu.visible = false
 	main_menu.visible = false
@@ -39,3 +36,8 @@ func leave_options():
 	splash_menu.visible = false
 	main_menu.visible = true
 	options_menu.visible = false
+
+#Handling signal connection for options
+func handle_connecting_signals() -> void:
+	main_menu.goto_options_menu.connect(show_options)
+	options_menu.leave_options_menu.connect(leave_options)
