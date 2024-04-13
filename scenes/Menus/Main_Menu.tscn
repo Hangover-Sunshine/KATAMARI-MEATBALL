@@ -104,31 +104,3 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ox4r2")
 theme_override_font_sizes/font_size = 100
 text = "Leave"
-
-[node name="SplashMenu" type="Control" parent="MarginContainer"]
-visible = false
-layout_mode = 2
-
-[node name="SM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/SplashMenu"]
-layout_mode = 2
-offset_right = 1680.0
-offset_bottom = 892.0
-
-[node name="SM_Title" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
-layout_mode = 2
-theme_override_constants/line_spacing = -100
-theme_override_fonts/font = ExtResource("1_w3d6x")
-theme_override_font_sizes/font_size = 340
-text = "MAIN
-MENU"
-horizontal_alignment = 1
-
-[node name="SM_Title2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/line_spacing = -100
-theme_override_fonts/font = ExtResource("2_ox4r2")
-theme_override_font_sizes/font_size = 100
-text = "Press ANY BUTTON to FORGE FLESH"
-horizontal_alignment = 1
-vertical_alignment = 1

@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmoxxip2ej4bq"]
+
+[ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_yyuw1"]
+[ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_o7yra"]
+
+[node name="SplashMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="SplashMenu" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/SplashMenu"]
+layout_mode = 2
+offset_right = 1680.0
+offset_bottom = 892.0
+
+[node name="SM_Title" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("3_yyuw1")
+theme_override_font_sizes/font_size = 340
+text = "MAIN
+MENU"
+horizontal_alignment = 1
+
+[node name="SM_Title2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_o7yra")
+theme_override_font_sizes/font_size = 100
+text = "Press ANY BUTTON to FORGE FLESH"
+horizontal_alignment = 1
+vertical_alignment = 1
