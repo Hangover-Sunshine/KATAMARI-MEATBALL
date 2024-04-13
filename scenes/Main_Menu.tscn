@@ -1,0 +1,134 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjpdcltsjfr2m"]
+
+[ext_resource type="Script" path="res://scripts/system/Main_Menu.gd" id="1_2i1eo"]
+[ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="1_w3d6x"]
+[ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="2_ox4r2"]
+[ext_resource type="FontFile" uid="uid://sesjq0p2svxy" path="res://assets/fonts/Spinnaker.ttf" id="3_rsijs"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2i1eo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="MainMenu" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="DeveloperInfo2" type="Label" parent="MarginContainer/MainMenu"]
+layout_mode = 2
+offset_right = 1680.0
+offset_bottom = 77.0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_rsijs")
+theme_override_font_sizes/font_size = 30
+text = "GODOTWILDJAM
+68 - FORGE"
+vertical_alignment = 2
+
+[node name="DeveloperInfo" type="Label" parent="MarginContainer/MainMenu"]
+layout_mode = 2
+offset_top = 815.0
+offset_right = 1680.0
+offset_bottom = 892.0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_rsijs")
+theme_override_font_sizes/font_size = 30
+text = "VERSION 1.0
+HANGOVER SUNSHINE"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="MM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainMenu"]
+layout_mode = 2
+offset_right = 1680.0
+offset_bottom = 892.0
+
+[node name="MM_Title" type="Label" parent="MarginContainer/MainMenu/MM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("1_w3d6x")
+theme_override_font_sizes/font_size = 240
+text = "MAIN
+MENU"
+horizontal_alignment = 1
+
+[node name="MM_HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainMenu/MM_VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MM_PLAY" type="Button" parent="MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ox4r2")
+theme_override_font_sizes/font_size = 100
+text = "Play"
+
+[node name="MM_OPTIONS" type="Button" parent="MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ox4r2")
+theme_override_font_sizes/font_size = 100
+text = "Options"
+
+[node name="MM_LEAVE" type="Button" parent="MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ox4r2")
+theme_override_font_sizes/font_size = 100
+text = "Leave"
+
+[node name="SplashMenu" type="Control" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="SM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/SplashMenu"]
+layout_mode = 2
+offset_right = 1680.0
+offset_bottom = 892.0
+
+[node name="SM_Title" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("1_w3d6x")
+theme_override_font_sizes/font_size = 340
+text = "MAIN
+MENU"
+horizontal_alignment = 1
+
+[node name="SM_Title2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("2_ox4r2")
+theme_override_font_sizes/font_size = 100
+text = "Press ANY BUTTON to FORGE FLESH"
+horizontal_alignment = 1
+vertical_alignment = 1
