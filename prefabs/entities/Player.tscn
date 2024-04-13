@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://myhbn6a4wked"]
+
+[ext_resource type="Script" path="res://scripts/entity/Player.gd" id="1_37j8s"]
+[ext_resource type="Texture2D" uid="uid://btequsvovppnf" path="res://assets/temporary/Character_Smoll.png" id="2_5m8nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u0wk"]
+size = Vector2(82, 82)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0wyn"]
+radius = 487.173
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 63
+script = ExtResource("1_37j8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7u0wk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_5m8nx")
+region_enabled = true
+region_rect = Rect2(96, 0, 96, 96)
+
+[node name="BallDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="BallDetector"]
+shape = SubResource("CircleShape2D_r0wyn")
+debug_color = Color(0, 0.643137, 0.333333, 0.419608)
+
+[connection signal="body_entered" from="BallDetector" to="." method="_on_ball_detector_body_entered"]
+[connection signal="body_exited" from="BallDetector" to="." method="_on_ball_detector_body_exited"]

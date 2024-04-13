@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2rldqippwrkr"]
+
+[ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="1_11vk3"]
+[ext_resource type="Script" path="res://scripts/entity/FleshBall.gd" id="1_amhv6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdqra"]
+radius = 49.0918
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0duw"]
+radius = 56.0
+
+[node name="FleshBall" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 32
+gravity_scale = 0.0
+script = ExtResource("1_amhv6")
+ConsumptionBands = Array[int]([30, 60])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_11vk3")
+
+[node name="ActualHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tdqra")
+
+[node name="Influence" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 29
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Influence"]
+shape = SubResource("CircleShape2D_f0duw")
+debug_color = Color(0.984314, 0, 0.34902, 0.419608)
+
+[connection signal="body_entered" from="Influence" to="." method="_on_influence_body_entered"]
