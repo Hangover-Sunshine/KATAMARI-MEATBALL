@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgtj810lqgwsc"]
 
-[ext_resource type="Script" path="res://scenes/menus/Splash_Menu.gd" id="1_61k4g"]
+[ext_resource type="Script" path="res://scripts/menus/Splash_Menu.gd" id="1_61k4g"]
 [ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_yyuw1"]
 [ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_o7yra"]
 
