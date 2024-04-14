@@ -14,11 +14,12 @@ func _ready():
 #Managing which menu is visible 
 func _input(event):
 	if event.is_pressed() and splash_menu.visible == true:
-		splash_menu.visible = false
-		main_menu.visible = true
+		$Meatball_Animation.play("Left2Right")
+		$PageTransition_Animation.play("Splash2Menu")
 
 func menu_open():
 	if opened_before == false:
+		$PageTransition_Animation.play("Fade2Splash")
 		splash_menu.visible = true
 		main_menu.visible = false
 		options_menu.visible = false
@@ -28,14 +29,12 @@ func menu_open():
 		options_menu.visible = false
 
 func show_options():
-	splash_menu.visible = false
-	main_menu.visible = false
-	options_menu.visible = true
+	$Meatball_Animation.play("Right2Left")
+	$PageTransition_Animation.play("Menu2Options")
 
 func leave_options():
-	splash_menu.visible = false
-	main_menu.visible = true
-	options_menu.visible = false
+	$Meatball_Animation.play("Left2Right")
+	$PageTransition_Animation.play("Options2Menu")
 
 #Handling signal connection for options
 func handle_connecting_signals() -> void:

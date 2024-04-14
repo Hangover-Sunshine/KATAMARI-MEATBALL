@@ -353,7 +353,6 @@ theme_override_font_sizes/font_size = 100
 text = "Leave"
 
 [node name="GO_Succ_Container" type="VBoxContainer" parent="MarginContainer/GameOver"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
