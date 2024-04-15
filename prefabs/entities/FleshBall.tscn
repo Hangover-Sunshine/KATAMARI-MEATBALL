@@ -7,14 +7,13 @@
 radius = 49.0918
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f0duw"]
-radius = 56.0
+radius = 63.0317
 
-[node name="FleshBall" type="RigidBody2D"]
+[node name="MysteryFleshBall" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 32
-gravity_scale = 0.0
 script = ExtResource("1_amhv6")
-ConsumptionBands = Array[int]([30, 60])
+MovementLossTime = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_11vk3")

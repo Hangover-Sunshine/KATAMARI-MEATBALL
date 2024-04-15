@@ -4,10 +4,10 @@ extends CharacterBody2D
 @export_range(0.0, 1.0) var PunchDrawnPenalty:float = 0.8
 
 @export var MaxWindupTime:float = 2.5
-@export var MaxForce:float = 50000 # full power = this value, quick tap is half at least
+@export var MaxForce:float = 700 # full power = this value, quick tap is half at least
 
 var mouse_pressed:bool = false
-var ball:RigidBody2D
+var ball:CharacterBody2D
 
 func _process(delta):
 	pass
@@ -25,10 +25,9 @@ func _input(event):
 ##
 
 func apply_force(dir_from_player_to_mouse):
-	var force = MaxForce * dir_from_player_to_mouse
-	
 	if ball != null:
-		ball.apply_central_force(force)
+		ball.velocity = MaxForce * dir_from_player_to_mouse
+		ball.smacked()
 	##
 ##
 

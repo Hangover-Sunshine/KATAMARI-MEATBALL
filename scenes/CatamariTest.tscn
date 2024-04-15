@@ -1,12 +1,180 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv0ku2v7vktrn"]
+[gd_scene load_steps=5 format=3 uid="uid://bv0ku2v7vktrn"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_thyqi"]
 [ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="2_2j7s7"]
+[ext_resource type="Texture2D" uid="uid://hqxg4h3orok1" path="res://assets/temporary/Environment_Prototype1.png" id="3_ubkol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxqqo"]
+size = Vector2(97, 96)
 
 [node name="CatamariTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_thyqi")]
-position = Vector2(229, 96)
+position = Vector2(4308, 85)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="FleshBall" parent="." instance=ExtResource("2_2j7s7")]
-position = Vector2(811, 92)
+position = Vector2(4890, 81)
+
+[node name="DummyBlockout" type="StaticBody2D" parent="."]
+position = Vector2(1714, 130)
+scale = Vector2(1, 4.56)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout2" type="StaticBody2D" parent="."]
+position = Vector2(5745, 130)
+scale = Vector2(1, 25.68)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout2"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout2"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout9" type="StaticBody2D" parent="."]
+position = Vector2(3230, 130)
+scale = Vector2(1, 25.68)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout9"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout9"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout10" type="StaticBody2D" parent="."]
+position = Vector2(4485, -1146)
+rotation = 1.5708
+scale = Vector2(1, 26.36)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout10"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout10"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout11" type="StaticBody2D" parent="."]
+position = Vector2(4485, 1406)
+rotation = 1.5708
+scale = Vector2(1, 26.6)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout11"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout11"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout3" type="StaticBody2D" parent="."]
+position = Vector2(1254, -435)
+rotation = 1.5708
+scale = Vector2(1, 4.56)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout3"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout3"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout4" type="StaticBody2D" parent="."]
+position = Vector2(1137, 1114)
+rotation = 1.5708
+scale = Vector2(1, 4.56)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout4"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout4"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout5" type="StaticBody2D" parent="."]
+position = Vector2(362, 974)
+rotation = 2.35619
+scale = Vector2(1, 4.56)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout5"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout5"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout6" type="StaticBody2D" parent="."]
+position = Vector2(362, 974)
+rotation = 2.35619
+scale = Vector2(1, 4.56)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout6"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout6"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout7" type="StaticBody2D" parent="."]
+position = Vector2(-98, 469)
+rotation = -0.471239
+scale = Vector2(1, 4.56)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout7"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout7"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
+
+[node name="DummyBlockout8" type="StaticBody2D" parent="."]
+position = Vector2(-179, -116)
+rotation = 0.15708
+scale = Vector2(1, 4.56)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="DummyBlockout8"]
+texture = ExtResource("3_ubkol")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyBlockout8"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxqqo")
