@@ -11,7 +11,7 @@ extends Node2D
 
 # 0 - Player | 1 - Cultist | 2 - HERO Guard 
 # 3 - HERO Archer | 4 - HERO Wizard | 5 - Peon
-var character = 5
+var character = 0
 
 # 0 - Pink | 1 - Ginger | 2 - Brown
 var skin_color:int = 0
