@@ -1,11 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyxumeknnbar3"]
+[gd_scene load_steps=14 format=3 uid="uid://dyxumeknnbar3"]
 
 [ext_resource type="Texture2D" uid="uid://6xec75gnikfa" path="res://assets/characters/All_Hands.png" id="1_12a3x"]
 [ext_resource type="Script" path="res://prefabs/entities/all_character.gd" id="1_h2sn6"]
 [ext_resource type="Texture2D" uid="uid://csfe5gl2dy18y" path="res://assets/characters/Cult_Heads.png" id="2_ka302"]
+[ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="2_l0t14"]
 [ext_resource type="Texture2D" uid="uid://bcaynjkdimu7g" path="res://assets/characters/Hero_Heads.png" id="3_4sslf"]
 [ext_resource type="Texture2D" uid="uid://bs2qgmbj5ftk1" path="res://assets/characters/Peon_Heads.png" id="4_ug4sn"]
 [ext_resource type="Texture2D" uid="uid://dpm5743pmyen" path="res://assets/characters/All_Body.png" id="5_tllnm"]
+
+[sub_resource type="Curve" id="Curve_flos4"]
+min_value = 0.05
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.05), -3.00256, 3.25337, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_1y67h"]
+offsets = PackedFloat32Array(0, 0.0935114, 0.316794)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Animation" id="Animation_3757p"]
 resource_name = "Idle"
@@ -139,6 +149,23 @@ _data = {
 
 [node name="All_Character" type="Node2D"]
 script = ExtResource("1_h2sn6")
+
+[node name="Walk_Trail" type="CPUParticles2D" parent="."]
+position = Vector2(0, 46)
+emitting = false
+amount = 40
+texture = ExtResource("2_l0t14")
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 16.0
+gravity = Vector2(0, 0)
+radial_accel_max = 10.0
+angle_min = -50.0
+angle_max = 50.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_flos4")
+color_ramp = SubResource("Gradient_1y67h")
 
 [node name="All_Skeleton" type="Node2D" parent="."]
 
