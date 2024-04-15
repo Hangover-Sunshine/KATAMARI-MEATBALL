@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk5urnt7bdewl"]
+[gd_scene load_steps=2 format=3 uid="uid://dk5urnt7bdewl"]
 
 [ext_resource type="PackedScene" uid="uid://dyxumeknnbar3" path="res://prefabs/entities/all_character.tscn" id="1_8anwa"]
-[ext_resource type="Texture2D" uid="uid://dw57b5pxbq84n" path="res://assets/characters/Aapron.png" id="6_l56i0"]
 
 [node name="ArtTest1" type="Node2D"]
 
 [node name="All_Character" parent="." instance=ExtResource("1_8anwa")]
 position = Vector2(110, 84)
-
-[node name="Aapron" type="Sprite2D" parent="."]
-position = Vector2(242, 172)
-texture = ExtResource("6_l56i0")
