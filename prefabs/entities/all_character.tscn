@@ -138,7 +138,6 @@ _data = {
 }
 
 [node name="All_Character" type="Node2D"]
-position = Vector2(127, 101)
 script = ExtResource("1_h2sn6")
 
 [node name="All_Skeleton" type="Node2D" parent="."]
