@@ -19,7 +19,7 @@ var off:bool = true
 var momentum_loss_timer:float = 0
 
 func _ready():
-	$Influence.collision_mask = 0
+	$Influence.collision_mask = 0b0001_0000
 ##
 
 func _process(delta):
@@ -31,15 +31,13 @@ func _physics_process(delta):
 		if off:
 			return
 		else:
-			# turn off influence
-			$Influence.collision_mask = 0
+			# turn off influence -- only cultists can be absorbeds
+			$Influence.collision_mask = 0b0001_0000
 			off = true
 			momentum_loss_timer = 0
 			return
 		##
 	elif off:
-		# restart everything!
-		$Influence.collision_mask = 0b0001_1100
 		off = false
 		momentum_loss_timer = MovementLossTime
 	##
@@ -55,7 +53,6 @@ func _physics_process(delta):
 	
 	momentum_loss_timer -= delta
 	if momentum_loss_timer <= 0:
-		print($Influence.collision_mask)
 		momentum_loss_timer = MovementLossTime
 		
 		velocity -= velocity * MovementLoss
@@ -76,5 +73,11 @@ func smacked():
 
 # once in, you can never leave :)
 func _on_influence_body_entered(body):
-	print(body)
+	current_consumption += body.get_consumption_addition()
+	
+	if velocity.length_squared() > 0:
+		body.rolled_over()
+	else:
+		body.get_absorbed()
+	##
 ##

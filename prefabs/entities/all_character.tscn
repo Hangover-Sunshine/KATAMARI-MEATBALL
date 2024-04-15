@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyxumeknnbar3"]
+[gd_scene load_steps=14 format=3 uid="uid://bjqb4w7t3q0yb"]
 
 [ext_resource type="Texture2D" uid="uid://6xec75gnikfa" path="res://assets/characters/All_Hands.png" id="1_12a3x"]
 [ext_resource type="Script" path="res://prefabs/entities/all_character.gd" id="1_h2sn6"]
