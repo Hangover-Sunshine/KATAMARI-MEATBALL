@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyxumeknnbar3"]
+[gd_scene load_steps=7 format=3 uid="uid://dyxumeknnbar3"]
 
 [ext_resource type="Texture2D" uid="uid://6xec75gnikfa" path="res://assets/characters/All_Hands.png" id="1_12a3x"]
 [ext_resource type="Script" path="res://prefabs/entities/all_character.gd" id="1_h2sn6"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bcaynjkdimu7g" path="res://assets/characters/Hero_Heads.png" id="3_4sslf"]
 [ext_resource type="Texture2D" uid="uid://bs2qgmbj5ftk1" path="res://assets/characters/Peon_Heads.png" id="4_ug4sn"]
 [ext_resource type="Texture2D" uid="uid://dpm5743pmyen" path="res://assets/characters/All_Body.png" id="5_tllnm"]
-[ext_resource type="Texture2D" uid="uid://dw57b5pxbq84n" path="res://assets/characters/Aapron.png" id="6_pg4gs"]
 
 [node name="All_Character" type="Node2D"]
 script = ExtResource("1_h2sn6")
@@ -46,9 +45,3 @@ vframes = 4
 texture = ExtResource("5_tllnm")
 hframes = 4
 vframes = 4
-
-[node name="Peon_Aapron" type="Sprite2D" parent="All_Skeleton"]
-visible = false
-position = Vector2(-2, 12.75)
-scale = Vector2(1.011, 1)
-texture = ExtResource("6_pg4gs")
