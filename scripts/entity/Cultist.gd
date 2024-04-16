@@ -8,7 +8,7 @@ class_name Cultist
 @onready var travel_brain:NavigationAgent2D = $TravelBrain
 @onready var path_requery_timer = $PathRequeryTimer
 
-# TODO: in the spawn system, pass this in -- for now, hardcoded
+# TODO: remove the $"..."
 @onready var fleshball = $"../FleshBall"
 
 var setup_finished:bool = false
@@ -18,7 +18,6 @@ var jump_into_ball:bool = false
 # Not-Ball
 var found_target:bool = false
 var converting:bool = false
-var adventurer
 var civvy:Civilian
 
 #TODO: replace this
@@ -56,7 +55,7 @@ func _process(delta):
 ##
 
 func _physics_process(delta):
-	if setup_finished == false or jump_into_ball:
+	if setup_finished == false or jump_into_ball or converting:
 		return
 	##
 	
@@ -75,10 +74,8 @@ func _physics_process(delta):
 		travel_speed = ChaseSpeed
 	##
 	
-	if not converting:
-		velocity = global_position.direction_to(travel_brain.get_next_path_position()) * travel_speed
-		move_and_slide()
-	##
+	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * travel_speed
+	move_and_slide()
 ##
 
 func get_consumption_addition():
@@ -98,40 +95,47 @@ func get_absorbed():
 
 func _on_sight_body_entered(body):
 	if found_target == false:
-		found_target = true
-		if body is Civilian and body.being_converted_by() == null:
+		if body is Civilian and body.being_converted_by() == null and body.being_escorted_by() == null:
+			found_target = true
 			civvy = body
+			travel_brain.target_position = civvy.global_position
 		##
 	##
 ##
 
 func _on_sight_body_exited(body):
-	found_target = false
-	adventurer = null
-	civvy = null
-	converting = false
-	path_requery_timer.stop()
+	if body == civvy:
+		found_target = false
+		civvy = null
+		converting = false
+		path_requery_timer.stop()
+	##
 ##
 
 func _on_conversion_zone_body_entered(body):
 	if body == civvy:
 		if civvy.being_converted_by() == null:
-			_on_sight_body_exited(body) # just call this as a clean-up method lmao
-		else:
 			civvy.begin_conversion_by(self)
 			path_requery_timer.stop()
 			velocity = Vector2.ZERO
 			converting = true
+		else:
+			_on_sight_body_exited(body) # just call this as a clean-up method lmao
 		##
 	##
 ##
 
 func _on_path_requery_timer_timeout():
-	path_requery_timer.start(0.5)
+	path_requery_timer.start(0.25)
 	
 	if civvy:
 		travel_brain.target_position = civvy.global_position
-	else:
-		travel_brain.target_position = adventurer.global_position
 	##
+##
+
+func take_damage(_dmg):
+	if civvy:
+		civvy.stop_converting()
+	##
+	queue_free()
 ##

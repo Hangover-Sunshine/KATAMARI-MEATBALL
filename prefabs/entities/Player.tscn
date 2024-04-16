@@ -10,7 +10,7 @@ size = Vector2(82, 82)
 radius = 487.173
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 63
+collision_mask = 35
 script = ExtResource("1_37j8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

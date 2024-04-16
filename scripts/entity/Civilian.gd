@@ -2,12 +2,16 @@ extends CharacterBody2D
 class_name Civilian
 
 @export var MovementSpeed:float = 350.0
+@export_range(0.1, 0.8) var EscortSpeedPenality:float = 0.5
 @export var ConsumptionAddition:float = 10.0
 @export var WaitTime:Vector2 = Vector2(0.8, 1.8)
 
 @export_group("Conversion")
 @export var ConversionSpeed:float = 3.5
 @export var ConversionAmount:Vector2 = Vector2(20.0, 30.0)
+
+@export_group("Escape")
+@export var TimeToEscape:float = 2.5
 ####
 
 @onready var destination_wait_timer = $DestinationWaitTimer
@@ -15,8 +19,14 @@ class_name Civilian
 @onready var progress_to_conversion = $ProgressToConversion
 
 var waiting_done:bool = false
+
 var being_converted:bool = false
 var cultist_converting:Cultist
+
+var freeing_self:bool = false
+var being_escorted:bool = false
+var escort_under_attack:bool = false
+var escort:Adventurer
 
 func _ready():
 	$GraphicsControl.character = 5
@@ -51,11 +61,17 @@ func set_target_position(pos:Vector2):
 ##
 
 func _physics_process(delta):
-	if being_converted:
+	if being_converted or escort_under_attack or freeing_self:
 		return
 	##
 	
 	if travel_brain.is_navigation_finished():
+		if being_escorted:
+			freeing_self = true
+			destination_wait_timer.start(TimeToEscape)
+			return
+		##
+		
 		if destination_wait_timer.is_stopped():
 			var wait = randf_range(WaitTime.x, WaitTime.y)
 			destination_wait_timer.start(wait)
@@ -63,7 +79,9 @@ func _physics_process(delta):
 		return
 	##
 	
-	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * MovementSpeed
+	var movement = MovementSpeed * EscortSpeedPenality if being_escorted else MovementSpeed
+	
+	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * movement
 	move_and_slide()
 ##
 
@@ -76,6 +94,10 @@ func _on_destination_wait_timer_timeout():
 		else:
 			destination_wait_timer.start(ConversionSpeed)
 		##
+	elif freeing_self:
+		# TODO: put things here
+		escort.free_from_help()
+		queue_free()
 	else:
 		GlobalSignals.emit_signal("request_new_flee_point", self)
 	##
@@ -88,11 +110,35 @@ func get_consumption_addition():
 func begin_conversion_by(cultist):
 	being_converted = true
 	cultist_converting = cultist
+	progress_to_conversion.value = 0
 	destination_wait_timer.start(ConversionSpeed)
+##
+
+func stop_converting():
+	being_converted = false
+	destination_wait_timer.stop()
+	cultist_converting = null
+	progress_to_conversion.value = 0
 ##
 
 func being_converted_by() -> Cultist:
 	return cultist_converting
+##
+
+func start_escorting(adventurer:Adventurer):
+	escort = adventurer
+	being_escorted = true
+	GlobalSignals.emit_signal("request_escort_point", self, adventurer)
+##
+
+func stop_escorting():
+	being_escorted = false
+	escort_under_attack = false
+	escort = null
+##
+
+func being_escorted_by() -> Adventurer:
+	return escort
 ##
 
 func rolled_over():

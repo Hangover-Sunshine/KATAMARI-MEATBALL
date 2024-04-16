@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3 uid="uid://8nio5o2tjs5l"]
+
+[ext_resource type="Script" path="res://scripts/entity/Adventurer.gd" id="1_dxto2"]
+[ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="1_ico5n"]
+[ext_resource type="Texture2D" uid="uid://b7e4h8l2s1sum" path="res://assets/particle/Bracket1.png" id="3_61fqr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74fi5"]
+size = Vector2(99, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cirj"]
+size = Vector2(92, 109)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8mjt"]
+radius = 657.304
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edyon"]
+size = Vector2(247, 229)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y77vm"]
+radius = 405.967
+
+[sub_resource type="Animation" id="Animation_7opum"]
+resource_name = "melee_attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitArea/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Slash:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(45.2548, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0roox"]
+_data = {
+"melee_attack": SubResource("Animation_7opum")
+}
+
+[node name="Adventurer" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 32
+script = ExtResource("1_dxto2")
+
+[node name="GraphicsController" parent="." instance=ExtResource("1_ico5n")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_74fi5")
+
+[node name="Melee" type="Node2D" parent="."]
+process_mode = 4
+
+[node name="HitArea" type="Area2D" parent="Melee"]
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Melee/HitArea"]
+position = Vector2(78, 0)
+shape = SubResource("RectangleShape2D_6cirj")
+
+[node name="Slash" type="Sprite2D" parent="Melee"]
+modulate = Color(1, 1, 1, 0.787411)
+position = Vector2(101, 0)
+scale = Vector2(0.440001, 1.3908)
+texture = ExtResource("3_61fqr")
+
+[node name="Ranged" type="Node2D" parent="."]
+process_mode = 4
+
+[node name="EnemiesInRangeDetector" type="Area2D" parent="Ranged"]
+collision_layer = 0
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ranged/EnemiesInRangeDetector"]
+shape = SubResource("CircleShape2D_d8mjt")
+
+[node name="EntityInRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntityInRange"]
+shape = SubResource("RectangleShape2D_edyon")
+debug_color = Color(0.984314, 0, 0.333333, 0.419608)
+
+[node name="NPCSighter" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCSighter"]
+shape = SubResource("CircleShape2D_y77vm")
+debug_color = Color(0, 0.65098, 0.133333, 0.419608)
+
+[node name="TravelBrain" type="NavigationAgent2D" parent="."]
+target_desired_distance = 150.0
+
+[node name="AttackAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Melee")
+libraries = {
+"": SubResource("AnimationLibrary_0roox")
+}
+
+[connection signal="body_entered" from="Melee/HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="EntityInRange" to="." method="_on_entity_in_range_body_entered"]
+[connection signal="body_exited" from="EntityInRange" to="." method="_on_entity_in_range_body_exited"]
+[connection signal="body_entered" from="NPCSighter" to="." method="_on_npc_sighter_body_entered"]

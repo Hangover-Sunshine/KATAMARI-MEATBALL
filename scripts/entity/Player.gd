@@ -1,6 +1,7 @@
 extends CharacterBody2D
+class_name Lich
 
-@export var MaxHealth:int = 100
+@export var MaxHealth:int = 50
 @export var Speed:float = 300.0
 @export_range(0.0, 1.0) var PunchDrawnPenalty:float = 0.8
 
@@ -9,6 +10,11 @@ extends CharacterBody2D
 
 var mouse_pressed:bool = false
 var ball:CharacterBody2D
+var health
+
+func _ready():
+	health = MaxHealth
+##
 
 func _process(delta):
 	pass
@@ -57,4 +63,9 @@ func _on_ball_detector_body_entered(body):
 
 func _on_ball_detector_body_exited(body):
 	ball = null
+##
+
+func take_damage(dmg):
+	health -= dmg
+	print("ow! ", health, "/50")
 ##

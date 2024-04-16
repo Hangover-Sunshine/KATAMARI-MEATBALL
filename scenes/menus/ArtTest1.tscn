@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk5urnt7bdewl"]
+[gd_scene load_steps=2 format=3 uid="uid://crx012mr415n1"]
 
-[ext_resource type="PackedScene" uid="uid://dyxumeknnbar3" path="res://prefabs/entities/all_character.tscn" id="1_8anwa"]
+[ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="1_8anwa"]
 
 [node name="ArtTest1" type="Node2D"]
 

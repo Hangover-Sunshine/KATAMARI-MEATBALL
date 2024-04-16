@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name FleshBall2D
 
 ## The bands for jumping between sizes.
 @export var ConsumptionBands:Array[float]
