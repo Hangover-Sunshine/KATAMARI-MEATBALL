@@ -80,3 +80,4 @@ Punch={
 2d_physics/layer_4="Civilian"
 2d_physics/layer_5="Cultist"
 2d_physics/layer_6="Environment"
+avoidance/layer_1="Fleshball"

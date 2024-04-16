@@ -7,12 +7,33 @@
 size = Vector2(102, 99)
 
 [node name="Civilian" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 33
 script = ExtResource("1_irey7")
 
 [node name="GraphicsControl" parent="." instance=ExtResource("1_bhqhl")]
 
 [node name="TravelBrain" type="NavigationAgent2D" parent="."]
+path_desired_distance = 50.0
+target_desired_distance = 150.0
+avoidance_enabled = true
+radius = 50.0
+avoidance_layers = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_rafw7")
+
+[node name="DestinationWaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProgressToConversion" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = -50.0
+offset_top = -80.0
+offset_right = 50.0
+offset_bottom = -55.0
+size_flags_horizontal = 4
+show_percentage = false
+
+[connection signal="timeout" from="DestinationWaitTimer" to="." method="_on_destination_wait_timer_timeout"]
