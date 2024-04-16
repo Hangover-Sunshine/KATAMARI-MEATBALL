@@ -13,6 +13,7 @@ class_name FleshBall2D
 @export var MovementLossTime:float = 2.5
 
 @onready var influence = $Influence
+@onready var ball3d = $"BallView/Ball3D"
 
 var current_consumption:float = 0
 var off:bool = true
@@ -24,7 +25,8 @@ func _ready():
 ##
 
 func _process(delta):
-	pass
+	$BallDisplay.texture = $BallView.get_texture()
+	ball3d.velocity = velocity
 ##
 
 func _physics_process(delta):
@@ -60,10 +62,6 @@ func _physics_process(delta):
 		
 		if velocity.length_squared() < 3500: # player can no longer be sucked in
 			$Influence.collision_mask = 0b0001_1100
-		##
-		
-		if velocity.length_squared() < 1000: # too perceptibly small to really make a difference
-			velocity = Vector2.ZERO
 		##
 	##
 ##

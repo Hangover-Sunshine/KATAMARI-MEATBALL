@@ -22,23 +22,24 @@ size = Vector2(97, 96)
 [node name="CatamariTest" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-199, -123)
 navigation_polygon = SubResource("NavigationPolygon_ccia3")
 
 [node name="Player" parent="." instance=ExtResource("1_uof3s")]
-position = Vector2(-521, 300)
+position = Vector2(-720, 177)
 
 [node name="BallCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "Target")]
-position = Vector2(23, 85)
+position = Vector2(-176, -38)
 script = ExtResource("2_2ew3c")
 Player = NodePath("../Player")
 Target = NodePath("../FleshBall")
 MaxOffset = 300.0
 
 [node name="FleshBall" parent="." instance=ExtResource("3_h01f8")]
-position = Vector2(978, 495)
+position = Vector2(64, 4)
 
 [node name="DummyBlockout2" type="StaticBody2D" parent="."]
-position = Vector2(1460, 130)
+position = Vector2(1261, 7)
 scale = Vector2(1, 25.68)
 collision_layer = 32
 
@@ -52,7 +53,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 
 [node name="DummyBlockout9" type="StaticBody2D" parent="."]
-position = Vector2(-1055, 130)
+position = Vector2(-1254, 7)
 scale = Vector2(1, 25.68)
 collision_layer = 32
 
@@ -66,7 +67,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 
 [node name="DummyBlockout10" type="StaticBody2D" parent="."]
-position = Vector2(200, -1146)
+position = Vector2(1, -1269)
 rotation = 1.5708
 scale = Vector2(1, 26.36)
 collision_layer = 32
@@ -81,7 +82,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 
 [node name="DummyBlockout11" type="StaticBody2D" parent="."]
-position = Vector2(200, 1406)
+position = Vector2(1.00002, 1283)
 rotation = 1.5708
 scale = Vector2(1, 26.6)
 collision_layer = 32
@@ -96,6 +97,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 
 [node name="CivilianController" type="Node2D" parent="." node_paths=PackedStringArray("FleePoints", "ExitPoints")]
+position = Vector2(-199, -123)
 script = ExtResource("5_svd63")
 FleePoints = NodePath("FleePoints")
 ExitPoints = NodePath("ExitPoints")
@@ -149,12 +151,17 @@ position = Vector2(-415, -930)
 gizmo_extents = 100.0
 
 [node name="Civilian" parent="CivilianController" instance=ExtResource("6_qedqf")]
+process_mode = 4
+visible = false
 position = Vector2(-151, -216)
 
 [node name="Civilian2" parent="CivilianController" instance=ExtResource("6_qedqf")]
+process_mode = 4
+visible = false
 position = Vector2(-397, -41)
 
 [node name="CultistController" type="Node2D" parent="." node_paths=PackedStringArray("FleshBall")]
+position = Vector2(-199, -123)
 script = ExtResource("7_auwjg")
 FleshBall = NodePath("../FleshBall")
 CultistPrefab = ExtResource("8_xpyn0")
@@ -165,7 +172,11 @@ visible = false
 position = Vector2(753, -199)
 
 [node name="Cultist2" parent="." instance=ExtResource("8_xpyn0")]
-position = Vector2(-420, -346)
+process_mode = 4
+visible = false
+position = Vector2(-619, -469)
 
 [node name="Adventurer" parent="." instance=ExtResource("9_jtfr8")]
-position = Vector2(1081, -822)
+process_mode = 4
+visible = false
+position = Vector2(882, -945)
