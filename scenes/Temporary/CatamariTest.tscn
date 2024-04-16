@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://bv0ku2v7vktrn"]
 
-[ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="1_8syq8"]
-[ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_thyqi"]
-[ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="2_2j7s7"]
-[ext_resource type="Texture2D" uid="uid://hqxg4h3orok1" path="res://assets/temporary/Environment_Prototype1.png" id="3_ubkol"]
-[ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="4_cs0r5"]
-[ext_resource type="Script" path="res://scripts/system/CivilianController.gd" id="5_ijflg"]
-[ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="5_lik2t"]
-[ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="7_0sbbq"]
-[ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/Adventurer.tscn" id="9_ocs5a"]
+[ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_uof3s"]
+[ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="2_2ew3c"]
+[ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="3_h01f8"]
+[ext_resource type="Texture2D" uid="uid://hqxg4h3orok1" path="res://assets/temporary/Environment_Prototype1.png" id="4_xafcw"]
+[ext_resource type="Script" path="res://scripts/system/CivilianController.gd" id="5_svd63"]
+[ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="6_qedqf"]
+[ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="7_auwjg"]
+[ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="8_xpyn0"]
+[ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/Adventurer.tscn" id="9_jtfr8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
@@ -24,17 +24,17 @@ size = Vector2(97, 96)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ccia3")
 
-[node name="Player" parent="." instance=ExtResource("1_thyqi")]
+[node name="Player" parent="." instance=ExtResource("1_uof3s")]
 position = Vector2(-521, 300)
 
 [node name="BallCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "Target")]
 position = Vector2(23, 85)
-script = ExtResource("1_8syq8")
+script = ExtResource("2_2ew3c")
 Player = NodePath("../Player")
 Target = NodePath("../FleshBall")
 MaxOffset = 300.0
 
-[node name="FleshBall" parent="." instance=ExtResource("2_2j7s7")]
+[node name="FleshBall" parent="." instance=ExtResource("3_h01f8")]
 position = Vector2(978, 495)
 
 [node name="DummyBlockout2" type="StaticBody2D" parent="."]
@@ -43,7 +43,7 @@ scale = Vector2(1, 25.68)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="DummyBlockout2"]
-texture = ExtResource("3_ubkol")
+texture = ExtResource("4_xafcw")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
 
@@ -57,7 +57,7 @@ scale = Vector2(1, 25.68)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="DummyBlockout9"]
-texture = ExtResource("3_ubkol")
+texture = ExtResource("4_xafcw")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
 
@@ -72,7 +72,7 @@ scale = Vector2(1, 26.36)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="DummyBlockout10"]
-texture = ExtResource("3_ubkol")
+texture = ExtResource("4_xafcw")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
 
@@ -87,7 +87,7 @@ scale = Vector2(1, 26.6)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="DummyBlockout11"]
-texture = ExtResource("3_ubkol")
+texture = ExtResource("4_xafcw")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
 
@@ -96,7 +96,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 
 [node name="CivilianController" type="Node2D" parent="." node_paths=PackedStringArray("FleePoints", "ExitPoints")]
-script = ExtResource("5_ijflg")
+script = ExtResource("5_svd63")
 FleePoints = NodePath("FleePoints")
 ExitPoints = NodePath("ExitPoints")
 
@@ -148,24 +148,24 @@ gizmo_extents = 100.0
 position = Vector2(-415, -930)
 gizmo_extents = 100.0
 
-[node name="Civilian" parent="CivilianController" instance=ExtResource("5_lik2t")]
+[node name="Civilian" parent="CivilianController" instance=ExtResource("6_qedqf")]
 position = Vector2(-151, -216)
 
-[node name="Civilian2" parent="CivilianController" instance=ExtResource("5_lik2t")]
+[node name="Civilian2" parent="CivilianController" instance=ExtResource("6_qedqf")]
 position = Vector2(-397, -41)
 
 [node name="CultistController" type="Node2D" parent="." node_paths=PackedStringArray("FleshBall")]
-script = ExtResource("7_0sbbq")
+script = ExtResource("7_auwjg")
 FleshBall = NodePath("../FleshBall")
-CultistPrefab = ExtResource("4_cs0r5")
+CultistPrefab = ExtResource("8_xpyn0")
 
-[node name="Cultist" parent="." instance=ExtResource("4_cs0r5")]
+[node name="Cultist" parent="." instance=ExtResource("8_xpyn0")]
 process_mode = 4
 visible = false
 position = Vector2(753, -199)
 
-[node name="Cultist2" parent="." instance=ExtResource("4_cs0r5")]
+[node name="Cultist2" parent="." instance=ExtResource("8_xpyn0")]
 position = Vector2(-420, -346)
 
-[node name="Adventurer" parent="." instance=ExtResource("9_ocs5a")]
+[node name="Adventurer" parent="." instance=ExtResource("9_jtfr8")]
 position = Vector2(1081, -822)
