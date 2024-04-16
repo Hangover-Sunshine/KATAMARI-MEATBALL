@@ -1,9 +1,8 @@
-extends CharacterBody2D
+extends Entity
 class_name Civilian
 
 @export var MovementSpeed:float = 350.0
 @export_range(0.1, 0.8) var EscortSpeedPenality:float = 0.5
-@export var ConsumptionAddition:float = 10.0
 @export var WaitTime:Vector2 = Vector2(0.8, 1.8)
 
 @export_group("Conversion")
@@ -101,10 +100,6 @@ func _on_destination_wait_timer_timeout():
 	else:
 		GlobalSignals.emit_signal("request_new_flee_point", self)
 	##
-##
-
-func get_consumption_addition():
-	return ConsumptionAddition
 ##
 
 func begin_conversion_by(cultist):

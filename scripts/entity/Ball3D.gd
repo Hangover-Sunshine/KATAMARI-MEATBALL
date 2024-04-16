@@ -6,10 +6,17 @@ extends Node3D
 var max_speed:float
 var velocity:Vector2
 
+var dist_to_maintain:float
+
+func _ready():
+	dist_to_maintain = $Camera3D.global_position.distance_to(model.global_position) - min_ball_scale()
+##
+
 func set_ball_scale(size):
 	model.scale.x = size
 	model.scale.y = size
 	model.scale.z = size
+	$Camera3D.global_position = size + dist_to_maintain
 ##
 
 func get_ball_scale():
@@ -17,7 +24,7 @@ func get_ball_scale():
 ##
 
 func min_ball_scale() -> float:
-	return 1.7
+	return 1.65
 ##
 
 func _physics_process(delta):

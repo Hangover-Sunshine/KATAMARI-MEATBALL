@@ -26,7 +26,7 @@ position = Vector2(-199, -123)
 navigation_polygon = SubResource("NavigationPolygon_ccia3")
 
 [node name="Player" parent="." instance=ExtResource("1_uof3s")]
-position = Vector2(-79, 75)
+position = Vector2(207, 99)
 
 [node name="BallCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "Target")]
 position = Vector2(-176, -38)
@@ -151,8 +151,6 @@ position = Vector2(-415, -930)
 gizmo_extents = 100.0
 
 [node name="Civilian" parent="CivilianController" instance=ExtResource("6_qedqf")]
-process_mode = 4
-visible = false
 position = Vector2(-151, -216)
 
 [node name="Civilian2" parent="CivilianController" instance=ExtResource("6_qedqf")]
@@ -167,6 +165,8 @@ FleshBall = NodePath("../FleshBall")
 CultistPrefab = ExtResource("8_xpyn0")
 
 [node name="Cultist" parent="." instance=ExtResource("8_xpyn0")]
+process_mode = 4
+visible = false
 position = Vector2(753, -199)
 
 [node name="Cultist2" parent="." instance=ExtResource("8_xpyn0")]

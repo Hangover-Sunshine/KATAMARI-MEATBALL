@@ -70,7 +70,8 @@ func _physics_process(delta):
 ##
 
 func smacked(dir, force):
-	velocity = (MaxVelocity * force) * dir
+	# add to it, don't override
+	velocity += (MaxVelocity * force) * dir
 	$Influence.collision_mask = 0b0001_1100
 ##
 
