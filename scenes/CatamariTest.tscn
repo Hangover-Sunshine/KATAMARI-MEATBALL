@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv0ku2v7vktrn"]
+[gd_scene load_steps=9 format=3 uid="uid://bv0ku2v7vktrn"]
 
+[ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="1_8syq8"]
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_thyqi"]
 [ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="2_2j7s7"]
 [ext_resource type="Texture2D" uid="uid://hqxg4h3orok1" path="res://assets/temporary/Environment_Prototype1.png" id="3_ubkol"]
 [ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="4_cs0r5"]
+[ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="5_lik2t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
@@ -20,9 +22,14 @@ size = Vector2(97, 96)
 navigation_polygon = SubResource("NavigationPolygon_ccia3")
 
 [node name="Player" parent="." instance=ExtResource("1_thyqi")]
-position = Vector2(23, 85)
+position = Vector2(-1297, 37)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="BallCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "Target")]
+position = Vector2(23, 85)
+script = ExtResource("1_8syq8")
+Player = NodePath("../Player")
+Target = NodePath("../FleshBall")
+MaxOffset = 300.0
 
 [node name="FleshBall" parent="." instance=ExtResource("2_2j7s7")]
 position = Vector2(605, 81)
@@ -89,4 +96,37 @@ shape = SubResource("RectangleShape2D_kxqqo")
 position = Vector2(753, -199)
 
 [node name="Cultist2" parent="." instance=ExtResource("4_cs0r5")]
-position = Vector2(1334, 79)
+position = Vector2(-576, -780)
+
+[node name="Civilian" parent="." instance=ExtResource("5_lik2t")]
+position = Vector2(-151, -216)
+
+[node name="FleePoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="FleePoints"]
+position = Vector2(967, -865)
+gizmo_extents = 100.0
+
+[node name="Marker2D2" type="Marker2D" parent="FleePoints"]
+position = Vector2(1216, 3)
+gizmo_extents = 100.0
+
+[node name="Marker2D3" type="Marker2D" parent="FleePoints"]
+position = Vector2(967, 1143)
+gizmo_extents = 100.0
+
+[node name="Marker2D4" type="Marker2D" parent="FleePoints"]
+position = Vector2(-672, 1124)
+gizmo_extents = 100.0
+
+[node name="Marker2D5" type="Marker2D" parent="FleePoints"]
+position = Vector2(151, 493)
+gizmo_extents = 100.0
+
+[node name="Marker2D6" type="Marker2D" parent="FleePoints"]
+position = Vector2(-672, -73)
+gizmo_extents = 100.0
+
+[node name="Marker2D7" type="Marker2D" parent="FleePoints"]
+position = Vector2(-415, -930)
+gizmo_extents = 100.0

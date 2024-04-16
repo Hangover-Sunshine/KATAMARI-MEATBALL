@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnwjts4gjgnfd"]
+
+[ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="1_bhqhl"]
+[ext_resource type="Script" path="res://scripts/entity/Civilian.gd" id="1_irey7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rafw7"]
+size = Vector2(102, 99)
+
+[node name="Civilian" type="CharacterBody2D"]
+script = ExtResource("1_irey7")
+
+[node name="GraphicsControl" parent="." instance=ExtResource("1_bhqhl")]
+
+[node name="TravelBrain" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_rafw7")

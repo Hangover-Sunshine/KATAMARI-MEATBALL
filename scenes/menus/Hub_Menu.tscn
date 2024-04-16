@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdf1kujrb35xc"]
+[gd_scene load_steps=17 format=3 uid="uid://clcvgrem1uax3"]
 
 [ext_resource type="Script" path="res://scripts/menus/Hub_Menu.gd" id="1_7hbgn"]
-[ext_resource type="PackedScene" uid="uid://cjpdcltsjfr2m" path="res://scenes/menus/Main_Menu.tscn" id="1_nfybi"]
-[ext_resource type="PackedScene" uid="uid://3hktxq1p4qdr" path="res://scenes/menus/Options_Menu.tscn" id="2_t1vus"]
-[ext_resource type="PackedScene" uid="uid://cgtj810lqgwsc" path="res://scenes/menus/Splash_Menu.tscn" id="3_w588a"]
+[ext_resource type="PackedScene" uid="uid://cjpdcltsjfr2m" path="res://scenes/Menus/Main_Menu.tscn" id="1_nfybi"]
+[ext_resource type="PackedScene" uid="uid://3hktxq1p4qdr" path="res://scenes/Menus/Options_Menu.tscn" id="2_t1vus"]
+[ext_resource type="PackedScene" uid="uid://cgtj810lqgwsc" path="res://scenes/Menus/Splash_Menu.tscn" id="3_w588a"]
 [ext_resource type="Texture2D" uid="uid://dfi4fhu6ekv48" path="res://assets/temporary/Temp_Menu_Ball.png" id="5_rpn27"]
 
 [sub_resource type="Animation" id="Animation_n7r88"]

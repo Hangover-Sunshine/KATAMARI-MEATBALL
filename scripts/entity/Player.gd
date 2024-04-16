@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var MaxHealth:int = 100
 @export var Speed:float = 300.0
 @export_range(0.0, 1.0) var PunchDrawnPenalty:float = 0.8
 
