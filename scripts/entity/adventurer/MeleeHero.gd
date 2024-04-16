@@ -1,49 +1,16 @@
-extends CharacterBody2D
-class_name Adventurer
+extends Adventurer
+class_name MeleeHero
 
-@export var MovementSpeed:float = 300.0
-@export_range(0.1, 0.8) var EscortSpeedPenality:float = 0.5
 @export var MeleeHealth:Vector2 = Vector2(5, 8)
-@export var RangedHealth:Vector2 = Vector2(2, 4)
 
 @onready var melee = $Melee
-@onready var ranged = $Ranged
 @onready var travel_brain = $TravelBrain
 @onready var attack_anim = $AttackAnim
 
-# Player or Fleshball or Civvy Exit
-@onready var target = $"../Player"
-@onready var player:Lich = $"../Player"
-
-# 2 = Guard, 3 = Archer, 4 = Wizard
-var venture_type:int
-var health:int
-
-var attack:bool = false
-var helping_civilian:bool = false
-var setup_finished:bool = false
-
-var help_after:Civilian
-var civilian:Civilian
-
 func _ready():
-	venture_type = 2 #randi_range(2, 4)
-	$GraphicsController.character = venture_type
-	if venture_type == 2:
-		health = randi_range(MeleeHealth.x, MeleeHealth.y)
-		melee.process_mode = Node.PROCESS_MODE_INHERIT
-	else:
-		health = randi_range(RangedHealth.x, RangedHealth.y)
-		ranged.process_mode = Node.PROCESS_MODE_INHERIT
-	##
-	$GraphicsController.generate_character()
-	call_deferred("_await_set")
-##
-
-func _await_set():
-	await get_tree().physics_frame
-	travel_brain.target_position = target.global_position
-	setup_finished = true
+	venture_type = 2
+	health = randi_range(MeleeHealth.x, MeleeHealth.y)
+	super()
 ##
 
 func _process(delta):
@@ -68,12 +35,12 @@ func _process(delta):
 ##
 
 func _physics_process(delta):
-	if setup_finished == false or attack or\
+	if attack or\
 		(helping_civilian and global_position.is_equal_approx(target.global_position)):
 		return
 	##
 	
-	if travel_brain.is_navigation_finished():
+	if travel_brain.is_navigation_finished() and target != null:
 		travel_brain.target_position = target.global_position
 	##
 	
@@ -107,45 +74,21 @@ func _on_entity_in_range_body_exited(body):
 	##
 ##
 
-func get_consumption_addition():
-	return 6 # TODO: expose
-##
-
-func rolled_over():
-	queue_free()
-##
-
 # Only melee use this function!
 func _on_hit_area_body_entered(body):
 	body.take_damage(2)
 ##
 
 func _on_npc_sighter_body_entered(body):
-	if venture_type == 2:
-		if helping_civilian == false:
-			if body is Civilian and !(target is Civilian):
-				var maybe_targ = body.being_converted_by()
-				if maybe_targ:
-					target = maybe_targ
-					help_after = body
-				else:
-					target = body
-				##
+	if helping_civilian == false:
+		if body is Civilian and !(target is Civilian):
+			var maybe_targ = body.being_converted_by()
+			if maybe_targ:
+				target = maybe_targ
+				help_after = body
+			else:
+				target = body
 			##
 		##
-	else:
-		pass
-	##
-##
-
-func free_from_help():
-	helping_civilian = false
-	civilian = null
-	target = player
-##
-
-func take_damage(dmg):
-	if helping_civilian:
-		civilian.escort_under_attack = true
 	##
 ##

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="6_qedqf"]
 [ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="7_auwjg"]
 [ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="8_xpyn0"]
-[ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/Adventurer.tscn" id="9_jtfr8"]
+[ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/MeleeHero.tscn" id="9_jtfr8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
@@ -27,6 +27,7 @@ navigation_polygon = SubResource("NavigationPolygon_ccia3")
 
 [node name="Player" parent="." instance=ExtResource("1_uof3s")]
 position = Vector2(207, 99)
+Speed = 375.0
 
 [node name="BallCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "Target")]
 position = Vector2(-176, -38)
@@ -151,6 +152,8 @@ position = Vector2(-415, -930)
 gizmo_extents = 100.0
 
 [node name="Civilian" parent="CivilianController" instance=ExtResource("6_qedqf")]
+process_mode = 4
+visible = false
 position = Vector2(-151, -216)
 
 [node name="Civilian2" parent="CivilianController" instance=ExtResource("6_qedqf")]
@@ -174,7 +177,6 @@ process_mode = 4
 visible = false
 position = Vector2(-619, -469)
 
-[node name="Adventurer" parent="." instance=ExtResource("9_jtfr8")]
-process_mode = 4
-visible = false
+[node name="MeleeHero" parent="." instance=ExtResource("9_jtfr8")]
 position = Vector2(882, -945)
+MovementSpeed = 350.0

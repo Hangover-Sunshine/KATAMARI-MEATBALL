@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2rldqippwrkr"]
 
 [ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="1_11vk3"]
-[ext_resource type="Script" path="res://scripts/entity/FleshBall.gd" id="1_amhv6"]
+[ext_resource type="Script" path="res://scripts/entity/ball/FleshBall.gd" id="1_amhv6"]
 [ext_resource type="PackedScene" uid="uid://dkhqlhb2o75jk" path="res://prefabs/entities/Ball3D.tscn" id="3_1gaad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdqra"]

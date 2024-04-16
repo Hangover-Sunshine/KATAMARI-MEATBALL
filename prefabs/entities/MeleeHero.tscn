@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://8nio5o2tjs5l"]
 
-[ext_resource type="Script" path="res://scripts/entity/Adventurer.gd" id="1_dxto2"]
+[ext_resource type="Script" path="res://scripts/entity/adventurer/MeleeHero.gd" id="1_22tij"]
 [ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="1_ico5n"]
 [ext_resource type="Texture2D" uid="uid://b7e4h8l2s1sum" path="res://assets/particle/Bracket1.png" id="3_61fqr"]
 
@@ -52,10 +52,10 @@ _data = {
 "melee_attack": SubResource("Animation_7opum")
 }
 
-[node name="Adventurer" type="CharacterBody2D"]
+[node name="MeleeHero" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 32
-script = ExtResource("1_dxto2")
+script = ExtResource("1_22tij")
 
 [node name="GraphicsController" parent="." instance=ExtResource("1_ico5n")]
 
@@ -63,7 +63,6 @@ script = ExtResource("1_dxto2")
 shape = SubResource("RectangleShape2D_74fi5")
 
 [node name="Melee" type="Node2D" parent="."]
-process_mode = 4
 
 [node name="HitArea" type="Area2D" parent="Melee"]
 collision_mask = 17
