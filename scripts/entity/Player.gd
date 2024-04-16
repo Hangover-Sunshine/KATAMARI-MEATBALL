@@ -6,18 +6,14 @@ class_name Lich
 @export_range(0.0, 1.0) var PunchDrawnPenalty:float = 0.8
 
 @export var MaxWindupTime:float = 2.5
-@export var MaxForce:float = 700 # full power = this value, quick tap is half at least
 
+var time_since_held:float = 0
 var mouse_pressed:bool = false
 var ball:CharacterBody2D
 var health
 
 func _ready():
 	health = MaxHealth
-##
-
-func _process(delta):
-	pass
 ##
 
 func _input(event):
@@ -27,14 +23,20 @@ func _input(event):
 			apply_force(global_position.direction_to(get_global_mouse_position()).normalized())
 		elif event.is_pressed():
 			mouse_pressed = true
+			time_since_held = 0
 		##
 	##
 ##
 
 func apply_force(dir_from_player_to_mouse):
 	if ball != null:
-		ball.velocity = MaxForce * dir_from_player_to_mouse
-		ball.smacked()
+		ball.smacked(dir_from_player_to_mouse, clampf(time_since_held / MaxWindupTime, 0, 1))
+	##
+##
+
+func _process(delta):
+	if mouse_pressed:
+		time_since_held += delta
 	##
 ##
 

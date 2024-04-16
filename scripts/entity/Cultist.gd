@@ -1,9 +1,8 @@
-extends CharacterBody2D
+extends Entity
 class_name Cultist
 
 @export var MovementSpeed:float = 300.0
 @export var ChaseSpeed:float = 365.0
-@export var ConsumptionAddition:float = 5.5
 
 @onready var travel_brain:NavigationAgent2D = $TravelBrain
 @onready var path_requery_timer = $PathRequeryTimer
@@ -76,10 +75,6 @@ func _physics_process(delta):
 	
 	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * travel_speed
 	move_and_slide()
-##
-
-func get_consumption_addition():
-	return ConsumptionAddition
 ##
 
 func rolled_over():

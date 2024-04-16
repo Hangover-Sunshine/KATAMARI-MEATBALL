@@ -16,6 +16,7 @@ size = Vector2(309, 284)
 collision_layer = 16
 collision_mask = 33
 script = ExtResource("1_oplj2")
+ConsumptionScore = 5.5
 
 [node name="CultistSprite" parent="." instance=ExtResource("1_cpoa7")]
 

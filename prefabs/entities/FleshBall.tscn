@@ -14,6 +14,8 @@ radius = 63.0317
 collision_layer = 2
 collision_mask = 32
 script = ExtResource("1_amhv6")
+BounceVelocityRetain = 0.9
+MovementLoss = 0.1
 MovementLossTime = 1.5
 
 [node name="BallDisplay" type="Sprite2D" parent="."]

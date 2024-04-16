@@ -5,6 +5,8 @@ class_name FleshBall2D
 @export var ConsumptionBands:Array[float]
 
 @export_group("Velocity Affectors")
+## When hit, how much velocity to add
+@export var MaxVelocity:float = 1000
 ## How much velocity is retained when the ball hits the wall.
 @export_range(0.0, 1.0) var BounceVelocityRetain:float = 0.8
 ## Loss of movement overtime, without hitting a wall.
@@ -22,6 +24,7 @@ var momentum_loss_timer:float = 0
 
 func _ready():
 	$Influence.collision_mask = 0b0001_0000
+	ball3d.max_speed = MaxVelocity
 ##
 
 func _process(delta):
@@ -66,7 +69,8 @@ func _physics_process(delta):
 	##
 ##
 
-func smacked():
+func smacked(dir, force):
+	velocity = (MaxVelocity * force) * dir
 	$Influence.collision_mask = 0b0001_1100
 ##
 
