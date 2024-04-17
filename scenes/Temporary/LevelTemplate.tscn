@@ -14,9 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://ep77lvip83kt" path="res://prefabs/entities/RangedHero.tscn" id="6_ywbot"]
 
 [node name="Level" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_scrhp")
 
 [node name="Game" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
 script = ExtResource("1_36uyx")
@@ -47,6 +49,9 @@ position = Vector2(264, 0)
 Player = NodePath("../Player")
 Target = NodePath("../MysteryFleshBall")
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_v3fbd")]
+[node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2
 visible = false
+
+[node name="PauseMenu" parent="PauseLayer" instance=ExtResource("6_v3fbd")]
+metadata/_edit_use_anchors_ = true

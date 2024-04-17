@@ -1,0 +1,57 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqq1rok0sh6kd"]
+
+[ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
+[ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="2_d8b1e"]
+[ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="3_dqaxr"]
+[ext_resource type="Script" path="res://scripts/system/HeroController.gd" id="4_73v16"]
+[ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/MeleeHero.tscn" id="5_q4i5m"]
+[ext_resource type="PackedScene" uid="uid://ep77lvip83kt" path="res://prefabs/entities/RangedHero.tscn" id="6_wvam0"]
+[ext_resource type="Script" path="res://scripts/system/CivilianController.gd" id="7_eiv6q"]
+[ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="8_b54mm"]
+[ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="9_lvcpf"]
+[ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="10_4k167"]
+[ext_resource type="PackedScene" uid="uid://cfrs46bu3edfx" path="res://prefabs/system/BallCamera.tscn" id="11_q6w7r"]
+[ext_resource type="PackedScene" uid="uid://brwbb64oj5yj4" path="res://scenes/Menus/Pause_Menu.tscn" id="12_xedtr"]
+
+[node name="Level" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_qklo4")
+
+[node name="Game" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
+script = ExtResource("2_d8b1e")
+FleshBall = NodePath("../MysteryFleshBall")
+CultistPrefab = ExtResource("3_dqaxr")
+
+[node name="HeroController" type="Node2D" parent="Game"]
+script = ExtResource("4_73v16")
+MeleeHeroPrefab = ExtResource("5_q4i5m")
+RangedHeroPrefab = ExtResource("6_wvam0")
+
+[node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleePoints", "ExitPoints")]
+script = ExtResource("7_eiv6q")
+FleePoints = NodePath("FleePoints")
+ExitPoints = NodePath("ExitPoints")
+CivilianPrefab = ExtResource("8_b54mm")
+
+[node name="FleePoints" type="Node2D" parent="Game/CivilianController"]
+
+[node name="ExitPoints" type="Node2D" parent="Game/CivilianController"]
+
+[node name="Player" parent="Game" instance=ExtResource("9_lvcpf")]
+
+[node name="MysteryFleshBall" parent="Game" instance=ExtResource("10_4k167")]
+position = Vector2(264, 0)
+
+[node name="BallCamera" parent="Game" node_paths=PackedStringArray("Player", "Target") instance=ExtResource("11_q6w7r")]
+Player = NodePath("../Player")
+Target = NodePath("../MysteryFleshBall")
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+
+[node name="PauseMenu" parent="PauseLayer" instance=ExtResource("12_xedtr")]
+metadata/_edit_use_anchors_ = true

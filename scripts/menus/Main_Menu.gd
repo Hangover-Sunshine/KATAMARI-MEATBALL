@@ -4,17 +4,24 @@ extends Control
 @onready var mm_start = $MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer/MM_Start
 @onready var mm_options = $MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer/MM_Options
 @onready var mm_leave = $MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer/MM_Exit
-@onready var start_level = preload("res://scenes/MainScene.tscn") as PackedScene
 
 signal goto_options_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	handle_connecting_signals()
+	GlobalSignals.connect("scene_loaded", _scene_loaded)
+##
+
+func _scene_loaded(new_scene:String):
+	if new_scene != name:
+		get_parent().queue_free()
+	##
+##
 
 #Managing which menu is visible / scene switching / leaving
 func on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(start_level)
+	GlobalSignals.emit_signal("load_scene", "/MainLevel")
 
 func on_options_pressed() -> void:
 	goto_options_menu.emit()

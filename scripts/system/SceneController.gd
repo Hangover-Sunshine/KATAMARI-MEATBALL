@@ -23,6 +23,9 @@ var fade_completed:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if scene_folder_path[scene_folder_path.length() - 1] != "/":
+		scene_folder_path += "/"
+	##
 	GlobalSignals.connect("load_scene", _load_scene)
 	set_process(false)
 	transition_player.play("Fade")
