@@ -14,3 +14,7 @@ signal convert_citizen_to_cultist(civy:Civilian)
 
 signal player_out_of_health # game over
 signal unpause
+
+signal ball_level_changed(lvl:int)
+signal ball_escaped
+signal ball_destroyed

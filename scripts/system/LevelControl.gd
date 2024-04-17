@@ -19,9 +19,6 @@ func _input(event):
 		if event.is_action_pressed("ui_up"):
 			GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
 			LWSave.Prefs["winner"] = true
-		if event.is_action_pressed("ui_down"):
-			GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
-			LWSave.Prefs["winner"] = false
 		##
 	##
 ##

@@ -74,4 +74,10 @@ func _on_entity_punch_detector_body_exited(body):
 func take_damage(dmg):
 	health -= dmg
 	print("ow! ", health, "/50")
+	if health <= 0:
+		# spawn death particles
+		# kill
+		GlobalSignals.emit_signal("player_out_of_health")
+		process_mode = Node.PROCESS_MODE_DISABLED
+	##
 ##

@@ -1,9 +1,7 @@
 extends CharacterBody2D
 class_name FleshBall2D
 
-## The bands for jumping between sizes.
-@export var ConsumptionBands:Array[float]
-
+@export var StartingSize:float = 50
 @export_group("Velocity Affectors")
 ## When hit, how much velocity to add
 @export var MaxVelocity:float = 1000
@@ -17,7 +15,7 @@ class_name FleshBall2D
 @onready var influence = $Influence
 @onready var ball3d = $"BallView/Ball3D"
 
-var current_consumption:float = 0
+var current_consumption:float
 var off:bool = true
 
 var momentum_loss_timer:float = 0
@@ -25,6 +23,8 @@ var momentum_loss_timer:float = 0
 func _ready():
 	$Influence.collision_mask = 0b0001_0000
 	ball3d.max_speed = MaxVelocity
+	current_consumption = StartingSize
+	ball3d.set_ball_scale(current_consumption)
 ##
 
 func _process(delta):
@@ -37,7 +37,7 @@ func _physics_process(delta):
 		if off:
 			return
 		else:
-			# turn off influence -- only cultists can be absorbeds
+			# turn off influence -- only cultists can be absorbed
 			$Influence.collision_mask = 0b0001_0000
 			off = true
 			momentum_loss_timer = 0
@@ -75,9 +75,27 @@ func smacked(dir, force):
 	$Influence.collision_mask = 0b0001_1100
 ##
 
+func take_damage(damage):
+	if velocity.length_squared() > 2000:
+		velocity -= damage
+		return
+	##
+	
+	current_consumption -= damage
+	ball3d.set_ball_scale(current_consumption)
+	
+	# ball's gone, oops
+	if current_consumption <= 0:
+		GlobalSignals.emit_signal("ball_destroyed")
+		queue_free()
+	##
+##
+
 # once in, you can never leave :)
 func _on_influence_body_entered(body):
 	current_consumption += body.get_consumption_addition()
+	
+	ball3d.set_ball_scale(current_consumption)
 	
 	if velocity.length_squared() > 0:
 		body.rolled_over()

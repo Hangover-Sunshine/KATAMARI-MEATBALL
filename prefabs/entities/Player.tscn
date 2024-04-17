@@ -10,7 +10,7 @@ size = Vector2(82, 82)
 size = Vector2(310, 65)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 35
+collision_mask = 99
 script = ExtResource("1_37j8s")
 
 [node name="GraphicsController" parent="." instance=ExtResource("3_2rjrk")]

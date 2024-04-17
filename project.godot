@@ -88,6 +88,7 @@ Pause={
 2d_physics/layer_4="Civilian"
 2d_physics/layer_5="Cultist"
 2d_physics/layer_6="Environment"
+2d_physics/layer_7="OuterWalls"
 avoidance/layer_1="Fleshball"
 
 [rendering]

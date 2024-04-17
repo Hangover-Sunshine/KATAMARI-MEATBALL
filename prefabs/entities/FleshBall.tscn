@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://dkhqlhb2o75jk" path="res://prefabs/entities/Ball3D.tscn" id="3_1gaad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdqra"]
-radius = 49.0918
+radius = 72.0278
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f0duw"]
-radius = 63.0317
+radius = 86.0058
 
 [node name="MysteryFleshBall" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 32
+collision_mask = 96
 script = ExtResource("1_amhv6")
 BounceVelocityRetain = 0.9
 MovementLoss = 0.1
@@ -33,6 +33,7 @@ shape = SubResource("CircleShape2D_f0duw")
 debug_color = Color(0.984314, 0, 0.34902, 0.419608)
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+avoidance_enabled = false
 radius = 90.0
 
 [node name="BallView" type="SubViewport" parent="."]
