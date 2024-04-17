@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8nio5o2tjs5l"]
+[gd_scene load_steps=10 format=3 uid="uid://8nio5o2tjs5l"]
 
 [ext_resource type="Script" path="res://scripts/entity/adventurer/MeleeHero.gd" id="1_22tij"]
 [ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="1_ico5n"]
@@ -9,9 +9,6 @@ size = Vector2(99, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cirj"]
 size = Vector2(92, 109)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_d8mjt"]
-radius = 657.304
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edyon"]
 size = Vector2(247, 229)
@@ -54,7 +51,7 @@ _data = {
 
 [node name="MeleeHero" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 32
+collision_mask = 34
 script = ExtResource("1_22tij")
 
 [node name="GraphicsController" parent="." instance=ExtResource("1_ico5n")]
@@ -70,22 +67,13 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Melee/HitArea"]
 position = Vector2(78, 0)
 shape = SubResource("RectangleShape2D_6cirj")
+disabled = true
 
 [node name="Slash" type="Sprite2D" parent="Melee"]
-modulate = Color(1, 1, 1, 0.787411)
+modulate = Color(1, 1, 1, 0)
 position = Vector2(101, 0)
 scale = Vector2(0.440001, 1.3908)
 texture = ExtResource("3_61fqr")
-
-[node name="Ranged" type="Node2D" parent="."]
-process_mode = 4
-
-[node name="EnemiesInRangeDetector" type="Area2D" parent="Ranged"]
-collision_layer = 0
-collision_mask = 19
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ranged/EnemiesInRangeDetector"]
-shape = SubResource("CircleShape2D_d8mjt")
 
 [node name="EntityInRange" type="Area2D" parent="."]
 collision_layer = 0

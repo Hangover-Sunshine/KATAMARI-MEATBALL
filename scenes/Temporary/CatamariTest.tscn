@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv0ku2v7vktrn"]
+[gd_scene load_steps=13 format=3 uid="uid://bv0ku2v7vktrn"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_uof3s"]
 [ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="2_2ew3c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="7_auwjg"]
 [ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="8_xpyn0"]
 [ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/MeleeHero.tscn" id="9_jtfr8"]
+[ext_resource type="PackedScene" uid="uid://ep77lvip83kt" path="res://prefabs/entities/RangedHero.tscn" id="10_lwb00"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
@@ -37,7 +38,7 @@ Target = NodePath("../FleshBall")
 MaxOffset = 300.0
 
 [node name="FleshBall" parent="." instance=ExtResource("3_h01f8")]
-position = Vector2(64, 4)
+position = Vector2(-99, -12)
 
 [node name="DummyBlockout2" type="StaticBody2D" parent="."]
 position = Vector2(1261, 7)
@@ -180,3 +181,6 @@ position = Vector2(-619, -469)
 [node name="MeleeHero" parent="." instance=ExtResource("9_jtfr8")]
 position = Vector2(882, -945)
 MovementSpeed = 350.0
+
+[node name="RangedHero" parent="." instance=ExtResource("10_lwb00")]
+position = Vector2(707, -227)
