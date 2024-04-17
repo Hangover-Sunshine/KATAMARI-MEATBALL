@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://coibco7h1048k"]
+
+[ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_gt5lo"]
+[ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="2_s626x"]
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="CultistController" type="Node2D" parent="."]
+
+[node name="HeroController" type="Node2D" parent="."]
+
+[node name="CivilianController" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_gt5lo")]
+
+[node name="MysteryFleshBall" parent="." instance=ExtResource("2_s626x")]
+position = Vector2(264, 0)
