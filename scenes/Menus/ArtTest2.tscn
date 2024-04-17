@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://do36q6jk0sk24"]
+[gd_scene load_steps=41 format=3 uid="uid://do36q6jk0sk24"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_ce0rb"]
 [ext_resource type="Texture2D" uid="uid://bx7sukkog8gop" path="res://assets/props/decals/Decal_Dirt21.png" id="1_psjfc"]
@@ -7,11 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="3_ej35f"]
 [ext_resource type="Texture2D" uid="uid://brdcl1x5cis2m" path="res://assets/props/decals/Decal_Dirt19.png" id="3_j051w"]
 [ext_resource type="Texture2D" uid="uid://hqxg4h3orok1" path="res://assets/temporary/Environment_Prototype1.png" id="4_ol52t"]
-[ext_resource type="Script" path="res://scripts/system/CivilianController.gd" id="5_ri1km"]
-[ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="6_4m7p6"]
-[ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="7_tcgeu"]
-[ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="8_kvqt4"]
-[ext_resource type="PackedScene" path="res://prefabs/entities/Adventurer.tscn" id="9_i0xrd"]
 [ext_resource type="Texture2D" uid="uid://b53vp0utxwb4s" path="res://assets/props/decals/Decals_Stone05.png" id="13_ik62h"]
 [ext_resource type="Texture2D" uid="uid://b6mffwyjwvg4j" path="res://assets/props/decals/Decals_Stone04.png" id="14_wjvkc"]
 [ext_resource type="Texture2D" uid="uid://t4cacxly8b6p" path="res://assets/props/decals/Decals_Stone03.png" id="15_v3706"]
@@ -29,10 +24,18 @@
 [ext_resource type="Texture2D" uid="uid://jta30w7j0nj1" path="res://assets/props/decals/Decals_Rocks10.png" id="23_c1oe7"]
 [ext_resource type="Texture2D" uid="uid://la7cans3vgdf" path="res://assets/props/decals/Decals_Rocks08.png" id="24_51vfc"]
 [ext_resource type="Texture2D" uid="uid://b3aqn60d2bvo5" path="res://assets/props/decals/Decals_Rocks13.png" id="24_u4l52"]
+[ext_resource type="Texture2D" uid="uid://cavm6look57lx" path="res://assets/props/decals/Decal_WheatMound.png" id="25_5nxcd"]
 [ext_resource type="Texture2D" uid="uid://drxvimsm4vqbe" path="res://assets/props/decals/Decals_Rocks06.png" id="25_gb2t8"]
+[ext_resource type="Texture2D" uid="uid://dcaggp7hhwsx" path="res://assets/props/plant/Prop_Wheat_128x128.png" id="26_by04i"]
 [ext_resource type="Texture2D" uid="uid://b4mudy8wvoltu" path="res://assets/props/decals/Decals_Rocks04.png" id="26_ls0yy"]
+[ext_resource type="Texture2D" uid="uid://6frolb64yrqt" path="res://assets/props/plant/Prop_Tree4_192x320.png" id="27_llqv6"]
 [ext_resource type="Texture2D" uid="uid://cbq10sub770mo" path="res://assets/props/decals/Decals_Rocks02.png" id="27_mkswk"]
+[ext_resource type="Texture2D" uid="uid://bi461ww33gxja" path="res://assets/props/plant/Prop_Tree3_192x320.png" id="28_iv1ne"]
 [ext_resource type="Texture2D" uid="uid://dax1emwxpd5bb" path="res://assets/props/decals/Decals_Rocks03.png" id="28_xeblu"]
+[ext_resource type="Texture2D" uid="uid://h4p0h6p8fqr4" path="res://assets/props/plant/Prop_Tree2_192x320.png" id="29_mfyym"]
+[ext_resource type="Texture2D" uid="uid://c7122q1opgs43" path="res://assets/props/plant/Prop_Tree1_192x320.png" id="30_jbrqb"]
+[ext_resource type="Texture2D" uid="uid://b7mt2yy8busxc" path="res://assets/props/plant/Prop_Stump_192x128.png" id="31_cky7b"]
+[ext_resource type="Texture2D" uid="uid://bnhypn7lscor3" path="res://assets/props/plant/Prop_Bush_128by128.png" id="32_2upnx"]
 [ext_resource type="Texture2D" uid="uid://d14jir3hf3van" path="res://assets/temporary/Temp_Building_1by1.png" id="34_a5r64"]
 [ext_resource type="Texture2D" uid="uid://b2qdqeuxxkn3d" path="res://assets/temporary/Temp_Building_2ishby1.png" id="35_ytlrb"]
 
@@ -284,6 +287,327 @@ texture = ExtResource("13_ik62h")
 position = Vector2(818, 323)
 texture = ExtResource("13_ik62h")
 
+[node name="Wheat" type="Node2D" parent="Art"]
+
+[node name="DecalWheatMound4" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-168, -939)
+rotation = -0.0161428
+texture = ExtResource("25_5nxcd")
+
+[node name="DecalWheatMound5" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-162, -790)
+rotation = -0.0161428
+texture = ExtResource("25_5nxcd")
+
+[node name="PropWheat128x131" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-123, -1009)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x132" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-121, -973)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x133" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-116, -927)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x134" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-113, -876)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x135" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-107, -827)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x128" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-103, -784)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x129" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-100, -742)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x136" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-231, -1009)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x137" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-229, -969)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x138" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-225, -917)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x139" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-219, -873)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x140" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-212, -826)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x141" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-205, -779)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x142" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(-201, -729)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="DecalWheatMound6" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(77.7821, -946.267)
+rotation = -0.0161428
+texture = ExtResource("25_5nxcd")
+
+[node name="DecalWheatMound7" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(83.7821, -797.267)
+rotation = -0.0161428
+texture = ExtResource("25_5nxcd")
+
+[node name="PropWheat128x143" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(122.782, -1016.27)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x144" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(124.782, -980.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x145" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(129.782, -934.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x146" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(132.782, -883.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x147" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(138.782, -834.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x130" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(142.782, -791.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x148" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(145.782, -749.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x149" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(14.7821, -1016.27)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x150" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(16.7821, -976.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x151" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(20.7821, -924.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x152" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(26.7821, -880.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x153" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(33.7821, -833.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x154" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(40.7821, -786.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x155" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(44.7821, -736.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="DecalWheatMound8" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(324.782, -953.267)
+rotation = -0.0161428
+texture = ExtResource("25_5nxcd")
+
+[node name="DecalWheatMound9" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(330.782, -804.267)
+rotation = -0.0161428
+texture = ExtResource("25_5nxcd")
+
+[node name="PropWheat128x156" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(369.782, -1023.27)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x157" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(371.782, -987.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x158" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(376.782, -941.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x159" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(379.782, -890.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x160" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(385.782, -841.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x161" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(389.782, -798.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x162" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(392.782, -756.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x163" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(261.782, -1023.27)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x164" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(263.782, -983.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x165" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(267.782, -931.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x166" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(273.782, -887.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x167" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(280.782, -840.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x168" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(287.782, -793.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="PropWheat128x169" type="Sprite2D" parent="Art/Wheat"]
+position = Vector2(291.782, -743.267)
+texture = ExtResource("26_by04i")
+hframes = 2
+
+[node name="Trees" type="Node2D" parent="Art"]
+
+[node name="PropTree4192x320" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-831, -443)
+texture = ExtResource("27_llqv6")
+hframes = 2
+
+[node name="PropTree3192x320" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-631, -907)
+texture = ExtResource("28_iv1ne")
+hframes = 2
+
+[node name="PropTree2192x320" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(232, -238)
+texture = ExtResource("29_mfyym")
+hframes = 2
+
+[node name="PropTree1192x320" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(785, -691)
+texture = ExtResource("30_jbrqb")
+hframes = 2
+
+[node name="PropTree4192x321" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-624, 627)
+texture = ExtResource("27_llqv6")
+hframes = 2
+
+[node name="PropTree3192x321" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-424, 163)
+texture = ExtResource("28_iv1ne")
+hframes = 2
+
+[node name="PropTree2192x321" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(439, 832)
+texture = ExtResource("29_mfyym")
+hframes = 2
+
+[node name="PropTree1192x321" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(992, 379)
+texture = ExtResource("30_jbrqb")
+hframes = 2
+
+[node name="PropStump192x128" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-80, 750)
+texture = ExtResource("31_cky7b")
+hframes = 3
+
+[node name="PropStump192x129" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-854, 1047)
+texture = ExtResource("31_cky7b")
+hframes = 3
+
+[node name="PropStump192x130" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-80, 750)
+texture = ExtResource("31_cky7b")
+hframes = 3
+frame = 1
+
+[node name="PropStump192x131" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-1019, -1006)
+texture = ExtResource("31_cky7b")
+hframes = 3
+
+[node name="PropStump192x132" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(-871, -152)
+texture = ExtResource("31_cky7b")
+hframes = 3
+frame = 2
+
+[node name="PropStump192x133" type="Sprite2D" parent="Art/Trees"]
+position = Vector2(933, 1024)
+texture = ExtResource("31_cky7b")
+hframes = 3
+frame = 2
+
+[node name="PropBush128By128" type="Sprite2D" parent="Art"]
+position = Vector2(-69, -30)
+texture = ExtResource("32_2upnx")
+
 [node name="Gameplay" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Gameplay"]
@@ -365,91 +689,6 @@ region_rect = Rect2(0, 0, 96, 96)
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 debug_color = Color(0, 0.6, 0.701961, 0)
-
-[node name="CivilianController" type="Node2D" parent="Gameplay" node_paths=PackedStringArray("FleePoints", "ExitPoints")]
-position = Vector2(-199, -123)
-script = ExtResource("5_ri1km")
-FleePoints = NodePath("FleePoints")
-ExitPoints = NodePath("ExitPoints")
-
-[node name="ExitPoints" type="Node2D" parent="Gameplay/CivilianController"]
-
-[node name="Marker2D" type="Marker2D" parent="Gameplay/CivilianController/ExitPoints"]
-position = Vector2(127, -1041)
-gizmo_extents = 50.0
-
-[node name="Marker2D2" type="Marker2D" parent="Gameplay/CivilianController/ExitPoints"]
-position = Vector2(127, 1308)
-gizmo_extents = 50.0
-
-[node name="Marker2D3" type="Marker2D" parent="Gameplay/CivilianController/ExitPoints"]
-position = Vector2(-927, -6)
-gizmo_extents = 50.0
-
-[node name="Marker2D4" type="Marker2D" parent="Gameplay/CivilianController/ExitPoints"]
-position = Vector2(1333, -6)
-gizmo_extents = 50.0
-
-[node name="FleePoints" type="Node2D" parent="Gameplay/CivilianController"]
-
-[node name="Marker2D" type="Marker2D" parent="Gameplay/CivilianController/FleePoints"]
-position = Vector2(967, -865)
-gizmo_extents = 100.0
-
-[node name="Marker2D2" type="Marker2D" parent="Gameplay/CivilianController/FleePoints"]
-position = Vector2(1216, 3)
-gizmo_extents = 100.0
-
-[node name="Marker2D3" type="Marker2D" parent="Gameplay/CivilianController/FleePoints"]
-position = Vector2(967, 1143)
-gizmo_extents = 100.0
-
-[node name="Marker2D4" type="Marker2D" parent="Gameplay/CivilianController/FleePoints"]
-position = Vector2(-672, 1124)
-gizmo_extents = 100.0
-
-[node name="Marker2D5" type="Marker2D" parent="Gameplay/CivilianController/FleePoints"]
-position = Vector2(151, 493)
-gizmo_extents = 100.0
-
-[node name="Marker2D6" type="Marker2D" parent="Gameplay/CivilianController/FleePoints"]
-position = Vector2(-672, -73)
-gizmo_extents = 100.0
-
-[node name="Marker2D7" type="Marker2D" parent="Gameplay/CivilianController/FleePoints"]
-position = Vector2(-415, -930)
-gizmo_extents = 100.0
-
-[node name="Civilian" parent="Gameplay/CivilianController" instance=ExtResource("6_4m7p6")]
-process_mode = 4
-visible = false
-position = Vector2(-151, -216)
-
-[node name="Civilian2" parent="Gameplay/CivilianController" instance=ExtResource("6_4m7p6")]
-process_mode = 4
-visible = false
-position = Vector2(-397, -41)
-
-[node name="CultistController" type="Node2D" parent="Gameplay" node_paths=PackedStringArray("FleshBall")]
-position = Vector2(-199, -123)
-script = ExtResource("7_tcgeu")
-FleshBall = NodePath("../FleshBall")
-CultistPrefab = ExtResource("8_kvqt4")
-
-[node name="Cultist" parent="Gameplay" instance=ExtResource("8_kvqt4")]
-process_mode = 4
-visible = false
-position = Vector2(753, -199)
-
-[node name="Cultist2" parent="Gameplay" instance=ExtResource("8_kvqt4")]
-process_mode = 4
-visible = false
-position = Vector2(-619, -469)
-
-[node name="Adventurer" parent="Gameplay" instance=ExtResource("9_i0xrd")]
-process_mode = 4
-visible = false
-position = Vector2(882, -945)
 
 [node name="TempBuilding1By1" type="Sprite2D" parent="."]
 position = Vector2(-524, -611)
