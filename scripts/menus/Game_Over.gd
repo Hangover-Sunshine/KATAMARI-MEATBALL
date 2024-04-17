@@ -9,16 +9,20 @@ extends Control
 @onready var go_title_succ = $MarginContainer/GameOver/GO_Stats_Container/GO_Title_Succ
 @onready var go_title_fail = $MarginContainer/GameOver/GO_Stats_Container/GO_Title_Fail
 
-@onready var start_level = preload("res://scenes/MainScene.tscn") as PackedScene
-@onready var main_menu = preload("res://scenes/menus/Hub_Menu.tscn") as PackedScene
-
 var winner = true
-# Called when the node enters the scene tree for the first time.
 
 func _ready():
 	gameover_visibility()
 	go_retry.button_down.connect(on_retry_pressed)
 	go_leave.button_down.connect(on_leave_pressed)
+	GlobalSignals.connect("scene_loaded", _scene_loaded)
+##
+
+func _scene_loaded(new_scene:String):
+	if new_scene != name:
+		queue_free()
+	##
+##
 
 # Read any button input to continue for success page
 func _input(event):
@@ -27,10 +31,10 @@ func _input(event):
 
 # Button functionality for stats page
 func on_retry_pressed() -> void:
-	get_tree().change_scene_to_packed(start_level)
+	GlobalSignals.emit_signal("load_scene", "MainLevel")
 
 func on_leave_pressed() -> void:
-	get_tree().change_scene_to_packed(main_menu)
+	GlobalSignals.emit_signal("load_scene", "Menus/Hub_Menu")
 
 # Rules for page switching
 func on_cont_pressed() -> void:
@@ -38,7 +42,7 @@ func on_cont_pressed() -> void:
 	go_stats_container.visible = true
 
 func gameover_visibility():
-	if winner == true:
+	if LWSave.Prefs["winner"] == true:
 		go_succ_container.visible = true
 		go_stats_container.visible = false
 		go_title_succ.visible = true

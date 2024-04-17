@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfaav2r3gbjnr"]
+[gd_scene load_steps=7 format=3 uid="uid://bi513it7jfsm0"]
 
 [ext_resource type="Script" path="res://scripts/menus/Game_Over.gd" id="1_f26fg"]
 [ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_emsji"]

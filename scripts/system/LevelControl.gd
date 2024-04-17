@@ -13,6 +13,19 @@ func _unpause():
 	pause_layer.hide()
 ##
 
+func _input(event):
+	# TODO: not this -- actual win/loss state, just for test
+	if event is InputEventKey:
+		if event.is_action_pressed("ui_up"):
+			GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
+			LWSave.Prefs["winner"] = true
+		if event.is_action_pressed("ui_down"):
+			GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
+			LWSave.Prefs["winner"] = false
+		##
+	##
+##
+
 func _scene_loaded(new_scene:String):
 	if new_scene != name:
 		queue_free()

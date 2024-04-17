@@ -21,6 +21,7 @@ config/windows_native_icon="res://_SYSTEM/Windows/icon.ico"
 RandUtilities="*res://autoloads/RandUtilities.gd"
 GlobalSignals="*res://autoloads/GlobalSignals.gd"
 GlobalSoundManager="*res://autoloads/GlobalSoundManager.tscn"
+LWSave="*res://autoloads/LWSS.gd"
 
 [display]
 
