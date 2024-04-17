@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://myhbn6a4wked"]
 
 [ext_resource type="Script" path="res://scripts/entity/Player.gd" id="1_37j8s"]
-[ext_resource type="Texture2D" uid="uid://btequsvovppnf" path="res://assets/temporary/Character_Smoll.png" id="2_5m8nx"]
+[ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="3_2rjrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u0wk"]
 size = Vector2(82, 82)
@@ -13,14 +13,11 @@ radius = 487.173
 collision_mask = 35
 script = ExtResource("1_37j8s")
 
+[node name="GraphicsController" parent="." instance=ExtResource("3_2rjrk")]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_7u0wk")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_5m8nx")
-region_enabled = true
-region_rect = Rect2(96, 0, 96, 96)
 
 [node name="BallDetector" type="Area2D" parent="."]
 collision_layer = 0
