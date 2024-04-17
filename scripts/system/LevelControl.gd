@@ -5,6 +5,12 @@ class_name LevelControl
 
 func _ready():
 	GlobalSignals.connect("scene_loaded", _scene_loaded)
+	GlobalSignals.connect("unpause", _unpause)
+##
+
+func _unpause():
+	get_tree().paused = false
+	pause_layer.hide()
 ##
 
 func _scene_loaded(new_scene:String):

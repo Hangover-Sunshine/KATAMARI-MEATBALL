@@ -10,6 +10,7 @@ var opened_before = false
 func _ready():
 	menu_open()
 	handle_connecting_signals()
+	get_tree().paused = false
 
 #Managing which menu is visible 
 func _input(event):
