@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://do36q6jk0sk24"]
+[gd_scene load_steps=38 format=3 uid="uid://do36q6jk0sk24"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_ce0rb"]
 [ext_resource type="Texture2D" uid="uid://bx7sukkog8gop" path="res://assets/props/decals/Decal_Dirt21.png" id="1_psjfc"]
@@ -23,13 +23,18 @@
 [ext_resource type="Texture2D" uid="uid://bgiofxwumtxb3" path="res://assets/props/decals/Decals_Stone06.png" id="20_mipcl"]
 [ext_resource type="Texture2D" uid="uid://c876c5vvivlsi" path="res://assets/props/decals/Decals_Rocks12.png" id="21_daxog"]
 [ext_resource type="Texture2D" uid="uid://c0baw68bdoawd" path="res://assets/props/decals/Decals_Rocks05.png" id="21_m5yyt"]
+[ext_resource type="Texture2D" uid="uid://dlxqyxaongbvs" path="res://assets/props/decals/Decals_Rocks07.png" id="22_fwsx7"]
 [ext_resource type="Texture2D" uid="uid://df5q38jcvxdew" path="res://assets/props/decals/Decals_Rocks11.png" id="22_oys7l"]
 [ext_resource type="Texture2D" uid="uid://b0dvt6uuyavdl" path="res://assets/props/decals/Decals_Rocks09.png" id="23_1ncci"]
+[ext_resource type="Texture2D" uid="uid://jta30w7j0nj1" path="res://assets/props/decals/Decals_Rocks10.png" id="23_c1oe7"]
 [ext_resource type="Texture2D" uid="uid://la7cans3vgdf" path="res://assets/props/decals/Decals_Rocks08.png" id="24_51vfc"]
+[ext_resource type="Texture2D" uid="uid://b3aqn60d2bvo5" path="res://assets/props/decals/Decals_Rocks13.png" id="24_u4l52"]
 [ext_resource type="Texture2D" uid="uid://drxvimsm4vqbe" path="res://assets/props/decals/Decals_Rocks06.png" id="25_gb2t8"]
 [ext_resource type="Texture2D" uid="uid://b4mudy8wvoltu" path="res://assets/props/decals/Decals_Rocks04.png" id="26_ls0yy"]
 [ext_resource type="Texture2D" uid="uid://cbq10sub770mo" path="res://assets/props/decals/Decals_Rocks02.png" id="27_mkswk"]
 [ext_resource type="Texture2D" uid="uid://dax1emwxpd5bb" path="res://assets/props/decals/Decals_Rocks03.png" id="28_xeblu"]
+[ext_resource type="Texture2D" uid="uid://d14jir3hf3van" path="res://assets/temporary/Temp_Building_1by1.png" id="34_a5r64"]
+[ext_resource type="Texture2D" uid="uid://b2qdqeuxxkn3d" path="res://assets/temporary/Temp_Building_2ishby1.png" id="35_ytlrb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
@@ -199,6 +204,86 @@ texture = ExtResource("13_ik62h")
 position = Vector2(-1007, -1100)
 texture = ExtResource("20_mipcl")
 
+[node name="DecalsRocks20" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(1083, 199)
+texture = ExtResource("21_m5yyt")
+
+[node name="DecalsRocks21" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(-980, 711)
+texture = ExtResource("21_m5yyt")
+
+[node name="DecalsRocks22" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(-230, 916)
+texture = ExtResource("22_fwsx7")
+
+[node name="DecalsRocks23" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(8, 691)
+texture = ExtResource("24_51vfc")
+
+[node name="DecalsRocks24" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(-316, 491)
+texture = ExtResource("23_1ncci")
+
+[node name="DecalsRocks25" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(-408, 60)
+texture = ExtResource("23_c1oe7")
+
+[node name="DecalsRocks26" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(-64, -209)
+texture = ExtResource("22_oys7l")
+
+[node name="DecalsRocks27" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(19, -582)
+texture = ExtResource("21_daxog")
+
+[node name="DecalsRocks28" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(-682, -184)
+texture = ExtResource("24_u4l52")
+
+[node name="DecalsStone15" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(154, -683)
+texture = ExtResource("20_mipcl")
+
+[node name="DecalsStone16" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(1034, -928)
+texture = ExtResource("13_ik62h")
+
+[node name="DecalsStone17" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(931, -900)
+texture = ExtResource("20_mipcl")
+
+[node name="DecalsRocks29" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(895, -850)
+texture = ExtResource("19_dj7bw")
+
+[node name="DecalsRocks30" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(906, -775)
+texture = ExtResource("18_3ssxi")
+
+[node name="DecalsStone18" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(880, -725)
+texture = ExtResource("16_jtob2")
+
+[node name="DecalsStone19" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(481, -1090)
+texture = ExtResource("17_ct7a8")
+
+[node name="DecalsStone20" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(142, -971)
+texture = ExtResource("13_ik62h")
+
+[node name="DecalsStone21" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(487, 1147)
+texture = ExtResource("13_ik62h")
+
+[node name="DecalsStone22" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(738, 845)
+texture = ExtResource("13_ik62h")
+
+[node name="DecalsStone23" type="Sprite2D" parent="Art/GroundRocks"]
+position = Vector2(818, 323)
+texture = ExtResource("13_ik62h")
+
 [node name="Gameplay" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Gameplay"]
@@ -365,3 +450,15 @@ position = Vector2(-619, -469)
 process_mode = 4
 visible = false
 position = Vector2(882, -945)
+
+[node name="TempBuilding1By1" type="Sprite2D" parent="."]
+position = Vector2(-524, -611)
+texture = ExtResource("34_a5r64")
+
+[node name="TempBuilding2Ishby1" type="Sprite2D" parent="."]
+position = Vector2(895, -276)
+texture = ExtResource("35_ytlrb")
+
+[node name="TempBuilding2Ishby2" type="Sprite2D" parent="."]
+position = Vector2(175, 346)
+texture = ExtResource("35_ytlrb")
