@@ -43,6 +43,8 @@ func _process(delta):
 ##
 
 func _physics_process(delta):
+	$Rotator.look_at(get_global_mouse_position())
+	
 	var x_dir = Input.get_axis("WalkLeft", "WalkRight")
 	var y_dir = Input.get_axis("WalkUp", "WalkDown")
 	
@@ -61,11 +63,11 @@ func _physics_process(delta):
 	move_and_slide()
 ##
 
-func _on_ball_detector_body_entered(body):
+func _on_entity_punch_detector_body_entered(body):
 	ball = body
 ##
 
-func _on_ball_detector_body_exited(body):
+func _on_entity_punch_detector_body_exited(body):
 	ball = null
 ##
 
