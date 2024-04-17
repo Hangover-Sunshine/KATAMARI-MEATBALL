@@ -21,7 +21,7 @@ func _scene_loaded(new_scene:String):
 
 #Managing which menu is visible / scene switching / leaving
 func on_start_pressed() -> void:
-	GlobalSignals.emit_signal("load_scene", "/MainLevel")
+	GlobalSignals.emit_signal("load_scene", "MainLevel")
 
 func on_options_pressed() -> void:
 	goto_options_menu.emit()

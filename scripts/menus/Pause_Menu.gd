@@ -7,8 +7,6 @@ extends Control
 @onready var pause_menu_holder = $PauseMenu_Holder
 @onready var options_menu = $OptionsMenu
 
-@onready var main_menu = preload("res://scenes/menus/Hub_Menu.tscn") as PackedScene
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pm_leave.button_down.connect(on_leave_pressed)
@@ -17,7 +15,7 @@ func _ready():
 
 #Scene switching
 func on_leave_pressed() -> void:
-	get_tree().change_scene_to_packed(main_menu)
+	GlobalSignals.emit_signal("load_scene", "Menus/Hub_Menu")
 
 #Managing which menu is visible
 func on_options_pressed():
