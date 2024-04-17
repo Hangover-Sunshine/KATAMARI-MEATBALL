@@ -11,7 +11,7 @@ class_name RangedHero
 @onready var travel_brain = $TravelBrain
 @onready var spawn_projectile_timer = $SpawnProjectileTimer
 
-@onready var ball:FleshBall2D = $"../FleshBall"
+@onready var ball:FleshBall2D
 
 var ball_in_range:bool = false
 var in_range_for_attack:bool = false

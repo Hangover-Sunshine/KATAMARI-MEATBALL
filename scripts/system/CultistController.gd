@@ -7,6 +7,13 @@ func _ready():
 	GlobalSignals.connect("convert_citizen_to_cultist", _convert_citizen_to_cultist)
 ##
 
+func make_cultist(start_pos):
+	var loaded:Cultist = CultistPrefab.instantiate()
+	add_child(loaded)
+	loaded.fleshball = FleshBall
+	loaded.global_position = start_pos
+##
+
 func _convert_citizen_to_cultist(civy:Civilian):
 	var loaded:Cultist = CultistPrefab.instantiate()
 	add_child(loaded)

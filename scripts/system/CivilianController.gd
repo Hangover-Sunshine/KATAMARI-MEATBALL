@@ -2,10 +2,17 @@ extends Node2D
 
 @export var FleePoints:Node2D
 @export var ExitPoints:Node2D
+@export var CivilianPrefab:PackedScene
 
 func _ready():
 	GlobalSignals.connect("request_new_flee_point", _new_flee_point_requested)
 	GlobalSignals.connect("request_escort_point", _request_escort_point)
+##
+
+func make_new_civilian(start_pos):
+	var loaded:Civilian = CivilianPrefab.instantiate()
+	add_child(loaded)
+	loaded.global_position = start_pos
 ##
 
 func _new_flee_point_requested(civy):

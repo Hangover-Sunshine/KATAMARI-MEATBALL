@@ -1,17 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://coibco7h1048k"]
+[gd_scene load_steps=13 format=3 uid="uid://coibco7h1048k"]
 
+[ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="1_36uyx"]
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_gt5lo"]
+[ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_scrhp"]
+[ext_resource type="Script" path="res://scripts/system/HeroController.gd" id="2_1bj2j"]
+[ext_resource type="Script" path="res://scripts/system/CivilianController.gd" id="2_431q8"]
 [ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="2_s626x"]
+[ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="3_mc2a2"]
+[ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/MeleeHero.tscn" id="5_6fd81"]
+[ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="6_gqhj7"]
+[ext_resource type="PackedScene" uid="uid://cfrs46bu3edfx" path="res://prefabs/system/BallCamera.tscn" id="6_ox7ol"]
+[ext_resource type="PackedScene" uid="uid://brwbb64oj5yj4" path="res://scenes/Menus/Pause_Menu.tscn" id="6_v3fbd"]
+[ext_resource type="PackedScene" uid="uid://ep77lvip83kt" path="res://prefabs/entities/RangedHero.tscn" id="6_ywbot"]
 
-[node name="LevelTemplate" type="Node2D"]
+[node name="Level" type="Node2D"]
+script = ExtResource("1_scrhp")
 
-[node name="CultistController" type="Node2D" parent="."]
+[node name="Game" type="Node2D" parent="."]
 
-[node name="HeroController" type="Node2D" parent="."]
+[node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
+script = ExtResource("1_36uyx")
+FleshBall = NodePath("../MysteryFleshBall")
+CultistPrefab = ExtResource("3_mc2a2")
 
-[node name="CivilianController" type="Node2D" parent="."]
+[node name="HeroController" type="Node2D" parent="Game"]
+script = ExtResource("2_1bj2j")
+MeleeHeroPrefab = ExtResource("5_6fd81")
+RangedHeroPrefab = ExtResource("6_ywbot")
 
-[node name="Player" parent="." instance=ExtResource("1_gt5lo")]
+[node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleePoints", "ExitPoints")]
+script = ExtResource("2_431q8")
+FleePoints = NodePath("FleePoints")
+ExitPoints = NodePath("ExitPoints")
+CivilianPrefab = ExtResource("6_gqhj7")
 
-[node name="MysteryFleshBall" parent="." instance=ExtResource("2_s626x")]
+[node name="FleePoints" type="Node2D" parent="Game/CivilianController"]
+
+[node name="ExitPoints" type="Node2D" parent="Game/CivilianController"]
+
+[node name="Player" parent="Game" instance=ExtResource("1_gt5lo")]
+
+[node name="MysteryFleshBall" parent="Game" instance=ExtResource("2_s626x")]
 position = Vector2(264, 0)
+
+[node name="BallCamera" parent="Game" node_paths=PackedStringArray("Player", "Target") instance=ExtResource("6_ox7ol")]
+Player = NodePath("../Player")
+Target = NodePath("../MysteryFleshBall")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_v3fbd")]
+process_mode = 2
+visible = false

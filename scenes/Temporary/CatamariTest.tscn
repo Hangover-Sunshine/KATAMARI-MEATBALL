@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bv0ku2v7vktrn"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_uof3s"]
-[ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="2_2ew3c"]
+[ext_resource type="PackedScene" uid="uid://cfrs46bu3edfx" path="res://prefabs/system/BallCamera.tscn" id="2_efhlj"]
 [ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="3_h01f8"]
 [ext_resource type="Texture2D" uid="uid://hqxg4h3orok1" path="res://assets/temporary/Environment_Prototype1.png" id="4_xafcw"]
 [ext_resource type="Script" path="res://scripts/system/CivilianController.gd" id="5_svd63"]
@@ -30,12 +30,9 @@ navigation_polygon = SubResource("NavigationPolygon_ccia3")
 position = Vector2(207, 99)
 Speed = 375.0
 
-[node name="BallCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "Target")]
-position = Vector2(-176, -38)
-script = ExtResource("2_2ew3c")
+[node name="BallCamera" parent="." node_paths=PackedStringArray("Player", "Target") instance=ExtResource("2_efhlj")]
 Player = NodePath("../Player")
 Target = NodePath("../FleshBall")
-MaxOffset = 300.0
 
 [node name="FleshBall" parent="." instance=ExtResource("3_h01f8")]
 position = Vector2(-99, -12)

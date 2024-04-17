@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfrs46bu3edfx"]
+
+[ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="1_e0qfy"]
+
+[node name="BallCamera" type="Camera2D" node_paths=PackedStringArray("Player", "Target")]
+position = Vector2(-176, -38)
+script = ExtResource("1_e0qfy")
+Player = NodePath("")
+Target = NodePath("")
+MaxOffset = 300.0

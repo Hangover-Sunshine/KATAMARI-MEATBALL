@@ -2,10 +2,9 @@ extends Camera2D
 
 @export var Player:CharacterBody2D
 @export var Target:CharacterBody2D
-@export var MaxDistFromBall:float = 400
 @export var MaxOffset:float = 200
 
-func _physics_process(delta):
+func _process(delta):
 	var distance = Player.global_position.distance_to(Target.global_position)
 	
 	# bias the camera's position towards the ball, starting from the player's position
