@@ -142,6 +142,11 @@ func being_escorted_by() -> Adventurer:
 ##
 
 func rolled_over():
+	if being_converted_by() != null:
+		stop_converting()
+	elif being_escorted_by() != null:
+		stop_escorting()
+	##
 	GlobalSignals.emit_signal("entity_removed")
 	# spawn particle
 	

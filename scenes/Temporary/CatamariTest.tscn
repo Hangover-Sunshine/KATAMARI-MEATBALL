@@ -27,7 +27,7 @@ position = Vector2(-199, -123)
 navigation_polygon = SubResource("NavigationPolygon_ccia3")
 
 [node name="Player" parent="." instance=ExtResource("1_uof3s")]
-position = Vector2(207, 99)
+position = Vector2(374, -40)
 Speed = 375.0
 
 [node name="BallCamera" parent="." node_paths=PackedStringArray("Player", "Target") instance=ExtResource("2_efhlj")]
@@ -150,9 +150,7 @@ position = Vector2(-415, -930)
 gizmo_extents = 100.0
 
 [node name="Civilian" parent="CivilianController" instance=ExtResource("6_qedqf")]
-process_mode = 4
-visible = false
-position = Vector2(-151, -216)
+position = Vector2(638, -131)
 
 [node name="Civilian2" parent="CivilianController" instance=ExtResource("6_qedqf")]
 process_mode = 4
@@ -166,8 +164,6 @@ FleshBall = NodePath("../FleshBall")
 CultistPrefab = ExtResource("8_xpyn0")
 
 [node name="Cultist" parent="." instance=ExtResource("8_xpyn0")]
-process_mode = 4
-visible = false
 position = Vector2(753, -199)
 
 [node name="Cultist2" parent="." instance=ExtResource("8_xpyn0")]
@@ -176,8 +172,12 @@ visible = false
 position = Vector2(-619, -469)
 
 [node name="MeleeHero" parent="." instance=ExtResource("9_jtfr8")]
+process_mode = 4
+visible = false
 position = Vector2(882, -945)
 MovementSpeed = 350.0
 
 [node name="RangedHero" parent="." instance=ExtResource("10_lwb00")]
+process_mode = 4
+visible = false
 position = Vector2(707, -227)

@@ -108,9 +108,8 @@ Fleshball = NodePath("../MysteryFleshBall")
 Player = NodePath("../Player")
 ProjectileHolder = NodePath("../ProjectileHolder")
 
-[node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleePoints", "ExitPoints")]
+[node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("ExitPoints")]
 script = ExtResource("7_eiv6q")
-FleePoints = NodePath("")
 ExitPoints = NodePath("ExitPoints")
 CivilianPrefab = ExtResource("8_b54mm")
 
