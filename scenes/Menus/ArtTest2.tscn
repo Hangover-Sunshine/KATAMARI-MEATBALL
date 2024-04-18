@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://do36q6jk0sk24"]
+[gd_scene load_steps=47 format=3 uid="uid://do36q6jk0sk24"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_ce0rb"]
 [ext_resource type="Texture2D" uid="uid://bx7sukkog8gop" path="res://assets/props/decals/Decal_Dirt21.png" id="1_psjfc"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://dkci22nji3hxh" path="res://assets/props/buildings/2x1_Windmill_L.png" id="41_y34pp"]
 [ext_resource type="Texture2D" uid="uid://d1qy8h3psvcc3" path="res://assets/props/buildings/2x1_Windmill.png" id="42_60fdd"]
 [ext_resource type="Texture2D" uid="uid://bu7dkfhaaf4a7" path="res://assets/props/buildings/Prop_Windmill_Fan.png" id="43_s5q7p"]
+[ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="44_acrao"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
@@ -107,10 +108,6 @@ texture = ExtResource("17_ct7a8")
 [node name="DecalsRocks16" type="Sprite2D" parent="Art/GroundRocks"]
 position = Vector2(707, -377)
 texture = ExtResource("18_3ssxi")
-
-[node name="DecalsRocks15" type="Sprite2D" parent="Art/GroundRocks"]
-position = Vector2(500, -618)
-texture = ExtResource("19_dj7bw")
 
 [node name="DecalsRocks14" type="Sprite2D" parent="Art/GroundRocks"]
 position = Vector2(-1049, 26)
@@ -204,10 +201,6 @@ texture = ExtResource("27_mkswk")
 position = Vector2(-464, -867)
 texture = ExtResource("14_wjvkc")
 
-[node name="DecalsStone13" type="Sprite2D" parent="Art/GroundRocks"]
-position = Vector2(240, -727)
-texture = ExtResource("13_ik62h")
-
 [node name="DecalsStone14" type="Sprite2D" parent="Art/GroundRocks"]
 position = Vector2(-1007, -1100)
 texture = ExtResource("20_mipcl")
@@ -248,10 +241,6 @@ texture = ExtResource("21_daxog")
 position = Vector2(-682, -184)
 texture = ExtResource("24_u4l52")
 
-[node name="DecalsStone15" type="Sprite2D" parent="Art/GroundRocks"]
-position = Vector2(154, -683)
-texture = ExtResource("20_mipcl")
-
 [node name="DecalsStone16" type="Sprite2D" parent="Art/GroundRocks"]
 position = Vector2(1034, -928)
 texture = ExtResource("13_ik62h")
@@ -273,12 +262,8 @@ position = Vector2(880, -725)
 texture = ExtResource("16_jtob2")
 
 [node name="DecalsStone19" type="Sprite2D" parent="Art/GroundRocks"]
-position = Vector2(481, -1090)
+position = Vector2(513, -1093)
 texture = ExtResource("17_ct7a8")
-
-[node name="DecalsStone20" type="Sprite2D" parent="Art/GroundRocks"]
-position = Vector2(142, -971)
-texture = ExtResource("13_ik62h")
 
 [node name="DecalsStone21" type="Sprite2D" parent="Art/GroundRocks"]
 position = Vector2(487, 1147)
@@ -798,3 +783,9 @@ offset = Vector2(1.605, 0)
 position = Vector2(-352, 759)
 texture = ExtResource("43_s5q7p")
 offset = Vector2(1.605, 0)
+
+[node name="PropCottageDebri" type="Sprite2D" parent="."]
+position = Vector2(152, 1048)
+texture = ExtResource("44_acrao")
+vframes = 2
+frame = 1
