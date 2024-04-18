@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=17 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -17,6 +17,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qn6e"]
 size = Vector2(127, 128)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
+vertices = PackedVector2Array(1920, 1915, -1914, 1914, -1912, -1907, 1913, -1911)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1922, -1917, 1923, -1922, 1931, 1926, -1925, 1924)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level" type="Node2D"]
 process_mode = 3
@@ -87,15 +93,20 @@ texture = ExtResource("2_g3kwv")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_3qn6e")
 
+[node name="ProjectileHolder" type="Node2D" parent="Game"]
+
 [node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
 script = ExtResource("2_d8b1e")
 FleshBall = NodePath("../MysteryFleshBall")
 CultistPrefab = ExtResource("3_dqaxr")
 
-[node name="HeroController" type="Node2D" parent="Game"]
+[node name="HeroController" type="Node2D" parent="Game" node_paths=PackedStringArray("Fleshball", "Player", "ProjectileHolder")]
 script = ExtResource("4_73v16")
 MeleeHeroPrefab = ExtResource("5_q4i5m")
 RangedHeroPrefab = ExtResource("6_wvam0")
+Fleshball = NodePath("../MysteryFleshBall")
+Player = NodePath("../Player")
+ProjectileHolder = NodePath("../ProjectileHolder")
 
 [node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleePoints", "ExitPoints")]
 script = ExtResource("7_eiv6q")
@@ -113,8 +124,15 @@ CivilianPrefab = ExtResource("8_b54mm")
 position = Vector2(264, 0)
 
 [node name="BallCamera" parent="Game" node_paths=PackedStringArray("Player", "Target") instance=ExtResource("11_q6w7r")]
+limit_left = -2000
+limit_top = -2000
+limit_right = 2000
+limit_bottom = 2000
 Player = NodePath("../Player")
 Target = NodePath("../MysteryFleshBall")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
+navigation_polygon = SubResource("NavigationPolygon_ac0gi")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2

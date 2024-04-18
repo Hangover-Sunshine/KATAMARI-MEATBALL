@@ -95,6 +95,7 @@ func _on_destination_wait_timer_timeout():
 		##
 	elif freeing_self:
 		# TODO: put things here
+		GlobalSignals.emit_signal("entity_removed")
 		escort.free_from_help()
 		queue_free()
 	else:
@@ -137,6 +138,7 @@ func being_escorted_by() -> Adventurer:
 ##
 
 func rolled_over():
+	GlobalSignals.emit_signal("entity_removed")
 	# spawn particle
 	
 	# spawn sound effect at location

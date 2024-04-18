@@ -7,8 +7,7 @@ class_name Cultist
 @onready var travel_brain:NavigationAgent2D = $TravelBrain
 @onready var path_requery_timer = $PathRequeryTimer
 
-# TODO: remove the $"..."
-@onready var fleshball = $"../FleshBall"
+@onready var fleshball
 
 var setup_finished:bool = false
 
@@ -26,18 +25,12 @@ func _ready():
 	# Godot's start goes from bottom of tree to top, so should be good to go by this point!
 	$CultistSprite.character = 1
 	$CultistSprite.generate_character()
-	call_deferred("_await_set")
+	set_target_position()
 ##
 
 func load_from_civvy(civvy:Civilian):
 	# TODO: preserve head/hands from civvy self -- for now, don't care
 	pass
-##
-
-func _await_set():
-	await get_tree().physics_frame
-	set_target_position()
-	setup_finished = true
 ##
 
 func set_target_position():
@@ -78,6 +71,7 @@ func _physics_process(delta):
 ##
 
 func rolled_over():
+	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##
 
@@ -132,5 +126,6 @@ func take_damage(_dmg):
 	if civvy:
 		civvy.stop_converting()
 	##
+	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##

@@ -26,6 +26,7 @@ func _ready():
 ##
 
 func rolled_over():
+	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##
 
@@ -40,4 +41,9 @@ func take_damage(dmg):
 		civilian.escort_under_attack = true
 	##
 	health -= dmg
+	if health <= 0:
+		# do things
+		pass
+		GlobalSignals.emit_signal("entity_removed")
+	##
 ##

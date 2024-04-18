@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ep77lvip83kt"]
+[gd_scene load_steps=8 format=3 uid="uid://ep77lvip83kt"]
 
 [ext_resource type="Script" path="res://scripts/entity/adventurer/RangedHero.gd" id="1_ud2tp"]
+[ext_resource type="PackedScene" uid="uid://duoq5pc1pwvqy" path="res://prefabs/projectiles/Fireball.tscn" id="2_6hd5u"]
+[ext_resource type="PackedScene" uid="uid://beamqrjtg2mmh" path="res://prefabs/projectiles/Arrow.tscn" id="2_l88v2"]
 [ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="2_q7qng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itsys"]
@@ -16,8 +18,10 @@ size = Vector2(307, 284)
 collision_layer = 4
 collision_mask = 34
 script = ExtResource("1_ud2tp")
+MageProjectile = ExtResource("2_6hd5u")
+RangerProjectile = ExtResource("2_l88v2")
 MovementSpeed = 350.0
-ConsumptionScore = 10.0
+ConsumptionScore = 6.5
 
 [node name="GraphicsController" parent="." instance=ExtResource("2_q7qng")]
 position = Vector2(-1, 0)

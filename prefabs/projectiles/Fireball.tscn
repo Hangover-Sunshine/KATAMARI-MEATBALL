@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://duoq5pc1pwvqy"]
+
+[ext_resource type="Texture2D" uid="uid://dskj1c8u7w667" path="res://assets/particle/Circle2.png" id="1_38mis"]
+[ext_resource type="Script" path="res://scripts/projectile/Fireball.gd" id="1_ndps6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_na26w"]
+radius = 49.6488
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8btx"]
+radius = 128.111
+
+[node name="Fireball" type="CharacterBody2D"]
+scale = Vector2(0.4, 0.4)
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_ndps6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_38mis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_na26w")
+
+[node name="HitDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 115
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitDetector"]
+shape = SubResource("CircleShape2D_na26w")
+
+[node name="DamageZone" type="Area2D" parent="."]
+process_mode = 4
+collision_layer = 0
+collision_mask = 115
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
+shape = SubResource("CircleShape2D_n8btx")
+debug_color = Color(0.996078, 0.0627451, 0, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="HitDetector" to="." method="_on_hit_detector_body_entered"]
+[connection signal="body_entered" from="DamageZone" to="." method="_on_damage_zone_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

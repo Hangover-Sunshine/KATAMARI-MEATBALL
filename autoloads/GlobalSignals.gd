@@ -12,6 +12,8 @@ signal request_escort_point(civy:Civilian, adventurer:Adventurer)
 
 signal convert_citizen_to_cultist(civy:Civilian)
 
+signal entity_removed
+
 signal player_out_of_health # game over
 signal unpause
 

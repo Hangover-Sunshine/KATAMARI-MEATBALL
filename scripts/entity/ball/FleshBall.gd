@@ -77,7 +77,20 @@ func smacked(dir, force):
 
 func take_damage(damage):
 	if velocity.length_squared() > 2000:
-		velocity -= damage
+		var vel_impact = damage * 10
+		
+		if velocity.x > 0:
+			velocity.x -= vel_impact
+		elif velocity.x < 0:
+			velocity.x += vel_impact
+		##
+		
+		if velocity.y > 0:
+			velocity.y -= vel_impact
+		elif velocity.y < 0:
+			velocity.y += vel_impact
+		##
+		
 		return
 	##
 	

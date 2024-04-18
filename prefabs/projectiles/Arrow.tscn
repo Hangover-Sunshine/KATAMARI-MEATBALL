@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://beamqrjtg2mmh"]
+
+[ext_resource type="Script" path="res://scripts/projectile/Arrow.gd" id="1_d1lfn"]
+[ext_resource type="Texture2D" uid="uid://euwvkhqvhp5" path="res://assets/particle/Caret.png" id="1_kbpub"]
+[ext_resource type="Texture2D" uid="uid://br4yvlq0v6wsy" path="res://assets/particle/Line.png" id="2_5veu3"]
+[ext_resource type="Texture2D" uid="uid://d3udgdsg8cdf7" path="res://assets/particle/Equal.png" id="3_3ymvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2fy5"]
+size = Vector2(33, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgwrf"]
+size = Vector2(33, 28)
+
+[node name="Arrow" type="CharacterBody2D"]
+scale = Vector2(0.4, 0.4)
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_d1lfn")
+
+[node name="Shaft" type="Sprite2D" parent="."]
+modulate = Color(0.635294, 0.427451, 0.247059, 1)
+rotation = 1.5708
+scale = Vector2(0.8, 1.25)
+texture = ExtResource("2_5veu3")
+
+[node name="ArrowHead" type="Sprite2D" parent="."]
+position = Vector2(46, 1.63425e-13)
+rotation = 1.5708
+scale = Vector2(0.9, 0.7)
+texture = ExtResource("1_kbpub")
+
+[node name="Feathers" type="Sprite2D" parent="."]
+modulate = Color(0.635294, 0.427451, 0.247059, 1)
+position = Vector2(-38, -1.42109e-14)
+rotation = 1.5708
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_3ymvs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(46.5, 0)
+shape = SubResource("RectangleShape2D_c2fy5")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 115
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(46.5, 0)
+shape = SubResource("RectangleShape2D_qgwrf")
+debug_color = Color(0.992157, 0, 0.231373, 0.419608)
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
