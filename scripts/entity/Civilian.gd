@@ -4,6 +4,7 @@ class_name Civilian
 @export var MovementSpeed:float = 350.0
 @export_range(0.1, 0.8) var EscortSpeedPenality:float = 0.5
 @export var WaitTime:Vector2 = Vector2(0.8, 1.8)
+@export var WanderTime:Vector2 = Vector2(1.5, 4)
 
 @export_group("Conversion")
 @export var ConversionSpeed:float = 3.5
@@ -16,6 +17,9 @@ class_name Civilian
 @onready var destination_wait_timer = $DestinationWaitTimer
 @onready var travel_brain:NavigationAgent2D = $TravelBrain
 @onready var progress_to_conversion = $ProgressToConversion
+@onready var wander_timer = $WanderTimer
+
+var wander_dir:Vector2
 
 var waiting_done:bool = false
 
@@ -31,7 +35,8 @@ func _ready():
 	$GraphicsControl.character = 5
 	$GraphicsControl.generate_character()
 	
-	call_deferred("_await_physics_frame")
+	wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
+	wander_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 	
 	# swap
 	if WaitTime.x > WaitTime.y:
@@ -48,12 +53,6 @@ func _ready():
 	##
 ##
 
-func _await_physics_frame():
-	await get_tree().physics_frame
-	waiting_done = true
-	GlobalSignals.emit_signal("request_new_flee_point", self)
-##
-
 func set_target_position(pos:Vector2):
 	travel_brain.target_position = pos
 	destination_wait_timer.stop()
@@ -64,23 +63,26 @@ func _physics_process(delta):
 		return
 	##
 	
-	if travel_brain.is_navigation_finished():
-		if being_escorted:
-			freeing_self = true
-			destination_wait_timer.start(TimeToEscape)
+	if being_escorted:
+		if travel_brain.is_navigation_finished():
+			if being_escorted:
+				freeing_self = true
+				destination_wait_timer.start(TimeToEscape)
+				return
+			##
+			
+			if destination_wait_timer.is_stopped():
+				var wait = randf_range(WaitTime.x, WaitTime.y)
+				destination_wait_timer.start(wait)
+			##
 			return
 		##
-		
-		if destination_wait_timer.is_stopped():
-			var wait = randf_range(WaitTime.x, WaitTime.y)
-			destination_wait_timer.start(wait)
-		##
-		return
+		var movement = MovementSpeed * EscortSpeedPenality
+		velocity = global_position.direction_to(travel_brain.get_next_path_position()) * movement
+	else:
+		velocity = wander_dir * MovementSpeed
 	##
 	
-	var movement = MovementSpeed * EscortSpeedPenality if being_escorted else MovementSpeed
-	
-	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * movement
 	move_and_slide()
 ##
 
@@ -99,7 +101,9 @@ func _on_destination_wait_timer_timeout():
 		escort.free_from_help()
 		queue_free()
 	else:
-		GlobalSignals.emit_signal("request_new_flee_point", self)
+		# pick a new direction and go in it for X seconds
+		wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
+		wander_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 	##
 ##
 

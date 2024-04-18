@@ -9,7 +9,8 @@ extends Node2D
 func spawn_hero(start_position, is_melee:bool):
 	var loaded:Adventurer
 	if is_melee:
-		pass
+		loaded = MeleeHeroPrefab.instantiate()
+		add_child(loaded)
 	else:
 		loaded = RangedHeroPrefab.instantiate()
 		add_child(loaded)

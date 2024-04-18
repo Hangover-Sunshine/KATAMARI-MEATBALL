@@ -54,8 +54,8 @@ func draw_hero():
 func draw_hero_guard():
 	hero_heads.visible = true
 	head_id = randi() % 4
-	print("skin: ", skin_color)
-	print("head: ", head_id)
+	#print("skin: ", skin_color)
+	#print("head: ", head_id)
 	hero_heads.frame = skin_color
 	clothes_id = randi() % 2
 	all_body.frame = 2 + clothes_id
@@ -63,8 +63,8 @@ func draw_hero_guard():
 func draw_hero_archer():
 	hero_heads.visible = true
 	head_id = randi() % 4
-	print("skin: ", skin_color)
-	print("head: ", head_id)
+	#print("skin: ", skin_color)
+	#print("head: ", head_id)
 	hero_heads.frame = ((head_id * 3) + skin_color)
 	clothes_id = randi() % 2
 	all_body.frame = 4 + clothes_id

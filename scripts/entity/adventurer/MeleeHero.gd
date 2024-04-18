@@ -40,7 +40,11 @@ func _physics_process(delta):
 		return
 	##
 	
-	if travel_brain.is_navigation_finished() and target != null:
+	if target == null:
+		target = player
+	##
+	
+	if (travel_brain.target_position == null or travel_brain.is_navigation_finished()) and target != null:
 		travel_brain.target_position = target.global_position
 	##
 	
@@ -81,7 +85,7 @@ func _on_hit_area_body_entered(body):
 
 func _on_npc_sighter_body_entered(body):
 	if helping_civilian == false:
-		if body is Civilian and !(target is Civilian):
+		if body is Civilian and (target != null and !(target is Civilian)):
 			var maybe_targ = body.being_converted_by()
 			if maybe_targ:
 				target = maybe_targ

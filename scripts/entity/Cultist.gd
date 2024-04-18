@@ -9,8 +9,6 @@ class_name Cultist
 
 @onready var fleshball
 
-var setup_finished:bool = false
-
 var jump_into_ball:bool = false
 
 # Not-Ball
@@ -25,16 +23,11 @@ func _ready():
 	# Godot's start goes from bottom of tree to top, so should be good to go by this point!
 	$CultistSprite.character = 1
 	$CultistSprite.generate_character()
-	set_target_position()
 ##
 
 func load_from_civvy(civvy:Civilian):
 	# TODO: preserve head/hands from civvy self -- for now, don't care
 	pass
-##
-
-func set_target_position():
-	travel_brain.target_position = fleshball.global_position
 ##
 
 func _process(delta):
@@ -47,14 +40,14 @@ func _process(delta):
 ##
 
 func _physics_process(delta):
-	if setup_finished == false or jump_into_ball or converting:
+	if jump_into_ball or converting:
 		return
 	##
 	
 	var travel_speed:float
 	if found_target == false:
-		if travel_brain.is_navigation_finished()\
-			and global_position.distance_to(fleshball.global_position) > 150:
+		if fleshball != null and\
+			(travel_brain.target_position == null or travel_brain.is_navigation_finished()):
 			travel_brain.target_position = fleshball.global_position
 		##
 		travel_speed = MovementSpeed

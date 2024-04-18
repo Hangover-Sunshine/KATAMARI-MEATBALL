@@ -57,17 +57,18 @@ func _on_spawn_timer_timeout():
 	var valid_spawn_locations = [0, 1, 2, 3]
 	
 	# either bound or none
-	if Camera.global_position.x - scrn_sze.x <= Camera.limit_left * 0.85:
-		valid_spawn_locations.remove_at(0)
-	elif Camera.global_position.x + scrn_sze.x >= Camera.limit_right * 0.85:
-		valid_spawn_locations.remove_at(2)
+	if Camera.global_position.x - scrn_sze.x > Camera.limit_left * 0.85:
+		valid_spawn_locations.append(1)
+	##
+	if Camera.global_position.x + scrn_sze.x < Camera.limit_right * 0.85:
+		valid_spawn_locations.append(2)
 	##
 	
 	# either bound or none
-	if Camera.global_position.y - scrn_sze.y <= Camera.limit_top * 0.85:
-		valid_spawn_locations.remove_at(1)
-	elif Camera.global_position.y + scrn_sze.y >= Camera.limit_bottom * 0.85:
-		valid_spawn_locations.remove_at(3)
+	if Camera.global_position.y - scrn_sze.y > Camera.limit_top * 0.85:
+		valid_spawn_locations.append(1)
+	elif Camera.global_position.y + scrn_sze.y < Camera.limit_bottom * 0.85:
+		valid_spawn_locations.append(3)
 	##
 	
 	for i in range(cultists):

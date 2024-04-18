@@ -38,4 +38,7 @@ offset_bottom = -55.0
 size_flags_horizontal = 4
 show_percentage = false
 
+[node name="WanderTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="DestinationWaitTimer" to="." method="_on_destination_wait_timer_timeout"]
