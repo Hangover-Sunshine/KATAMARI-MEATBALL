@@ -54,7 +54,13 @@ func _physics_process(delta):
 	
 	# for next frame, reflect and apply new velocity for next time
 	if collision:
-		velocity = velocity.bounce(collision.get_normal()) * BounceVelocityRetain
+		var obj = collision.get_collider()
+		if obj.can_be_destroyed(velocity.length(), current_consumption):
+			obj.destroy()
+			velocity *= (1 - obj.VelocityReduction)
+		else:
+			velocity = velocity.bounce(collision.get_normal()) * BounceVelocityRetain
+		##
 	##
 	
 	momentum_loss_timer -= delta

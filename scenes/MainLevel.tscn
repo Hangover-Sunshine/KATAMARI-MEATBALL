@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=19 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
 [ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="2_d8b1e"]
 [ext_resource type="Texture2D" uid="uid://dutqfxvbh7o74" path="res://icon.svg" id="2_g3kwv"]
 [ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="3_dqaxr"]
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="3_imnub"]
 [ext_resource type="Script" path="res://scripts/system/HeroController.gd" id="4_73v16"]
 [ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/MeleeHero.tscn" id="5_q4i5m"]
 [ext_resource type="PackedScene" uid="uid://ep77lvip83kt" path="res://prefabs/entities/RangedHero.tscn" id="6_wvam0"]
@@ -14,15 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="10_4k167"]
 [ext_resource type="PackedScene" uid="uid://cfrs46bu3edfx" path="res://prefabs/system/BallCamera.tscn" id="11_q6w7r"]
 [ext_resource type="PackedScene" uid="uid://brwbb64oj5yj4" path="res://scenes/Menus/Pause_Menu.tscn" id="12_xedtr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qn6e"]
-size = Vector2(127, 128)
+[ext_resource type="PackedScene" uid="uid://c2xwtv84yb8i5" path="res://prefabs/environment/Cottage_1x1.tscn" id="15_4qtky"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
 vertices = PackedVector2Array(1920, 1915, -1914, 1914, -1912, -1907, 1913, -1911)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1922, -1917, 1923, -1922, 1931, 1926, -1925, 1924)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qn6e"]
+size = Vector2(127, 128)
 
 [node name="Level" type="Node2D"]
 process_mode = 3
@@ -33,6 +35,9 @@ process_mode = 1
 script = ExtResource("2_5l63h")
 Player = NodePath("Player")
 Camera = NodePath("BallCamera")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
+navigation_polygon = SubResource("NavigationPolygon_ac0gi")
 
 [node name="Details" type="Node" parent="Game"]
 
@@ -46,6 +51,9 @@ position = Vector2(-2000, 0)
 scale = Vector2(1, 30)
 collision_layer = 32
 collision_mask = 31
+script = ExtResource("3_imnub")
+MinScoreThreshold = 2100.0
+MinVelocityThreshold = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Map/OuterWall"]
 texture = ExtResource("2_g3kwv")
@@ -59,6 +67,9 @@ position = Vector2(2000, 0)
 scale = Vector2(1, 30)
 collision_layer = 32
 collision_mask = 31
+script = ExtResource("3_imnub")
+MinScoreThreshold = 2100.0
+MinVelocityThreshold = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Map/OuterWall2"]
 texture = ExtResource("2_g3kwv")
@@ -72,6 +83,9 @@ position = Vector2(0, 2000)
 scale = Vector2(35, 1)
 collision_layer = 32
 collision_mask = 31
+script = ExtResource("3_imnub")
+MinScoreThreshold = 2100.0
+MinVelocityThreshold = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Map/OuterWall3"]
 texture = ExtResource("2_g3kwv")
@@ -85,6 +99,9 @@ position = Vector2(0, -2000)
 scale = Vector2(35, 1)
 collision_layer = 32
 collision_mask = 31
+script = ExtResource("3_imnub")
+MinScoreThreshold = 2100.0
+MinVelocityThreshold = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Map/OuterWall4"]
 texture = ExtResource("2_g3kwv")
@@ -93,14 +110,21 @@ texture = ExtResource("2_g3kwv")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_3qn6e")
 
+[node name="Building" parent="Game/Map" instance=ExtResource("15_4qtky")]
+position = Vector2(448, -311)
+MinScoreThreshold = 20.0
+MinVelocityThreshold = 50.0
+
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
 [node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
+process_mode = 4
 script = ExtResource("2_d8b1e")
 FleshBall = NodePath("../MysteryFleshBall")
 CultistPrefab = ExtResource("3_dqaxr")
 
 [node name="HeroController" type="Node2D" parent="Game" node_paths=PackedStringArray("Fleshball", "Player", "ProjectileHolder")]
+process_mode = 4
 script = ExtResource("4_73v16")
 MeleeHeroPrefab = ExtResource("5_q4i5m")
 RangedHeroPrefab = ExtResource("6_wvam0")
@@ -109,6 +133,7 @@ Player = NodePath("../Player")
 ProjectileHolder = NodePath("../ProjectileHolder")
 
 [node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("ExitPoints")]
+process_mode = 4
 script = ExtResource("7_eiv6q")
 ExitPoints = NodePath("ExitPoints")
 CivilianPrefab = ExtResource("8_b54mm")
@@ -175,9 +200,6 @@ limit_right = 2000
 limit_bottom = 2000
 Player = NodePath("../Player")
 Target = NodePath("../MysteryFleshBall")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
-navigation_polygon = SubResource("NavigationPolygon_ac0gi")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2
