@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcaggp7hhwsx"
-path="res://.godot/imported/Prop_Wheat_128x128.png-389127bb9a968d4b090e1ac64af74b3a.ctex"
+uid="uid://bnjo7qk4128tu"
+path="res://.godot/imported/Prop_Barrel.png-a968920d51d5577c45acc431040deb47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/props/plant/Prop_Wheat_128x128.png"
-dest_files=["res://.godot/imported/Prop_Wheat_128x128.png-389127bb9a968d4b090e1ac64af74b3a.ctex"]
+source_file="res://assets/props/misc/Prop_Barrel.png"
+dest_files=["res://.godot/imported/Prop_Barrel.png-a968920d51d5577c45acc431040deb47.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://do36q6jk0sk24"]
+[gd_scene load_steps=51 format=3 uid="uid://do36q6jk0sk24"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_ce0rb"]
 [ext_resource type="Texture2D" uid="uid://bx7sukkog8gop" path="res://assets/props/decals/Decal_Dirt21.png" id="1_psjfc"]
@@ -24,9 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://jta30w7j0nj1" path="res://assets/props/decals/Decals_Rocks10.png" id="23_c1oe7"]
 [ext_resource type="Texture2D" uid="uid://la7cans3vgdf" path="res://assets/props/decals/Decals_Rocks08.png" id="24_51vfc"]
 [ext_resource type="Texture2D" uid="uid://b3aqn60d2bvo5" path="res://assets/props/decals/Decals_Rocks13.png" id="24_u4l52"]
-[ext_resource type="Texture2D" uid="uid://cavm6look57lx" path="res://assets/props/decals/Decal_WheatMound.png" id="25_5nxcd"]
 [ext_resource type="Texture2D" uid="uid://drxvimsm4vqbe" path="res://assets/props/decals/Decals_Rocks06.png" id="25_gb2t8"]
-[ext_resource type="Texture2D" uid="uid://dcaggp7hhwsx" path="res://assets/props/plant/Prop_Wheat_128x128.png" id="26_by04i"]
 [ext_resource type="Texture2D" uid="uid://b4mudy8wvoltu" path="res://assets/props/decals/Decals_Rocks04.png" id="26_ls0yy"]
 [ext_resource type="Texture2D" uid="uid://6frolb64yrqt" path="res://assets/props/plant/Prop_Tree4_192x320.png" id="27_llqv6"]
 [ext_resource type="Texture2D" uid="uid://cbq10sub770mo" path="res://assets/props/decals/Decals_Rocks02.png" id="27_mkswk"]
@@ -42,8 +40,14 @@
 [ext_resource type="Texture2D" uid="uid://n68s1ni7tknq" path="res://assets/props/buildings/2x1_Windmill_R.png" id="40_vvf43"]
 [ext_resource type="Texture2D" uid="uid://dkci22nji3hxh" path="res://assets/props/buildings/2x1_Windmill_L.png" id="41_y34pp"]
 [ext_resource type="Texture2D" uid="uid://d1qy8h3psvcc3" path="res://assets/props/buildings/2x1_Windmill.png" id="42_60fdd"]
+[ext_resource type="Texture2D" uid="uid://cfdu3txl1oov1" path="res://assets/props/misc/Prop_Crate.png" id="43_1nqd7"]
 [ext_resource type="Texture2D" uid="uid://bu7dkfhaaf4a7" path="res://assets/props/buildings/Prop_Windmill_Fan.png" id="43_s5q7p"]
+[ext_resource type="Texture2D" uid="uid://bnjo7qk4128tu" path="res://assets/props/misc/Prop_Barrel.png" id="44_0bmbh"]
 [ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="44_acrao"]
+[ext_resource type="Texture2D" uid="uid://dnvrhqqecbbte" path="res://assets/props/misc/Prop_FenceB.png" id="45_f4ugf"]
+[ext_resource type="Texture2D" uid="uid://c2mmxt0b553me" path="res://assets/props/misc/Prop_FenceC.png" id="46_trl8o"]
+[ext_resource type="Texture2D" uid="uid://c47en7150vh51" path="res://assets/props/misc/Prop_Sign.png" id="47_g5kkl"]
+[ext_resource type="Texture2D" uid="uid://csaotyh4rttur" path="res://assets/props/misc/Prop_FenceA.png" id="48_5nguj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
@@ -276,248 +280,6 @@ texture = ExtResource("13_ik62h")
 [node name="DecalsStone23" type="Sprite2D" parent="Art/GroundRocks"]
 position = Vector2(818, 323)
 texture = ExtResource("13_ik62h")
-
-[node name="Wheat" type="Node2D" parent="Art"]
-
-[node name="DecalWheatMound4" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-168, -939)
-rotation = -0.0161428
-texture = ExtResource("25_5nxcd")
-
-[node name="DecalWheatMound5" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-162, -790)
-rotation = -0.0161428
-texture = ExtResource("25_5nxcd")
-
-[node name="PropWheat128x131" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-123, -1009)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x132" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-121, -973)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x133" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-116, -927)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x134" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-113, -876)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x135" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-107, -827)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x128" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-103, -784)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x129" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-100, -742)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x136" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-231, -1009)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x137" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-229, -969)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x138" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-225, -917)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x139" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-219, -873)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x140" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-212, -826)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x141" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-205, -779)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x142" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(-201, -729)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="DecalWheatMound6" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(77.7821, -946.267)
-rotation = -0.0161428
-texture = ExtResource("25_5nxcd")
-
-[node name="DecalWheatMound7" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(83.7821, -797.267)
-rotation = -0.0161428
-texture = ExtResource("25_5nxcd")
-
-[node name="PropWheat128x143" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(122.782, -1016.27)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x144" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(124.782, -980.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x145" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(129.782, -934.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x146" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(132.782, -883.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x147" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(138.782, -834.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x130" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(142.782, -791.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x148" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(145.782, -749.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x149" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(14.7821, -1016.27)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x150" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(16.7821, -976.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x151" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(20.7821, -924.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x152" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(26.7821, -880.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x153" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(33.7821, -833.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x154" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(40.7821, -786.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x155" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(44.7821, -736.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="DecalWheatMound8" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(324.782, -953.267)
-rotation = -0.0161428
-texture = ExtResource("25_5nxcd")
-
-[node name="DecalWheatMound9" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(330.782, -804.267)
-rotation = -0.0161428
-texture = ExtResource("25_5nxcd")
-
-[node name="PropWheat128x156" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(369.782, -1023.27)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x157" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(371.782, -987.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x158" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(376.782, -941.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x159" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(379.782, -890.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x160" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(385.782, -841.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x161" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(389.782, -798.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x162" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(392.782, -756.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x163" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(261.782, -1023.27)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x164" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(263.782, -983.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x165" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(267.782, -931.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x166" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(273.782, -887.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x167" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(280.782, -840.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x168" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(287.782, -793.267)
-texture = ExtResource("26_by04i")
-hframes = 2
-
-[node name="PropWheat128x169" type="Sprite2D" parent="Art/Wheat"]
-position = Vector2(291.782, -743.267)
-texture = ExtResource("26_by04i")
-hframes = 2
 
 [node name="Trees" type="Node2D" parent="Art"]
 
@@ -785,7 +547,68 @@ texture = ExtResource("43_s5q7p")
 offset = Vector2(1.605, 0)
 
 [node name="PropCottageDebri" type="Sprite2D" parent="."]
-position = Vector2(152, 1048)
+position = Vector2(-17, -957)
 texture = ExtResource("44_acrao")
+hframes = 2
 vframes = 2
 frame = 1
+
+[node name="PropCrate" type="Sprite2D" parent="."]
+position = Vector2(290, -677)
+texture = ExtResource("43_1nqd7")
+
+[node name="PropCrate2" type="Sprite2D" parent="."]
+position = Vector2(289, -677)
+texture = ExtResource("43_1nqd7")
+
+[node name="PropCrate3" type="Sprite2D" parent="."]
+position = Vector2(192, -673)
+texture = ExtResource("43_1nqd7")
+
+[node name="PropCrate4" type="Sprite2D" parent="."]
+position = Vector2(236, -758)
+texture = ExtResource("43_1nqd7")
+
+[node name="PropBarrel" type="Sprite2D" parent="."]
+position = Vector2(677, -479)
+texture = ExtResource("44_0bmbh")
+
+[node name="PropBarrel2" type="Sprite2D" parent="."]
+position = Vector2(704, -453)
+texture = ExtResource("44_0bmbh")
+
+[node name="PropBarrel3" type="Sprite2D" parent="."]
+position = Vector2(693, -537)
+texture = ExtResource("44_0bmbh")
+
+[node name="PropFenceB" type="Sprite2D" parent="."]
+position = Vector2(-643, -339)
+texture = ExtResource("45_f4ugf")
+
+[node name="PropFenceC" type="Sprite2D" parent="."]
+position = Vector2(63, -263)
+texture = ExtResource("46_trl8o")
+
+[node name="PropSign" type="Sprite2D" parent="."]
+position = Vector2(-197, -639)
+texture = ExtResource("47_g5kkl")
+
+[node name="PropFenceA" type="Sprite2D" parent="."]
+position = Vector2(539, -551)
+texture = ExtResource("48_5nguj")
+
+[node name="PropCrate5" type="Sprite2D" parent="."]
+position = Vector2(1138, -79)
+texture = ExtResource("43_1nqd7")
+
+[node name="PropCrate6" type="Sprite2D" parent="."]
+position = Vector2(2, 372)
+texture = ExtResource("43_1nqd7")
+
+[node name="PropCrate7" type="Sprite2D" parent="."]
+position = Vector2(-678, 430)
+texture = ExtResource("43_1nqd7")
+
+[node name="PropCrate8" type="Sprite2D" parent="."]
+position = Vector2(-532, 963)
+texture = ExtResource("43_1nqd7")
