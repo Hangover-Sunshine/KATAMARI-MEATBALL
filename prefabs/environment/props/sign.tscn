@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvuvy2t6e6obh"]
+
+[ext_resource type="Texture2D" uid="uid://c47en7150vh51" path="res://assets/props/misc/Prop_Sign.png" id="1_68ahc"]
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_sxs4i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ad3l7"]
+height = 172.0
+
+[node name="Sign" type="StaticBody2D"]
+script = ExtResource("1_sxs4i")
+
+[node name="Sign" type="Sprite2D" parent="."]
+texture = ExtResource("1_68ahc")
+offset = Vector2(0, -75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -75)
+shape = SubResource("CapsuleShape2D_ad3l7")

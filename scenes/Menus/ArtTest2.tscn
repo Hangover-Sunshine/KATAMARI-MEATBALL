@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://do36q6jk0sk24"]
+[gd_scene load_steps=54 format=3 uid="uid://do36q6jk0sk24"]
 
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="1_ce0rb"]
 [ext_resource type="Texture2D" uid="uid://bx7sukkog8gop" path="res://assets/props/decals/Decal_Dirt21.png" id="1_psjfc"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://h4p0h6p8fqr4" path="res://assets/props/plant/Prop_Tree2_192x320.png" id="29_mfyym"]
 [ext_resource type="Texture2D" uid="uid://c7122q1opgs43" path="res://assets/props/plant/Prop_Tree1_192x320.png" id="30_jbrqb"]
 [ext_resource type="Texture2D" uid="uid://b7mt2yy8busxc" path="res://assets/props/plant/Prop_Stump_192x128.png" id="31_cky7b"]
+[ext_resource type="Texture2D" uid="uid://caodqnonsui3a" path="res://assets/props/buildings/Tilesheet_Outer_Walls.png" id="31_dagm4"]
 [ext_resource type="Texture2D" uid="uid://bnhypn7lscor3" path="res://assets/props/plant/Prop_Bush_128by128.png" id="32_2upnx"]
 [ext_resource type="Texture2D" uid="uid://bkpbap1ftt626" path="res://assets/props/buildings/2x2_Cottage_R.png" id="38_2o7av"]
 [ext_resource type="Texture2D" uid="uid://doafruyatkrof" path="res://assets/props/buildings/1x1_Cottage.png" id="39_4uwca"]
@@ -49,6 +50,44 @@
 [ext_resource type="Texture2D" uid="uid://c47en7150vh51" path="res://assets/props/misc/Prop_Sign.png" id="47_g5kkl"]
 [ext_resource type="Texture2D" uid="uid://csaotyh4rttur" path="res://assets/props/misc/Prop_FenceA.png" id="48_5nguj"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otdtn"]
+texture = ExtResource("31_dagm4")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7r0xo"]
+tile_size = Vector2i(96, 96)
+sources/0 = SubResource("TileSetAtlasSource_otdtn")
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ccia3"]
 vertices = PackedVector2Array(1388, -1080, 1397, 1343, -1005, 1339, -996, -1084)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -63,9 +102,9 @@ size = Vector2(97, 96)
 [node name="Art" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Art"]
-offset_left = -1247.0
+offset_left = -1269.0
 offset_top = -1249.0
-offset_right = 1239.0
+offset_right = 1293.0
 offset_bottom = 1264.0
 color = Color(0.384314, 0.643137, 0.466667, 1)
 
@@ -418,6 +457,11 @@ hframes = 3
 vframes = 2
 frame = 4
 
+[node name="TileMap" type="TileMap" parent="Art"]
+tile_set = SubResource("TileSet_7r0xo")
+format = 2
+layer_0/tile_data = PackedInt32Array(-917517, 65536, 0, -851981, 65536, 1, -786445, 65536, 2, -917516, 131072, 0, -851980, 131072, 1, -786444, 131072, 2, -917515, 196608, 0, -851979, 196608, 1, -786443, 196608, 2, -917514, 65536, 0, -851978, 65536, 1, -786442, 65536, 2, -917513, 131072, 0, -851977, 131072, 1, -786441, 131072, 2, -917512, 196608, 0, -851976, 196608, 1, -786440, 196608, 2, -917511, 65536, 0, -851975, 65536, 1, -786439, 65536, 2, -917510, 131072, 0, -851974, 131072, 1, -786438, 131072, 2, -917509, 196608, 0, -851973, 196608, 1, -786437, 196608, 2, -917508, 65536, 0, -851972, 65536, 1, -786436, 65536, 2, -917507, 131072, 0, -851971, 131072, 1, -786435, 131072, 2, -917506, 196608, 0, -851970, 196608, 1, -786434, 196608, 2, -917505, 65536, 0, -851969, 65536, 1, -786433, 65536, 2, -983040, 131072, 0, -917504, 131072, 1, -851968, 131072, 2, -983039, 196608, 0, -917503, 196608, 1, -851967, 196608, 2, -983038, 65536, 0, -917502, 65536, 1, -851966, 65536, 2, -983037, 131072, 0, -917501, 131072, 1, -851965, 131072, 2, -983036, 196608, 0, -917500, 196608, 1, -851964, 196608, 2, -983035, 65536, 0, -917499, 65536, 1, -851963, 65536, 2, -983034, 131072, 0, -917498, 131072, 1, -851962, 131072, 2, -983033, 196608, 0, -917497, 196608, 1, -851961, 196608, 2, -983032, 65536, 0, -917496, 65536, 1, -851960, 65536, 2, -983031, 131072, 0, -917495, 131072, 1, -851959, 131072, 2, -983030, 196608, 0, -917494, 196608, 1, -851958, 196608, 2, -983029, 65536, 0, -917493, 65536, 1, -851957, 65536, 2, -983028, 131072, 0, -917492, 131072, 1, -851956, 131072, 2, -983027, 262144, 0, -917491, 262144, 1, -851955, 262144, 1, -786419, 262144, 2, -720883, 262144, 1, -655347, 262144, 2, -589811, 262144, 1, -524275, 262144, 2, -458739, 262144, 1, -393203, 262144, 2, -327667, 262144, 1, -262131, 262144, 2, -196595, 262144, 1, -131059, 262144, 2, -65523, 262144, 1, 13, 262144, 2, 65549, 262144, 1, 131085, 262144, 2, 196621, 262144, 1, 262157, 262144, 2, 327693, 262144, 1, 393229, 262144, 1, 458765, 262144, 2, 524301, 262144, 1, 589837, 262144, 2, 655373, 262144, 1, 720909, 262144, 2, 786442, 65536, 3, 851978, 65536, 4, 917514, 65536, 5, 786443, 131072, 3, 851979, 131072, 4, 917515, 131072, 5, 786444, 196608, 3, 851980, 196608, 4, 917516, 196608, 5, 786445, 262144, 3, 851981, 262144, 4, 917517, 262144, 5, 786439, 65536, 3, 851975, 65536, 4, 917511, 65536, 5, 786440, 131072, 3, 851976, 131072, 4, 917512, 131072, 5, 786441, 196608, 3, 851977, 196608, 4, 917513, 196608, 5, 786436, 65536, 3, 851972, 65536, 4, 917508, 65536, 5, 786437, 131072, 3, 851973, 131072, 4, 917509, 131072, 5, 786438, 196608, 3, 851974, 196608, 4, 917510, 196608, 5, 786433, 65536, 3, 851969, 65536, 4, 917505, 65536, 5, 786434, 131072, 3, 851970, 131072, 4, 917506, 131072, 5, 786435, 196608, 3, 851971, 196608, 4, 917507, 196608, 5, 851966, 65536, 3, 917502, 65536, 4, 983038, 65536, 5, 851967, 131072, 3, 917503, 131072, 4, 983039, 131072, 5, 786432, 196608, 3, 851968, 196608, 4, 917504, 196608, 5, 851963, 65536, 3, 917499, 65536, 4, 983035, 65536, 5, 851964, 131072, 3, 917500, 131072, 4, 983036, 131072, 5, 851965, 196608, 3, 917501, 196608, 4, 983037, 196608, 5, 851960, 65536, 3, 917496, 65536, 4, 983032, 65536, 5, 851961, 131072, 3, 917497, 131072, 4, 983033, 131072, 5, 851962, 196608, 3, 917498, 196608, 4, 983034, 196608, 5, 851957, 65536, 3, 917493, 65536, 4, 983029, 65536, 5, 851958, 131072, 3, 917494, 131072, 4, 983030, 131072, 5, 851959, 196608, 3, 917495, 196608, 4, 983031, 196608, 5, 851954, 0, 3, 917490, 0, 4, 983026, 0, 5, 851955, 131072, 3, 917491, 131072, 4, 983027, 131072, 5, 851956, 196608, 3, 917492, 196608, 4, 983028, 196608, 5, -917518, 0, 0, -851982, 0, 1, -786446, 0, 2, -720910, 0, 1, -655374, 0, 2, -589838, 0, 1, -524302, 0, 2, -458766, 0, 1, -393230, 0, 2, -327694, 0, 1, -262158, 0, 2, -196622, 0, 1, -131086, 0, 2, -65550, 0, 1, -14, 0, 2, 65522, 0, 1, 131058, 0, 2, 196594, 0, 1, 262130, 0, 2, 327666, 0, 1, 393202, 0, 2, 458738, 0, 1, 524274, 0, 2, 589810, 0, 1, 655346, 0, 2, 720882, 0, 1, 786418, 0, 2)
+
 [node name="Gameplay" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Gameplay"]
@@ -444,6 +488,7 @@ scale = Vector2(1, 25.68)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/DummyBlockout2"]
+visible = false
 texture = ExtResource("4_ol52t")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
@@ -459,6 +504,7 @@ scale = Vector2(1, 25.68)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/DummyBlockout9"]
+visible = false
 texture = ExtResource("4_ol52t")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
@@ -475,6 +521,7 @@ scale = Vector2(1, 26.36)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/DummyBlockout10"]
+visible = false
 texture = ExtResource("4_ol52t")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
@@ -491,6 +538,7 @@ scale = Vector2(1, 26.6)
 collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/DummyBlockout11"]
+visible = false
 texture = ExtResource("4_ol52t")
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
