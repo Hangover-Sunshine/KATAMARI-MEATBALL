@@ -26,6 +26,15 @@ func _ready():
 	##
 ##
 
+func is_playing() -> bool:
+	for i in len(m_audio_stream_player):
+		if m_audio_stream_player[i].playing:
+			return true
+		##
+	##
+	return false
+##
+
 func play_random_sound() -> bool:
 	var index:int = randi() % len(m_audio_stream_player)
 	var attempts:int = 0

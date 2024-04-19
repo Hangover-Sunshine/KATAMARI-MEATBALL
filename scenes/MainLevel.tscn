@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=20 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cfrs46bu3edfx" path="res://prefabs/system/BallCamera.tscn" id="11_q6w7r"]
 [ext_resource type="PackedScene" uid="uid://brwbb64oj5yj4" path="res://scenes/Menus/Pause_Menu.tscn" id="12_xedtr"]
 [ext_resource type="PackedScene" uid="uid://c2xwtv84yb8i5" path="res://prefabs/environment/Cottage_1x1.tscn" id="15_4qtky"]
+[ext_resource type="AudioStream" uid="uid://dpc7tryh01ans" path="res://assets/sfx/PlayerDeath.ogg" id="16_s4jjy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
 vertices = PackedVector2Array(1920, 1915, -1914, 1914, -1912, -1907, 1913, -1911)
@@ -118,13 +119,11 @@ MinVelocityThreshold = 50.0
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
 [node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
-process_mode = 4
 script = ExtResource("2_d8b1e")
 FleshBall = NodePath("../MysteryFleshBall")
 CultistPrefab = ExtResource("3_dqaxr")
 
 [node name="HeroController" type="Node2D" parent="Game" node_paths=PackedStringArray("Fleshball", "Player", "ProjectileHolder")]
-process_mode = 4
 script = ExtResource("4_73v16")
 MeleeHeroPrefab = ExtResource("5_q4i5m")
 RangedHeroPrefab = ExtResource("6_wvam0")
@@ -133,7 +132,6 @@ Player = NodePath("../Player")
 ProjectileHolder = NodePath("../ProjectileHolder")
 
 [node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("ExitPoints")]
-process_mode = 4
 script = ExtResource("7_eiv6q")
 ExitPoints = NodePath("ExitPoints")
 CivilianPrefab = ExtResource("8_b54mm")
@@ -200,6 +198,12 @@ limit_right = 2000
 limit_bottom = 2000
 Player = NodePath("../Player")
 Target = NodePath("../MysteryFleshBall")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Game/BallCamera"]
+current = true
+
+[node name="PlayerDeathcry" type="AudioStreamPlayer2D" parent="Game"]
+stream = ExtResource("16_s4jjy")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2

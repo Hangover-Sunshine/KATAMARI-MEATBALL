@@ -6,11 +6,17 @@ class_name Lich
 @export_range(0.0, 1.0) var PunchDrawnPenalty:float = 0.8
 
 @export var MaxWindupTime:float = 2.5
+@export var Damage:int = 5
+
+@onready var step_pool = $StepPool
+@onready var punch_meat_pool = $PunchMeatPool
+@onready var punch_wiff = $PunchWiff
 
 var time_since_held:float = 0
 var mouse_pressed:bool = false
 var ball:CharacterBody2D
 var health
+var enemies_in_way:Array = []
 
 func _ready():
 	health = MaxHealth
@@ -22,7 +28,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_released():
 			mouse_pressed = false
-			apply_force(global_position.direction_to(get_global_mouse_position()).normalized())
+			punch(global_position.direction_to(get_global_mouse_position()).normalized())
 		elif event.is_pressed():
 			mouse_pressed = true
 			time_since_held = 0
@@ -30,10 +36,26 @@ func _input(event):
 	##
 ##
 
-func apply_force(dir_from_player_to_mouse):
+func punch(dir_from_player_to_mouse):
+	if ball == null and len(enemies_in_way) == 0:
+		punch_wiff.play_random_sound()
+		return
+	##
+	
 	if ball != null:
 		ball.smacked(dir_from_player_to_mouse, clampf(time_since_held / MaxWindupTime, 0, 1))
+		punch_meat_pool.play_random_sound()
 	##
+	for e in enemies_in_way:
+		e.take_damage(Damage)
+		if health < MaxHealth:
+			health += Damage
+			if health > MaxHealth:
+				health = MaxHealth
+			##
+		##
+	##
+	enemies_in_way.clear()
 ##
 
 func _process(delta):
@@ -60,15 +82,27 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, Speed)
 	##
 	
+	#if (x_dir or y_dir) and step_pool.is_playing() == false:
+		#step_pool.play_random_sound()
+	##
+	
 	move_and_slide()
 ##
 
 func _on_entity_punch_detector_body_entered(body):
-	ball = body
+	if body is FleshBall2D:
+		ball = body
+	else:
+		enemies_in_way.append(body)
+	##
 ##
 
 func _on_entity_punch_detector_body_exited(body):
-	ball = null
+	if body is FleshBall2D:
+		ball = null
+	else:
+		enemies_in_way.remove_at(enemies_in_way.find(body))
+	##
 ##
 
 func take_damage(dmg):

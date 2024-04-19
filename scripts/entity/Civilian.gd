@@ -98,7 +98,9 @@ func _on_destination_wait_timer_timeout():
 	elif freeing_self:
 		# TODO: put things here
 		GlobalSignals.emit_signal("entity_removed")
-		escort.free_from_help()
+		if escort != null:
+			escort.free_from_help()
+		##
 		queue_free()
 	else:
 		# pick a new direction and go in it for X seconds

@@ -127,6 +127,8 @@ func _on_spawn_timer_timeout():
 ##
 
 func _player_out_of_health():
+	$PlayerDeathcry.global_position = Player.global_position
+	$PlayerDeathcry.play()
 	LWSave.Prefs["winner"] = false
 	GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
 ##
