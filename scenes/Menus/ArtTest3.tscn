@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bxcmcebm3ig7i"]
+[gd_scene load_steps=41 format=3 uid="uid://bxcmcebm3ig7i"]
 
 [ext_resource type="PackedScene" uid="uid://dxqn3f5o6yd5q" path="res://prefabs/environment/plants/grass.tscn" id="2_lxk1y"]
 [ext_resource type="PackedScene" uid="uid://4duk70ldh8p3" path="res://prefabs/environment/plants/plant.tscn" id="3_1cs3j"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dlwp87iwasr7n" path="res://prefabs/environment/props/fence_c.tscn" id="18_6n1by"]
 [ext_resource type="PackedScene" uid="uid://dvuvy2t6e6obh" path="res://prefabs/environment/props/sign.tscn" id="19_1ni0d"]
 [ext_resource type="PackedScene" uid="uid://3baeylxlx467" path="res://prefabs/environment/buildings/cottage_a.tscn" id="24_w6rrl"]
+[ext_resource type="Texture2D" uid="uid://dshhgvclgm4xe" path="res://assets/particle/Leaf.png" id="25_7dwbc"]
+[ext_resource type="Texture2D" uid="uid://ukq4espvatb2" path="res://assets/particle/Puff1.png" id="26_dimuo"]
+[ext_resource type="Texture2D" uid="uid://di1wun67yfrta" path="res://assets/particle/Dash.png" id="27_lqlnc"]
 [ext_resource type="Texture2D" uid="uid://caodqnonsui3a" path="res://assets/props/buildings/Tilesheet_Outer_Walls.png" id="31_36ugi"]
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="32_q0m5f"]
 [ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="33_ml70g"]
@@ -71,6 +74,41 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxqqo"]
 size = Vector2(97, 96)
+
+[sub_resource type="Curve" id="Curve_3vswg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_gqmc7"]
+offsets = PackedFloat32Array(0.64, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_vouoa"]
+colors = PackedColorArray(0.635294, 0.427451, 0.247059, 1, 0.431373, 0.298039, 0.188235, 1)
+
+[sub_resource type="Curve" id="Curve_vwinx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_fwhe3"]
+offsets = PackedFloat32Array(0.726667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_nimwx"]
+offsets = PackedFloat32Array(0.766667, 1)
+colors = PackedColorArray(0, 0.396078, 0.329412, 1, 0.117647, 0.25098, 0.266667, 1)
+
+[sub_resource type="Curve" id="Curve_d2n7v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_q7s0k"]
+offsets = PackedFloat32Array(0.126667, 1)
+colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_luyxe"]
+offsets = PackedFloat32Array(0, 0.273333)
+colors = PackedColorArray(0.431373, 0.298039, 0.188235, 1, 0.635294, 0.427451, 0.247059, 1)
 
 [node name="CatamariTest" type="Node2D"]
 
@@ -230,3 +268,96 @@ region_rect = Rect2(0, 0, 96, 96)
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="FX_Explode_Leaf_Smoll" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(203, 0)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.25
+texture = ExtResource("25_7dwbc")
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+scale_amount_min = 0.25
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_3vswg")
+color_ramp = SubResource("Gradient_gqmc7")
+color_initial_ramp = SubResource("Gradient_vouoa")
+
+[node name="FX_Explode_Leaf_Lorge" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(203, 0)
+emitting = false
+amount = 150
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.25
+texture = ExtResource("25_7dwbc")
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 25.0
+initial_velocity_max = 100.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+scale_amount_min = 0.25
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_vwinx")
+color_ramp = SubResource("Gradient_fwhe3")
+color_initial_ramp = SubResource("Gradient_nimwx")
+
+[node name="Tree A2" parent="." instance=ExtResource("5_84d13")]
+visible = false
+position = Vector2(-112, 63)
+
+[node name="Cottage A" parent="." instance=ExtResource("24_w6rrl")]
+
+[node name="FX_Explode_Dust" type="CPUParticles2D" parent="."]
+rotation = -1.5708
+emitting = false
+amount = 50
+one_shot = true
+speed_scale = 0.75
+lifetime_randomness = 0.25
+texture = ExtResource("26_dimuo")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 100)
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 200.0
+angle_min = -50.0
+angle_max = 50.0
+scale_amount_min = 0.25
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_d2n7v")
+color_ramp = SubResource("Gradient_q7s0k")
+color_initial_ramp = SubResource("Gradient_luyxe")
+
+[node name="Barrel" parent="." instance=ExtResource("14_o84d8")]
+position = Vector2(294, -42)
+
+[node name="FX_Explode_Wood_Smoll" type="CPUParticles2D" parent="."]
+position = Vector2(294, -77)
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.25
+texture = ExtResource("27_lqlnc")
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 0.25
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_gqmc7")
+color_initial_ramp = SubResource("Gradient_vouoa")
