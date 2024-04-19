@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlwp87iwasr7n"]
+
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_5x2xu"]
+[ext_resource type="Texture2D" uid="uid://c2mmxt0b553me" path="res://assets/props/misc/Prop_FenceC.png" id="1_oy1qv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdm1d"]
+size = Vector2(108, 66)
+
+[node name="Fence C" type="StaticBody2D"]
+script = ExtResource("1_5x2xu")
+
+[node name="Fence C" type="Sprite2D" parent="."]
+texture = ExtResource("1_oy1qv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kdm1d")

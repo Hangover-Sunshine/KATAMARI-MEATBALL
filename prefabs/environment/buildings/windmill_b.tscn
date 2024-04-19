@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjtnlkp2osts4"]
+
+[ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="1_i8nqy"]
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_vqlje"]
+[ext_resource type="Texture2D" uid="uid://dkci22nji3hxh" path="res://assets/props/buildings/2x1_Windmill_L.png" id="2_6yi0k"]
+[ext_resource type="Texture2D" uid="uid://jr5kparwgjci" path="res://assets/props/buildings/Prop_Chimney.png" id="3_xao5m"]
+[ext_resource type="Texture2D" uid="uid://bu7dkfhaaf4a7" path="res://assets/props/buildings/Prop_Windmill_Fan.png" id="4_87ggv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krf3h"]
+size = Vector2(287, 255)
+
+[node name="Windmill B" type="StaticBody2D"]
+script = ExtResource("1_vqlje")
+
+[node name="Windmill B" type="Node2D" parent="."]
+
+[node name="Debri" type="Sprite2D" parent="Windmill B"]
+visible = false
+texture = ExtResource("1_i8nqy")
+offset = Vector2(0, -96)
+hframes = 2
+vframes = 2
+
+[node name="Windmill B" type="Node2D" parent="Windmill B"]
+
+[node name="Windmill Chonk" type="Sprite2D" parent="Windmill B/Windmill B"]
+texture = ExtResource("2_6yi0k")
+offset = Vector2(0, -230)
+hframes = 2
+
+[node name="Chimney" type="Sprite2D" parent="Windmill B/Windmill B"]
+position = Vector2(-2, -404)
+texture = ExtResource("3_xao5m")
+
+[node name="Fan" type="Sprite2D" parent="Windmill B/Windmill B"]
+position = Vector2(48, -289)
+texture = ExtResource("4_87ggv")
+offset = Vector2(1.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.5, -127.5)
+shape = SubResource("RectangleShape2D_krf3h")

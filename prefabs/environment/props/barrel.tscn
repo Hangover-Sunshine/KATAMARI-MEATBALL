@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5vwo7gww86x"]
+
+[ext_resource type="Texture2D" uid="uid://bnjo7qk4128tu" path="res://assets/props/misc/Prop_Barrel.png" id="1_hm31y"]
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_qtu56"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3tik"]
+radius = 35.0
+height = 92.0
+
+[node name="Barrel" type="StaticBody2D"]
+script = ExtResource("1_qtu56")
+
+[node name="Barrel" type="Sprite2D" parent="."]
+texture = ExtResource("1_hm31y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_b3tik")

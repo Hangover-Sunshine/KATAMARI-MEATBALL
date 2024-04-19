@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbpv0tft1e7yd"]
+
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_6v0o5"]
+[ext_resource type="Texture2D" uid="uid://bi461ww33gxja" path="res://assets/props/plant/Prop_Tree3_192x320.png" id="1_gpids"]
+
+[sub_resource type="Animation" id="Animation_xwwhe"]
+resource_name = "Wind"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tree C:skew")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0174533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2fr28"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tree C:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tree C:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tree C:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qod4o"]
+resource_name = "Hit"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tree C:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fbca8"]
+resource_name = "Destroy"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tree C:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tree C:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0g1ug"]
+_data = {
+"Destroy": SubResource("Animation_fbca8"),
+"Hit": SubResource("Animation_qod4o"),
+"RESET": SubResource("Animation_2fr28"),
+"Wind": SubResource("Animation_xwwhe")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owg4w"]
+radius = 10.2899
+height = 26.5909
+
+[node name="Tree C" type="StaticBody2D"]
+script = ExtResource("1_6v0o5")
+
+[node name="Tree C" type="Node2D" parent="."]
+
+[node name="Tree C" type="Sprite2D" parent="Tree C"]
+texture = ExtResource("1_gpids")
+offset = Vector2(0, -105)
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tree C"]
+libraries = {
+"": SubResource("AnimationLibrary_0g1ug")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -96)
+scale = Vector2(6.9, 8.8)
+shape = SubResource("CapsuleShape2D_owg4w")

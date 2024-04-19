@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtjvfnntngcdy"]
+
+[ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="1_8vd1r"]
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_to3vu"]
+[ext_resource type="Texture2D" uid="uid://ds15gf402a38e" path="res://assets/props/buildings/2x2_Cottage_L.png" id="2_xem5g"]
+[ext_resource type="Texture2D" uid="uid://jr5kparwgjci" path="res://assets/props/buildings/Prop_Chimney.png" id="3_qlvaw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a41kf"]
+size = Vector2(284, 256)
+
+[node name="Cottage C" type="StaticBody2D"]
+script = ExtResource("1_to3vu")
+
+[node name="Cottage C" type="Node2D" parent="."]
+
+[node name="Debri" type="Sprite2D" parent="Cottage C"]
+visible = false
+texture = ExtResource("1_8vd1r")
+offset = Vector2(0, -96)
+hframes = 2
+vframes = 2
+
+[node name="Cottage C" type="Node2D" parent="Cottage C"]
+
+[node name="Cottage Chonk" type="Sprite2D" parent="Cottage C/Cottage C"]
+texture = ExtResource("2_xem5g")
+offset = Vector2(0, -177)
+hframes = 2
+
+[node name="Chimney" type="Sprite2D" parent="Cottage C/Cottage C"]
+position = Vector2(0, -294)
+texture = ExtResource("3_qlvaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -131)
+shape = SubResource("RectangleShape2D_a41kf")
