@@ -14,13 +14,7 @@ func _ready():
 ##
 
 func _process(delta):
-	if target == null:
-		attack = false
-		target = player
-		travel_brain.target_position = target.global_position
-	##
-	
-	if attack and target != null:
+	if attack:
 		# rotate around self
 		var angle = rad_to_deg(global_position.angle_to_point(target.global_position)) + 180
 		
@@ -41,64 +35,28 @@ func _process(delta):
 ##
 
 func _physics_process(delta):
-	if attack or (helping_civilian and civilian != null and civilian.at_end()):
+	if attack:
 		return
 	##
 	
-	if target != null and target is Civilian and global_position.distance_to(target.global_position) < 150:
-		target.start_escorting(self)
-		helping_civilian = true
-	##
-	
-	if travel_brain.is_navigation_finished() and target != null:
+	if travel_brain.is_navigation_finished():
 		travel_brain.target_position = target.global_position
 	##
 	
-	var speed:float = MovementSpeed if helping_civilian == false else MovementSpeed * EscortSpeedPenality 
-	
-	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * speed
+	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * MovementSpeed
 	move_and_slide()
 ##
 
 func _on_entity_in_range_body_entered(body):
-	if (body is Lich or body is Cultist) and target == body:
-		attack = true
-		velocity = Vector2.ZERO
-	##
-	
-	if body is Civilian and target == body:
-		target.start_escorting(self)
-		civilian = body
-		helping_civilian = true
-	##
+	attack = true
+	velocity = Vector2.ZERO
 ##
 
 func _on_entity_in_range_body_exited(body):
-	if (body is Lich or body is Cultist) and body == target:
-		attack = false
-		if help_after != null:
-			help_after.start_escorting(self)
-			civilian = help_after
-			help_after = null
-		##
-	##
+	attack = false
 ##
 
 # Only melee use this function!
 func _on_hit_area_body_entered(body):
 	body.take_damage(2)
-##
-
-func _on_npc_sighter_body_entered(body):
-	if helping_civilian == false:
-		if body is Civilian and (target != null and !(target is Civilian)):
-			var maybe_targ = body.being_converted_by()
-			if maybe_targ:
-				target = maybe_targ
-				help_after = body
-			else:
-				target = body
-			##
-		##
-	##
 ##

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ep77lvip83kt"]
+[gd_scene load_steps=7 format=3 uid="uid://ep77lvip83kt"]
 
 [ext_resource type="Script" path="res://scripts/entity/adventurer/RangedHero.gd" id="1_ud2tp"]
 [ext_resource type="PackedScene" uid="uid://duoq5pc1pwvqy" path="res://prefabs/projectiles/Fireball.tscn" id="2_6hd5u"]
@@ -10,9 +10,6 @@ size = Vector2(99, 108)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r3tra"]
 radius = 707.12
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_newge"]
-size = Vector2(307, 284)
 
 [node name="RangedHero" type="CharacterBody2D"]
 collision_layer = 4
@@ -33,18 +30,10 @@ shape = SubResource("RectangleShape2D_itsys")
 [node name="SightRange" type="Area2D" parent="."]
 position = Vector2(-1, 0)
 collision_layer = 0
-collision_mask = 27
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightRange"]
 shape = SubResource("CircleShape2D_r3tra")
-
-[node name="CivilianCloseEnough" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CivilianCloseEnough"]
-shape = SubResource("RectangleShape2D_newge")
-debug_color = Color(0.792157, 0.0862745, 1, 0.419608)
 
 [node name="TravelBrain" type="NavigationAgent2D" parent="."]
 target_desired_distance = 150.0

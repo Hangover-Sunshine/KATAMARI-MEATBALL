@@ -22,7 +22,6 @@ var projectile_spawner
 # BEHAVIORS:
 # default target is the flesh ball
 # if ball is dead, target player
-# if ball is alive and not nearby, but a civilian is, escort them
 
 func _ready():
 	venture_type = 4 #randi_range(3, 4)
@@ -41,8 +40,7 @@ func _process(_delta):
 ##
 
 func _physics_process(delta):
-	if attack or\
-		(helping_civilian and global_position.is_equal_approx(target.global_position)):
+	if attack:
 		return
 	##
 	
@@ -66,34 +64,16 @@ func _physics_process(delta):
 		travel_brain.target_position = target.global_position
 	##
 	
-	var speed:float = MovementSpeed if helping_civilian == false else MovementSpeed * EscortSpeedPenality 
-	
-	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * speed
+	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * MovementSpeed
 	move_and_slide()
 ##
 
 func _on_sight_range_body_entered(body):
-	# break from everything unless you're escorting
-	if body is FleshBall2D and body != target and helping_civilian == false:
-		target = body
-		in_range_for_attack = true
-		if target is FleshBall2D:
-			ball_in_range = true
-		##
-		return
-	##
-	
 	if body == target and (target is FleshBall2D or target is Cultist or target is Lich):
 		in_range_for_attack = true
 		if target is FleshBall2D:
 			ball_in_range = true
 		##
-	##
-	
-	# if the ball isn't nearby and we don't have a CIVILIAN target, we pick this guy
-	#	and go to escort them
-	if ball_in_range == false and body != target and body is Civilian:
-		target = body
 	##
 ##
 
@@ -104,8 +84,6 @@ func _on_sight_range_body_exited(body):
 			ball_in_range = false
 		##
 	##
-	
-	# will just keep going for civilians until they catch up to them
 ##
 
 func _on_spawn_projectile_timer_timeout():

@@ -2,7 +2,6 @@ extends Entity
 class_name Adventurer
 
 @export var MovementSpeed:float = 300.0
-@export_range(0.1, 0.8) var EscortSpeedPenality:float = 0.5
 
 # Player or Fleshball or Civvy Exit
 var target

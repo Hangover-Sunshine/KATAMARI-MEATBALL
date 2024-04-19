@@ -27,7 +27,6 @@ var being_converted:bool = false
 var cultist_converting:Cultist
 
 var freeing_self:bool = false
-var being_escorted:bool = false
 var escort_under_attack:bool = false
 var escort:Adventurer
 
@@ -63,25 +62,7 @@ func _physics_process(delta):
 		return
 	##
 	
-	if being_escorted:
-		if travel_brain.is_navigation_finished():
-			if being_escorted:
-				freeing_self = true
-				destination_wait_timer.start(TimeToEscape)
-				return
-			##
-			
-			if destination_wait_timer.is_stopped():
-				var wait = randf_range(WaitTime.x, WaitTime.y)
-				destination_wait_timer.start(wait)
-			##
-			return
-		##
-		var movement = MovementSpeed * EscortSpeedPenality
-		velocity = global_position.direction_to(travel_brain.get_next_path_position()) * movement
-	else:
-		velocity = wander_dir * MovementSpeed
-	##
+	velocity = wander_dir * MovementSpeed
 	
 	move_and_slide()
 ##
@@ -91,17 +72,10 @@ func _on_destination_wait_timer_timeout():
 		progress_to_conversion.value += randf_range(ConversionAmount.x, ConversionAmount.y)
 		
 		if progress_to_conversion.value >= 100:
-			stop_escorting()
 			GlobalSignals.emit_signal("convert_citizen_to_cultist", self)
 		else:
 			destination_wait_timer.start(ConversionSpeed)
 		##
-	elif freeing_self:
-		# TODO: put things here
-		GlobalSignals.emit_signal("entity_removed")
-		stop_escorting()
-		stop_converting()
-		queue_free()
 	else:
 		# pick a new direction and go in it for X seconds
 		wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
@@ -114,6 +88,8 @@ func begin_conversion_by(cultist):
 	being_converted = true
 	cultist_converting = cultist
 	progress_to_conversion.value = 0
+	wander_timer.stop()
+	wander_dir = Vector2.ZERO
 	destination_wait_timer.start(ConversionSpeed)
 ##
 
@@ -124,25 +100,11 @@ func stop_converting():
 		cultist_converting.civvy = null
 	cultist_converting = null
 	progress_to_conversion.value = 0
+	destination_wait_timer.start(randf_range(0.5, 1))
 ##
 
 func being_converted_by() -> Cultist:
 	return cultist_converting
-##
-
-func start_escorting(adventurer:Adventurer):
-	escort = adventurer
-	being_escorted = true
-	GlobalSignals.emit_signal("request_escort_point", self, adventurer)
-##
-
-func stop_escorting():
-	being_escorted = false
-	escort_under_attack = false
-	if escort != null:
-		escort.target = null
-		escort.helping_civilian = false
-	escort = null
 ##
 
 func being_escorted_by() -> Adventurer:
@@ -155,7 +117,6 @@ func at_end() -> bool:
 
 func rolled_over():
 	stop_converting()
-	stop_escorting()
 	
 	GlobalSignals.emit_signal("entity_removed")
 	# spawn particle
@@ -168,14 +129,13 @@ func rolled_over():
 
 func take_damage(dmg):
 	stop_converting()
-	stop_escorting()
 	
 	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##
 
 func _on_wander_timer_timeout():
-	velocity = Vector2.ZERO
+	wander_dir = Vector2.ZERO
 	var wait = randf_range(WaitTime.x, WaitTime.y)
 	destination_wait_timer.start(wait)
 ##

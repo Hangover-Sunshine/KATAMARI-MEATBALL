@@ -11,9 +11,11 @@ func spawn_hero(start_position, is_melee:bool):
 	if is_melee:
 		loaded = MeleeHeroPrefab.instantiate()
 		add_child(loaded)
+		loaded.target = Player
 	else:
 		loaded = RangedHeroPrefab.instantiate()
 		add_child(loaded)
+		loaded.target = Fleshball if Fleshball != null else Player
 		loaded.ball = Fleshball
 		loaded.projectile_spawner = ProjectileHolder
 	##
