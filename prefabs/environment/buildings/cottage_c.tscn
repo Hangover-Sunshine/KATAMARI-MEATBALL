@@ -1,9 +1,51 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtjvfnntngcdy"]
+[gd_scene load_steps=11 format=3 uid="uid://dtjvfnntngcdy"]
 
 [ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="1_8vd1r"]
 [ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_to3vu"]
 [ext_resource type="Texture2D" uid="uid://ds15gf402a38e" path="res://assets/props/buildings/2x2_Cottage_L.png" id="2_xem5g"]
 [ext_resource type="Texture2D" uid="uid://jr5kparwgjci" path="res://assets/props/buildings/Prop_Chimney.png" id="3_qlvaw"]
+[ext_resource type="PackedScene" uid="uid://dx8hs7awux8xc" path="res://prefabs/particles/fx_explode_dust.tscn" id="5_631tc"]
+
+[sub_resource type="Animation" id="Animation_7p004"]
+resource_name = "Destroy"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cottage C:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Debri:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FX_Explode_Dust:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_q4cqy"]
 resource_name = "Hit"
@@ -48,34 +90,17 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-
-[sub_resource type="Animation" id="Animation_7p004"]
-resource_name = "Destroy"
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cottage C:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Debri:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FX_Explode_Dust:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_owby7"]
@@ -115,6 +140,8 @@ texture = ExtResource("3_qlvaw")
 libraries = {
 "": SubResource("AnimationLibrary_owby7")
 }
+
+[node name="FX_Explode_Dust" parent="." instance=ExtResource("5_631tc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -131)

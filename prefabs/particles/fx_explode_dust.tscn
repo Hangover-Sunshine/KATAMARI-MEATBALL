@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8hs7awux8xc"]
+
+[ext_resource type="Texture2D" uid="uid://ukq4espvatb2" path="res://assets/particle/Puff1.png" id="1_cll6r"]
+
+[sub_resource type="Curve" id="Curve_d2n7v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_q7s0k"]
+offsets = PackedFloat32Array(0.126667, 1)
+colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_luyxe"]
+offsets = PackedFloat32Array(0, 0.273333)
+colors = PackedColorArray(0.431373, 0.298039, 0.188235, 1, 0.635294, 0.427451, 0.247059, 1)
+
+[node name="FX_Explode_Dust" type="CPUParticles2D"]
+rotation = -1.5708
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 0.8
+texture = ExtResource("1_cll6r")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 100)
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 200.0
+angle_min = -50.0
+angle_max = 50.0
+scale_amount_min = 0.25
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_d2n7v")
+color_ramp = SubResource("Gradient_q7s0k")
+color_initial_ramp = SubResource("Gradient_luyxe")

@@ -1,23 +1,78 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbpv0tft1e7yd"]
+[gd_scene load_steps=11 format=3 uid="uid://cbpv0tft1e7yd"]
 
 [ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_6v0o5"]
 [ext_resource type="Texture2D" uid="uid://bi461ww33gxja" path="res://assets/props/plant/Prop_Tree3_192x320.png" id="1_gpids"]
+[ext_resource type="PackedScene" uid="uid://crcnlw5qbc8fi" path="res://prefabs/particles/fx_explode_wood_smoll.tscn" id="3_p4l7q"]
+[ext_resource type="PackedScene" uid="uid://dkwofd30l7owp" path="res://prefabs/particles/fx_explode_leaf_lorge.tscn" id="4_7jjja"]
 
-[sub_resource type="Animation" id="Animation_xwwhe"]
-resource_name = "Wind"
-length = 3.0
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_fbca8"]
+resource_name = "Destroy"
+length = 0.25
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tree C:skew")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Tree C:scale")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tree C:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FX_Explode_Wood_Smoll:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../FX_Explode_Leaf_Lorge:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qod4o"]
+resource_name = "Hit"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tree C:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0174533, 0.0]
+"values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2fr28"]
@@ -58,51 +113,46 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../FX_Explode_Wood_Smoll:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../FX_Explode_Leaf_Lorge:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="Animation" id="Animation_qod4o"]
-resource_name = "Hit"
-length = 0.25
-step = 0.05
+[sub_resource type="Animation" id="Animation_xwwhe"]
+resource_name = "Wind"
+length = 3.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tree C:scale")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Tree C:skew")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.25),
+"times": PackedFloat32Array(0, 1.5, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_fbca8"]
-resource_name = "Destroy"
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tree C:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 1e-05), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tree C:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
+"values": [0.0, 0.0174533, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0g1ug"]
@@ -131,6 +181,12 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_0g1ug")
 }
+
+[node name="FX_Explode_Wood_Smoll" parent="." instance=ExtResource("3_p4l7q")]
+position = Vector2(0, -35)
+
+[node name="FX_Explode_Leaf_Lorge" parent="." instance=ExtResource("4_7jjja")]
+position = Vector2(0, -115)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -96)

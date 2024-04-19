@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://dghmc5c6cf1vg"]
+
+[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_u3bku"]
+[ext_resource type="Texture2D" uid="uid://bnhypn7lscor3" path="res://assets/props/plant/Prop_Bush_128by128.png" id="2_o61sg"]
+[ext_resource type="PackedScene" uid="uid://clxj6e3uk2skn" path="res://prefabs/particles/fx_explode_leaf_smoll.tscn" id="3_i72o5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20etb"]
+radius = 27.6586
+
+[sub_resource type="Animation" id="Animation_d1kn4"]
+resource_name = "Wind"
+length = 3.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bush:skew")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0436332, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0cfxl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bush:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bush:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FX_Explode_Leaf_Smoll:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3iaf8"]
+resource_name = "Destroy"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bush:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FX_Explode_Leaf_Smoll:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pv2jf"]
+_data = {
+"Destroy": SubResource("Animation_3iaf8"),
+"RESET": SubResource("Animation_0cfxl"),
+"Wind": SubResource("Animation_d1kn4")
+}
+
+[node name="Bush" type="StaticBody2D"]
+script = ExtResource("1_u3bku")
+
+[node name="Bush" type="Sprite2D" parent="."]
+texture = ExtResource("2_o61sg")
+offset = Vector2(0, -47)
+hframes = 3
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_20etb")
+
+[node name="FX_Explode_Leaf_Smoll" parent="." instance=ExtResource("3_i72o5")]
+position = Vector2(0, -28)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pv2jf")
+}
