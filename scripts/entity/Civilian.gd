@@ -157,3 +157,7 @@ func rolled_over():
 	# die
 	queue_free()
 ##
+
+func take_damage(dmg):
+	queue_free()
+##

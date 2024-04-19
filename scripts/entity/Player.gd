@@ -11,6 +11,7 @@ class_name Lich
 @onready var step_pool = $StepPool
 @onready var punch_meat_pool = $PunchMeatPool
 @onready var punch_wiff = $PunchWiff
+@onready var punch_people_pool = $PunchPeoplePool
 
 var time_since_held:float = 0
 var mouse_pressed:bool = false
@@ -46,6 +47,11 @@ func punch(dir_from_player_to_mouse):
 		ball.smacked(dir_from_player_to_mouse, clampf(time_since_held / MaxWindupTime, 0, 1))
 		punch_meat_pool.play_random_sound()
 	##
+	
+	if len(enemies_in_way) > 0 and ball == null:
+		punch_people_pool.play_random_sound()
+	##
+	
 	for e in enemies_in_way:
 		e.take_damage(Damage)
 		if health < MaxHealth:
@@ -55,7 +61,6 @@ func punch(dir_from_player_to_mouse):
 			##
 		##
 	##
-	enemies_in_way.clear()
 ##
 
 func _process(delta):

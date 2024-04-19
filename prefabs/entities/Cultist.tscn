@@ -14,7 +14,7 @@ size = Vector2(309, 284)
 
 [node name="Cultist" type="CharacterBody2D"]
 collision_layer = 16
-collision_mask = 33
+collision_mask = 32
 script = ExtResource("1_oplj2")
 ConsumptionScore = 5.5
 

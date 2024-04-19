@@ -43,7 +43,7 @@ func take_damage(dmg):
 	health -= dmg
 	if health <= 0:
 		# do things
-		pass
 		GlobalSignals.emit_signal("entity_removed")
+		queue_free()
 	##
 ##
