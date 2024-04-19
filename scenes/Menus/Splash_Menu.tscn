@@ -43,7 +43,7 @@ _data = {
 "RESET": SubResource("Animation_e25rl")
 }
 
-[node name="SplashMenu" type="Control"]
+[node name="SplashMenu2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,8 +80,7 @@ layout_mode = 2
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("3_yyuw1")
 theme_override_font_sizes/font_size = 340
-text = "MAIN
-MENU"
+text = "MAIN MENU"
 horizontal_alignment = 1
 
 [node name="SM_Title2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]

@@ -371,10 +371,12 @@ layout_mode = 1
 [node name="MainMenu" parent="." instance=ExtResource("1_nfybi")]
 visible = false
 layout_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_t1vus")]
 visible = false
 layout_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PageTransition_Animation" type="AnimationPlayer" parent="."]
 libraries = {
