@@ -12,6 +12,7 @@ func destroy():
 	# play the destruction particle
 	# hide the actual sprite
 	$Sprite2D.visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
 	# show the destroyed ruins
 ##
 

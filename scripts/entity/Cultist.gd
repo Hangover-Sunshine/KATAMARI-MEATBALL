@@ -64,6 +64,10 @@ func _physics_process(delta):
 ##
 
 func rolled_over():
+	if civvy:
+		# release the civilian from death
+		civvy.stop_converting()
+	##
 	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##

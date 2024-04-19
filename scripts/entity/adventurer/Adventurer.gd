@@ -3,9 +3,6 @@ class_name Adventurer
 
 @export var MovementSpeed:float = 300.0
 @export_range(0.1, 0.8) var EscortSpeedPenality:float = 0.5
-#@export var RangedHealth:Vector2 = Vector2(2, 4)
-
-#@onready var ranged = $Ranged
 
 # Player or Fleshball or Civvy Exit
 var target
@@ -37,11 +34,14 @@ func free_from_help():
 ##
 
 func take_damage(dmg):
-	if helping_civilian:
+	if helping_civilian and civilian != null:
 		civilian.escort_under_attack = true
 	##
 	health -= dmg
 	if health <= 0:
+		if civilian != null:
+			civilian.stop_escorting()
+		##
 		# do things
 		GlobalSignals.emit_signal("entity_removed")
 		queue_free()

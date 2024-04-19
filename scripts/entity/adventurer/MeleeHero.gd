@@ -35,8 +35,7 @@ func _process(delta):
 ##
 
 func _physics_process(delta):
-	if attack or\
-		(helping_civilian and global_position.is_equal_approx(target.global_position)):
+	if attack:
 		return
 	##
 	

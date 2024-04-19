@@ -110,6 +110,7 @@ func _on_destination_wait_timer_timeout():
 ##
 
 func begin_conversion_by(cultist):
+	velocity = Vector2.ZERO
 	being_converted = true
 	cultist_converting = cultist
 	progress_to_conversion.value = 0
@@ -119,6 +120,8 @@ func begin_conversion_by(cultist):
 func stop_converting():
 	being_converted = false
 	destination_wait_timer.stop()
+	if cultist_converting != null:
+		cultist_converting.civvy = null
 	cultist_converting = null
 	progress_to_conversion.value = 0
 ##
@@ -136,6 +139,8 @@ func start_escorting(adventurer:Adventurer):
 func stop_escorting():
 	being_escorted = false
 	escort_under_attack = false
+	if escort != null:
+		escort.target = null
 	escort = null
 ##
 
@@ -159,5 +164,11 @@ func rolled_over():
 ##
 
 func take_damage(dmg):
+	if being_converted_by() != null:
+		stop_converting()
+	elif being_escorted_by() != null:
+		stop_escorting()
+	##
+	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##
