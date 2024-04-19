@@ -22,7 +22,6 @@ var enemies_in_way:Array = []
 func _ready():
 	health = MaxHealth
 	$GraphicsController.character = 0
-	$GraphicsController.generate_character()
 ##
 
 func _input(event):
