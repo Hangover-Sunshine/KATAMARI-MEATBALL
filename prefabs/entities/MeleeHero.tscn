@@ -8,10 +8,10 @@
 size = Vector2(99, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cirj"]
-size = Vector2(92, 109)
+size = Vector2(92, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edyon"]
-size = Vector2(247, 229)
+size = Vector2(136, 137.25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y77vm"]
 radius = 405.967
@@ -60,12 +60,13 @@ script = ExtResource("1_22tij")
 shape = SubResource("RectangleShape2D_74fi5")
 
 [node name="Melee" type="Node2D" parent="."]
+rotation = 1.5708
 
 [node name="HitArea" type="Area2D" parent="Melee"]
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Melee/HitArea"]
-position = Vector2(78, 0)
+position = Vector2(78, -1)
 shape = SubResource("RectangleShape2D_6cirj")
 disabled = true
 
@@ -76,6 +77,7 @@ scale = Vector2(0.440001, 1.3908)
 texture = ExtResource("3_61fqr")
 
 [node name="EntityInRange" type="Area2D" parent="."]
+position = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 25
 

@@ -30,6 +30,16 @@ func _ready():
 	super()
 ##
 
+func _process(_delta):
+	if target == null:
+		if ball != null:
+			target = ball
+		else:
+			target = player
+		##
+	##
+##
+
 func _physics_process(delta):
 	if attack or\
 		(helping_civilian and global_position.is_equal_approx(target.global_position)):
@@ -49,14 +59,6 @@ func _physics_process(delta):
 			velocity = Vector2.ZERO
 			spawn_projectile_timer.start(ProjectileSpawnTimer)
 			return
-		##
-	##
-	
-	if target == null:
-		if ball != null:
-			target = ball
-		else:
-			target = player
 		##
 	##
 	

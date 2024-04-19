@@ -14,15 +14,21 @@ func _ready():
 ##
 
 func _process(delta):
-	if attack:
+	if target == null:
+		attack = false
+		target = player
+		travel_brain.target_position = target.global_position
+	##
+	
+	if attack and target != null:
 		# rotate around self
 		var angle = rad_to_deg(global_position.angle_to_point(target.global_position)) + 180
 		
-		if angle >= 225 and angle <= 310:
+		if angle > 225 and angle <= 310:
 			$Melee.rotation = deg_to_rad(90)
-		elif angle >= 125 and angle < 225:
+		elif angle > 125 and angle <= 225:
 			$Melee.rotation = deg_to_rad(0)
-		elif angle >= 60 and angle < 125:
+		elif angle >= 45 and angle <= 125:
 			$Melee.rotation = deg_to_rad(270)
 		else:
 			$Melee.rotation = deg_to_rad(180)
@@ -35,15 +41,16 @@ func _process(delta):
 ##
 
 func _physics_process(delta):
-	if attack:
+	if attack or (helping_civilian and civilian != null and civilian.at_end()):
 		return
 	##
 	
-	if target == null:
-		target = player
+	if target != null and target is Civilian and global_position.distance_to(target.global_position) < 150:
+		target.start_escorting(self)
+		helping_civilian = true
 	##
 	
-	if (travel_brain.target_position == null or travel_brain.is_navigation_finished()) and target != null:
+	if travel_brain.is_navigation_finished() and target != null:
 		travel_brain.target_position = target.global_position
 	##
 	

@@ -52,6 +52,10 @@ func _physics_process(delta):
 		##
 		travel_speed = MovementSpeed
 	else:
+		if global_position.distance_to(civvy.global_position) < 150:
+			_on_conversion_zone_body_entered(civvy)
+			return
+		##
 		if converting == false and travel_brain.is_navigation_finished():
 			path_requery_timer.start(0.5)
 			travel_brain.target_position = civvy.global_position
@@ -81,7 +85,7 @@ func get_absorbed():
 
 func _on_sight_body_entered(body):
 	if found_target == false:
-		if body is Civilian and body.being_converted_by() == null and body.being_escorted_by() == null:
+		if body.being_converted_by() == null and body.being_escorted_by() == null:
 			found_target = true
 			civvy = body
 			travel_brain.target_position = civvy.global_position

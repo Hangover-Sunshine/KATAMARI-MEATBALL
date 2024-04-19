@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_sfimj")
 [node name="Sight" type="Area2D" parent="."]
 position = Vector2(1, 0)
 collision_layer = 0
-collision_mask = 12
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_pefrn")
