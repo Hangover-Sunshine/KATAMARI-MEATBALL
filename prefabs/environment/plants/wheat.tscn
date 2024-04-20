@@ -7,22 +7,45 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xt3u2"]
 radius = 9.5839
 
-[sub_resource type="Animation" id="Animation_d1t27"]
-resource_name = "Wind"
-length = 3.0
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_s2xcm"]
+resource_name = "Destroy"
+length = 0.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Plant:skew")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Plant:scale")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0436332, 0.0]
+"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plant:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explode:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_krpgb"]
@@ -76,45 +99,22 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_s2xcm"]
-resource_name = "Destroy"
-length = 0.25
+[sub_resource type="Animation" id="Animation_d1t27"]
+resource_name = "Wind"
+length = 3.0
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Plant:scale")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Plant:skew")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1e-05), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Plant:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Explode:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [0.0, 0.0436332, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vke3t"]
@@ -127,8 +127,8 @@ _data = {
 [node name="Wheat" type="StaticBody2D"]
 collision_layer = 288
 script = ExtResource("1_veaka")
-MinScoreThreshold = 1.0
-MinVelocityThreshold = 1.0
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 VelocityReduction = 0.01
 
 [node name="Plant" type="Sprite2D" parent="."]
