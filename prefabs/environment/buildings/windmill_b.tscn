@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjtnlkp2osts4"]
+[gd_scene load_steps=16 format=3 uid="uid://bjtnlkp2osts4"]
 
 [ext_resource type="Script" path="res://scripts/environment/props/Destruct_Windmill.gd" id="1_74sxv"]
 [ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="1_i8nqy"]
@@ -152,6 +152,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krf3h"]
 size = Vector2(287, 255)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynlqe"]
+size = Vector2(188, 142)
+
 [node name="Windmill B" type="StaticBody2D"]
 collision_layer = 32
 script = ExtResource("1_74sxv")
@@ -198,3 +201,7 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.5, -127.5)
 shape = SubResource("RectangleShape2D_krf3h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(40, -326)
+shape = SubResource("RectangleShape2D_ynlqe")

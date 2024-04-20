@@ -1,14 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=34 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
 [ext_resource type="Script" path="res://scripts/system/CultistController.gd" id="2_d8b1e"]
 [ext_resource type="Texture2D" uid="uid://dutqfxvbh7o74" path="res://icon.svg" id="2_g3kwv"]
+[ext_resource type="Texture2D" uid="uid://bx7sukkog8gop" path="res://assets/props/decals/Decal_Dirt21.png" id="3_augd2"]
 [ext_resource type="PackedScene" uid="uid://p364hgcf8vms" path="res://prefabs/entities/Cultist.tscn" id="3_dqaxr"]
 [ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="3_imnub"]
+[ext_resource type="Texture2D" uid="uid://cp5d6vgsnkr0y" path="res://assets/props/decals/Decal_Dirt20.png" id="4_2x814"]
 [ext_resource type="Script" path="res://scripts/system/HeroController.gd" id="4_73v16"]
 [ext_resource type="Texture2D" uid="uid://caodqnonsui3a" path="res://assets/props/buildings/Tilesheet_Outer_Walls.png" id="5_5lc37"]
+[ext_resource type="Texture2D" uid="uid://brdcl1x5cis2m" path="res://assets/props/decals/Decal_Dirt19.png" id="5_5563c"]
 [ext_resource type="PackedScene" uid="uid://8nio5o2tjs5l" path="res://prefabs/entities/MeleeHero.tscn" id="5_q4i5m"]
+[ext_resource type="Texture2D" uid="uid://oyt3widphd5v" path="res://assets/props/decals/Decal_Dirt18.png" id="6_p2vgj"]
 [ext_resource type="PackedScene" uid="uid://ep77lvip83kt" path="res://prefabs/entities/RangedHero.tscn" id="6_wvam0"]
 [ext_resource type="Script" path="res://scripts/system/CivilianController.gd" id="7_eiv6q"]
 [ext_resource type="PackedScene" uid="uid://cnwjts4gjgnfd" path="res://prefabs/entities/Civilian.tscn" id="8_b54mm"]
@@ -16,8 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://b2rldqippwrkr" path="res://prefabs/entities/FleshBall.tscn" id="10_4k167"]
 [ext_resource type="PackedScene" uid="uid://cfrs46bu3edfx" path="res://prefabs/system/BallCamera.tscn" id="11_q6w7r"]
 [ext_resource type="PackedScene" uid="uid://brwbb64oj5yj4" path="res://scenes/Menus/Pause_Menu.tscn" id="12_xedtr"]
-[ext_resource type="PackedScene" uid="uid://c2xwtv84yb8i5" path="res://prefabs/environment/Cottage_1x1.tscn" id="15_4qtky"]
 [ext_resource type="AudioStream" uid="uid://dpc7tryh01ans" path="res://assets/sfx/PlayerDeath.ogg" id="16_s4jjy"]
+[ext_resource type="PackedScene" uid="uid://pmf3dv0c5d4t" path="res://prefabs/environment/buildings/windmill_a.tscn" id="22_uhlxy"]
+[ext_resource type="PackedScene" uid="uid://dtjvfnntngcdy" path="res://prefabs/environment/buildings/cottage_c.tscn" id="23_f5pey"]
+[ext_resource type="PackedScene" uid="uid://3baeylxlx467" path="res://prefabs/environment/buildings/cottage_a.tscn" id="24_ylm67"]
+[ext_resource type="PackedScene" uid="uid://bs38fx0tkym50" path="res://prefabs/environment/buildings/cottage_b.tscn" id="25_8n8u2"]
+[ext_resource type="PackedScene" uid="uid://bjtnlkp2osts4" path="res://prefabs/environment/buildings/windmill_b.tscn" id="26_hjsxw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
 vertices = PackedVector2Array(2883, -2925, 2936, 2933, -2928, 2927, -2895, -2936)
@@ -85,7 +93,233 @@ script = ExtResource("2_5l63h")
 Player = NodePath("Player")
 Camera = NodePath("BallCamera")
 
+[node name="ColorRect" type="ColorRect" parent="Game"]
+offset_left = -4500.0
+offset_top = -4500.0
+offset_right = 4500.0
+offset_bottom = 4500.0
+color = Color(0.384314, 0.643137, 0.466667, 1)
+
+[node name="GroundDecals" type="Node2D" parent="Game"]
+position = Vector2(-72, -50)
+
+[node name="DecalDirt24" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-344.487, -547.334)
+rotation = -0.253073
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt39" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-2033, -2336)
+rotation = -4.92183
+scale = Vector2(-1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt21" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1719, -85.9999)
+rotation = 1.07338
+texture = ExtResource("3_augd2")
+
+[node name="DecalDirt20" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(904, -951)
+rotation = -2.10312
+scale = Vector2(-1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt34" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1448, -577)
+rotation = 0.0191986
+scale = Vector2(1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt26" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(680, 144)
+rotation = -2.10312
+scale = Vector2(-1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt19" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(5, -57)
+rotation = 0.0610865
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt22" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(142.513, -890.334)
+rotation = -0.516617
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt43" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1017, -182)
+rotation = -0.167552
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt65" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1354, 463)
+rotation = 1.55509
+scale = Vector2(-1, 1)
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt18" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-507.487, -235.334)
+rotation = -0.663225
+texture = ExtResource("6_p2vgj")
+
+[node name="DecalDirt25" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1026, 537)
+rotation = 0.294961
+texture = ExtResource("6_p2vgj")
+
+[node name="DecalDirt23" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1270.46, 1001.3)
+rotation = 5.1749
+texture = ExtResource("6_p2vgj")
+
+[node name="DecalDirt27" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-486.949, 1719.97)
+rotation = -1.64934
+texture = ExtResource("3_augd2")
+
+[node name="DecalDirt40" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1043.46, 2247.3)
+rotation = 1.72788
+texture = ExtResource("3_augd2")
+
+[node name="DecalDirt28" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(240.407, 1134.87)
+rotation = -0.253073
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt29" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1419.41, 1985.87)
+rotation = 0.357792
+texture = ExtResource("3_augd2")
+
+[node name="DecalDirt45" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1910.89, 2418.2)
+rotation = 0.93026
+scale = Vector2(1, -1)
+texture = ExtResource("3_augd2")
+
+[node name="DecalDirt30" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1357.41, 1524.87)
+scale = Vector2(-1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt31" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(634.406, 1654.87)
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt32" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(559.513, 887.666)
+rotation = -0.516617
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt35" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1417, 336)
+rotation = -0.516617
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt33" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(77.4064, 1446.87)
+rotation = -0.663225
+texture = ExtResource("6_p2vgj")
+
+[node name="DecalDirt44" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-176.487, -1623.33)
+rotation = -0.253073
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt66" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-989.462, 1367.3)
+rotation = -2.63545
+scale = Vector2(1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt73" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1675.46, 1101.3)
+rotation = 2.5028
+scale = Vector2(1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt74" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1543.46, 893.301)
+rotation = -0.18675
+scale = Vector2(-1, -1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt67" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1498, -206)
+rotation = 4.36332
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt68" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1786, -1844)
+rotation = -0.977384
+texture = ExtResource("3_augd2")
+
+[node name="DecalDirt64" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-675, -1533)
+rotation = 0.0733038
+scale = Vector2(-1, 1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt70" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-2206, -1446)
+rotation = -1.96
+scale = Vector2(-1, 1)
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt47" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(217.513, -1103.33)
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt48" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(310.513, -1966.33)
+rotation = -0.516617
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt72" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(2044, -887)
+rotation = -1.24442
+scale = Vector2(-1, 1)
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt71" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1333, -1830)
+rotation = 0.438078
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt69" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-1953, -744)
+rotation = 0.921534
+texture = ExtResource("5_5563c")
+
+[node name="DecalDirt49" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(-339.487, -1311.33)
+rotation = -0.663225
+texture = ExtResource("6_p2vgj")
+
+[node name="DecalDirt36" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(981, -2201)
+rotation = 0.47822
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt37" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1627, -2025)
+rotation = 0.973894
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt38" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(2050, -1540)
+rotation = 1.61967
+texture = ExtResource("4_2x814")
+
+[node name="DecalDirt41" type="Sprite2D" parent="Game/GroundDecals"]
+position = Vector2(1966, 1155)
+rotation = 2.58658
+texture = ExtResource("5_5563c")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_ac0gi")
 
 [node name="Details" type="Node" parent="Game"]
@@ -95,7 +329,7 @@ one_shot = true
 
 [node name="Map" type="Node2D" parent="Game"]
 
-[node name="OuterWall" type="StaticBody2D" parent="Game/Map"]
+[node name="LeftWall" type="StaticBody2D" parent="Game/Map"]
 position = Vector2(-3000, 0)
 collision_layer = 32
 collision_mask = 31
@@ -103,18 +337,18 @@ script = ExtResource("3_imnub")
 MinScoreThreshold = 2100.0
 MinVelocityThreshold = 60.0
 
-[node name="LeftWall" type="TileMap" parent="Game/Map/OuterWall"]
+[node name="LeftWall" type="TileMap" parent="Game/Map/LeftWall"]
 position = Vector2(23.885, 0)
 tile_set = SubResource("TileSet_an1qr")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 1, 1, 0, 1, 1, -196608, 1, 1, -131072, 1, 2, -327680, 1, 1, -262144, 1, 2, -458752, 1, 1, -393216, 1, 2, -589824, 1, 1, -524288, 1, 2, -720896, 1, 1, -655360, 1, 2, -851968, 1, 1, -786432, 1, 2, -983040, 1, 1, -917504, 1, 2, -1114112, 1, 1, -1048576, 1, 2, -1245184, 1, 1, -1179648, 1, 2, -1376256, 1, 1, -1310720, 1, 2, -1507328, 1, 1, -1441792, 1, 2, -1638400, 1, 1, -1572864, 1, 2, -1769472, 1, 1, -1703936, 1, 2, -1900544, 1, 1, -1835008, 1, 2, -2031616, 1, 1, -1966080, 1, 2, -2097152, 1, 1, 65536, 1, 2, 131072, 1, 1, 196608, 1, 2, 262144, 1, 1, 327680, 1, 2, 393216, 1, 1, 458752, 1, 2, 524288, 1, 1, 589824, 1, 2, 655360, 1, 1, 720896, 1, 2, 786432, 1, 1, 851968, 1, 2, 917504, 1, 1, 983040, 1, 2, 1048576, 1, 1, 1114112, 1, 2, 1179648, 1, 1, 1245184, 1, 2, 1310720, 1, 1, 1376256, 1, 2, 1441792, 1, 1, 1507328, 1, 2, 1572864, 1, 1, 1638400, 1, 2, 1703936, 1, 1, 1769472, 1, 2, 1835008, 1, 1, 1900544, 1, 2, 1966080, 1, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/OuterWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/LeftWall"]
 position = Vector2(59, 5.00004)
 scale = Vector2(1, 30)
 shape = SubResource("RectangleShape2D_3qn6e")
 
-[node name="OuterWall2" type="StaticBody2D" parent="Game/Map"]
+[node name="RightWall" type="StaticBody2D" parent="Game/Map"]
 position = Vector2(3000, 0)
 scale = Vector2(-1, 1)
 collision_layer = 32
@@ -123,18 +357,18 @@ script = ExtResource("3_imnub")
 MinScoreThreshold = 2100.0
 MinVelocityThreshold = 60.0
 
-[node name="Rightwall" type="TileMap" parent="Game/Map/OuterWall2"]
+[node name="Rightwall" type="TileMap" parent="Game/Map/RightWall"]
 position = Vector2(23.885, 0)
 tile_set = SubResource("TileSet_an1qr")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 1, 1, 0, 1, 1, -196608, 1, 1, -131072, 1, 2, -327680, 1, 1, -262144, 1, 2, -458752, 1, 1, -393216, 1, 2, -589824, 1, 1, -524288, 1, 2, -720896, 1, 1, -655360, 1, 2, -851968, 1, 1, -786432, 1, 2, -983040, 1, 1, -917504, 1, 2, -1114112, 1, 1, -1048576, 1, 2, -1245184, 1, 1, -1179648, 1, 2, -1376256, 1, 1, -1310720, 1, 2, -1507328, 1, 1, -1441792, 1, 2, -1638400, 1, 1, -1572864, 1, 2, -1769472, 1, 1, -1703936, 1, 2, -1900544, 1, 1, -1835008, 1, 2, -2031616, 1, 1, -1966080, 1, 2, -2097152, 1, 1, 65536, 1, 2, 131072, 1, 1, 196608, 1, 2, 262144, 1, 1, 327680, 1, 2, 393216, 1, 1, 458752, 1, 2, 524288, 1, 1, 589824, 1, 2, 655360, 1, 1, 720896, 1, 2, 786432, 1, 1, 851968, 1, 2, 917504, 1, 1, 983040, 1, 2, 1048576, 1, 1, 1114112, 1, 2, 1179648, 1, 1, 1245184, 1, 2, 1310720, 1, 1, 1376256, 1, 2, 1441792, 1, 1, 1507328, 1, 2, 1572864, 1, 1, 1638400, 1, 2, 1703936, 1, 1, 1769472, 1, 2, 1835008, 1, 1, 1900544, 1, 2, 1966080, 1, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/OuterWall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/RightWall"]
 position = Vector2(59, 5.00004)
 scale = Vector2(1, 30)
 shape = SubResource("RectangleShape2D_3qn6e")
 
-[node name="OuterWall3" type="StaticBody2D" parent="Game/Map"]
+[node name="BottomWall" type="StaticBody2D" parent="Game/Map"]
 position = Vector2(0, 3000)
 collision_layer = 32
 collision_mask = 31
@@ -142,16 +376,16 @@ script = ExtResource("3_imnub")
 MinScoreThreshold = 2100.0
 MinVelocityThreshold = 60.0
 
-[node name="BottomWall" type="TileMap" parent="Game/Map/OuterWall3"]
+[node name="BottomWall" type="TileMap" parent="Game/Map/BottomWall"]
 tile_set = SubResource("TileSet_an1qr")
 format = 2
 layer_0/tile_data = PackedInt32Array(-24, 65537, 3, 65512, 65537, 4, 131048, 65537, 5, -23, 131073, 3, 65513, 131073, 4, -22, 196609, 3, 65514, 196609, 4, -21, 65537, 3, 65515, 65537, 4, 131049, 131073, 5, 131050, 196609, 5, 131051, 131073, 5, -20, 131073, 3, 65516, 131073, 4, -19, 196609, 3, 65517, 196609, 4, -18, 65537, 3, 65518, 65537, 4, 131052, 196609, 5, 131053, 65537, 5, 131054, 131073, 5, -17, 131073, 3, 65519, 131073, 4, -16, 196609, 3, 65520, 196609, 4, -15, 65537, 3, 65521, 65537, 4, 131055, 196609, 5, 131056, 65537, 5, 131057, 131073, 5, -14, 131073, 3, 65522, 131073, 4, -13, 196609, 3, 65523, 196609, 4, -12, 65537, 3, 65524, 65537, 4, 131058, 196609, 5, 131059, 65537, 5, 131060, 131073, 5, -11, 131073, 3, 65525, 131073, 4, -10, 196609, 3, 65526, 65537, 4, -9, 65537, 3, 65527, 131073, 4, 131061, 196609, 5, 131062, 65537, 5, 131063, 131073, 5, -8, 131073, 3, 65528, 196609, 4, -7, 196609, 3, 65529, 131073, 4, -6, 65537, 3, 65530, 196609, 4, 131064, 196609, 5, 131065, 65537, 5, 131066, 131073, 5, -5, 131073, 3, 65531, 65537, 4, -4, 196609, 3, 65532, 131073, 4, -3, 65537, 3, 65533, 196609, 4, 131067, 196609, 5, 131068, 65537, 5, 131069, 131073, 5, -28, 196609, 3, 65508, 196609, 4, -27, 65537, 3, 65509, 65537, 4, -26, 131073, 3, 65510, 131073, 4, 131044, 196609, 5, 131045, 65537, 5, 131046, 131073, 5, -25, 196609, 3, 65511, 196609, 4, 131047, 196609, 5, -2, 131073, 3, 65534, 65537, 4, 131070, 196609, 5, -1, 196609, 3, 65535, 131073, 4, -65536, 65537, 3, 0, 196609, 4, -65535, 131073, 3, 1, 65537, 4, 131071, 65537, 5, 65536, 131073, 5, 65537, 196609, 5, -65534, 196609, 3, 2, 131073, 4, -65533, 65537, 3, 3, 196609, 4, -65532, 131073, 3, 4, 65537, 4, 65538, 65537, 5, 65539, 131073, 5, 65540, 196609, 5, -65531, 196609, 3, 5, 131073, 4, -65530, 65537, 3, 6, 196609, 4, -65529, 131073, 3, 7, 65537, 4, 65541, 65537, 5, 65542, 131073, 5, 65543, 196609, 5, -65528, 196609, 3, 8, 131073, 4, -65527, 65537, 3, 9, 196609, 4, -65526, 131073, 3, 10, 65537, 4, 65544, 65537, 5, 65545, 131073, 5, 65546, 196609, 5, -65525, 196609, 3, 11, 131073, 4, -65524, 65537, 3, 12, 196609, 4, -65523, 131073, 3, 13, 196609, 4, 65547, 65537, 5, 65548, 131073, 5, 65549, 196609, 5, -65522, 196609, 3, 14, 65537, 4, -65521, 65537, 3, 15, 131073, 4, -65520, 131073, 3, 16, 196609, 4, 65550, 65537, 5, 65551, 131073, 5, 65552, 65537, 5, -65519, 196609, 3, 17, 65537, 4, -65518, 65537, 3, 18, 131073, 4, -65517, 131073, 3, 19, 196609, 4, 65553, 131073, 5, 65554, 65537, 5, 65555, 131073, 5, -65516, 196609, 3, 20, 65537, 4, -65515, 65537, 3, 21, 131073, 4, -65514, 131073, 3, 22, 196609, 4, 65556, 196609, 5, 65557, 65537, 5, 65558, 131073, 5, -65513, 196609, 3, 23, 65537, 4, -65512, 65537, 3, 24, 131073, 4, -65511, 131073, 3, 25, 65537, 4, 65559, 196609, 5, 65560, 65537, 5, 65561, 131073, 5, -65510, 196609, 3, 26, 131073, 4, -65509, 65537, 3, 27, 196609, 4, -65508, 131073, 3, 28, 131073, 4, 65562, 196609, 5, 65563, 65537, 5, 65564, 131073, 5, -29, 131073, 3, 65507, 131073, 4, 131043, 131073, 5, -30, 65537, 3, 65506, 65537, 4, 131042, 65537, 5, -65507, 196609, 3, 29, 196609, 4, 65565, 196609, 5, -31, 1, 3, 65505, 1, 4, 131041, 1, 5, -65506, 262145, 3, 30, 262145, 4, 65566, 262145, 5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/OuterWall3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/BottomWall"]
 position = Vector2(-0.5, 60.5)
 shape = SubResource("RectangleShape2D_c7yj1")
 
-[node name="OuterWall4" type="StaticBody2D" parent="Game/Map"]
+[node name="TopWall" type="StaticBody2D" parent="Game/Map"]
 position = Vector2(0, -3000)
 collision_layer = 32
 collision_mask = 31
@@ -159,22 +393,140 @@ script = ExtResource("3_imnub")
 MinScoreThreshold = 2100.0
 MinVelocityThreshold = 100.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Game/Map/OuterWall4"]
+[node name="Sprite2D" type="Sprite2D" parent="Game/Map/TopWall"]
 texture = ExtResource("2_g3kwv")
 
-[node name="TopWall" type="TileMap" parent="Game/Map/OuterWall4"]
+[node name="TopWall" type="TileMap" parent="Game/Map/TopWall"]
 tile_set = SubResource("TileSet_an1qr")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65567, 1, 0, -31, 1, 1, 65505, 1, 2, -65566, 65537, 0, -30, 65537, 1, 65506, 65537, 2, -65565, 131073, 0, -29, 131073, 1, 65507, 131073, 2, -65564, 196609, 0, -28, 196609, 1, 65508, 196609, 2, -65563, 65537, 0, -27, 65537, 1, 65509, 65537, 2, -65562, 131073, 0, -26, 131073, 1, 65510, 131073, 2, -65561, 196609, 0, -25, 196609, 1, 65511, 196609, 2, -65560, 65537, 0, -24, 65537, 1, 65512, 65537, 2, -65559, 131073, 0, -23, 131073, 1, 65513, 131073, 2, -65558, 196609, 0, -22, 196609, 1, 65514, 196609, 2, -65557, 65537, 0, -21, 65537, 1, 65515, 65537, 2, -65556, 131073, 0, -20, 131073, 1, 65516, 131073, 2, -65555, 196609, 0, -19, 196609, 1, 65517, 196609, 2, -65554, 65537, 0, -18, 65537, 1, 65518, 65537, 2, -65553, 131073, 0, -17, 131073, 1, 65519, 131073, 2, -65552, 196609, 0, -16, 196609, 1, 65520, 196609, 2, -65551, 65537, 0, -15, 65537, 1, 65521, 65537, 2, -65550, 131073, 0, -14, 131073, 1, 65522, 131073, 2, -65549, 196609, 0, -13, 196609, 1, 65523, 196609, 2, -65548, 65537, 0, -12, 65537, 1, 65524, 65537, 2, -65547, 131073, 0, -11, 131073, 1, 65525, 131073, 2, -65546, 196609, 0, -10, 196609, 1, 65526, 196609, 2, -65545, 65537, 0, -9, 65537, 1, 65527, 65537, 2, -65544, 131073, 0, -8, 131073, 1, 65528, 131073, 2, -65543, 196609, 0, -7, 196609, 1, 65529, 196609, 2, -65542, 65537, 0, -6, 65537, 1, 65530, 65537, 2, -65541, 131073, 0, -5, 131073, 1, 65531, 131073, 2, -65540, 196609, 0, -4, 196609, 1, 65532, 196609, 2, -65539, 65537, 0, -3, 65537, 1, 65533, 65537, 2, -65538, 131073, 0, -2, 131073, 1, 65534, 131073, 2, -65537, 196609, 0, -1, 196609, 1, 65535, 196609, 2, -131072, 65537, 0, -65536, 65537, 1, 0, 65537, 2, -131071, 131073, 0, -65535, 131073, 1, 1, 131073, 2, -131070, 196609, 0, -65534, 196609, 1, 2, 196609, 2, -131069, 65537, 0, -65533, 65537, 1, 3, 65537, 2, -131068, 131073, 0, -65532, 131073, 1, 4, 131073, 2, -131067, 196609, 0, -65531, 196609, 1, 5, 196609, 2, -131066, 65537, 0, -65530, 65537, 1, 6, 65537, 2, -131065, 131073, 0, -65529, 131073, 1, 7, 131073, 2, -131064, 196609, 0, -65528, 196609, 1, 8, 196609, 2, -131063, 65537, 0, -65527, 65537, 1, 9, 65537, 2, -131062, 131073, 0, -65526, 131073, 1, 10, 131073, 2, -131061, 196609, 0, -65525, 196609, 1, 11, 196609, 2, -131060, 65537, 0, -65524, 65537, 1, 12, 65537, 2, -131059, 131073, 0, -65523, 131073, 1, 13, 131073, 2, -131058, 196609, 0, -65522, 196609, 1, 14, 196609, 2, -131057, 65537, 0, -65521, 65537, 1, 15, 65537, 2, -131056, 131073, 0, -65520, 131073, 1, 16, 131073, 2, -131055, 196609, 0, -65519, 196609, 1, 17, 196609, 2, -131054, 65537, 0, -65518, 65537, 1, 18, 65537, 2, -131053, 131073, 0, -65517, 131073, 1, 19, 131073, 2, -131052, 196609, 0, -65516, 196609, 1, 20, 196609, 2, -131051, 65537, 0, -65515, 65537, 1, 21, 65537, 2, -131050, 131073, 0, -65514, 131073, 1, 22, 131073, 2, -131049, 196609, 0, -65513, 196609, 1, 23, 196609, 2, -131048, 65537, 0, -65512, 65537, 1, 24, 65537, 2, -131047, 131073, 0, -65511, 131073, 1, 25, 131073, 2, -131046, 196609, 0, -65510, 196609, 1, 26, 196609, 2, -131045, 65537, 0, -65509, 65537, 1, 27, 65537, 2, -131044, 131073, 0, -65508, 131073, 1, 28, 131073, 2, -131043, 196609, 0, -65507, 196609, 1, 29, 196609, 2, -131042, 262145, 0, -65506, 262145, 1, 30, 262145, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/OuterWall4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/TopWall"]
 position = Vector2(0, -42.5)
 shape = SubResource("RectangleShape2D_ym76a")
 
-[node name="Building" parent="Game/Map" instance=ExtResource("15_4qtky")]
-position = Vector2(448, -311)
-MinScoreThreshold = 20.0
-MinVelocityThreshold = 50.0
+[node name="Buildings" type="Node2D" parent="Game/Map"]
+
+[node name="Cottage A Group" type="Node2D" parent="Game/Map/Buildings"]
+
+[node name="Cottage A" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-189, -337)
+
+[node name="Cottage A2" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-1061, 700)
+
+[node name="Cottage A3" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(760, -143)
+
+[node name="Cottage A4" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-2271, -524)
+
+[node name="Cottage A5" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(1305, 700)
+
+[node name="Cottage A6" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-343, 226)
+
+[node name="Cottage A7" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-2084, 856)
+
+[node name="Cottage A13" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-1144, 2042)
+
+[node name="Cottage A14" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-113, 1854)
+
+[node name="Cottage A15" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(1833, 1524)
+
+[node name="Cottage A16" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(1175, 2491)
+
+[node name="Cottage A8" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(-1865, -1547)
+
+[node name="Cottage A9" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(197, -1506)
+
+[node name="Cottage A10" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(1258, -2464)
+
+[node name="Cottage A11" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(2199, -456)
+
+[node name="Cottage A12" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
+position = Vector2(1425, -910)
+
+[node name="Cottage B Group" type="Node2D" parent="Game/Map/Buildings"]
+
+[node name="Cottage B" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
+position = Vector2(-1061, 76)
+
+[node name="Cottage B2" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
+position = Vector2(-562, -1858)
+
+[node name="Cottage B3" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
+position = Vector2(1147, 1936)
+
+[node name="Cottage B5" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
+position = Vector2(-1769, 2411)
+
+[node name="Cottage B4" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
+position = Vector2(1494, -1712)
+
+[node name="Cottage C Group" type="Node2D" parent="Game/Map/Buildings"]
+
+[node name="Cottage C" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
+position = Vector2(1496, -143)
+
+[node name="Cottage C2" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
+position = Vector2(-458, -937)
+
+[node name="Cottage C3" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
+position = Vector2(-428, 1239)
+
+[node name="Cottage C4" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
+position = Vector2(-1488, -2241)
+
+[node name="Cottage C5" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
+position = Vector2(2219, -2083)
+
+[node name="Windmill A Group" type="Node2D" parent="Game/Map/Buildings"]
+
+[node name="Windmill A5" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
+position = Vector2(2039, 361)
+
+[node name="Windmill A" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
+position = Vector2(502, -715)
+
+[node name="Windmill A2" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
+position = Vector2(-1865, 310)
+
+[node name="Windmill A3" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
+position = Vector2(461, 1375)
+
+[node name="Windmill A4" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
+position = Vector2(-2461, -2090)
+
+[node name="Windmill B Group" type="Node2D" parent="Game/Map/Buildings"]
+
+[node name="Windmill B" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
+position = Vector2(519, 515)
+
+[node name="Windmill B2" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
+position = Vector2(-1509, -689)
+
+[node name="Windmill B3" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
+position = Vector2(-1471, 1463)
+
+[node name="Windmill B4" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
+position = Vector2(241, -2282)
+
+[node name="Windmill B5" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
+position = Vector2(2445, -1102)
+
+[node name="Windmill B6" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
+position = Vector2(2377, 2166)
 
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
@@ -215,6 +567,7 @@ current = true
 stream = ExtResource("16_s4jjy")
 
 [node name="PlayArea" type="Area2D" parent="Game"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/PlayArea"]
