@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=48 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -38,6 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://brot2uai1kpep" path="res://prefabs/environment/props/fence_a.tscn" id="36_keod8"]
 [ext_resource type="PackedScene" uid="uid://uims4aosqrad" path="res://prefabs/environment/props/fence_b.tscn" id="37_4nsht"]
 [ext_resource type="PackedScene" uid="uid://dlwp87iwasr7n" path="res://prefabs/environment/props/fence_c.tscn" id="38_yhre5"]
+[ext_resource type="PackedScene" uid="uid://c5vwo7gww86x" path="res://prefabs/environment/props/barrel.tscn" id="39_ekeu5"]
+[ext_resource type="PackedScene" uid="uid://d1ivix0yacqj3" path="res://prefabs/environment/props/crate.tscn" id="40_d6fi3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
 vertices = PackedVector2Array(2883, -2925, 2936, 2933, -2928, 2927, -2895, -2936)
@@ -630,7 +632,6 @@ position = Vector2(466.338, -54.7069)
 texture = ExtResource("33_rwgty")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_ac0gi")
 
 [node name="Details" type="Node" parent="Game"]
@@ -2612,6 +2613,408 @@ position = Vector2(1052, 1294)
 
 [node name="Wood Group" type="Node2D" parent="Game/Map/Breakables"]
 
+[node name="Fence Group" type="Node2D" parent="Game/Map/Breakables/Wood Group"]
+
+[node name="Fence A" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(207, -302)
+
+[node name="Fence B" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(472, -260)
+
+[node name="Fence C" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(277, -861)
+
+[node name="Fence A2" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1281, -421)
+
+[node name="Fence B2" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(1525, -770)
+
+[node name="Fence B3" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(936, -2122)
+
+[node name="Fence A3" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1586, -1268)
+
+[node name="Fence A4" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1540, -1743)
+
+[node name="Fence C2" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(-134, -1368)
+
+[node name="Fence B4" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-1375, -389)
+
+[node name="Fence A5" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1583, -546)
+
+[node name="Fence A6" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2003, -1120)
+
+[node name="Fence A7" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2058, -1694)
+
+[node name="Fence A8" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2397, -1957)
+
+[node name="Fence A9" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2539, -1728)
+
+[node name="Fence A10" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1852, -2436)
+
+[node name="Fence A11" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1238, -2040)
+
+[node name="Fence C3" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(-921, -1934)
+
+[node name="Fence A12" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-184, -2059)
+
+[node name="Fence A13" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(302, -1344)
+
+[node name="Fence A14" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(643, -1365)
+
+[node name="Fence A15" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1070, -1181)
+
+[node name="Fence A16" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(86, -2167)
+
+[node name="Fence A17" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1149, -2497)
+
+[node name="Fence A18" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1823, -2240)
+
+[node name="Fence B5" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(2054, -2438)
+
+[node name="Fence A19" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(2275, -2773)
+
+[node name="Fence A20" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1243, -2845)
+
+[node name="Fence B6" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-192, -2724)
+
+[node name="Fence A21" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1155, -2739)
+
+[node name="Fence A22" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1162, -2394)
+
+[node name="Fence A23" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-134, -2354)
+
+[node name="Fence B7" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-1653, -1794)
+
+[node name="Fence A24" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1397, -1685)
+
+[node name="Fence A25" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-989, -1467)
+
+[node name="Fence B8" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-974, -980)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Fence C4" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(-2326, -2816)
+
+[node name="Fence A26" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2510, -2652)
+
+[node name="Fence A27" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2437, -1040)
+
+[node name="Fence C5" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(-576, -33)
+
+[node name="Fence A28" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1253, 136)
+
+[node name="Fence A29" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1931, -317)
+
+[node name="Fence A30" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1054, 911)
+
+[node name="Fence A31" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-866, 1092)
+
+[node name="Fence A32" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1713, 606)
+
+[node name="Fence B9" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-512, 1617)
+
+[node name="Fence B10" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-60, 679)
+
+[node name="Fence A33" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(31, 315)
+
+[node name="Fence A34" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-801, 250)
+
+[node name="Fence B11" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(1365, 32)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Fence B12" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(2137, 695)
+
+[node name="Fence A35" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(2764, 718)
+
+[node name="Fence A36" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(2497, -392)
+
+[node name="Fence A37" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(2185, -1877)
+
+[node name="Fence A38" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(2271, -1641)
+
+[node name="Fence C6" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(-2187, -36)
+
+[node name="Fence A39" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2772, -593)
+
+[node name="Fence A40" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2734, 835)
+
+[node name="Fence B13" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-2374, -284)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Fence C7" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(-2045, 1272)
+
+[node name="Fence A41" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2238, 1174)
+
+[node name="Fence A42" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1120, 1628)
+
+[node name="Fence A43" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2816, 1799)
+
+[node name="Fence A44" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2666, 2368)
+
+[node name="Fence A45" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-2476, 2812)
+
+[node name="Fence B14" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(-1439, 2539)
+
+[node name="Fence A46" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-1929, 2429)
+
+[node name="Fence C8" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(-1094, 2180)
+
+[node name="Fence A47" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-595, 2072)
+
+[node name="Fence A48" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-317, 1960)
+
+[node name="Fence A49" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-357, 2326)
+
+[node name="Fence A50" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(-202, 2619)
+
+[node name="Fence A51" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(964, 2665)
+
+[node name="Fence A52" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(938, 2272)
+
+[node name="Fence A53" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(782, 2019)
+
+[node name="Fence C9" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("38_yhre5")]
+position = Vector2(1822, 2349)
+
+[node name="Fence B15" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(771, 1401)
+
+[node name="Fence A54" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(2411, 2421)
+
+[node name="Fence A55" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("36_keod8")]
+position = Vector2(1863, 855)
+
+[node name="Fence B16" parent="Game/Map/Breakables/Wood Group/Fence Group" instance=ExtResource("37_4nsht")]
+position = Vector2(2072, 1300)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Sign Group" type="Node2D" parent="Game/Map/Breakables/Wood Group"]
+
+[node name="Sign" parent="Game/Map/Breakables/Wood Group/Sign Group" instance=ExtResource("35_an4hg")]
+position = Vector2(-1879, -1907)
+
+[node name="Sign2" parent="Game/Map/Breakables/Wood Group/Sign Group" instance=ExtResource("35_an4hg")]
+position = Vector2(-171, -988)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Sign3" parent="Game/Map/Breakables/Wood Group/Sign Group" instance=ExtResource("35_an4hg")]
+position = Vector2(-792, -67)
+
+[node name="Sign4" parent="Game/Map/Breakables/Wood Group/Sign Group" instance=ExtResource("35_an4hg")]
+position = Vector2(1680, -669)
+
+[node name="Sign5" parent="Game/Map/Breakables/Wood Group/Sign Group" instance=ExtResource("35_an4hg")]
+position = Vector2(222, 1424)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Sign6" parent="Game/Map/Breakables/Wood Group/Sign Group" instance=ExtResource("35_an4hg")]
+position = Vector2(-1716, 1197)
+
+[node name="Sign7" parent="Game/Map/Breakables/Wood Group/Sign Group" instance=ExtResource("35_an4hg")]
+position = Vector2(1565, 1531)
+
+[node name="Storage Group" type="Node2D" parent="Game/Map/Breakables/Wood Group"]
+
+[node name="Barrel" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-1230, -2669)
+
+[node name="Barrel2" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-1295, -2809)
+
+[node name="Barrel3" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-2692, -2170)
+
+[node name="Barrel4" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-1311, -1585)
+
+[node name="Crate7" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(-727, -1238)
+
+[node name="Crate" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(396, -1592)
+
+[node name="Crate2" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(3, -2421)
+
+[node name="Barrel5" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(1039, -1884)
+
+[node name="Barrel6" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(1636, -988)
+
+[node name="Barrel7" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(2674, -1176)
+
+[node name="Crate3" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(2626, -1004)
+
+[node name="Crate4" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(2410, -518)
+
+[node name="Crate5" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(1246, -222)
+
+[node name="Barrel8" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(802, -768)
+
+[node name="Barrel9" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(14, -542)
+
+[node name="Crate6" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(-1262, -760)
+
+[node name="Barrel10" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-2472, -606)
+
+[node name="Crate8" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(-1668, 246)
+
+[node name="Crate9" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(-1957, -1276)
+
+[node name="Crate10" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(662, 1291)
+
+[node name="Barrel11" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(970, 1868)
+
+[node name="Barrel12" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(2618, 2083)
+
+[node name="Crate11" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(2052, 1529)
+
+[node name="Barrel13" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(2440, 1183)
+
+[node name="Barrel14" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(1511, 588)
+
+[node name="Barrel15" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-1336, 1976)
+
+[node name="Crate12" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(-286, 2484)
+
+[node name="Barrel16" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(1362, 2538)
+
+[node name="Barrel17" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-2576, 918)
+
+[node name="Crate13" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(-2184, 1278)
+
+[node name="Barrel18" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-1923, 2547)
+
+[node name="Barrel19" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-1815, 2589)
+
+[node name="Barrel20" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-1910, 2664)
+
+[node name="Crate14" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(2192, 1592)
+
+[node name="Crate15" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(2047, 1670)
+
+[node name="Barrel21" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(942, 834)
+
+[node name="Crate16" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(2472, -2180)
+
+[node name="Barrel22" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(2364, -2688)
+
+[node name="Barrel23" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-150, 144)
+
+[node name="Barrel24" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("39_ekeu5")]
+position = Vector2(-201, 1095)
+
+[node name="Crate17" parent="Game/Map/Breakables/Wood Group/Storage Group" instance=ExtResource("40_d6fi3")]
+position = Vector2(-881, -2095)
+
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
 [node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
@@ -2665,138 +3068,6 @@ visible = false
 
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("12_xedtr")]
 metadata/_edit_use_anchors_ = true
-
-[node name="Sign" parent="." instance=ExtResource("35_an4hg")]
-position = Vector2(-1879, -1907)
-
-[node name="Sign2" parent="." instance=ExtResource("35_an4hg")]
-position = Vector2(-171, -988)
-scale = Vector2(-1, 1)
-
-[node name="Sign3" parent="." instance=ExtResource("35_an4hg")]
-position = Vector2(-792, -67)
-
-[node name="Sign4" parent="." instance=ExtResource("35_an4hg")]
-position = Vector2(1680, -669)
-
-[node name="Sign5" parent="." instance=ExtResource("35_an4hg")]
-position = Vector2(222, 1424)
-scale = Vector2(-1, 1)
-
-[node name="Sign6" parent="." instance=ExtResource("35_an4hg")]
-position = Vector2(-1716, 1197)
-
-[node name="Sign7" parent="." instance=ExtResource("35_an4hg")]
-position = Vector2(1565, 1531)
-
-[node name="Fence A" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(207, -302)
-
-[node name="Fence B" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(472, -260)
-
-[node name="Fence C" parent="." instance=ExtResource("38_yhre5")]
-position = Vector2(277, -861)
-
-[node name="Fence A2" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(1281, -421)
-
-[node name="Fence B2" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(1525, -770)
-
-[node name="Fence B3" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(936, -2122)
-
-[node name="Fence A3" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(1586, -1268)
-
-[node name="Fence A4" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(1540, -1743)
-
-[node name="Fence C2" parent="." instance=ExtResource("38_yhre5")]
-position = Vector2(-134, -1368)
-
-[node name="Fence B4" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(-1375, -389)
-
-[node name="Fence A5" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-1583, -546)
-
-[node name="Fence A6" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-2003, -1120)
-
-[node name="Fence A7" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-2058, -1694)
-
-[node name="Fence A8" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-2397, -1957)
-
-[node name="Fence A9" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-2539, -1728)
-
-[node name="Fence A10" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-1852, -2436)
-
-[node name="Fence A11" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-1238, -2040)
-
-[node name="Fence C3" parent="." instance=ExtResource("38_yhre5")]
-position = Vector2(-921, -1934)
-
-[node name="Fence A12" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-184, -2059)
-
-[node name="Fence A13" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(302, -1344)
-
-[node name="Fence A14" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(643, -1365)
-
-[node name="Fence A15" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(1070, -1181)
-
-[node name="Fence A16" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(86, -2167)
-
-[node name="Fence A17" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(1149, -2497)
-
-[node name="Fence A18" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(1823, -2240)
-
-[node name="Fence B5" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(2044, -2482)
-
-[node name="Fence A19" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(2275, -2773)
-
-[node name="Fence A20" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(1243, -2845)
-
-[node name="Fence B6" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(-192, -2724)
-
-[node name="Fence A21" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-1155, -2739)
-
-[node name="Fence A22" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-1162, -2394)
-
-[node name="Fence A23" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-134, -2354)
-
-[node name="Fence B7" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(-1653, -1794)
-
-[node name="Fence A24" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-1397, -1685)
-
-[node name="Fence A25" parent="." instance=ExtResource("36_keod8")]
-position = Vector2(-989, -1467)
-
-[node name="Fence B8" parent="." instance=ExtResource("37_4nsht")]
-position = Vector2(-974, -980)
-scale = Vector2(-1, 1)
 
 [connection signal="timeout" from="Game/Details/SpawnTimer" to="Game" method="_on_spawn_timer_timeout"]
 [connection signal="body_exited" from="Game/PlayArea" to="Game" method="_on_play_area_body_exited"]
