@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://pmf3dv0c5d4t" path="res://prefabs/environment/buildings/windmill_a.tscn" id="27_pprw5"]
 [ext_resource type="PackedScene" uid="uid://bjtnlkp2osts4" path="res://prefabs/environment/buildings/windmill_b.tscn" id="28_5rak7"]
 [ext_resource type="PackedScene" uid="uid://ca4ci8fw6jw1w" path="res://prefabs/projectiles/player_attack.tscn" id="29_5i6r3"]
-[ext_resource type="PackedScene" uid="uid://r4q7hfvxwixv" path="res://prefabs/projectiles/player_charge.tscn" id="30_3j1xy"]
+[ext_resource type="PackedScene" path="res://prefabs/projectiles/player_charge.tscn" id="30_3j1xy"]
 [ext_resource type="Texture2D" uid="uid://caodqnonsui3a" path="res://assets/props/buildings/Tilesheet_Outer_Walls.png" id="31_36ugi"]
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="32_q0m5f"]
 [ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="33_ml70g"]

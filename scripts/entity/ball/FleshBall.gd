@@ -30,8 +30,6 @@ func _ready():
 	
 	influence_cs = influence.get_child(0)
 	
-	print(ball3d.model.mesh.radius)
-	
 	actual_hitbox.shape.radius = 74.3 * ball3d.model.mesh.radius + 40.4
 	influence_cs.shape.radius = 74.3 * ball3d.model.mesh.radius + 40.4 + 70
 ##
