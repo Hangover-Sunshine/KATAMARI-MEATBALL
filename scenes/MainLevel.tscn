@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=21 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -26,6 +26,9 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qn6e"]
 size = Vector2(127, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2gix"]
+size = Vector2(4013, 4009)
 
 [node name="Level" type="Node2D"]
 process_mode = 3
@@ -204,6 +207,14 @@ current = true
 
 [node name="PlayerDeathcry" type="AudioStreamPlayer2D" parent="Game"]
 stream = ExtResource("16_s4jjy")
+
+[node name="Area2D" type="Area2D" parent="Game"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Area2D"]
+position = Vector2(-4.5, 8.5)
+shape = SubResource("RectangleShape2D_r2gix")
+debug_color = Color(0.192157, 0.643137, 0, 0.419608)
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2

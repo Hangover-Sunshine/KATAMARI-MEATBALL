@@ -136,11 +136,11 @@ func _player_out_of_health():
 func _ball_level_changed(lvl:int):
 	if made_it_to_3:
 		if lvl == 0:
-			entity_displacement = [0.3, 0.5, [0.9, 0.1]]
+			entity_displacement = [0.3, 0.5, 0.1]
 		elif lvl == 1:
-			entity_displacement = [0.3, 0.3, [0.7, 0.3]]
+			entity_displacement = [0.3, 0.3, 0.7]
 		else:
-			entity_displacement = [0.3, 0.1, [0.4, 0.6]]
+			entity_displacement = [0.3, 0.1, 0.4]
 		##
 	else:
 		if lvl == 0:
