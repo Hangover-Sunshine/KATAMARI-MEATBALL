@@ -67,8 +67,8 @@ func _ready():
 	go_total_kills.text = str((50 * LWSave.Prefs["game"]["cult_roll"]) +\
 							(100 * LWSave.Prefs["game"]["hero_roll"]) +\
 							(150 * LWSave.Prefs["game"]["civy_roll"]) +\
-							(meters * 15) -\
-							(time / 2))
+							(meters * 10) -\
+							(time * 30))
 ##
 
 func _scene_loaded(new_scene:String):
