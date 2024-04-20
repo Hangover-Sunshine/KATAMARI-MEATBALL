@@ -22,6 +22,16 @@ size = Vector2(310, 65)
 collision_mask = 99
 script = ExtResource("1_37j8s")
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 25)
+offset_left = -48.0
+offset_top = -72.0
+offset_right = 52.0
+offset_bottom = -45.0
+max_value = 50.0
+step = 1.0
+show_percentage = false
+
 [node name="GraphicsController" parent="." instance=ExtResource("3_2rjrk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -87,5 +97,8 @@ stream = ExtResource("10_241q6")
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="PunchPeoplePool"]
 stream = ExtResource("11_bdsw7")
 
+[node name="HBTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Rotator/EntityPunchDetector" to="." method="_on_entity_punch_detector_body_entered"]
 [connection signal="body_exited" from="Rotator/EntityPunchDetector" to="." method="_on_entity_punch_detector_body_exited"]
+[connection signal="timeout" from="HBTimer" to="." method="_on_hb_timer_timeout"]

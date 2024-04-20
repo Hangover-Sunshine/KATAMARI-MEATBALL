@@ -12,6 +12,8 @@ class_name Lich
 @onready var punch_meat_pool = $PunchMeatPool
 @onready var punch_wiff = $PunchWiff
 @onready var punch_people_pool = $PunchPeoplePool
+@onready var health_bar = $HealthBar
+@onready var hb_timer = $HBTimer
 
 var time_since_held:float = 0
 var mouse_pressed:bool = false
@@ -24,18 +26,9 @@ var just_unpaused:bool = false
 func _ready():
 	health = MaxHealth
 	$GraphicsController.character = 0
-##
-
-#func _input(event):
-	#if event is InputEventMouseButton:
-		#if event.is_released():
-			#mouse_pressed = false
-			#punch(global_position.direction_to(get_global_mouse_position()).normalized())
-		#elif event.is_pressed():
-			#mouse_pressed = true
-			#time_since_held = 0
-		##
-	##
+	health_bar.value = MaxHealth
+	health_bar.max_value = MaxHealth
+	health_bar.visible = false
 ##
 
 func punch(dir_from_player_to_mouse):
@@ -62,6 +55,12 @@ func punch(dir_from_player_to_mouse):
 			##
 		##
 	##
+	
+	if len(enemies_in_way) > 0:
+		hb_timer.start(1.5)
+	##
+	
+	health_bar.value = health
 ##
 
 func _process(delta):
@@ -129,11 +128,17 @@ func _on_entity_punch_detector_body_exited(body):
 
 func take_damage(dmg):
 	health -= dmg
-	print("ow! ", health, "/50")
+	health_bar.visible = true
+	health_bar.value -= dmg
+	hb_timer.start(3)
 	if health <= 0:
 		# spawn death particles
-		# kill
 		GlobalSignals.emit_signal("player_out_of_health")
 		process_mode = Node.PROCESS_MODE_DISABLED
 	##
+	$GraphicsController.flash()
+##
+
+func _on_hb_timer_timeout():
+	health_bar.visible = false
 ##

@@ -19,6 +19,7 @@ var influence_cs:CollisionShape2D
 
 var current_consumption:float
 var off:bool = true
+var flash_playing:bool = false
 
 var momentum_loss_timer:float = 0
 
@@ -108,6 +109,7 @@ func take_damage(damage):
 		return
 	##
 	
+	flash()
 	current_consumption -= damage
 	ball3d.set_ball_scale(current_consumption)
 	
@@ -136,4 +138,17 @@ func _on_influence_body_entered(body):
 	else:
 		body.get_absorbed()
 	##
+##
+
+func flash():
+	if flash_playing:
+		return
+	flash_playing = true
+	$FlashTimer.start()
+	$BallDisplay.material.set_shader_parameter("hit_opacity", 0.5)
+##
+
+func _on_flash_timer_timeout():
+	flash_playing = false
+	$BallDisplay.material.set_shader_parameter("hit_opacity", 0)
 ##

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjqb4w7t3q0yb"]
+[gd_scene load_steps=17 format=3 uid="uid://bjqb4w7t3q0yb"]
 
 [ext_resource type="Texture2D" uid="uid://6xec75gnikfa" path="res://assets/characters/All_Hands.png" id="1_12a3x"]
 [ext_resource type="Script" path="res://prefabs/entities/all_character.gd" id="1_h2sn6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcaynjkdimu7g" path="res://assets/characters/Hero_Heads.png" id="3_4sslf"]
 [ext_resource type="Texture2D" uid="uid://bs2qgmbj5ftk1" path="res://assets/characters/Peon_Heads.png" id="4_ug4sn"]
 [ext_resource type="Texture2D" uid="uid://dpm5743pmyen" path="res://assets/characters/All_Body.png" id="5_tllnm"]
+[ext_resource type="Shader" path="res://shaders/flash.gdshader" id="7_jwvid"]
 
 [sub_resource type="Curve" id="Curve_flos4"]
 min_value = 0.05
@@ -16,6 +17,16 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_1y67h"]
 offsets = PackedFloat32Array(0, 0.0935114, 0.316794)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gl5np"]
+shader = ExtResource("7_jwvid")
+shader_parameter/hit_opacity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rhn5"]
+shader = ExtResource("7_jwvid")
+shader_parameter/hit_opacity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_3757p"]
 resource_name = "Idle"
@@ -171,6 +182,7 @@ color_ramp = SubResource("Gradient_1y67h")
 
 [node name="AllHands" type="Sprite2D" parent="All_Skeleton"]
 visible = false
+material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -11.975)
 texture = ExtResource("1_12a3x")
 vframes = 3
@@ -179,6 +191,7 @@ vframes = 3
 
 [node name="Cult_Heads" type="Sprite2D" parent="All_Skeleton/Heads"]
 visible = false
+material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -26)
 texture = ExtResource("2_ka302")
 hframes = 3
@@ -186,6 +199,7 @@ vframes = 4
 
 [node name="Hero_Heads" type="Sprite2D" parent="All_Skeleton/Heads"]
 visible = false
+material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -26)
 texture = ExtResource("3_4sslf")
 hframes = 3
@@ -193,12 +207,14 @@ vframes = 4
 
 [node name="Peon_Heads" type="Sprite2D" parent="All_Skeleton/Heads"]
 visible = false
+material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -26)
 texture = ExtResource("4_ug4sn")
 hframes = 3
 vframes = 4
 
 [node name="AllBody" type="Sprite2D" parent="All_Skeleton"]
+material = SubResource("ShaderMaterial_1rhn5")
 texture = ExtResource("5_tllnm")
 hframes = 4
 vframes = 4
@@ -207,3 +223,9 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_w2qnm")
 }
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="FlashTimer" to="." method="_flash_over"]

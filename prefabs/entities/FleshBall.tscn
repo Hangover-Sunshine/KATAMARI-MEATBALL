@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2rldqippwrkr"]
+[gd_scene load_steps=8 format=3 uid="uid://b2rldqippwrkr"]
 
 [ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="1_11vk3"]
 [ext_resource type="Script" path="res://scripts/entity/ball/FleshBall.gd" id="1_amhv6"]
+[ext_resource type="Shader" path="res://shaders/flash.gdshader" id="2_ad1mm"]
 [ext_resource type="PackedScene" uid="uid://dkhqlhb2o75jk" path="res://prefabs/entities/Ball3D.tscn" id="3_1gaad"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5k42e"]
+shader = ExtResource("2_ad1mm")
+shader_parameter/hit_opacity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdqra"]
 radius = 50.0
@@ -21,6 +27,7 @@ MovementLoss = 0.1
 MovementLossTime = 1.5
 
 [node name="BallDisplay" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5k42e")
 texture = ExtResource("1_11vk3")
 
 [node name="ActualHitbox" type="CollisionShape2D" parent="."]
@@ -40,4 +47,9 @@ transparent_bg = true
 
 [node name="Ball3D" parent="BallView" instance=ExtResource("3_1gaad")]
 
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="body_entered" from="Influence" to="." method="_on_influence_body_entered"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

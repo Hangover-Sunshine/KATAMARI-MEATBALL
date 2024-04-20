@@ -97,11 +97,30 @@ func clear_character():
 func play_idle():
 	if $AnimationPlayer.is_playing() == false or ($AnimationPlayer.is_playing() and $AnimationPlayer.current_animation != "Idle"):
 		$AnimationPlayer.play("Idle")
+	$Walk_Trail.emitting = false
 	return true
 ##
 
 func play_waddle():
 	if $AnimationPlayer.is_playing() == false or ($AnimationPlayer.is_playing() and $AnimationPlayer.current_animation != "Walk"):
 		$AnimationPlayer.play("Walk")
+	$Walk_Trail.emitting = true
 	return true
+##
+
+func flash():
+	$FlashTimer.start()
+	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0.6)
+	$All_Skeleton/Heads/Cult_Heads.material.set_shader_parameter("hit_opacity", 0.6)
+	$All_Skeleton/Heads/Hero_Heads.material.set_shader_parameter("hit_opacity", 0.6)
+	$All_Skeleton/Heads/Peon_Heads.material.set_shader_parameter("hit_opacity", 0.6)
+	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0.6)
+##
+
+func _flash_over():
+	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0)
+	$All_Skeleton/Heads/Cult_Heads.material.set_shader_parameter("hit_opacity", 0)
+	$All_Skeleton/Heads/Hero_Heads.material.set_shader_parameter("hit_opacity", 0)
+	$All_Skeleton/Heads/Peon_Heads.material.set_shader_parameter("hit_opacity", 0)
+	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0)
 ##

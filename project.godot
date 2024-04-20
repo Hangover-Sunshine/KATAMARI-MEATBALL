@@ -44,7 +44,8 @@ folder_colors={
 "res://nodes/": "green",
 "res://prefabs/": "teal",
 "res://scenes/": "blue",
-"res://scripts/": "purple"
+"res://scripts/": "purple",
+"res://shaders/": "pink"
 }
 
 [input]

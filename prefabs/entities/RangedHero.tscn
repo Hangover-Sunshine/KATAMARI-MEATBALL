@@ -1,9 +1,165 @@
-[gd_scene load_steps=7 format=3 uid="uid://ep77lvip83kt"]
+[gd_scene load_steps=22 format=3 uid="uid://ep77lvip83kt"]
 
 [ext_resource type="Script" path="res://scripts/entity/adventurer/RangedHero.gd" id="1_ud2tp"]
 [ext_resource type="PackedScene" uid="uid://duoq5pc1pwvqy" path="res://prefabs/projectiles/Fireball.tscn" id="2_6hd5u"]
 [ext_resource type="PackedScene" uid="uid://beamqrjtg2mmh" path="res://prefabs/projectiles/Arrow.tscn" id="2_l88v2"]
-[ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="2_q7qng"]
+[ext_resource type="Script" path="res://prefabs/entities/all_character.gd" id="4_fh0sc"]
+[ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="5_fr5ex"]
+[ext_resource type="Shader" path="res://shaders/flash.gdshader" id="6_874qf"]
+[ext_resource type="Texture2D" uid="uid://6xec75gnikfa" path="res://assets/characters/All_Hands.png" id="7_t64io"]
+[ext_resource type="Texture2D" uid="uid://csfe5gl2dy18y" path="res://assets/characters/Cult_Heads.png" id="8_7cqaf"]
+[ext_resource type="Texture2D" uid="uid://bcaynjkdimu7g" path="res://assets/characters/Hero_Heads.png" id="9_x0lif"]
+[ext_resource type="Texture2D" uid="uid://bs2qgmbj5ftk1" path="res://assets/characters/Peon_Heads.png" id="10_bjer7"]
+[ext_resource type="Texture2D" uid="uid://dpm5743pmyen" path="res://assets/characters/All_Body.png" id="11_8847s"]
+
+[sub_resource type="Curve" id="Curve_flos4"]
+min_value = 0.05
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.05), -3.00256, 3.25337, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_1y67h"]
+offsets = PackedFloat32Array(0, 0.0935114, 0.316794)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gl5np"]
+shader = ExtResource("6_874qf")
+shader_parameter/hit_opacity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rhn5"]
+shader = ExtResource("6_874qf")
+shader_parameter/hit_opacity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_3757p"]
+resource_name = "Idle"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All_Skeleton:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0436332, 0.0, -0.0436332, 0.0, -0.0436332, 0.0, 0.0436332, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("All_Skeleton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 1.05), Vector2(0.95, 1.1), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(0.95, 1.05), Vector2(0.95, 1.1), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("All_Skeleton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1cy34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All_Skeleton:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("All_Skeleton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("All_Skeleton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n7fi2"]
+resource_name = "Walk"
+length = 1.5
+loop_mode = 1
+step = 0.375
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All_Skeleton:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75, 1.125, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("All_Skeleton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75, 1.125, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.95, 1.1), Vector2(1.1, 0.9), Vector2(0.95, 1.1), Vector2(1.1, 0.9), Vector2(0.95, 1.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("All_Skeleton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75, 1.125, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w2qnm"]
+_data = {
+"Idle": SubResource("Animation_3757p"),
+"RESET": SubResource("Animation_1cy34"),
+"Walk": SubResource("Animation_n7fi2")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itsys"]
 size = Vector2(99, 108)
@@ -20,8 +176,76 @@ RangerProjectile = ExtResource("2_l88v2")
 MovementSpeed = 350.0
 ConsumptionScore = 6.5
 
-[node name="GraphicsController" parent="." instance=ExtResource("2_q7qng")]
+[node name="GraphicsController" type="Node2D" parent="."]
 position = Vector2(-1, 0)
+script = ExtResource("4_fh0sc")
+
+[node name="Walk_Trail" type="CPUParticles2D" parent="GraphicsController"]
+position = Vector2(0, 46)
+emitting = false
+amount = 40
+texture = ExtResource("5_fr5ex")
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 16.0
+gravity = Vector2(0, 0)
+radial_accel_max = 10.0
+angle_min = -50.0
+angle_max = 50.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_flos4")
+color_ramp = SubResource("Gradient_1y67h")
+
+[node name="All_Skeleton" type="Node2D" parent="GraphicsController"]
+
+[node name="AllHands" type="Sprite2D" parent="GraphicsController/All_Skeleton"]
+visible = false
+material = SubResource("ShaderMaterial_gl5np")
+position = Vector2(0, -11.975)
+texture = ExtResource("7_t64io")
+vframes = 3
+
+[node name="Heads" type="Node2D" parent="GraphicsController/All_Skeleton"]
+
+[node name="Cult_Heads" type="Sprite2D" parent="GraphicsController/All_Skeleton/Heads"]
+visible = false
+material = SubResource("ShaderMaterial_gl5np")
+position = Vector2(0, -26)
+texture = ExtResource("8_7cqaf")
+hframes = 3
+vframes = 4
+
+[node name="Hero_Heads" type="Sprite2D" parent="GraphicsController/All_Skeleton/Heads"]
+visible = false
+material = SubResource("ShaderMaterial_gl5np")
+position = Vector2(0, -26)
+texture = ExtResource("9_x0lif")
+hframes = 3
+vframes = 4
+
+[node name="Peon_Heads" type="Sprite2D" parent="GraphicsController/All_Skeleton/Heads"]
+visible = false
+material = SubResource("ShaderMaterial_gl5np")
+position = Vector2(0, -26)
+texture = ExtResource("10_bjer7")
+hframes = 3
+vframes = 4
+
+[node name="AllBody" type="Sprite2D" parent="GraphicsController/All_Skeleton"]
+material = SubResource("ShaderMaterial_1rhn5")
+texture = ExtResource("11_8847s")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GraphicsController"]
+libraries = {
+"": SubResource("AnimationLibrary_w2qnm")
+}
+
+[node name="FlashTimer" type="Timer" parent="GraphicsController"]
+wait_time = 0.1
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
@@ -41,6 +265,7 @@ target_desired_distance = 150.0
 [node name="SpawnProjectileTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="timeout" from="GraphicsController/FlashTimer" to="GraphicsController" method="_flash_over"]
 [connection signal="body_entered" from="SightRange" to="." method="_on_sight_range_body_entered"]
 [connection signal="body_exited" from="SightRange" to="." method="_on_sight_range_body_exited"]
 [connection signal="timeout" from="SpawnProjectileTimer" to="." method="_on_spawn_projectile_timer_timeout"]

@@ -39,6 +39,7 @@ func take_damage(dmg):
 		civilian.escort_under_attack = true
 	##
 	health -= dmg
+	$GraphicsController.flash()
 	if health <= 0:
 		LWSave.Prefs["game"]["hero_punch"] += 1
 		get_parent().dead(global_position)
