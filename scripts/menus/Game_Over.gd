@@ -64,11 +64,11 @@ func _ready():
 	go_cult_score.text = str(50 * LWSave.Prefs["game"]["cult_roll"])
 	go_hero_score.text = str(100 * LWSave.Prefs["game"]["hero_roll"])
 	go_civil_score.text = str(150 * LWSave.Prefs["game"]["hero_roll"])
-	go_total_kills.text = (50 * LWSave.Prefs["game"]["cult_roll"]) +\
+	go_total_kills.text = str((50 * LWSave.Prefs["game"]["cult_roll"]) +\
 							(100 * LWSave.Prefs["game"]["hero_roll"]) +\
 							(150 * LWSave.Prefs["game"]["civy_roll"]) +\
 							(meters * 15) -\
-							(time / 2)
+							(time / 2))
 ##
 
 func _scene_loaded(new_scene:String):
