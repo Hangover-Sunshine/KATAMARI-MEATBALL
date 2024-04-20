@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb85pxc1grb1y"]
+
+[ext_resource type="Texture2D" uid="uid://br4yvlq0v6wsy" path="res://assets/particle/Line.png" id="1_uxh1v"]
+
+[sub_resource type="Curve" id="Curve_3vswg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_gqmc7"]
+offsets = PackedFloat32Array(0.64, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_38fph"]
+offsets = PackedFloat32Array(0.68, 1)
+colors = PackedColorArray(0.854902, 0.694118, 0.388235, 1, 0.807843, 0.572549, 0.282353, 1)
+
+[node name="FX_Explode_Wheat_Smoll" type="CPUParticles2D"]
+rotation = -1.5708
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.25
+texture = ExtResource("1_uxh1v")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 25)
+gravity = Vector2(0, 50)
+initial_velocity_min = 75.0
+initial_velocity_max = 100.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_3vswg")
+color_ramp = SubResource("Gradient_gqmc7")
+color_initial_ramp = SubResource("Gradient_38fph")

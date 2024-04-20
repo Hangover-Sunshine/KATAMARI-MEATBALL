@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxcmcebm3ig7i"]
+[gd_scene load_steps=15 format=3 uid="uid://bxcmcebm3ig7i"]
 
 [ext_resource type="PackedScene" uid="uid://dxqn3f5o6yd5q" path="res://prefabs/environment/plants/grass.tscn" id="2_lxk1y"]
+[ext_resource type="PackedScene" uid="uid://c4amcxhq83aq0" path="res://prefabs/environment/plants/wheat.tscn" id="4_yen7h"]
 [ext_resource type="PackedScene" uid="uid://co57ti7rlh7b4" path="res://prefabs/environment/plants/flower_a.tscn" id="8_q1rm4"]
 [ext_resource type="PackedScene" uid="uid://uctqmnwrjvi6" path="res://prefabs/environment/plants/flower_b.tscn" id="9_4lwh1"]
 [ext_resource type="PackedScene" uid="uid://dkmelr2eit6tc" path="res://prefabs/environment/plants/fern.tscn" id="10_j8rp5"]
@@ -95,6 +96,21 @@ position = Vector2(18, -125)
 
 [node name="Flower A10" parent="." instance=ExtResource("10_j8rp5")]
 position = Vector2(-560, 25)
+
+[node name="Flower A11" parent="." instance=ExtResource("10_j8rp5")]
+position = Vector2(-574, -115)
+
+[node name="Flower A12" parent="." instance=ExtResource("10_j8rp5")]
+position = Vector2(-243, -219)
+
+[node name="Flower A13" parent="." instance=ExtResource("10_j8rp5")]
+position = Vector2(89, -35)
+
+[node name="Flower A14" parent="." instance=ExtResource("10_j8rp5")]
+position = Vector2(-94, 137)
+
+[node name="Wheat" parent="." instance=ExtResource("4_yen7h")]
+position = Vector2(-279, 4)
 
 [node name="Art" type="Node2D" parent="."]
 
@@ -209,15 +225,3 @@ region_rect = Rect2(0, 0, 96, 96)
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kxqqo")
 debug_color = Color(0, 0.6, 0.701961, 0)
-
-[node name="Flower A11" parent="." instance=ExtResource("10_j8rp5")]
-position = Vector2(-574, -115)
-
-[node name="Flower A12" parent="." instance=ExtResource("10_j8rp5")]
-position = Vector2(-243, -219)
-
-[node name="Flower A13" parent="." instance=ExtResource("10_j8rp5")]
-position = Vector2(89, -35)
-
-[node name="Flower A14" parent="." instance=ExtResource("10_j8rp5")]
-position = Vector2(-94, 137)
