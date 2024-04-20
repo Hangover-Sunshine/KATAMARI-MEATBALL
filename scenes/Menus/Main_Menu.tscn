@@ -69,10 +69,12 @@ alignment = 1
 
 [node name="MM_Title" type="Label" parent="MarginContainer/MainMenu/MM_VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("1_w3d6x")
 theme_override_font_sizes/font_size = 240
-text = "MAIN MENU"
+text = "KATAMARI
+MEATBALL"
 horizontal_alignment = 1
 
 [node name="MM_HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainMenu/MM_VBoxContainer"]
