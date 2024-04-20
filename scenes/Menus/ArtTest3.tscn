@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bxcmcebm3ig7i"]
+[gd_scene load_steps=35 format=3 uid="uid://bxcmcebm3ig7i"]
 
 [ext_resource type="PackedScene" uid="uid://dxqn3f5o6yd5q" path="res://prefabs/environment/plants/grass.tscn" id="2_lxk1y"]
 [ext_resource type="PackedScene" uid="uid://c4amcxhq83aq0" path="res://prefabs/environment/plants/wheat.tscn" id="4_yen7h"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://pmf3dv0c5d4t" path="res://prefabs/environment/buildings/windmill_a.tscn" id="27_pprw5"]
 [ext_resource type="PackedScene" uid="uid://bjtnlkp2osts4" path="res://prefabs/environment/buildings/windmill_b.tscn" id="28_5rak7"]
 [ext_resource type="PackedScene" uid="uid://ca4ci8fw6jw1w" path="res://prefabs/projectiles/player_attack.tscn" id="29_5i6r3"]
-[ext_resource type="PackedScene" uid="uid://covm1wlkrryrq" path="res://prefabs/particles/fx_trail_blood_charge.tscn" id="30_8xjyl"]
+[ext_resource type="PackedScene" uid="uid://r4q7hfvxwixv" path="res://prefabs/projectiles/player_charge.tscn" id="30_3j1xy"]
 [ext_resource type="Texture2D" uid="uid://caodqnonsui3a" path="res://assets/props/buildings/Tilesheet_Outer_Walls.png" id="31_36ugi"]
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="32_q0m5f"]
 [ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="33_ml70g"]
@@ -77,90 +77,6 @@ texture_region_size = Vector2i(96, 96)
 [sub_resource type="TileSet" id="TileSet_7r0xo"]
 tile_size = Vector2i(96, 96)
 sources/0 = SubResource("TileSetAtlasSource_otdtn")
-
-[sub_resource type="Animation" id="Animation_73ra6"]
-resource_name = "Charge"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Charge:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Charge:scale_amount_min")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Charge:scale_amount_max")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.5]
-}
-
-[sub_resource type="Animation" id="Animation_hsdhw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Charge:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Charge:scale_amount_min")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Charge:scale_amount_max")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m072k"]
-_data = {
-"Charge": SubResource("Animation_73ra6"),
-"RESET": SubResource("Animation_hsdhw")
-}
 
 [node name="CatamariTest" type="Node2D"]
 
@@ -434,14 +350,4 @@ position = Vector2(197, 59)
 
 [node name="Player Attack" parent="." instance=ExtResource("29_5i6r3")]
 
-[node name="Player Charge" type="Node2D" parent="."]
-
-[node name="Charge" parent="Player Charge" instance=ExtResource("30_8xjyl")]
-emitting = false
-scale_amount_min = 0.0
-scale_amount_max = 0.0
-
-[node name="ChargePlayer" type="AnimationPlayer" parent="Player Charge"]
-libraries = {
-"": SubResource("AnimationLibrary_m072k")
-}
+[node name="Player Charge" parent="." instance=ExtResource("30_3j1xy")]
