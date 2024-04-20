@@ -125,3 +125,5 @@ text = "Leave"
 [node name="OptionsMenu" parent="." instance=ExtResource("5_80sc3")]
 visible = false
 layout_mode = 1
+
+[connection signal="pressed" from="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer/PM_Continue" to="." method="_on_pm_continue_pressed"]

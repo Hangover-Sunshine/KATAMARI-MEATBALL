@@ -81,7 +81,6 @@ texture = ExtResource("2_g3kwv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/OuterWall2"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_3qn6e")
-disabled = true
 
 [node name="OuterWall3" type="StaticBody2D" parent="Game/Map"]
 position = Vector2(0, 2000)
@@ -135,60 +134,9 @@ Fleshball = NodePath("../MysteryFleshBall")
 Player = NodePath("../Player")
 ProjectileHolder = NodePath("../ProjectileHolder")
 
-[node name="CivilianController" type="Node2D" parent="Game" node_paths=PackedStringArray("ExitPoints")]
+[node name="CivilianController" type="Node2D" parent="Game"]
 script = ExtResource("7_eiv6q")
-ExitPoints = NodePath("ExitPoints")
 CivilianPrefab = ExtResource("8_b54mm")
-
-[node name="ExitPoints" type="Node2D" parent="Game/CivilianController"]
-
-[node name="Marker2D" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(1750, 0)
-gizmo_extents = 50.0
-
-[node name="Marker2D3" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(1750, 1290)
-gizmo_extents = 50.0
-
-[node name="Marker2D2" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(1750, -1290)
-gizmo_extents = 50.0
-
-[node name="Marker2D4" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(-1750, 0)
-gizmo_extents = 50.0
-
-[node name="Marker2D5" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(-1750, 1290)
-gizmo_extents = 50.0
-
-[node name="Marker2D6" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(-1750, -1290)
-gizmo_extents = 50.0
-
-[node name="Marker2D7" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(-1100, 1750)
-gizmo_extents = 50.0
-
-[node name="Marker2D8" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(0, 1750)
-gizmo_extents = 50.0
-
-[node name="Marker2D9" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(1100, 1750)
-gizmo_extents = 50.0
-
-[node name="Marker2D10" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(-1100, -1750)
-gizmo_extents = 50.0
-
-[node name="Marker2D11" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(0, -1750)
-gizmo_extents = 50.0
-
-[node name="Marker2D12" type="Marker2D" parent="Game/CivilianController/ExitPoints"]
-position = Vector2(1100, -1750)
-gizmo_extents = 50.0
 
 [node name="Player" parent="Game" instance=ExtResource("9_lvcpf")]
 

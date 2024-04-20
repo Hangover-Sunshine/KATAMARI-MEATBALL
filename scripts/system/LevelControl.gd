@@ -2,6 +2,7 @@ extends Node2D
 class_name LevelControl
 
 @onready var pause_layer = $PauseLayer
+@onready var player = $Game/Player
 
 func _ready():
 	GlobalSignals.connect("scene_loaded", _scene_loaded)
@@ -21,6 +22,7 @@ func _ready():
 ##
 
 func _unpause():
+	player.just_unpaused = true
 	get_tree().paused = false
 	pause_layer.hide()
 ##
@@ -44,5 +46,6 @@ func _process(delta):
 		else:
 			pause_layer.show()
 		##
+		player.just_unpaused = true
 	##
 ##

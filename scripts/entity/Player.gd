@@ -19,19 +19,21 @@ var ball:CharacterBody2D
 var health
 var enemies_in_way:Array = []
 
+var just_unpaused:bool = false
+
 func _ready():
 	health = MaxHealth
 	$GraphicsController.character = 0
 ##
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.is_released():
-			mouse_pressed = false
-			punch(global_position.direction_to(get_global_mouse_position()).normalized())
-		elif event.is_pressed():
-			mouse_pressed = true
-			time_since_held = 0
+#func _input(event):
+	#if event is InputEventMouseButton:
+		#if event.is_released():
+			#mouse_pressed = false
+			#punch(global_position.direction_to(get_global_mouse_position()).normalized())
+		#elif event.is_pressed():
+			#mouse_pressed = true
+			#time_since_held = 0
 		##
 	##
 ##
@@ -63,6 +65,19 @@ func punch(dir_from_player_to_mouse):
 ##
 
 func _process(delta):
+	if just_unpaused == true:
+		just_unpaused = false
+		return
+	##
+	
+	if Input.is_action_just_pressed("Punch"):
+		mouse_pressed = true
+		time_since_held = 0
+	elif Input.is_action_just_released("Punch"):
+		mouse_pressed = false
+		punch(global_position.direction_to(get_global_mouse_position()).normalized())
+	##
+	
 	if mouse_pressed:
 		time_since_held += delta
 	##

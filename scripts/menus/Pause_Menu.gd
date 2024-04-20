@@ -9,7 +9,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pm_continue.button_down.connect(on_continue_pressed)
 	pm_leave.button_down.connect(on_leave_pressed)
 	pm_options.button_down.connect(on_options_pressed)
 	handle_connecting_signals()
@@ -18,8 +17,7 @@ func _ready():
 func on_leave_pressed() -> void:
 	GlobalSignals.emit_signal("load_scene", "Menus/Hub_Menu")
 
-# Following Brian's style...
-func on_continue_pressed():
+func _on_pm_continue_pressed():
 	GlobalSignals.emit_signal("unpause")
 ##
 
