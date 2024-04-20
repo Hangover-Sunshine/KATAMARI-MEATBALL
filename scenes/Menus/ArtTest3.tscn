@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bxcmcebm3ig7i"]
+[gd_scene load_steps=34 format=3 uid="uid://bxcmcebm3ig7i"]
 
 [ext_resource type="PackedScene" uid="uid://dxqn3f5o6yd5q" path="res://prefabs/environment/plants/grass.tscn" id="2_lxk1y"]
 [ext_resource type="PackedScene" uid="uid://c4amcxhq83aq0" path="res://prefabs/environment/plants/wheat.tscn" id="4_yen7h"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dtjvfnntngcdy" path="res://prefabs/environment/buildings/cottage_c.tscn" id="26_dgq1h"]
 [ext_resource type="PackedScene" uid="uid://pmf3dv0c5d4t" path="res://prefabs/environment/buildings/windmill_a.tscn" id="27_pprw5"]
 [ext_resource type="PackedScene" uid="uid://bjtnlkp2osts4" path="res://prefabs/environment/buildings/windmill_b.tscn" id="28_5rak7"]
+[ext_resource type="PackedScene" uid="uid://ca4ci8fw6jw1w" path="res://prefabs/projectiles/player_attack.tscn" id="29_5i6r3"]
 [ext_resource type="Texture2D" uid="uid://caodqnonsui3a" path="res://assets/props/buildings/Tilesheet_Outer_Walls.png" id="31_36ugi"]
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="32_q0m5f"]
 [ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="33_ml70g"]
@@ -190,34 +191,36 @@ position = Vector2(689, 416)
 [node name="Bush7" parent="Plants" instance=ExtResource("25_jmori")]
 position = Vector2(589, 302)
 
-[node name="Tree B" parent="." instance=ExtResource("6_l8wms")]
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Tree B" parent="Obstacles" instance=ExtResource("6_l8wms")]
 position = Vector2(-611, 364)
 
-[node name="Tree A" parent="." instance=ExtResource("5_84d13")]
-position = Vector2(-8, -5)
+[node name="Tree A" parent="Obstacles" instance=ExtResource("5_84d13")]
+position = Vector2(110, -304)
 
-[node name="Tree D" parent="." instance=ExtResource("8_3l0rr")]
+[node name="Tree D" parent="Obstacles" instance=ExtResource("8_3l0rr")]
 position = Vector2(721, -735)
 
-[node name="Stump" parent="." instance=ExtResource("9_27xoc")]
+[node name="Stump" parent="Obstacles" instance=ExtResource("9_27xoc")]
 position = Vector2(501, -568)
 
-[node name="Tree C" parent="." instance=ExtResource("7_3mpvv")]
+[node name="Tree C" parent="Obstacles" instance=ExtResource("7_3mpvv")]
 position = Vector2(421, -196)
 
-[node name="Cottage A" parent="." instance=ExtResource("24_v7y3l")]
+[node name="Cottage A" parent="Obstacles" instance=ExtResource("24_v7y3l")]
 position = Vector2(-202, -441)
 
-[node name="Cottage B" parent="." instance=ExtResource("25_ifchy")]
+[node name="Cottage B" parent="Obstacles" instance=ExtResource("25_ifchy")]
 position = Vector2(213, -786)
 
-[node name="Cottage C" parent="." instance=ExtResource("26_dgq1h")]
+[node name="Cottage C" parent="Obstacles" instance=ExtResource("26_dgq1h")]
 position = Vector2(-613, -787)
 
-[node name="Windmill A" parent="." instance=ExtResource("27_pprw5")]
+[node name="Windmill A" parent="Obstacles" instance=ExtResource("27_pprw5")]
 position = Vector2(-976, -427)
 
-[node name="Windmill B" parent="." instance=ExtResource("28_5rak7")]
+[node name="Windmill B" parent="Obstacles" instance=ExtResource("28_5rak7")]
 position = Vector2(-768, -75)
 
 [node name="Gameplay" type="Node2D" parent="."]
@@ -228,7 +231,6 @@ position = Vector2(-199, -123)
 navigation_polygon = SubResource("NavigationPolygon_ccia3")
 
 [node name="Player" parent="Gameplay" instance=ExtResource("32_q0m5f")]
-position = Vector2(-280, 126)
 
 [node name="BallCamera" type="Camera2D" parent="Gameplay" node_paths=PackedStringArray("Player", "Target")]
 position = Vector2(-176, -38)
@@ -344,3 +346,5 @@ position = Vector2(-294, -207)
 
 [node name="Barrel" parent="Wood Objects" instance=ExtResource("14_o84d8")]
 position = Vector2(197, 59)
+
+[node name="Player Attack" parent="." instance=ExtResource("29_5i6r3")]
