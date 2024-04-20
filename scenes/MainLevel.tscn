@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=46 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cfrs46bu3edfx" path="res://prefabs/system/BallCamera.tscn" id="11_q6w7r"]
 [ext_resource type="PackedScene" uid="uid://brwbb64oj5yj4" path="res://scenes/Menus/Pause_Menu.tscn" id="12_xedtr"]
 [ext_resource type="AudioStream" uid="uid://dpc7tryh01ans" path="res://assets/sfx/PlayerDeath.ogg" id="16_s4jjy"]
+[ext_resource type="PackedScene" uid="uid://dghmc5c6cf1vg" path="res://prefabs/environment/plants/bush.tscn" id="20_dgglo"]
 [ext_resource type="PackedScene" uid="uid://pmf3dv0c5d4t" path="res://prefabs/environment/buildings/windmill_a.tscn" id="22_uhlxy"]
 [ext_resource type="PackedScene" uid="uid://dtjvfnntngcdy" path="res://prefabs/environment/buildings/cottage_c.tscn" id="23_f5pey"]
 [ext_resource type="PackedScene" uid="uid://3baeylxlx467" path="res://prefabs/environment/buildings/cottage_a.tscn" id="24_ylm67"]
@@ -31,6 +32,12 @@
 [ext_resource type="PackedScene" uid="uid://b2bq6myt6g0yc" path="res://prefabs/environment/plants/trees/tree_b.tscn" id="29_yrqma"]
 [ext_resource type="PackedScene" uid="uid://5f8h68dv11fs" path="res://prefabs/environment/plants/trees/tree_c.tscn" id="30_n2dcs"]
 [ext_resource type="PackedScene" uid="uid://di7knb4n75ryq" path="res://prefabs/environment/plants/trees/tree_d.tscn" id="31_g5hkq"]
+[ext_resource type="Texture2D" uid="uid://cavm6look57lx" path="res://assets/props/decals/Decal_WheatMound.png" id="33_rwgty"]
+[ext_resource type="PackedScene" uid="uid://c4amcxhq83aq0" path="res://prefabs/environment/plants/wheat.tscn" id="34_naq7v"]
+[ext_resource type="PackedScene" uid="uid://dvuvy2t6e6obh" path="res://prefabs/environment/props/sign.tscn" id="35_an4hg"]
+[ext_resource type="PackedScene" uid="uid://brot2uai1kpep" path="res://prefabs/environment/props/fence_a.tscn" id="36_keod8"]
+[ext_resource type="PackedScene" uid="uid://uims4aosqrad" path="res://prefabs/environment/props/fence_b.tscn" id="37_4nsht"]
+[ext_resource type="PackedScene" uid="uid://dlwp87iwasr7n" path="res://prefabs/environment/props/fence_c.tscn" id="38_yhre5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
 vertices = PackedVector2Array(2883, -2925, 2936, 2933, -2928, 2927, -2895, -2936)
@@ -98,230 +105,529 @@ script = ExtResource("2_5l63h")
 Player = NodePath("Player")
 Camera = NodePath("BallCamera")
 
-[node name="ColorRect" type="ColorRect" parent="Game"]
+[node name="Background" type="Node2D" parent="Game"]
+
+[node name="Background" type="ColorRect" parent="Game/Background"]
 offset_left = -4500.0
 offset_top = -4500.0
 offset_right = 4500.0
 offset_bottom = 4500.0
 color = Color(0.384314, 0.643137, 0.466667, 1)
 
-[node name="GroundDecals" type="Node2D" parent="Game"]
+[node name="Road" type="Node2D" parent="Game/Background"]
 position = Vector2(-72, -50)
 
-[node name="DecalDirt24" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt24" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-344.487, -547.334)
 rotation = -0.253073
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt39" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt39" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-2033, -2336)
 rotation = -4.92183
 scale = Vector2(-1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt21" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt21" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1719, -85.9999)
 rotation = 1.07338
 texture = ExtResource("3_augd2")
 
-[node name="DecalDirt20" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt20" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(904, -951)
 rotation = -2.10312
 scale = Vector2(-1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt34" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt34" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1448, -577)
 rotation = 0.0191986
 scale = Vector2(1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt26" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt26" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(680, 144)
 rotation = -2.10312
 scale = Vector2(-1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt19" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt19" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(5, -57)
 rotation = 0.0610865
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt22" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt22" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(142.513, -890.334)
 rotation = -0.516617
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt43" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt43" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1017, -182)
 rotation = -0.167552
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt65" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt65" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1354, 463)
 rotation = 1.55509
 scale = Vector2(-1, 1)
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt18" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt18" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-507.487, -235.334)
 rotation = -0.663225
 texture = ExtResource("6_p2vgj")
 
-[node name="DecalDirt25" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt25" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1026, 537)
 rotation = 0.294961
 texture = ExtResource("6_p2vgj")
 
-[node name="DecalDirt23" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt23" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1270.46, 1001.3)
 rotation = 5.1749
 texture = ExtResource("6_p2vgj")
 
-[node name="DecalDirt27" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt27" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-486.949, 1719.97)
 rotation = -1.64934
 texture = ExtResource("3_augd2")
 
-[node name="DecalDirt40" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt40" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1043.46, 2247.3)
 rotation = 1.72788
 texture = ExtResource("3_augd2")
 
-[node name="DecalDirt28" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt28" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(240.407, 1134.87)
 rotation = -0.253073
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt29" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt29" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1419.41, 1985.87)
 rotation = 0.357792
 texture = ExtResource("3_augd2")
 
-[node name="DecalDirt45" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt45" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1910.89, 2418.2)
 rotation = 0.93026
 scale = Vector2(1, -1)
 texture = ExtResource("3_augd2")
 
-[node name="DecalDirt30" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt30" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1357.41, 1524.87)
 scale = Vector2(-1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt31" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt31" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(634.406, 1654.87)
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt32" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt32" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(559.513, 887.666)
 rotation = -0.516617
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt35" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt35" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1417, 336)
 rotation = -0.516617
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt33" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt33" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(77.4064, 1446.87)
 rotation = -0.663225
 texture = ExtResource("6_p2vgj")
 
-[node name="DecalDirt44" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt44" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-176.487, -1623.33)
 rotation = -0.253073
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt66" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt66" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-989.462, 1367.3)
 rotation = -2.63545
 scale = Vector2(1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt73" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt73" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1675.46, 1101.3)
 rotation = 2.5028
 scale = Vector2(1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt74" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt74" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1543.46, 893.301)
 rotation = -0.18675
 scale = Vector2(-1, -1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt67" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt67" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1498, -206)
 rotation = 4.36332
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt68" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt68" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1786, -1844)
 rotation = -0.977384
 texture = ExtResource("3_augd2")
 
-[node name="DecalDirt64" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt64" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-675, -1533)
 rotation = 0.0733038
 scale = Vector2(-1, 1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt70" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt70" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-2206, -1446)
 rotation = -1.96
 scale = Vector2(-1, 1)
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt47" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt47" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(217.513, -1103.33)
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt48" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt48" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(310.513, -1966.33)
 rotation = -0.516617
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt72" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt72" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(2044, -887)
 rotation = -1.24442
 scale = Vector2(-1, 1)
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt71" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt71" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1333, -1830)
 rotation = 0.438078
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt69" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt69" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-1953, -744)
 rotation = 0.921534
 texture = ExtResource("5_5563c")
 
-[node name="DecalDirt49" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt49" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(-339.487, -1311.33)
 rotation = -0.663225
 texture = ExtResource("6_p2vgj")
 
-[node name="DecalDirt36" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt36" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(981, -2201)
 rotation = 0.47822
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt37" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt37" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1627, -2025)
 rotation = 0.973894
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt38" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt38" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(2050, -1540)
 rotation = 1.61967
 texture = ExtResource("4_2x814")
 
-[node name="DecalDirt41" type="Sprite2D" parent="Game/GroundDecals"]
+[node name="DecalDirt41" type="Sprite2D" parent="Game/Background/Road"]
 position = Vector2(1966, 1155)
 rotation = 2.58658
 texture = ExtResource("5_5563c")
+
+[node name="Plants" type="Node2D" parent="Game/Background"]
+
+[node name="Mound" type="Node2D" parent="Game/Background"]
+
+[node name="Mound Group 1" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(2501, 204)
+rotation = 0.0436332
+
+[node name="DecalWheatMound" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+position = Vector2(-122.5, -148)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound2" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+position = Vector2(130.5, -155)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound13" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+position = Vector2(123, -410.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound3" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+position = Vector2(134.5, 111)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound4" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+position = Vector2(-122.5, 118)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound14" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+position = Vector2(134.5, 362)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound15" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+position = Vector2(-122.5, 369)
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 2" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(-2502, 80)
+rotation = -0.0436332
+
+[node name="DecalWheatMound5" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(-101.5, -468.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound6" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(-101.5, -221.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound7" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(-101.5, 33.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound8" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(-101.5, 297.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound9" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(-101.5, 552.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound10" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(163.5, 360.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound11" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(163.5, 97.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound12" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+position = Vector2(96.5, -154.5)
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 3" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(-2230, 2256)
+rotation = -0.333358
+
+[node name="DecalWheatMound29" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(-243.262, -426.288)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound30" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(23.738, -344.288)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound31" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(-243.262, -193.288)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound32" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(22.7385, -99.2881)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound33" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(-243.261, 51.7119)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound34" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(21.7383, 167.712)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound35" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(229, -188)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound36" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(229, 54)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound38" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+position = Vector2(-243, 315)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 4" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(-407, 504)
+rotation = 0.0785398
+
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+position = Vector2(-250.5, -35.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+position = Vector2(4.5, -38.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+position = Vector2(240.5, -38.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+position = Vector2(-110.5, 133.5)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+position = Vector2(144.5, 127.5)
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 5" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(253, 2299)
+rotation = 0.0436332
+
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(-413.262, -112.288)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(-158.262, -112.288)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound23" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(86.7382, -112.288)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound24" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(329.738, -112.288)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound25" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(495.738, 149.712)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound26" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(236.738, 149.712)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound27" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(-26.2618, 149.712)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound28" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+position = Vector2(-283.262, 149.712)
+rotation = 0.00872665
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 6" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(866, -1537)
+rotation = 0.0785398
+scale = Vector2(1, 1)
+
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+position = Vector2(-212.859, -69.5078)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+position = Vector2(42.1406, -72.5078)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+position = Vector2(278.141, -72.5078)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+position = Vector2(321.827, 55.9783)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+position = Vector2(145.492, 61.8257)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+position = Vector2(576.827, 49.9783)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+position = Vector2(458.34, -67.1176)
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 7" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(-1532, -1143)
+rotation = 0.0785398
+scale = Vector2(1, 1)
+
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+position = Vector2(-204.861, -57.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+position = Vector2(50.1392, -60.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+position = Vector2(286.139, -60.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+position = Vector2(92.319, -209.879)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+position = Vector2(-84.0163, -204.031)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+position = Vector2(347.319, -215.879)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+position = Vector2(466.338, -54.7069)
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 8" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(1609, -2608)
+rotation = 0.0785398
+scale = Vector2(1, 1)
+
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+position = Vector2(-204.861, -57.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+position = Vector2(50.1392, -60.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+position = Vector2(286.139, -60.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+position = Vector2(466.338, -54.7069)
+texture = ExtResource("33_rwgty")
+
+[node name="Mound Group 9" type="Node2D" parent="Game/Background/Mound"]
+position = Vector2(-771, -2490)
+rotation = 0.0279253
+scale = Vector2(1, 1)
+
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+position = Vector2(-204.861, -57.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+position = Vector2(50.1392, -60.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+position = Vector2(286.139, -60.0971)
+texture = ExtResource("33_rwgty")
+
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+position = Vector2(466.338, -54.7069)
+texture = ExtResource("33_rwgty")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
 visible = false
@@ -474,7 +780,7 @@ position = Vector2(-562, -1858)
 position = Vector2(1147, 1936)
 
 [node name="Cottage B5" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
-position = Vector2(-1769, 2411)
+position = Vector2(-1701, 2341)
 
 [node name="Cottage B4" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
 position = Vector2(1209, -1791)
@@ -539,27 +845,43 @@ position = Vector2(2377, 2166)
 
 [node name="Stump" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(119, -702)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Stump2" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(1243, 1177)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Stump3" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(2246, -161)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Stump4" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(1785, -1327)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Stump5" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(1670, -2359)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Stump6" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(-1212, 443)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Stump7" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(-2325, 947)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Stump8" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
 position = Vector2(1384, 2723)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Tree Group" type="Node2D" parent="Game/Map/Trees"]
 
@@ -585,7 +907,7 @@ position = Vector2(-867, -1365)
 position = Vector2(686, -1944)
 
 [node name="Tree A2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("28_4gkrr")]
-position = Vector2(-867, -2403)
+position = Vector2(-1048, -2068)
 
 [node name="Tree B3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
 position = Vector2(-2651, -1344)
@@ -607,6 +929,1688 @@ position = Vector2(519, 1889)
 
 [node name="Tree B5" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
 position = Vector2(-2064, 1756)
+
+[node name="Breakables" type="Node2D" parent="Game/Map"]
+
+[node name="Wheat Group" type="Node2D" parent="Game/Map/Breakables"]
+
+[node name="Wheat Group 1" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2569, -262)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2706, -263)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2636, -229)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2568, -187)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2705, -182)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2636, -147)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2569, -107)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2706, -108)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2636, -74)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2568, -32)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2705, -27)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2636, 8)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2569, -107)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2706, -108)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2636, -74)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2568, -32)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2705, -27)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2636, 8)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2442, -28)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2510, 12)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2317, -28)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2385, 12)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2572, 49)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2709, 54)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2640, 89)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2446, 53)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2514, 93)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2321, 53)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2389, 93)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2576, 131)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2713, 136)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2644, 171)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2450, 135)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2518, 175)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2325, 135)
+
+[node name="Wheat36" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2393, 175)
+
+[node name="Wheat37" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2570, 216)
+
+[node name="Wheat38" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2707, 221)
+
+[node name="Wheat39" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2638, 256)
+
+[node name="Wheat40" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2444, 220)
+
+[node name="Wheat41" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2512, 260)
+
+[node name="Wheat42" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2319, 220)
+
+[node name="Wheat43" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2387, 260)
+
+[node name="Wheat44" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2567, 298)
+
+[node name="Wheat45" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2704, 303)
+
+[node name="Wheat46" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2635, 338)
+
+[node name="Wheat47" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2441, 302)
+
+[node name="Wheat48" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2509, 342)
+
+[node name="Wheat49" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2316, 302)
+
+[node name="Wheat50" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2384, 342)
+
+[node name="Wheat51" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2563, 386)
+
+[node name="Wheat52" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2700, 391)
+
+[node name="Wheat53" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2631, 426)
+
+[node name="Wheat54" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2437, 390)
+
+[node name="Wheat55" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2505, 430)
+
+[node name="Wheat56" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2312, 390)
+
+[node name="Wheat57" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2380, 430)
+
+[node name="Wheat58" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2563, 472)
+
+[node name="Wheat59" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2700, 477)
+
+[node name="Wheat60" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2631, 512)
+
+[node name="Wheat61" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2437, 476)
+
+[node name="Wheat62" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2505, 516)
+
+[node name="Wheat63" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2312, 476)
+
+[node name="Wheat64" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2380, 516)
+
+[node name="Wheat65" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2556, 558)
+
+[node name="Wheat66" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2693, 563)
+
+[node name="Wheat67" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2624, 598)
+
+[node name="Wheat68" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2430, 562)
+
+[node name="Wheat69" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2498, 602)
+
+[node name="Wheat70" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2305, 562)
+
+[node name="Wheat71" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2373, 602)
+
+[node name="Wheat72" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2552, 637)
+
+[node name="Wheat73" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2689, 642)
+
+[node name="Wheat74" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2620, 677)
+
+[node name="Wheat75" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2426, 641)
+
+[node name="Wheat76" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2494, 681)
+
+[node name="Wheat77" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2301, 641)
+
+[node name="Wheat78" parent="Game/Map/Breakables/Wheat Group/Wheat Group 1" instance=ExtResource("34_naq7v")]
+position = Vector2(2369, 681)
+
+[node name="Wheat Group 2" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2699, -441)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2577, -443)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2638, -404)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2565, -366)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2685, -356)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2621, -317)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2550, -274)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2678, -269)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2606, -230)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2672, -173)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2536, -182)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2606, -134)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2467, -135)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2344, -138)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2417, -98)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2540, -89)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2673, -82)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2600, -42)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2471, -46)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2345, -43)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2405, 6)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2535, 9)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2668, 13)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2596, 58)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2469, 52)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2340, 55)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2661, 100)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2529, 100)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2403, 104)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2276, 103)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2342, 155)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2471, 158)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2594, 154)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2658, 199)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2526, 196)
+
+[node name="Wheat36" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2399, 197)
+
+[node name="Wheat37" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2269, 201)
+
+[node name="Wheat38" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2338, 258)
+
+[node name="Wheat39" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2464, 262)
+
+[node name="Wheat40" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2597, 259)
+
+[node name="Wheat41" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2662, 316)
+
+[node name="Wheat42" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2533, 313)
+
+[node name="Wheat43" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2397, 312)
+
+[node name="Wheat44" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2264, 311)
+
+[node name="Wheat45" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2339, 368)
+
+[node name="Wheat46" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2465, 372)
+
+[node name="Wheat47" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2603, 375)
+
+[node name="Wheat48" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2534, 424)
+
+[node name="Wheat49" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2393, 424)
+
+[node name="Wheat50" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2263, 420)
+
+[node name="Wheat51" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2663, 433)
+
+[node name="Wheat52" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2600, 481)
+
+[node name="Wheat53" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2462, 475)
+
+[node name="Wheat54" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2327, 475)
+
+[node name="Wheat55" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2258, 532)
+
+[node name="Wheat56" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2391, 529)
+
+[node name="Wheat57" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2532, 533)
+
+[node name="Wheat58" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2659, 539)
+
+[node name="Wheat59" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2595, 590)
+
+[node name="Wheat60" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2595, 590)
+
+[node name="Wheat61" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2522, 641)
+
+[node name="Wheat62" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2652, 650)
+
+[node name="Wheat63" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2585, 683)
+
+[node name="Wheat64" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2515, 743)
+
+[node name="Wheat65" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2641, 742)
+
+[node name="Wheat66" parent="Game/Map/Breakables/Wheat Group/Wheat Group 2" instance=ExtResource("34_naq7v")]
+position = Vector2(-2641, 742)
+
+[node name="Wheat Group 3" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2614, 1861)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2683, 1904)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2548, 1904)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2302, 1834)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2372, 1876)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2254, 1877)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2441, 1902)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2308, 1906)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2184, 1906)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2067, 1906)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2621, 1940)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2500, 1946)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2365, 1946)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2239, 1949)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2115, 1949)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2004, 1952)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2558, 1994)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2670, 1990)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2444, 1990)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2305, 1990)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2176, 1990)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2050, 1994)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2609, 2049)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2490, 2049)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2373, 2046)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2241, 2042)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2115, 2042)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-1993, 2041)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2549, 2100)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2426, 2100)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2306, 2096)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2183, 2093)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2054, 2093)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2122, 2145)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-1982, 2145)
+
+[node name="Wheat36" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2249, 2145)
+
+[node name="Wheat37" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2373, 2144)
+
+[node name="Wheat38" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2488, 2150)
+
+[node name="Wheat39" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2607, 2156)
+
+[node name="Wheat40" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2546, 2208)
+
+[node name="Wheat41" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2429, 2211)
+
+[node name="Wheat42" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2313, 2207)
+
+[node name="Wheat43" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2190, 2204)
+
+[node name="Wheat44" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2053, 2203)
+
+[node name="Wheat45" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-1924, 2206)
+
+[node name="Wheat46" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-1988, 2263)
+
+[node name="Wheat47" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2124, 2256)
+
+[node name="Wheat48" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2260, 2260)
+
+[node name="Wheat49" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2375, 2261)
+
+[node name="Wheat50" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2502, 2265)
+
+[node name="Wheat51" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2549, 2334)
+
+[node name="Wheat52" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2436, 2326)
+
+[node name="Wheat53" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2317, 2323)
+
+[node name="Wheat54" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2190, 2313)
+
+[node name="Wheat55" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2058, 2310)
+
+[node name="Wheat56" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-1917, 2316)
+
+[node name="Wheat57" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2497, 2385)
+
+[node name="Wheat58" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2375, 2382)
+
+[node name="Wheat59" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2251, 2372)
+
+[node name="Wheat60" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2124, 2368)
+
+[node name="Wheat61" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-1991, 2360)
+
+[node name="Wheat62" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2444, 2435)
+
+[node name="Wheat63" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2311, 2431)
+
+[node name="Wheat64" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2187, 2423)
+
+[node name="Wheat65" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2054, 2419)
+
+[node name="Wheat66" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2123, 2468)
+
+[node name="Wheat67" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2253, 2474)
+
+[node name="Wheat68" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2377, 2480)
+
+[node name="Wheat69" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2492, 2494)
+
+[node name="Wheat70" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2430, 2541)
+
+[node name="Wheat71" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2310, 2528)
+
+[node name="Wheat72" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2183, 2524)
+
+[node name="Wheat73" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2367, 2588)
+
+[node name="Wheat74" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2431, 2635)
+
+[node name="Wheat75" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2311, 2635)
+
+[node name="Wheat76" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2380, 2683)
+
+[node name="Wheat77" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2266, 2689)
+
+[node name="Wheat78" parent="Game/Map/Breakables/Wheat Group/Wheat Group 3" instance=ExtResource("34_naq7v")]
+position = Vector2(-2325, 2733)
+
+[node name="Wheat Group 4" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-716, 378)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-601, 379)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-482, 385)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-355, 391)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-229, 398)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-96, 405)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-167, 439)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-307, 431)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-426, 427)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-549, 421)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-669, 420)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-728, 472)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-611, 469)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-485, 470)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-363, 477)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-240, 483)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-99, 490)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-177, 534)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-300, 526)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-427, 518)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-553, 515)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-673, 514)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-734, 556)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-614, 563)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-491, 569)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-364, 570)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-240, 573)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-107, 586)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-554, 614)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-428, 618)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-302, 619)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-179, 616)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-245, 670)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-367, 666)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-494, 660)
+
+[node name="Wheat36" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-609, 660)
+
+[node name="Wheat37" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-551, 705)
+
+[node name="Wheat38" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-424, 712)
+
+[node name="Wheat39" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-304, 715)
+
+[node name="Wheat40" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-197, 716)
+
+[node name="Wheat41" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-258, 761)
+
+[node name="Wheat42" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-374, 757)
+
+[node name="Wheat43" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-489, 747)
+
+[node name="Wheat44" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-609, 739)
+
+[node name="Wheat45" parent="Game/Map/Breakables/Wheat Group/Wheat Group 4" instance=ExtResource("34_naq7v")]
+position = Vector2(-609, 739)
+
+[node name="Wheat Group 5" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-203, 2097)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-88, 2103)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(28, 2110)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(144, 2114)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(264, 2119)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(383, 2124)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(499, 2128)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(624, 2133)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-150, 2156)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-34, 2161)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(85, 2165)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(205, 2170)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(325, 2170)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(444, 2178)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(563, 2185)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(626, 2242)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(498, 2239)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(377, 2230)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(260, 2223)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(136, 2222)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(19, 2215)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-104, 2210)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-217, 2210)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-217, 2210)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-166, 2263)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-43, 2270)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(76, 2279)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(198, 2282)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(318, 2287)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(439, 2290)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(564, 2297)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(627, 2360)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(492, 2352)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(375, 2344)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(244, 2336)
+
+[node name="Wheat36" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(125, 2331)
+
+[node name="Wheat37" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(10, 2326)
+
+[node name="Wheat38" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-114, 2322)
+
+[node name="Wheat39" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(755, 2367)
+
+[node name="Wheat40" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(683, 2412)
+
+[node name="Wheat41" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(816, 2421)
+
+[node name="Wheat42" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(556, 2410)
+
+[node name="Wheat43" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(428, 2406)
+
+[node name="Wheat44" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(307, 2395)
+
+[node name="Wheat45" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(179, 2388)
+
+[node name="Wheat46" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(60, 2383)
+
+[node name="Wheat47" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-59, 2380)
+
+[node name="Wheat48" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-115, 2441)
+
+[node name="Wheat49" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(2, 2442)
+
+[node name="Wheat50" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(121, 2437)
+
+[node name="Wheat51" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(238, 2444)
+
+[node name="Wheat52" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(359, 2455)
+
+[node name="Wheat53" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(491, 2460)
+
+[node name="Wheat54" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(622, 2463)
+
+[node name="Wheat55" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(745, 2470)
+
+[node name="Wheat56" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(813, 2530)
+
+[node name="Wheat57" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(677, 2519)
+
+[node name="Wheat58" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(550, 2514)
+
+[node name="Wheat59" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(422, 2507)
+
+[node name="Wheat60" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(293, 2506)
+
+[node name="Wheat61" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(174, 2497)
+
+[node name="Wheat62" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(55, 2490)
+
+[node name="Wheat63" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-68, 2490)
+
+[node name="Wheat64" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-117, 2543)
+
+[node name="Wheat65" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(-4, 2546)
+
+[node name="Wheat66" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(105, 2547)
+
+[node name="Wheat67" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(226, 2555)
+
+[node name="Wheat68" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(353, 2563)
+
+[node name="Wheat69" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(480, 2568)
+
+[node name="Wheat70" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(613, 2572)
+
+[node name="Wheat71" parent="Game/Map/Breakables/Wheat Group/Wheat Group 5" instance=ExtResource("34_naq7v")]
+position = Vector2(742, 2576)
+
+[node name="Wheat Group 6" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(598, -1710)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(722, -1706)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(842, -1699)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(963, -1693)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1087, -1685)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1212, -1675)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1337, -1670)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1268, -1630)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1400, -1624)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1150, -1643)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1016, -1649)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(897, -1656)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(769, -1663)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(651, -1667)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(587, -1611)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(707, -1611)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(832, -1607)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(960, -1601)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1087, -1594)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1212, -1582)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1336, -1573)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1462, -1566)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(637, -1564)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(765, -1558)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(892, -1556)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1022, -1549)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1147, -1536)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1277, -1529)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1396, -1519)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1518, -1512)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1447, -1462)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1327, -1470)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1206, -1478)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1076, -1492)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(956, -1503)
+
+[node name="Wheat36" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(820, -1513)
+
+[node name="Wheat37" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(705, -1521)
+
+[node name="Wheat38" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(583, -1520)
+
+[node name="Wheat39" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1005, -1446)
+
+[node name="Wheat40" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1145, -1432)
+
+[node name="Wheat41" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1272, -1421)
+
+[node name="Wheat42" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1392, -1416)
+
+[node name="Wheat43" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1521, -1410)
+
+[node name="Wheat44" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1450, -1369)
+
+[node name="Wheat45" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1325, -1370)
+
+[node name="Wheat46" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1206, -1380)
+
+[node name="Wheat47" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1071, -1388)
+
+[node name="Wheat48" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(942, -1394)
+
+[node name="Wheat49" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(999, -1349)
+
+[node name="Wheat50" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1140, -1341)
+
+[node name="Wheat51" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1266, -1332)
+
+[node name="Wheat52" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1393, -1324)
+
+[node name="Wheat53" parent="Game/Map/Breakables/Wheat Group/Wheat Group 6" instance=ExtResource("34_naq7v")]
+position = Vector2(1508, -1324)
+
+[node name="Wheat Group 7" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1681, -1427)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1560, -1423)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1439, -1417)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1319, -1411)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1194, -1406)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1076, -1404)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1134, -1354)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1261, -1354)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1389, -1365)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1508, -1373)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1630, -1379)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1686, -1321)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1565, -1322)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1446, -1316)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1320, -1309)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1188, -1305)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1119, -1260)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-987, -1256)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1262, -1253)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1388, -1260)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1512, -1266)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1631, -1271)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1762, -1267)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1694, -1216)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1566, -1212)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1439, -1210)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1313, -1206)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1177, -1204)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1051, -1199)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1051, -1199)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-994, -1137)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1122, -1149)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1250, -1154)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1382, -1159)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1506, -1161)
+
+[node name="Wheat36" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1638, -1162)
+
+[node name="Wheat37" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1765, -1169)
+
+[node name="Wheat38" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1699, -1112)
+
+[node name="Wheat39" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1813, -1109)
+
+[node name="Wheat41" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1195, -1098)
+
+[node name="Wheat42" parent="Game/Map/Breakables/Wheat Group/Wheat Group 7" instance=ExtResource("34_naq7v")]
+position = Vector2(-1060, -1087)
+
+[node name="Wheat Group 8" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1345, -2772)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1473, -2769)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1599, -2761)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1727, -2748)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1865, -2736)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(2002, -2722)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(2139, -2710)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1400, -2725)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1533, -2715)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1659, -2711)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1787, -2701)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1924, -2690)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(2068, -2675)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(2142, -2619)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1990, -2636)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1853, -2649)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1721, -2661)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1591, -2669)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1460, -2674)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1340, -2681)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1392, -2626)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1524, -2619)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1651, -2616)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1787, -2604)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1922, -2592)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(2069, -2585)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(2144, -2524)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1989, -2540)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1852, -2553)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1721, -2562)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1578, -2571)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1454, -2579)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 8" instance=ExtResource("34_naq7v")]
+position = Vector2(1338, -2581)
+
+[node name="Wheat Group 9" type="Node2D" parent="Game/Map/Breakables/Wheat Group"]
+
+[node name="Wheat" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-1043, -2630)
+
+[node name="Wheat2" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-920, -2627)
+
+[node name="Wheat3" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-788, -2621)
+
+[node name="Wheat4" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-665, -2615)
+
+[node name="Wheat5" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-540, -2609)
+
+[node name="Wheat6" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-417, -2606)
+
+[node name="Wheat7" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-297, -2599)
+
+[node name="Wheat8" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-230, -2548)
+
+[node name="Wheat9" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-365, -2555)
+
+[node name="Wheat10" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-482, -2562)
+
+[node name="Wheat11" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-605, -2566)
+
+[node name="Wheat12" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-735, -2572)
+
+[node name="Wheat13" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-861, -2579)
+
+[node name="Wheat14" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-989, -2582)
+
+[node name="Wheat15" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-1045, -2528)
+
+[node name="Wheat16" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-929, -2522)
+
+[node name="Wheat17" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-803, -2524)
+
+[node name="Wheat18" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-673, -2516)
+
+[node name="Wheat19" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-547, -2514)
+
+[node name="Wheat20" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-421, -2510)
+
+[node name="Wheat21" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-300, -2507)
+
+[node name="Wheat22" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-228, -2456)
+
+[node name="Wheat23" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-363, -2459)
+
+[node name="Wheat24" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-490, -2465)
+
+[node name="Wheat25" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-617, -2468)
+
+[node name="Wheat26" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-751, -2475)
+
+[node name="Wheat27" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-872, -2479)
+
+[node name="Wheat28" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-992, -2487)
+
+[node name="Wheat29" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-1053, -2436)
+
+[node name="Wheat30" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-931, -2436)
+
+[node name="Wheat31" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-809, -2430)
+
+[node name="Wheat32" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-683, -2433)
+
+[node name="Wheat33" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-552, -2420)
+
+[node name="Wheat34" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-430, -2418)
+
+[node name="Wheat35" parent="Game/Map/Breakables/Wheat Group/Wheat Group 9" instance=ExtResource("34_naq7v")]
+position = Vector2(-296, -2414)
+
+[node name="Bush Group" type="Node2D" parent="Game/Map/Breakables"]
+
+[node name="Bush" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(297, 181)
+
+[node name="Bush2" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(23, -293)
+
+[node name="Bush3" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1066, -434)
+
+[node name="Bush4" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1783, -797)
+
+[node name="Bush5" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-2555, -1217)
+
+[node name="Bush6" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-2541, -1578)
+
+[node name="Bush7" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1935, -2527)
+
+[node name="Bush8" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1730, -2337)
+
+[node name="Bush10" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-804, -2248)
+
+[node name="Bush11" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1295, -2157)
+
+[node name="Bush12" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-326, -1977)
+
+[node name="Bush13" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-763, -1893)
+
+[node name="Bush14" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(488, -1875)
+
+[node name="Bush15" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(907, -1982)
+
+[node name="Bush16" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(483, -2413)
+
+[node name="Bush17" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(707, -2518)
+
+[node name="Bush18" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1458, -2422)
+
+[node name="Bush19" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1954, -2148)
+
+[node name="Bush20" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1797, -1156)
+
+[node name="Bush21" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1806, -1519)
+
+[node name="Bush22" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1640, -841)
+
+[node name="Bush23" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(2320, -983)
+
+[node name="Bush24" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(2403, -345)
+
+[node name="Bush25" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(2437, -1928)
+
+[node name="Bush26" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-2021, -1431)
+
+[node name="Bush27" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1572, -1683)
+
+[node name="Bush28" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-2373, -838)
+
+[node name="Bush29" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-2057, -454)
+
+[node name="Bush30" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1693, 413)
+
+[node name="Bush31" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1871, 769)
+
+[node name="Bush32" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1729, 1288)
+
+[node name="Bush33" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1212, 1451)
+
+[node name="Bush34" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-733, 1188)
+
+[node name="Bush35" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-877, 798)
+
+[node name="Bush36" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-355, 1720)
+
+[node name="Bush37" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1494, 2204)
+
+[node name="Bush38" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1847, 1825)
+
+[node name="Bush39" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-2277, 1585)
+
+[node name="Bush40" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-512, 2370)
+
+[node name="Bush41" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-1017, 2681)
+
+[node name="Bush42" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1177, 2666)
+
+[node name="Bush43" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1621, 2830)
+
+[node name="Bush44" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1859, 1738)
+
+[node name="Bush45" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(2482, 1020)
+
+[node name="Bush46" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(966, -74)
+
+[node name="Bush47" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1810, 305)
+
+[node name="Bush48" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1101, 730)
+
+[node name="Bush49" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(-2281, -2153)
+
+[node name="Bush50" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(691, 1859)
+
+[node name="Bush51" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(2160, 2725)
+
+[node name="Bush52" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(2118, 2108)
+
+[node name="Bush53" parent="Game/Map/Breakables/Bush Group" instance=ExtResource("20_dgglo")]
+position = Vector2(1052, 1294)
+
+[node name="Wood Group" type="Node2D" parent="Game/Map/Breakables"]
 
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
@@ -661,6 +2665,138 @@ visible = false
 
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("12_xedtr")]
 metadata/_edit_use_anchors_ = true
+
+[node name="Sign" parent="." instance=ExtResource("35_an4hg")]
+position = Vector2(-1879, -1907)
+
+[node name="Sign2" parent="." instance=ExtResource("35_an4hg")]
+position = Vector2(-171, -988)
+scale = Vector2(-1, 1)
+
+[node name="Sign3" parent="." instance=ExtResource("35_an4hg")]
+position = Vector2(-792, -67)
+
+[node name="Sign4" parent="." instance=ExtResource("35_an4hg")]
+position = Vector2(1680, -669)
+
+[node name="Sign5" parent="." instance=ExtResource("35_an4hg")]
+position = Vector2(222, 1424)
+scale = Vector2(-1, 1)
+
+[node name="Sign6" parent="." instance=ExtResource("35_an4hg")]
+position = Vector2(-1716, 1197)
+
+[node name="Sign7" parent="." instance=ExtResource("35_an4hg")]
+position = Vector2(1565, 1531)
+
+[node name="Fence A" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(207, -302)
+
+[node name="Fence B" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(472, -260)
+
+[node name="Fence C" parent="." instance=ExtResource("38_yhre5")]
+position = Vector2(277, -861)
+
+[node name="Fence A2" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(1281, -421)
+
+[node name="Fence B2" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(1525, -770)
+
+[node name="Fence B3" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(936, -2122)
+
+[node name="Fence A3" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(1586, -1268)
+
+[node name="Fence A4" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(1540, -1743)
+
+[node name="Fence C2" parent="." instance=ExtResource("38_yhre5")]
+position = Vector2(-134, -1368)
+
+[node name="Fence B4" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(-1375, -389)
+
+[node name="Fence A5" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-1583, -546)
+
+[node name="Fence A6" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-2003, -1120)
+
+[node name="Fence A7" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-2058, -1694)
+
+[node name="Fence A8" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-2397, -1957)
+
+[node name="Fence A9" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-2539, -1728)
+
+[node name="Fence A10" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-1852, -2436)
+
+[node name="Fence A11" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-1238, -2040)
+
+[node name="Fence C3" parent="." instance=ExtResource("38_yhre5")]
+position = Vector2(-921, -1934)
+
+[node name="Fence A12" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-184, -2059)
+
+[node name="Fence A13" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(302, -1344)
+
+[node name="Fence A14" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(643, -1365)
+
+[node name="Fence A15" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(1070, -1181)
+
+[node name="Fence A16" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(86, -2167)
+
+[node name="Fence A17" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(1149, -2497)
+
+[node name="Fence A18" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(1823, -2240)
+
+[node name="Fence B5" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(2044, -2482)
+
+[node name="Fence A19" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(2275, -2773)
+
+[node name="Fence A20" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(1243, -2845)
+
+[node name="Fence B6" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(-192, -2724)
+
+[node name="Fence A21" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-1155, -2739)
+
+[node name="Fence A22" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-1162, -2394)
+
+[node name="Fence A23" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-134, -2354)
+
+[node name="Fence B7" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(-1653, -1794)
+
+[node name="Fence A24" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-1397, -1685)
+
+[node name="Fence A25" parent="." instance=ExtResource("36_keod8")]
+position = Vector2(-989, -1467)
+
+[node name="Fence B8" parent="." instance=ExtResource("37_4nsht")]
+position = Vector2(-974, -980)
+scale = Vector2(-1, 1)
 
 [connection signal="timeout" from="Game/Details/SpawnTimer" to="Game" method="_on_spawn_timer_timeout"]
 [connection signal="body_exited" from="Game/PlayArea" to="Game" method="_on_play_area_body_exited"]
