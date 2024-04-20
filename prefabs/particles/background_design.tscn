@@ -1,0 +1,431 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm2frkhsku2i4"]
+
+[ext_resource type="Script" path="res://scripts/menus/BodyPart.gd" id="1_wsl2d"]
+[ext_resource type="Texture2D" uid="uid://clvg3j7ohuaio" path="res://assets/particle/body parts/Body Parts.png" id="2_v0ol7"]
+
+[sub_resource type="Animation" id="Animation_q374m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Limb:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wr2nd"]
+resource_name = "Rotate"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Limb:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_420u8"]
+_data = {
+"RESET": SubResource("Animation_q374m"),
+"Rotate": SubResource("Animation_wr2nd")
+}
+
+[node name="Background_Design" type="Node2D"]
+position = Vector2(68, -72)
+
+[node name="BodyPart" type="Node2D" parent="."]
+position = Vector2(49, 60)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart2" type="Node2D" parent="."]
+position = Vector2(302, 60)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart2"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(90, 141)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 3
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart2"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart3" type="Node2D" parent="."]
+position = Vector2(172, 379)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart3"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 2
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart3"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart4" type="Node2D" parent="."]
+position = Vector2(438, 373)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart4"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(114, 117)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 7
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart4"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart5" type="Node2D" parent="."]
+position = Vector2(311, 681)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart5"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart5"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart6" type="Node2D" parent="."]
+position = Vector2(19, 697)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart6"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 8
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart6"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart7" type="Node2D" parent="."]
+position = Vector2(-94, 379)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart7"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 9
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart7"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart8" type="Node2D" parent="."]
+position = Vector2(580, 63)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart8"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(121, 129)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 8
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart8"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart9" type="Node2D" parent="."]
+position = Vector2(592, 685)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart9"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(107, 127)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart9"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart10" type="Node2D" parent="."]
+position = Vector2(754, 379)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart10"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(97, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart10"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart11" type="Node2D" parent="."]
+position = Vector2(912, 59)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart11"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(114, 131)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 5
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart11"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart12" type="Node2D" parent="."]
+position = Vector2(948, 703)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart12"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 108)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 4
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart12"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart13" type="Node2D" parent="."]
+position = Vector2(1122, 387)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart13"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 8
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart13"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart14" type="Node2D" parent="."]
+position = Vector2(1294, 57)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart14"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart14"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart15" type="Node2D" parent="."]
+position = Vector2(1318, 683)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart15"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 2
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart15"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart16" type="Node2D" parent="."]
+position = Vector2(1520, 369)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart16"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(66, 103)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 6
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart16"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart17" type="Node2D" parent="."]
+position = Vector2(1696, 53)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart17"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(50, 105)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart17"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart18" type="Node2D" parent="."]
+position = Vector2(1704, 667)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart18"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(64, 105)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 3
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart18"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart19" type="Node2D" parent="."]
+position = Vector2(1514, 987)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart19"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(109, 134)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart19"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart20" type="Node2D" parent="."]
+position = Vector2(1176, 1023)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart20"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(47, 100)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart20"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart21" type="Node2D" parent="."]
+position = Vector2(766, 1023)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart21"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 5
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart21"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart22" type="Node2D" parent="."]
+position = Vector2(418, 1017)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart22"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+frame = 9
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart22"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}
+
+[node name="BodyPart23" type="Node2D" parent="."]
+position = Vector2(88, 1021)
+script = ExtResource("1_wsl2d")
+
+[node name="Limb" type="Sprite2D" parent="BodyPart23"]
+modulate = Color(0.172549, 0.117647, 0.192157, 0.407843)
+position = Vector2(83, 98)
+texture = ExtResource("2_v0ol7")
+hframes = 5
+vframes = 2
+
+[node name="RotateLimb_Animation" type="AnimationPlayer" parent="BodyPart23"]
+libraries = {
+"": SubResource("AnimationLibrary_420u8")
+}

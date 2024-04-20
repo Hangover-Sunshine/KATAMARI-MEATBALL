@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi513it7jfsm0"]
+[gd_scene load_steps=8 format=3 uid="uid://bi513it7jfsm0"]
 
 [ext_resource type="Script" path="res://scripts/menus/Game_Over.gd" id="1_f26fg"]
+[ext_resource type="PackedScene" uid="uid://bm2frkhsku2i4" path="res://prefabs/particles/background_design.tscn" id="2_pg3ki"]
 [ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_emsji"]
 [ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_gs1r7"]
 
@@ -56,7 +57,10 @@ script = ExtResource("1_f26fg")
 layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.392157)
+color = Color(0.0627451, 0.0705882, 0.109804, 1)
+
+[node name="Background_Design" parent="." instance=ExtResource("2_pg3ki")]
+position = Vector2(82, -90)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -87,6 +91,7 @@ alignment = 1
 
 [node name="GO_Title_Succ" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("3_emsji")
 theme_override_font_sizes/font_size = 200
@@ -96,6 +101,7 @@ horizontal_alignment = 1
 [node name="GO_Title_Fail" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container"]
 visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("3_emsji")
 theme_override_font_sizes/font_size = 200
@@ -120,6 +126,7 @@ alignment = 2
 
 [node name="GO_Cult" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Cultists"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -141,6 +148,7 @@ alignment = 2
 
 [node name="GO_Hero" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Heroes"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -162,6 +170,7 @@ alignment = 2
 
 [node name="GO_Civil" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Civilians"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -185,6 +194,7 @@ theme_override_constants/separation = 50
 
 [node name="GO_Cult" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi/GO_x50"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -196,6 +206,7 @@ theme_override_constants/separation = 50
 
 [node name="GO_Hero" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi/GO_x100"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -208,6 +219,7 @@ theme_override_constants/separation = 50
 
 [node name="GO_Civil" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi/GO_x150"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -265,6 +277,7 @@ theme_override_constants/separation = 50
 
 [node name="GO_Title_Time" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -283,6 +296,7 @@ layout_mode = 2
 
 [node name="GO_Title_Time" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
@@ -338,6 +352,7 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="GO_Retry" type="Button" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBoxContainer"]
+modulate = Color(0.92549, 0.152941, 0.247059, 1)
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_gs1r7")
@@ -345,6 +360,7 @@ theme_override_font_sizes/font_size = 100
 text = "Retry"
 
 [node name="GO_Leave" type="Button" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBoxContainer"]
+modulate = Color(0.92549, 0.152941, 0.247059, 1)
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_gs1r7")
@@ -364,6 +380,7 @@ alignment = 1
 
 [node name="GO_Title_Succ2" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("3_emsji")
 theme_override_font_sizes/font_size = 200
@@ -376,6 +393,7 @@ layout_mode = 2
 
 [node name="GO_Para_Win" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
 text = "After pounds and pounds of flesh forged into one, 
