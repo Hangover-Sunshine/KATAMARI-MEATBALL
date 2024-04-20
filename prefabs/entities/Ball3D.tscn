@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cah24q6csmik1" path="res://assets/textures/Meatball_Pattern_1024.png" id="4_32ubq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h7uk7"]
-albedo_texture = ExtResource("2_81c5r")
+albedo_texture = ExtResource("4_32ubq")
 
 [sub_resource type="SphereMesh" id="SphereMesh_rfoca"]
 lightmap_size_hint = Vector2i(17, 9)

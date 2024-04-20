@@ -40,21 +40,21 @@ func set_ball_scale(size):
 	$Camera3D.global_position = Vector3(0, 1, 0) * (lod + rod + dist_to_maintain)
 	
 	# swap textures here on different sizes
-	if curr_level != 0 and model.scale.x < 12:
-		material.albedo_texture = Tex1
-		model.set_surface_override_material(0, material)
-		curr_level = 0
-		GlobalSignals.emit_signal("ball_level_changed", 0)
-	elif curr_level != 1 and model.scale.x >= 12 and model.scale.x <= 20:
-		material.albedo_texture = Tex2
-		model.set_surface_override_material(0, material)
-		curr_level = 1
-		GlobalSignals.emit_signal("ball_level_changed", 1)
-	elif curr_level != 2 and model.scale.x > 20:
-		material.albedo_texture = Tex3
-		model.set_surface_override_material(0, material)
-		curr_level = 2
-		GlobalSignals.emit_signal("ball_level_changed", 2)
+	#if curr_level != 0 and model.scale.x < 12:
+		#material.albedo_texture = Tex1
+		#model.set_surface_override_material(0, material)
+		#curr_level = 0
+		#GlobalSignals.emit_signal("ball_level_changed", 0)
+	#elif curr_level != 1 and model.scale.x >= 12 and model.scale.x <= 20:
+		#material.albedo_texture = Tex2
+		#model.set_surface_override_material(0, material)
+		#curr_level = 1
+		#GlobalSignals.emit_signal("ball_level_changed", 1)
+	#elif curr_level != 2 and model.scale.x > 20:
+		#material.albedo_texture = Tex3
+		#model.set_surface_override_material(0, material)
+		#curr_level = 2
+		#GlobalSignals.emit_signal("ball_level_changed", 2)
 	##
 ##
 
