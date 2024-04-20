@@ -111,7 +111,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvxbc"]
-size = Vector2(203, 218)
+size = Vector2(203, 190)
 
 [node name="Cottage A" type="StaticBody2D"]
 collision_layer = 32
@@ -146,5 +146,5 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -111)
+position = Vector2(2, -97)
 shape = SubResource("RectangleShape2D_dvxbc")

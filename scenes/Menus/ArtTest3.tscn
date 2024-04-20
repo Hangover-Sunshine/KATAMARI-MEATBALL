@@ -191,54 +191,34 @@ position = Vector2(689, 416)
 position = Vector2(589, 302)
 
 [node name="Tree B" parent="." instance=ExtResource("6_l8wms")]
-position = Vector2(849, -76)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 100.0
+position = Vector2(-611, 364)
 
 [node name="Tree A" parent="." instance=ExtResource("5_84d13")]
-position = Vector2(596, -167)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 100.0
+position = Vector2(-8, -5)
 
 [node name="Tree D" parent="." instance=ExtResource("8_3l0rr")]
-position = Vector2(769, -359)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 100.0
+position = Vector2(721, -735)
 
 [node name="Stump" parent="." instance=ExtResource("9_27xoc")]
-position = Vector2(525, -468)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 100.0
+position = Vector2(501, -568)
 
 [node name="Tree C" parent="." instance=ExtResource("7_3mpvv")]
-position = Vector2(328, -241)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 100.0
+position = Vector2(421, -196)
 
 [node name="Cottage A" parent="." instance=ExtResource("24_v7y3l")]
-position = Vector2(-253, -524)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 0.0
+position = Vector2(-202, -441)
 
 [node name="Cottage B" parent="." instance=ExtResource("25_ifchy")]
-position = Vector2(264, -611)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 0.0
+position = Vector2(213, -786)
 
 [node name="Cottage C" parent="." instance=ExtResource("26_dgq1h")]
 position = Vector2(-613, -787)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 0.0
 
 [node name="Windmill A" parent="." instance=ExtResource("27_pprw5")]
 position = Vector2(-976, -427)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 0.0
 
 [node name="Windmill B" parent="." instance=ExtResource("28_5rak7")]
 position = Vector2(-768, -75)
-MinScoreThreshold = 0.0
-MinVelocityThreshold = 0.0
 
 [node name="Gameplay" type="Node2D" parent="."]
 
