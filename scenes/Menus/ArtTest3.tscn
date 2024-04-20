@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxcmcebm3ig7i"]
+[gd_scene load_steps=33 format=3 uid="uid://bxcmcebm3ig7i"]
 
 [ext_resource type="PackedScene" uid="uid://dxqn3f5o6yd5q" path="res://prefabs/environment/plants/grass.tscn" id="2_lxk1y"]
 [ext_resource type="PackedScene" uid="uid://c4amcxhq83aq0" path="res://prefabs/environment/plants/wheat.tscn" id="4_yen7h"]
@@ -17,7 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://uims4aosqrad" path="res://prefabs/environment/props/fence_b.tscn" id="17_kkhmw"]
 [ext_resource type="PackedScene" uid="uid://dlwp87iwasr7n" path="res://prefabs/environment/props/fence_c.tscn" id="18_6n1by"]
 [ext_resource type="PackedScene" uid="uid://dvuvy2t6e6obh" path="res://prefabs/environment/props/sign.tscn" id="19_1ni0d"]
+[ext_resource type="PackedScene" uid="uid://3baeylxlx467" path="res://prefabs/environment/buildings/cottage_a.tscn" id="24_v7y3l"]
+[ext_resource type="PackedScene" uid="uid://bs38fx0tkym50" path="res://prefabs/environment/buildings/cottage_b.tscn" id="25_ifchy"]
 [ext_resource type="PackedScene" uid="uid://dghmc5c6cf1vg" path="res://prefabs/environment/plants/bush.tscn" id="25_jmori"]
+[ext_resource type="PackedScene" uid="uid://dtjvfnntngcdy" path="res://prefabs/environment/buildings/cottage_c.tscn" id="26_dgq1h"]
+[ext_resource type="PackedScene" uid="uid://pmf3dv0c5d4t" path="res://prefabs/environment/buildings/windmill_a.tscn" id="27_pprw5"]
+[ext_resource type="PackedScene" uid="uid://bjtnlkp2osts4" path="res://prefabs/environment/buildings/windmill_b.tscn" id="28_5rak7"]
 [ext_resource type="Texture2D" uid="uid://caodqnonsui3a" path="res://assets/props/buildings/Tilesheet_Outer_Walls.png" id="31_36ugi"]
 [ext_resource type="PackedScene" uid="uid://myhbn6a4wked" path="res://prefabs/entities/Player.tscn" id="32_q0m5f"]
 [ext_resource type="Script" path="res://scripts/system/BallCamera.gd" id="33_ml70g"]
@@ -186,29 +191,54 @@ position = Vector2(689, 416)
 position = Vector2(589, 302)
 
 [node name="Tree B" parent="." instance=ExtResource("6_l8wms")]
-position = Vector2(37, -690)
+position = Vector2(849, -76)
 MinScoreThreshold = 0.0
 MinVelocityThreshold = 100.0
 
 [node name="Tree A" parent="." instance=ExtResource("5_84d13")]
-position = Vector2(-209, -466)
+position = Vector2(596, -167)
 MinScoreThreshold = 0.0
 MinVelocityThreshold = 100.0
 
 [node name="Tree D" parent="." instance=ExtResource("8_3l0rr")]
-position = Vector2(498, -963)
+position = Vector2(769, -359)
 MinScoreThreshold = 0.0
 MinVelocityThreshold = 100.0
 
 [node name="Stump" parent="." instance=ExtResource("9_27xoc")]
-position = Vector2(669, -1082)
+position = Vector2(525, -468)
 MinScoreThreshold = 0.0
 MinVelocityThreshold = 100.0
 
 [node name="Tree C" parent="." instance=ExtResource("7_3mpvv")]
-position = Vector2(275, -847)
+position = Vector2(328, -241)
 MinScoreThreshold = 0.0
 MinVelocityThreshold = 100.0
+
+[node name="Cottage A" parent="." instance=ExtResource("24_v7y3l")]
+position = Vector2(-253, -524)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+
+[node name="Cottage B" parent="." instance=ExtResource("25_ifchy")]
+position = Vector2(264, -611)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+
+[node name="Cottage C" parent="." instance=ExtResource("26_dgq1h")]
+position = Vector2(-613, -787)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+
+[node name="Windmill A" parent="." instance=ExtResource("27_pprw5")]
+position = Vector2(-976, -427)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+
+[node name="Windmill B" parent="." instance=ExtResource("28_5rak7")]
+position = Vector2(-768, -75)
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
 
 [node name="Gameplay" type="Node2D" parent="."]
 

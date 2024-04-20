@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://3baeylxlx467"]
 
 [ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="1_31waj"]
-[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_x66bl"]
+[ext_resource type="Script" path="res://scripts/environment/props/Destruct_Cottage.gd" id="1_akood"]
 [ext_resource type="Texture2D" uid="uid://doafruyatkrof" path="res://assets/props/buildings/1x1_Cottage.png" id="2_blkeh"]
 [ext_resource type="Texture2D" uid="uid://jr5kparwgjci" path="res://assets/props/buildings/Prop_Chimney.png" id="3_aw31g"]
 [ext_resource type="PackedScene" uid="uid://dx8hs7awux8xc" path="res://prefabs/particles/fx_explode_dust.tscn" id="5_f36be"]
@@ -13,7 +13,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cottage A:scale")
+tracks/0/path = NodePath("Cottage:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../FX_Explode_Dust:emitting")
+tracks/2/path = NodePath("../Explode:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -54,7 +54,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cottage A:scale")
+tracks/0/path = NodePath("Cottage:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -69,7 +69,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cottage A:scale")
+tracks/0/path = NodePath("Cottage:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,7 +93,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../FX_Explode_Dust:emitting")
+tracks/2/path = NodePath("../Explode:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -110,39 +110,41 @@ _data = {
 "RESET": SubResource("Animation_e5uc7")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_boagj"]
-size = Vector2(204, 188)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvxbc"]
+size = Vector2(203, 218)
 
 [node name="Cottage A" type="StaticBody2D"]
-script = ExtResource("1_x66bl")
+collision_layer = 32
+script = ExtResource("1_akood")
 
-[node name="Cottage A" type="Node2D" parent="."]
+[node name="Building" type="Node2D" parent="."]
 
-[node name="Debri" type="Sprite2D" parent="Cottage A"]
+[node name="Debri" type="Sprite2D" parent="Building"]
 visible = false
 texture = ExtResource("1_31waj")
 offset = Vector2(0, -96)
 hframes = 2
 vframes = 2
 
-[node name="Cottage A" type="Node2D" parent="Cottage A"]
+[node name="Cottage" type="Node2D" parent="Building"]
 
-[node name="Cottage_Smoll" type="Sprite2D" parent="Cottage A/Cottage A"]
+[node name="Object" type="Sprite2D" parent="Building/Cottage"]
 texture = ExtResource("2_blkeh")
 offset = Vector2(0, -125)
 hframes = 2
 
-[node name="Chimney" type="Sprite2D" parent="Cottage A/Cottage A"]
+[node name="Chimney" type="Sprite2D" parent="Building/Cottage"]
 position = Vector2(-62, -192)
 texture = ExtResource("3_aw31g")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Cottage A"]
+[node name="Explode" parent="." instance=ExtResource("5_f36be")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Building")
 libraries = {
 "": SubResource("AnimationLibrary_7vyvi")
 }
 
-[node name="FX_Explode_Dust" parent="." instance=ExtResource("5_f36be")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -96)
-shape = SubResource("RectangleShape2D_boagj")
+position = Vector2(1.5, -111)
+shape = SubResource("RectangleShape2D_dvxbc")

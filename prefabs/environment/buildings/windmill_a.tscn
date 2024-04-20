@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://pmf3dv0c5d4t"]
 
-[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_65s0l"]
+[ext_resource type="Script" path="res://scripts/environment/props/Destruct_Windmill.gd" id="1_8isyx"]
 [ext_resource type="Texture2D" uid="uid://bnqlyu78vtchk" path="res://assets/props/buildings/Prop_Cottage_Debri.png" id="1_boego"]
 [ext_resource type="Texture2D" uid="uid://d1qy8h3psvcc3" path="res://assets/props/buildings/2x1_Windmill.png" id="2_sfbn1"]
 [ext_resource type="Texture2D" uid="uid://jr5kparwgjci" path="res://assets/props/buildings/Prop_Chimney.png" id="3_s5rxy"]
@@ -52,7 +52,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Windmill A:scale")
+tracks/0/path = NodePath("Cottage:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -76,7 +76,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../FX_Explode_Dust:emitting")
+tracks/2/path = NodePath("../Explode:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -93,7 +93,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Windmill A:scale")
+tracks/0/path = NodePath("Cottage:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -108,7 +108,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Windmill A:scale")
+tracks/0/path = NodePath("Cottage:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -132,7 +132,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../FX_Explode_Dust:emitting")
+tracks/2/path = NodePath("../Explode:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -153,44 +153,47 @@ _data = {
 size = Vector2(175, 396)
 
 [node name="Windmill A" type="StaticBody2D"]
-script = ExtResource("1_65s0l")
+collision_layer = 32
+script = ExtResource("1_8isyx")
 
-[node name="Windmill A" type="Node2D" parent="."]
+[node name="Building" type="Node2D" parent="."]
 
-[node name="Debri" type="Sprite2D" parent="Windmill A"]
+[node name="Debri" type="Sprite2D" parent="Building"]
 visible = false
 texture = ExtResource("1_boego")
 offset = Vector2(0, -96)
 hframes = 2
 vframes = 2
 
-[node name="Windmill A" type="Node2D" parent="Windmill A"]
+[node name="Cottage" type="Node2D" parent="Building"]
 
-[node name="Windmill Lean" type="Sprite2D" parent="Windmill A/Windmill A"]
+[node name="Object" type="Sprite2D" parent="Building/Cottage"]
 texture = ExtResource("2_sfbn1")
 offset = Vector2(0, -228)
 hframes = 2
 
-[node name="Chimney" type="Sprite2D" parent="Windmill A/Windmill A"]
+[node name="Chimney" type="Sprite2D" parent="Building/Cottage"]
 position = Vector2(-62, -394)
 texture = ExtResource("3_s5rxy")
 
-[node name="Fan" type="Sprite2D" parent="Windmill A/Windmill A"]
+[node name="Fan" type="Sprite2D" parent="Building/Cottage"]
 position = Vector2(0, -289)
 texture = ExtResource("4_j52o7")
 offset = Vector2(1.5, 0)
 
-[node name="FanPlayer" type="AnimationPlayer" parent="Windmill A/Windmill A"]
+[node name="Explode" parent="." instance=ExtResource("6_8ol8p")]
+
+[node name="FanPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Building/Cottage")
 libraries = {
 "": SubResource("AnimationLibrary_a5t5g")
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Windmill A"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Building")
 libraries = {
 "": SubResource("AnimationLibrary_hhcrn")
 }
-
-[node name="FX_Explode_Dust" parent="." instance=ExtResource("6_8ol8p")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -198)
