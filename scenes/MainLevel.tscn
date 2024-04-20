@@ -1493,7 +1493,6 @@ texture = ExtResource("33_rwgty")
 [node name="Mound Group 6" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(866, -1537)
 rotation = 0.0785398
-scale = Vector2(1, 1)
 
 [node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(-212.859, -69.5078)
@@ -1526,7 +1525,6 @@ texture = ExtResource("33_rwgty")
 [node name="Mound Group 7" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(-1532, -1143)
 rotation = 0.0785398
-scale = Vector2(1, 1)
 
 [node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(-204.861, -57.0971)
@@ -1559,7 +1557,6 @@ texture = ExtResource("33_rwgty")
 [node name="Mound Group 8" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(1609, -2608)
 rotation = 0.0785398
-scale = Vector2(1, 1)
 
 [node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 8"]
 position = Vector2(-204.861, -57.0971)
@@ -1580,7 +1577,6 @@ texture = ExtResource("33_rwgty")
 [node name="Mound Group 9" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(-771, -2490)
 rotation = 0.0279253
-scale = Vector2(1, 1)
 
 [node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 9"]
 position = Vector2(-204.861, -57.0971)

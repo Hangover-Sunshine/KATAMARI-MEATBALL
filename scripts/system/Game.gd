@@ -123,6 +123,14 @@ func _on_spawn_timer_timeout():
 		hero_controller.spawn_hero(spawn_pos, val < entity_displacement[2])
 	##
 	
+	if LWSave.Prefs["game"]["time"] > 70:
+		entity_displacement = [0.2, 0.3, 0.5]
+	elif LWSave.Prefs["game"]["time"] > 45:
+		entity_displacement = [0.4, 0.3, 0.7]
+	elif LWSave.Prefs["game"]["time"] > 30:
+		entity_displacement = [0.4, 0.5, 0.7]
+	##
+	
 	spawn_timer.start(randi_range(2, 4) + randf_range(SpawnTimeOffset.x, SpawnTimeOffset.y))
 ##
 
