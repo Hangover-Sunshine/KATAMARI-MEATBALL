@@ -22,7 +22,6 @@ script = ExtResource("1_d1lfn")
 position = Vector2(47.5, 0)
 
 [node name="Art" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Dash" type="Sprite2D" parent="Art"]
 modulate = Color(0.635294, 0.427451, 0.247059, 1)

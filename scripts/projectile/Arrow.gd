@@ -3,6 +3,12 @@ extends CharacterBody2D
 ## Countdown until the munition expires.
 @export var countdown:float = 3
 
+@onready var trail = $Trail
+
+func _ready():
+	trail.emitting = true
+##
+
 func _process(delta):
 	if countdown <= 0:
 		queue_free()
