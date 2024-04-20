@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bcaynjkdimu7g" path="res://assets/characters/Hero_Heads.png" id="3_4sslf"]
 [ext_resource type="Texture2D" uid="uid://bs2qgmbj5ftk1" path="res://assets/characters/Peon_Heads.png" id="4_ug4sn"]
 [ext_resource type="Texture2D" uid="uid://dpm5743pmyen" path="res://assets/characters/All_Body.png" id="5_tllnm"]
-[ext_resource type="Shader" path="res://shaders/flash.gdshader" id="7_jwvid"]
 
 [sub_resource type="Curve" id="Curve_flos4"]
 min_value = 0.05
@@ -17,16 +16,6 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_1y67h"]
 offsets = PackedFloat32Array(0, 0.0935114, 0.316794)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gl5np"]
-shader = ExtResource("7_jwvid")
-shader_parameter/hit_opacity = 0.0
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rhn5"]
-shader = ExtResource("7_jwvid")
-shader_parameter/hit_opacity = 0.0
-shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_3757p"]
 resource_name = "Idle"
@@ -158,6 +147,31 @@ _data = {
 "Walk": SubResource("Animation_n7fi2")
 }
 
+[sub_resource type="Animation" id="Animation_s78vh"]
+resource_name = "flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All_Skeleton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 100, 100),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.92549, 0.152941, 0.247059, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pb3yy"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6f6e"]
+_data = {
+"RESET": SubResource("Animation_pb3yy"),
+"flash": SubResource("Animation_s78vh")
+}
+
 [node name="All_Character" type="Node2D"]
 script = ExtResource("1_h2sn6")
 
@@ -182,7 +196,6 @@ color_ramp = SubResource("Gradient_1y67h")
 
 [node name="AllHands" type="Sprite2D" parent="All_Skeleton"]
 visible = false
-material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -11.975)
 texture = ExtResource("1_12a3x")
 vframes = 3
@@ -191,7 +204,6 @@ vframes = 3
 
 [node name="Cult_Heads" type="Sprite2D" parent="All_Skeleton/Heads"]
 visible = false
-material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -26)
 texture = ExtResource("2_ka302")
 hframes = 3
@@ -199,7 +211,6 @@ vframes = 4
 
 [node name="Hero_Heads" type="Sprite2D" parent="All_Skeleton/Heads"]
 visible = false
-material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -26)
 texture = ExtResource("3_4sslf")
 hframes = 3
@@ -207,14 +218,12 @@ vframes = 4
 
 [node name="Peon_Heads" type="Sprite2D" parent="All_Skeleton/Heads"]
 visible = false
-material = SubResource("ShaderMaterial_gl5np")
 position = Vector2(0, -26)
 texture = ExtResource("4_ug4sn")
 hframes = 3
 vframes = 4
 
 [node name="AllBody" type="Sprite2D" parent="All_Skeleton"]
-material = SubResource("ShaderMaterial_1rhn5")
 texture = ExtResource("5_tllnm")
 hframes = 4
 vframes = 4
@@ -227,5 +236,10 @@ libraries = {
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Flash" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o6f6e")
+}
 
 [connection signal="timeout" from="FlashTimer" to="." method="_flash_over"]
