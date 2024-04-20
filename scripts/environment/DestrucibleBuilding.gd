@@ -16,6 +16,9 @@ func destroy():
 	# show the destroyed ruins
 ##
 
+func hit():
+	pass
+
 func can_be_destroyed(velSize, score):
 	return velSize >= MinVelocityThreshold and score >= MinScoreThreshold
 ##

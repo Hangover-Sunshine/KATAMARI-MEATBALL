@@ -59,6 +59,7 @@ func _physics_process(delta):
 			obj.destroy()
 			velocity *= (1 - obj.VelocityReduction)
 		else:
+			obj.hit()
 			velocity = velocity.bounce(collision.get_normal()) * BounceVelocityRetain
 		##
 	##

@@ -147,3 +147,6 @@ shape = SubResource("CircleShape2D_xt3u2")
 libraries = {
 "": SubResource("AnimationLibrary_vke3t")
 }
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

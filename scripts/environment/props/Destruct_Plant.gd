@@ -12,7 +12,6 @@ func _ready():
 	if plant.vframes > 1:
 		randomize_sprite()
 	blow_plant()
-	print(animation_player.get_queue())
 
 func destroy():
 	# can't interact with the world
@@ -20,11 +19,13 @@ func destroy():
 	collision_mask = 0
 	# play the destruction particle
 	# hide the actual sprite
-	animation_player.stop(false)
 	animation_player.play("Destroy")
-	process_mode = Node.PROCESS_MODE_DISABLED
+	# process_mode = Node.PROCESS_MODE_DISABLED
 	# show the destroyed ruins
 ##
+
+func hit():
+	pass
 
 func can_be_destroyed(velSize, score):
 	return velSize >= MinVelocityThreshold and score >= MinScoreThreshold
