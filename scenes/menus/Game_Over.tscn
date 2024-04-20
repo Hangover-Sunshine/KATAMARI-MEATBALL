@@ -76,7 +76,6 @@ theme_override_constants/margin_bottom = 120
 layout_mode = 2
 
 [node name="GO_Stats_Container" type="VBoxContainer" parent="MarginContainer/GameOver"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -276,7 +275,7 @@ layout_mode = 2
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
-text = "00:00:00"
+text = "00:00.00"
 
 [node name="ColorRect2" type="ColorRect" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel"]
 custom_minimum_size = Vector2(0, 5)
@@ -293,14 +292,14 @@ text = "MEATBALL Radius"
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="GO_Time" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3"]
+[node name="GO_Size" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3"]
 layout_mode = 2
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
 text = "000000.00"
 
-[node name="GO_Time2" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3"]
+[node name="GO_Units" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3"]
 layout_mode = 2
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_gs1r7")
@@ -353,6 +352,7 @@ theme_override_font_sizes/font_size = 100
 text = "Leave"
 
 [node name="GO_Succ_Container" type="VBoxContainer" parent="MarginContainer/GameOver"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

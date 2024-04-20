@@ -9,6 +9,12 @@ extends Control
 @onready var go_title_succ = $MarginContainer/GameOver/GO_Stats_Container/GO_Title_Succ
 @onready var go_title_fail = $MarginContainer/GameOver/GO_Stats_Container/GO_Title_Fail
 
+@onready var go_cult_kills = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Cultists/GO_Cult_Kills
+@onready var go_hero_kills = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Heroes/GO_Hero_Kills
+@onready var go_civil_kills = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Civilians/GO_Civil_Kills
+@onready var go_time = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score/GO_Time
+@onready var go_size = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3/GO_Size
+
 var winner = true
 
 func _ready():
@@ -16,6 +22,39 @@ func _ready():
 	go_retry.button_down.connect(on_retry_pressed)
 	go_leave.button_down.connect(on_leave_pressed)
 	GlobalSignals.connect("scene_loaded", _scene_loaded)
+	
+	# TODO: fun animations for counting?
+	go_cult_kills.text = str(LWSave.Prefs["game"]["cult_roll"])
+	go_hero_kills.text = str(LWSave.Prefs["game"]["hero_roll"])
+	go_civil_kills.text = str(LWSave.Prefs["game"]["civy_roll"])
+	
+	var time = LWSave.Prefs["game"]["time"]
+	var min:float = 0
+	var sec:float = 0
+	var ms:float = 0
+	
+	while time > 60:
+		min += 1
+		time -= 60
+	##
+	
+	var decimal:String = "%01.2f" % time
+	
+	go_time.text = str(min) + ":" + decimal
+	
+	var ball_size:float = LWSave.Prefs["game"]["ball"]
+	
+	var meters:float = 0
+	var leading_zeros:int = 6
+	while ball_size > 100:
+		meters += 1
+		ball_size -= 100
+	##
+	
+	decimal = "%.2f" % ball_size
+	var meter_string = "%*d" % [leading_zeros, meters]
+	
+	go_size.text = meter_string + decimal
 ##
 
 func _scene_loaded(new_scene:String):
@@ -28,13 +67,17 @@ func _scene_loaded(new_scene:String):
 func _input(event):
 	if event.is_pressed() and go_succ_container.visible == true:
 		on_cont_pressed()
+	##
+##
 
 # Button functionality for stats page
 func on_retry_pressed() -> void:
 	GlobalSignals.emit_signal("load_scene", "MainLevel")
+##
 
 func on_leave_pressed() -> void:
 	GlobalSignals.emit_signal("load_scene", "Menus/Hub_Menu")
+##
 
 # Rules for page switching
 func on_cont_pressed() -> void:
@@ -53,4 +96,5 @@ func gameover_visibility():
 		go_stats_container.visible = true
 		go_title_succ.visible = false
 		go_title_fail.visible = true
-		
+	##
+##

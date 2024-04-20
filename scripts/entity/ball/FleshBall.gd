@@ -115,6 +115,10 @@ func take_damage(damage):
 func _on_influence_body_entered(body):
 	current_consumption += body.get_consumption_addition()
 	
+	if current_consumption >= LWSave.Prefs["game"]["ball"]:
+		LWSave.Prefs["game"]["ball"] = current_consumption
+	##
+	
 	ball3d.set_ball_scale(current_consumption)
 	
 	if velocity.length_squared() > 0:

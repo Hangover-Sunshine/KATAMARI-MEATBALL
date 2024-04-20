@@ -117,6 +117,7 @@ func at_end() -> bool:
 
 func rolled_over():
 	stop_converting()
+	LWSave.Prefs["game"]["civy_roll"] += 1
 	
 	GlobalSignals.emit_signal("entity_removed")
 	# spawn particle
@@ -129,6 +130,8 @@ func rolled_over():
 
 func take_damage(dmg):
 	stop_converting()
+	
+	LWSave.Prefs["game"]["civy_punch"] += 1
 	
 	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
