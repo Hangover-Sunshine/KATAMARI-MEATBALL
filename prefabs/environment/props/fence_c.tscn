@@ -1,16 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlwp87iwasr7n"]
+[gd_scene load_steps=5 format=3 uid="uid://dlwp87iwasr7n"]
 
-[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_5x2xu"]
 [ext_resource type="Texture2D" uid="uid://c2mmxt0b553me" path="res://assets/props/misc/Prop_FenceC.png" id="1_oy1qv"]
+[ext_resource type="Script" path="res://scripts/environment/props/Destruct_Wood.gd" id="1_s8lok"]
+[ext_resource type="PackedScene" uid="uid://crcnlw5qbc8fi" path="res://prefabs/particles/fx_explode_wood_smoll.tscn" id="3_c1757"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdm1d"]
 size = Vector2(108, 66)
 
 [node name="Fence C" type="StaticBody2D"]
-script = ExtResource("1_5x2xu")
+collision_layer = 32
+script = ExtResource("1_s8lok")
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
-[node name="Fence C" type="Sprite2D" parent="."]
+[node name="Object" type="Sprite2D" parent="."]
 texture = ExtResource("1_oy1qv")
+
+[node name="Explode" parent="." instance=ExtResource("3_c1757")]
+position = Vector2(0, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kdm1d")

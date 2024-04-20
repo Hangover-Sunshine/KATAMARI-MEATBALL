@@ -1,17 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5vwo7gww86x"]
+[gd_scene load_steps=5 format=3 uid="uid://c5vwo7gww86x"]
 
 [ext_resource type="Texture2D" uid="uid://bnjo7qk4128tu" path="res://assets/props/misc/Prop_Barrel.png" id="1_hm31y"]
-[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_qtu56"]
+[ext_resource type="Script" path="res://scripts/environment/props/Destruct_Wood.gd" id="1_qqv4y"]
+[ext_resource type="PackedScene" uid="uid://crcnlw5qbc8fi" path="res://prefabs/particles/fx_explode_wood_smoll.tscn" id="3_6yrg2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3tik"]
 radius = 35.0
 height = 92.0
 
 [node name="Barrel" type="StaticBody2D"]
-script = ExtResource("1_qtu56")
+collision_layer = 32
+script = ExtResource("1_qqv4y")
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
-[node name="Barrel" type="Sprite2D" parent="."]
+[node name="Object" type="Sprite2D" parent="."]
 texture = ExtResource("1_hm31y")
+
+[node name="Explode" parent="." instance=ExtResource("3_6yrg2")]
+position = Vector2(0, -35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_b3tik")

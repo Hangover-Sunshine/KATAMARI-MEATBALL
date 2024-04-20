@@ -1,16 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ivix0yacqj3"]
+[gd_scene load_steps=5 format=3 uid="uid://d1ivix0yacqj3"]
 
 [ext_resource type="Texture2D" uid="uid://cfdu3txl1oov1" path="res://assets/props/misc/Prop_Crate.png" id="1_deft4"]
-[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_msr7d"]
+[ext_resource type="Script" path="res://scripts/environment/props/Destruct_Wood.gd" id="1_qgvru"]
+[ext_resource type="PackedScene" uid="uid://crcnlw5qbc8fi" path="res://prefabs/particles/fx_explode_wood_smoll.tscn" id="3_f1g7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp0la"]
 size = Vector2(19.899, 19.6116)
 
 [node name="Crate" type="StaticBody2D"]
-script = ExtResource("1_msr7d")
+collision_layer = 32
+script = ExtResource("1_qgvru")
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
-[node name="Crate" type="Sprite2D" parent="."]
+[node name="Object" type="Sprite2D" parent="."]
 texture = ExtResource("1_deft4")
+
+[node name="Explode" parent="." instance=ExtResource("3_f1g7f")]
+position = Vector2(0, -35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.249998, 0.5)

@@ -1,17 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvuvy2t6e6obh"]
+[gd_scene load_steps=5 format=3 uid="uid://dvuvy2t6e6obh"]
 
 [ext_resource type="Texture2D" uid="uid://c47en7150vh51" path="res://assets/props/misc/Prop_Sign.png" id="1_68ahc"]
-[ext_resource type="Script" path="res://scripts/environment/DestrucibleBuilding.gd" id="1_sxs4i"]
+[ext_resource type="Script" path="res://scripts/environment/props/Destruct_Wood.gd" id="1_jgdax"]
+[ext_resource type="PackedScene" uid="uid://crcnlw5qbc8fi" path="res://prefabs/particles/fx_explode_wood_smoll.tscn" id="3_xqnem"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ad3l7"]
 height = 172.0
 
 [node name="Sign" type="StaticBody2D"]
-script = ExtResource("1_sxs4i")
+collision_layer = 32
+script = ExtResource("1_jgdax")
+MinScoreThreshold = 0.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
-[node name="Sign" type="Sprite2D" parent="."]
+[node name="Object" type="Sprite2D" parent="."]
 texture = ExtResource("1_68ahc")
 offset = Vector2(0, -75)
+
+[node name="Explode" parent="." instance=ExtResource("3_xqnem")]
+position = Vector2(0, -110)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -75)
