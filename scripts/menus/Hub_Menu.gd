@@ -11,6 +11,37 @@ func _ready():
 	menu_open()
 	handle_connecting_signals()
 	get_tree().paused = false
+	
+	# Options
+	LWSave.Prefs["OS"] = OS.get_name()
+	if FileAccess.file_exists("user://options.json"):
+		LWSave.load_from_disk("user://options.json")
+		
+		# apply windowed/resolution modes if on Desktop
+		if LWSave.Prefs["OS"] != "Web":
+			# Bordered windowed by default
+			if LWSave.Prefs["windowed"] == false:
+				# game only has 1 window
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			##
+			DisplayServer.window_set_size(LWSave.Prefs["resolution"])
+		##
+	else:
+		LWSave.Prefs["windowed"] = true # Desktop-only
+		LWSave.Prefs["resolution"] = Vector2(1920, 1080) # Desktop only
+		LWSave.Prefs["master_vol"] = 0.8
+		LWSave.Prefs["music_vol"] = 1
+		LWSave.Prefs["sfx_vol"] = 1
+		
+		# Bindings
+		LWSave.Prefs["bindings"] = {}
+		
+		LWSave.save_to_disk("user://options.json")
+	##
+	
+	# Game info storage
+	LWSave.Prefs["game"] = {}
+##
 
 #Managing which menu is visible 
 func _input(event):
@@ -32,6 +63,8 @@ func menu_open():
 func show_options():
 	$Meatball_Animation.play("Right2Left")
 	$PageTransition_Animation.play("Menu2Options")
+	$OptionsMenu.load_data()
+##
 
 func leave_options():
 	$Meatball_Animation.play("Left2Right")

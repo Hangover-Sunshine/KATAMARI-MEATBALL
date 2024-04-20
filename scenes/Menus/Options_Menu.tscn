@@ -57,7 +57,7 @@ layout_mode = 2
 theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("4_pfcdr")
 theme_override_font_sizes/font_size = 100
-text = "WIndow Mode"
+text = "Window Mode"
 horizontal_alignment = 1
 
 [node name="O_WindowCheckBox" type="CheckBox" parent="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode"]
@@ -67,6 +67,7 @@ theme_override_fonts/font = ExtResource("4_pfcdr")
 theme_override_font_sizes/font_size = 100
 theme_override_icons/checked = ExtResource("3_kdprp")
 theme_override_icons/unchecked = ExtResource("4_6moat")
+button_pressed = true
 
 [node name="WindowMode2" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
 layout_mode = 2
@@ -173,3 +174,9 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_pfcdr")
 theme_override_font_sizes/font_size = 100
 text = "Back"
+
+[connection signal="pressed" from="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode/O_WindowCheckBox" to="." method="_on_o_window_check_box_pressed"]
+[connection signal="toggled" from="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode/O_WindowCheckBox" to="." method="_on_o_window_check_box_toggled"]
+[connection signal="value_changed" from="MarginContainer/OptionsMenu/O_VBoxContainer/Overall_Volume/O_OverallSlider" to="." method="_on_o_overall_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/OptionsMenu/O_VBoxContainer/FX_Volume/O_FXSlider" to="." method="_on_o_fx_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/OptionsMenu/O_VBoxContainer/Music_Volume/O_MusicSlider" to="." method="_on_o_music_slider_value_changed"]
