@@ -15,6 +15,11 @@ extends Control
 @onready var go_time = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score/GO_Time
 @onready var go_size = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3/GO_Size
 
+@onready var go_cult_score = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Cult_Score/GO_Cult_Score
+@onready var go_hero_score = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Hero_Score/GO_Hero_Score
+@onready var go_civil_score = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Civil_Score/GO_Civil_Score
+@onready var go_total_kills = $MarginContainer/GameOver/GO_Stats_Container/GO_TotalScore/GO_Total_Kills
+
 var winner = true
 
 func _ready():
@@ -55,6 +60,15 @@ func _ready():
 	var meter_string = "%*d" % [leading_zeros, meters]
 	
 	go_size.text = meter_string + decimal
+	
+	go_cult_score.text = str(50 * LWSave.Prefs["game"]["cult_roll"])
+	go_hero_score.text = str(100 * LWSave.Prefs["game"]["hero_roll"])
+	go_civil_score.text = str(150 * LWSave.Prefs["game"]["hero_roll"])
+	go_total_kills.text = (50 * LWSave.Prefs["game"]["cult_roll"]) +\
+							(100 * LWSave.Prefs["game"]["hero_roll"]) +\
+							(150 * LWSave.Prefs["game"]["civy_roll"]) +\
+							(meters * 15) -\
+							(time / 2)
 ##
 
 func _scene_loaded(new_scene:String):
