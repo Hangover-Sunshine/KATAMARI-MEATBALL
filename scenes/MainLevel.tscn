@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=39 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -26,6 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://3baeylxlx467" path="res://prefabs/environment/buildings/cottage_a.tscn" id="24_ylm67"]
 [ext_resource type="PackedScene" uid="uid://bs38fx0tkym50" path="res://prefabs/environment/buildings/cottage_b.tscn" id="25_8n8u2"]
 [ext_resource type="PackedScene" uid="uid://bjtnlkp2osts4" path="res://prefabs/environment/buildings/windmill_b.tscn" id="26_hjsxw"]
+[ext_resource type="PackedScene" uid="uid://dwacmsjywjoix" path="res://prefabs/environment/plants/trees/stump.tscn" id="27_eh1oq"]
+[ext_resource type="PackedScene" uid="uid://bx4p2srg7temp" path="res://prefabs/environment/plants/trees/tree_a.tscn" id="28_4gkrr"]
+[ext_resource type="PackedScene" uid="uid://b2bq6myt6g0yc" path="res://prefabs/environment/plants/trees/tree_b.tscn" id="29_yrqma"]
+[ext_resource type="PackedScene" uid="uid://5f8h68dv11fs" path="res://prefabs/environment/plants/trees/tree_c.tscn" id="30_n2dcs"]
+[ext_resource type="PackedScene" uid="uid://di7knb4n75ryq" path="res://prefabs/environment/plants/trees/tree_d.tscn" id="31_g5hkq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
 vertices = PackedVector2Array(2883, -2925, 2936, 2933, -2928, 2927, -2895, -2936)
@@ -449,7 +454,7 @@ position = Vector2(-1865, -1547)
 position = Vector2(197, -1506)
 
 [node name="Cottage A10" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
-position = Vector2(1258, -2464)
+position = Vector2(907, -2525)
 
 [node name="Cottage A11" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(2199, -456)
@@ -472,7 +477,7 @@ position = Vector2(1147, 1936)
 position = Vector2(-1769, 2411)
 
 [node name="Cottage B4" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
-position = Vector2(1494, -1712)
+position = Vector2(1209, -1791)
 
 [node name="Cottage C Group" type="Node2D" parent="Game/Map/Buildings"]
 
@@ -497,7 +502,7 @@ position = Vector2(2219, -2083)
 position = Vector2(2039, 361)
 
 [node name="Windmill A" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
-position = Vector2(502, -715)
+position = Vector2(632, -797)
 
 [node name="Windmill A2" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
 position = Vector2(-1865, 310)
@@ -527,6 +532,81 @@ position = Vector2(2445, -1102)
 
 [node name="Windmill B6" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
 position = Vector2(2377, 2166)
+
+[node name="Trees" type="Node2D" parent="Game/Map"]
+
+[node name="Stump Group" type="Node2D" parent="Game/Map/Trees"]
+
+[node name="Stump" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(119, -702)
+
+[node name="Stump2" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(1243, 1177)
+
+[node name="Stump3" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(2246, -161)
+
+[node name="Stump4" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(1785, -1327)
+
+[node name="Stump5" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(1670, -2359)
+
+[node name="Stump6" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(-1212, 443)
+
+[node name="Stump7" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(-2325, 947)
+
+[node name="Stump8" parent="Game/Map/Trees/Stump Group" instance=ExtResource("27_eh1oq")]
+position = Vector2(1384, 2723)
+
+[node name="Tree Group" type="Node2D" parent="Game/Map/Trees"]
+
+[node name="Tree A" parent="Game/Map/Trees/Tree Group" instance=ExtResource("28_4gkrr")]
+position = Vector2(-894, -496)
+
+[node name="Tree B" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
+position = Vector2(131, 710)
+
+[node name="Tree C" parent="Game/Map/Trees/Tree Group" instance=ExtResource("30_n2dcs")]
+position = Vector2(1117, 151)
+
+[node name="Tree D" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
+position = Vector2(803, 944)
+
+[node name="Tree C2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("30_n2dcs")]
+position = Vector2(-2134, -185)
+
+[node name="Tree D2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
+position = Vector2(-867, -1365)
+
+[node name="Tree B2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
+position = Vector2(686, -1944)
+
+[node name="Tree A2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("28_4gkrr")]
+position = Vector2(-867, -2403)
+
+[node name="Tree B3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
+position = Vector2(-2651, -1344)
+
+[node name="Tree D3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
+position = Vector2(2268, 2617)
+
+[node name="Tree A3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("28_4gkrr")]
+position = Vector2(2288, 1175)
+
+[node name="Tree C3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("30_n2dcs")]
+position = Vector2(-1978, -2626)
+
+[node name="Tree B4" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
+position = Vector2(-770, 2521)
+
+[node name="Tree D4" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
+position = Vector2(519, 1889)
+
+[node name="Tree B5" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
+position = Vector2(-2064, 1756)
 
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
