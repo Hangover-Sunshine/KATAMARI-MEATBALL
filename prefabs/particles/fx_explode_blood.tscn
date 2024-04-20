@@ -1,24 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bokhqhugg843l"]
+[gd_scene load_steps=5 format=3 uid="uid://bokhqhugg843l"]
 
 [ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="1_btfth"]
 
 [sub_resource type="Curve" id="Curve_evey3"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.021978), -3.04274, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_orjul"]
+offsets = PackedFloat32Array(0.833333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_efit0"]
 colors = PackedColorArray(0.67451, 0.156863, 0.278431, 1, 0.419608, 0.14902, 0.262745, 1)
 
-[node name="fx_explode_blood" type="CPUParticles2D"]
+[node name="Blood" type="CPUParticles2D"]
+position = Vector2(0, -1)
 emitting = false
-amount = 10
+amount = 20
+lifetime = 0.75
 one_shot = true
 explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.5
 texture = ExtResource("1_btfth")
 spread = 180.0
-gravity = Vector2(0, 10)
-initial_velocity_max = 200.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
 scale_amount_min = 0.3
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_evey3")
+color_ramp = SubResource("Gradient_orjul")
 color_initial_ramp = SubResource("Gradient_efit0")

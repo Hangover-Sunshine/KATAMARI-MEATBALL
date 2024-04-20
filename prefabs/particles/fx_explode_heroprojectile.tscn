@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccmjstqcmalvd"]
+
+[ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="1_sx0ka"]
+
+[sub_resource type="Curve" id="Curve_g0mqr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.08572, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_qfc3q"]
+offsets = PackedFloat32Array(0.4, 0.5, 0.906667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.427451, 0.917647, 0.839216, 1, 0.211765, 0.772549, 0.956863, 1, 1, 1, 1, 0)
+
+[node name="fx_explode_heroprojectile" type="CPUParticles2D"]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.75
+texture = ExtResource("1_sx0ka")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_g0mqr")
+color_ramp = SubResource("Gradient_qfc3q")
