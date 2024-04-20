@@ -1,7 +1,6 @@
 extends StaticBody2D
 class_name Destruct_Wood
 
-@onready var animation_player = $AnimationPlayer
 @onready var object = $Object
 @onready var explode = $Explode
 

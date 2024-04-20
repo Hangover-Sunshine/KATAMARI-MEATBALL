@@ -1,21 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwacmsjywjoix"]
+[gd_scene load_steps=10 format=3 uid="uid://chxakx7wmp8mk"]
 
 [ext_resource type="Script" path="res://scripts/environment/props/Destruct_Tree.gd" id="1_ls0as"]
 [ext_resource type="Texture2D" uid="uid://b7mt2yy8busxc" path="res://assets/props/plant/Prop_Stump_192x128.png" id="1_vlgjf"]
 [ext_resource type="PackedScene" uid="uid://crcnlw5qbc8fi" path="res://prefabs/particles/fx_explode_wood_smoll.tscn" id="3_7fnq1"]
 
-[sub_resource type="Animation" id="Animation_0uk7b"]
+[sub_resource type="Animation" id="Animation_3xuq0"]
 resource_name = "Destroy"
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tree/Object:scale")
+tracks/0/path = NodePath("Object:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.2),
+"times": PackedFloat32Array(0, 0.05, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 0)]
@@ -23,36 +23,36 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Explode B:emitting")
+tracks/1/path = NodePath("Object:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Tree/Object:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Explode B:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="Animation" id="Animation_rrgwe"]
+[sub_resource type="Animation" id="Animation_8apxe"]
 resource_name = "Hit"
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tree/Object:scale")
+tracks/0/path = NodePath("Object:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,12 +62,12 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1.25), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_t13jd"]
+[sub_resource type="Animation" id="Animation_ccj56"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tree/Object:scale")
+tracks/0/path = NodePath("Object:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,72 +79,60 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Explode B:emitting")
+tracks/1/path = NodePath("Object:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Tree/Object:visible")
+tracks/2/path = NodePath("../Explode B:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnwgn"]
-_data = {
-"Destroy": SubResource("Animation_0uk7b"),
-"Hit": SubResource("Animation_rrgwe"),
-"RESET": SubResource("Animation_t13jd")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d44fb"]
-size = Vector2(10, 5.34091)
-
-[sub_resource type="Animation" id="Animation_h1i0q"]
+[sub_resource type="Animation" id="Animation_d643d"]
 resource_name = "Wind"
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n1hgn"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_duhdq"]
 _data = {
-"Wind": SubResource("Animation_h1i0q")
+"Destroy": SubResource("Animation_3xuq0"),
+"Hit": SubResource("Animation_8apxe"),
+"RESET": SubResource("Animation_ccj56"),
+"Wind": SubResource("Animation_d643d")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2j6mq"]
+
 [node name="Stump" type="StaticBody2D"]
-collision_layer = 32
 script = ExtResource("1_ls0as")
-VelocityReduction = 0.01
 
 [node name="Tree" type="Node2D" parent="."]
 
 [node name="Object" type="Sprite2D" parent="Tree"]
 texture = ExtResource("1_vlgjf")
-offset = Vector2(0, -31.09)
+offset = Vector2(0, -24)
 hframes = 3
 
-[node name="Explode B" parent="." instance=ExtResource("3_7fnq1")]
-position = Vector2(0, -38)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tree"]
 libraries = {
-"": SubResource("AnimationLibrary_pnwgn")
+"": SubResource("AnimationLibrary_duhdq")
 }
+
+[node name="Explode B" parent="." instance=ExtResource("3_7fnq1")]
+position = Vector2(0, -25.83)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -20)
-scale = Vector2(6.9, 8.8)
-shape = SubResource("RectangleShape2D_d44fb")
-
-[node name="WindPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_n1hgn")
-}
+position = Vector2(1, -6)
+scale = Vector2(4.435, 3.515)
+shape = SubResource("CircleShape2D_2j6mq")

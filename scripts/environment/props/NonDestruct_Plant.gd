@@ -9,7 +9,7 @@ func _ready():
 	blow_plant()
 
 func randomize_sprite():
-	plant.frame = randf_range(0, (plant.hframes * plant.vframes) + 1)
+	plant.frame = randf_range(0, (plant.hframes * plant.vframes))
 	
 func blow_plant():
 	animation_player.play("Wind")
