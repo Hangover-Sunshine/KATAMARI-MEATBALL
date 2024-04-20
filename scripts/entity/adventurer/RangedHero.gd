@@ -24,7 +24,7 @@ var projectile_spawner
 # if ball is dead, target player
 
 func _ready():
-	venture_type = 4 #randi_range(3, 4)
+	venture_type = randi_range(3, 4)
 	health = randi_range(RangedHealth.x, RangedHealth.y)
 	super()
 ##

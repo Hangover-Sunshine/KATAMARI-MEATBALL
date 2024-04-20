@@ -87,6 +87,7 @@ func _process(delta):
 		time_since_held = 0
 	elif Input.is_action_just_released("Punch"):
 		mouse_pressed = false
+		player_charge.dissipate()
 		punch(global_position.direction_to(get_global_mouse_position()).normalized())
 	##
 	
