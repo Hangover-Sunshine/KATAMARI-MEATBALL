@@ -11,11 +11,11 @@ const FX_EXPLODE_BLOOD = preload("res://prefabs/particles/fx_explode_blood.tscn"
 func spawn_hero(start_position, is_melee:bool):
 	var loaded:Adventurer
 	if is_melee:
-		loaded = MeleeHeroPrefab.instantiate()
+		loaded = MeleeHeroPrefab.duplicate().instantiate()
 		add_child(loaded)
 		loaded.target = Player
 	else:
-		loaded = RangedHeroPrefab.instantiate()
+		loaded = RangedHeroPrefab.duplicate().instantiate()
 		add_child(loaded)
 		loaded.target = Fleshball if Fleshball != null else Player
 		loaded.ball = Fleshball

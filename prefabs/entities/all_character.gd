@@ -109,18 +109,7 @@ func play_waddle():
 ##
 
 func flash():
-	$FlashTimer.start()
-	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0.6)
-	$All_Skeleton/Heads/Cult_Heads.material.set_shader_parameter("hit_opacity", 0.6)
-	$All_Skeleton/Heads/Hero_Heads.material.set_shader_parameter("hit_opacity", 0.6)
-	$All_Skeleton/Heads/Peon_Heads.material.set_shader_parameter("hit_opacity", 0.6)
-	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0.6)
-##
-
-func _flash_over():
-	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0)
-	$All_Skeleton/Heads/Cult_Heads.material.set_shader_parameter("hit_opacity", 0)
-	$All_Skeleton/Heads/Hero_Heads.material.set_shader_parameter("hit_opacity", 0)
-	$All_Skeleton/Heads/Peon_Heads.material.set_shader_parameter("hit_opacity", 0)
-	$All_Skeleton/AllBody.material.set_shader_parameter("hit_opacity", 0)
+	if $Flash.is_playing() == false:
+		$Flash.play("flash")
+	##
 ##

@@ -25,11 +25,6 @@ shader = ExtResource("4_wwhpl")
 shader_parameter/hit_opacity = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rhn5"]
-shader = ExtResource("4_wwhpl")
-shader_parameter/hit_opacity = 0.0
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-
 [sub_resource type="Animation" id="Animation_3757p"]
 resource_name = "Idle"
 length = 4.0
@@ -160,6 +155,43 @@ _data = {
 "Walk": SubResource("Animation_n7fi2")
 }
 
+[sub_resource type="Animation" id="Animation_amdel"]
+resource_name = "flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GraphicsController/All_Skeleton/AllHands:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.6, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nuv3h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GraphicsController/All_Skeleton/AllHands:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00703"]
+_data = {
+"RESET": SubResource("Animation_nuv3h"),
+"flash": SubResource("Animation_amdel")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74fi5"]
 size = Vector2(99, 108)
 
@@ -200,26 +232,6 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0roox"]
 _data = {
 "melee_attack": SubResource("Animation_7opum")
-}
-
-[sub_resource type="Animation" id="Animation_amdel"]
-resource_name = "flash"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GraphicsController:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_00703"]
-_data = {
-"flash": SubResource("Animation_amdel")
 }
 
 [node name="MeleeHero" type="CharacterBody2D"]
@@ -283,7 +295,7 @@ hframes = 3
 vframes = 4
 
 [node name="AllBody" type="Sprite2D" parent="GraphicsController/All_Skeleton"]
-material = SubResource("ShaderMaterial_1rhn5")
+material = SubResource("ShaderMaterial_gl5np")
 texture = ExtResource("9_q87fw")
 hframes = 4
 vframes = 4
@@ -293,9 +305,11 @@ libraries = {
 "": SubResource("AnimationLibrary_w2qnm")
 }
 
-[node name="FlashTimer" type="Timer" parent="GraphicsController"]
-wait_time = 0.1
-one_shot = true
+[node name="Flash" type="AnimationPlayer" parent="GraphicsController"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_00703")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_74fi5")
@@ -334,12 +348,6 @@ libraries = {
 "": SubResource("AnimationLibrary_0roox")
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_00703")
-}
-
-[connection signal="timeout" from="GraphicsController/FlashTimer" to="GraphicsController" method="_flash_over"]
 [connection signal="body_entered" from="Melee/HitArea" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_entered" from="EntityInRange" to="." method="_on_entity_in_range_body_entered"]
 [connection signal="body_exited" from="EntityInRange" to="." method="_on_entity_in_range_body_exited"]
