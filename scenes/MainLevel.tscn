@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=81 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -40,6 +40,39 @@
 [ext_resource type="PackedScene" uid="uid://dlwp87iwasr7n" path="res://prefabs/environment/props/fence_c.tscn" id="38_yhre5"]
 [ext_resource type="PackedScene" uid="uid://c5vwo7gww86x" path="res://prefabs/environment/props/barrel.tscn" id="39_ekeu5"]
 [ext_resource type="PackedScene" uid="uid://d1ivix0yacqj3" path="res://prefabs/environment/props/crate.tscn" id="40_d6fi3"]
+[ext_resource type="PackedScene" uid="uid://dkmelr2eit6tc" path="res://prefabs/environment/plants/fern.tscn" id="41_h5y8f"]
+[ext_resource type="PackedScene" uid="uid://dxqn3f5o6yd5q" path="res://prefabs/environment/plants/grass.tscn" id="42_55qra"]
+[ext_resource type="PackedScene" uid="uid://co57ti7rlh7b4" path="res://prefabs/environment/plants/flower_a.tscn" id="43_yhhw0"]
+[ext_resource type="PackedScene" uid="uid://uctqmnwrjvi6" path="res://prefabs/environment/plants/flower_b.tscn" id="44_06knk"]
+[ext_resource type="Texture2D" uid="uid://ddtx7m8pttedh" path="res://assets/props/decals/Decal_Dirt01.png" id="45_njvo4"]
+[ext_resource type="Texture2D" uid="uid://081byl7hyyyf" path="res://assets/props/decals/Decal_Dirt06.png" id="46_1jjwr"]
+[ext_resource type="Texture2D" uid="uid://nftd7ju7cxsb" path="res://assets/props/decals/Decal_Dirt05.png" id="47_uvf3g"]
+[ext_resource type="Texture2D" uid="uid://beot2gnqi03k8" path="res://assets/props/decals/Decal_Dirt07.png" id="48_ftvms"]
+[ext_resource type="Texture2D" uid="uid://bkhp0uetamgo3" path="res://assets/props/decals/Decal_Dirt08.png" id="49_i7q67"]
+[ext_resource type="Texture2D" uid="uid://cioqr3m01uyte" path="res://assets/props/decals/Decal_Dirt03.png" id="50_i0qhx"]
+[ext_resource type="Texture2D" uid="uid://obi1txf0jqxu" path="res://assets/props/decals/Decal_Dirt04.png" id="51_hho0a"]
+[ext_resource type="Texture2D" uid="uid://u20y7vl1tog6" path="res://assets/props/decals/Decal_Dirt02.png" id="52_88bc8"]
+[ext_resource type="Texture2D" uid="uid://cqpabsay1bejr" path="res://assets/props/decals/Decal_Dirt14.png" id="53_gd2ox"]
+[ext_resource type="Texture2D" uid="uid://dioejhapknh28" path="res://assets/props/decals/Decal_Dirt12.png" id="54_cn2k0"]
+[ext_resource type="Texture2D" uid="uid://bk03oc2ro7bxj" path="res://assets/props/decals/Decal_Dirt17.png" id="55_u5le6"]
+[ext_resource type="Texture2D" uid="uid://biv3jlha5nl4f" path="res://assets/props/decals/Decal_Dirt16.png" id="56_qjtoj"]
+[ext_resource type="Texture2D" uid="uid://c27v2h735xavl" path="res://assets/props/decals/Decal_Dirt11.png" id="57_jl554"]
+[ext_resource type="Texture2D" uid="uid://c0baw68bdoawd" path="res://assets/props/decals/Decals_Rocks05.png" id="58_tmfpg"]
+[ext_resource type="Texture2D" uid="uid://drxvimsm4vqbe" path="res://assets/props/decals/Decals_Rocks06.png" id="59_0p36c"]
+[ext_resource type="Texture2D" uid="uid://dlxqyxaongbvs" path="res://assets/props/decals/Decals_Rocks07.png" id="60_a1iji"]
+[ext_resource type="Texture2D" uid="uid://la7cans3vgdf" path="res://assets/props/decals/Decals_Rocks08.png" id="61_i4bv2"]
+[ext_resource type="Texture2D" uid="uid://b0dvt6uuyavdl" path="res://assets/props/decals/Decals_Rocks09.png" id="62_8yip6"]
+[ext_resource type="Texture2D" uid="uid://jta30w7j0nj1" path="res://assets/props/decals/Decals_Rocks10.png" id="63_5q4j8"]
+[ext_resource type="Texture2D" uid="uid://df5q38jcvxdew" path="res://assets/props/decals/Decals_Rocks11.png" id="64_vodtd"]
+[ext_resource type="Texture2D" uid="uid://c876c5vvivlsi" path="res://assets/props/decals/Decals_Rocks12.png" id="65_kc1en"]
+[ext_resource type="Texture2D" uid="uid://b3aqn60d2bvo5" path="res://assets/props/decals/Decals_Rocks13.png" id="66_vvtji"]
+[ext_resource type="Texture2D" uid="uid://bg6coi3cuodld" path="res://assets/props/decals/Decals_Rocks14.png" id="67_rc21c"]
+[ext_resource type="Texture2D" uid="uid://dfv1lhcvqrgk7" path="res://assets/props/decals/Decals_Rocks15.png" id="68_gl26f"]
+[ext_resource type="Texture2D" uid="uid://sarhi0gq81gl" path="res://assets/props/decals/Decals_Rocks16.png" id="69_88doa"]
+[ext_resource type="Texture2D" uid="uid://dcf2w1d24jcbd" path="res://assets/props/decals/Decals_Stone01.png" id="70_nv5kq"]
+[ext_resource type="Texture2D" uid="uid://c6v4082wftff3" path="res://assets/props/decals/Decals_Stone02.png" id="71_mcthc"]
+[ext_resource type="Texture2D" uid="uid://t4cacxly8b6p" path="res://assets/props/decals/Decals_Stone03.png" id="72_ai3as"]
+[ext_resource type="Texture2D" uid="uid://b6mffwyjwvg4j" path="res://assets/props/decals/Decals_Stone04.png" id="73_btgy0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ac0gi"]
 vertices = PackedVector2Array(2883, -2925, 2936, 2933, -2928, 2927, -2895, -2936)
@@ -336,302 +369,1776 @@ texture = ExtResource("5_5563c")
 
 [node name="Plants" type="Node2D" parent="Game/Background"]
 
-[node name="Mound" type="Node2D" parent="Game/Background"]
+[node name="Grass Group" type="Node2D" parent="Game/Background/Plants"]
 
-[node name="Mound Group 1" type="Node2D" parent="Game/Background/Mound"]
+[node name="Grass" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2740, -2822)
+
+[node name="Grass2" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2496, -2808)
+
+[node name="Grass3" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2616, -2702)
+
+[node name="Grass4" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2796, -2644)
+
+[node name="Grass5" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2674, -2496)
+
+[node name="Grass6" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2808, -2396)
+
+[node name="Grass7" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2644, -2302)
+
+[node name="Grass8" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1808, -2642)
+
+[node name="Grass9" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1734, -2764)
+
+[node name="Grass10" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1610, -2682)
+
+[node name="Grass11" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1450, -2832)
+
+[node name="Grass12" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2800, -1914)
+
+[node name="Grass13" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2534, -1860)
+
+[node name="Grass14" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2730, -1750)
+
+[node name="Grass15" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1940, -1858)
+
+[node name="Grass16" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1758, -2482)
+
+[node name="Grass17" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1503, -1600)
+
+[node name="Grass18" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2067, -1548)
+
+[node name="Grass19" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2813, -1272)
+
+[node name="Grass20" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2635, -1100)
+
+[node name="Grass21" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2805, -990)
+
+[node name="Grass22" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2493, -928)
+
+[node name="Grass23" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2697, -822)
+
+[node name="Grass24" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2439, -732)
+
+[node name="Grass25" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2621, -614)
+
+[node name="Grass26" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2289, -430)
+
+[node name="Grass27" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1953, -210)
+
+[node name="Grass28" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1469, -518)
+
+[node name="Grass29" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2819, -404)
+
+[node name="Grass30" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2823, -122)
+
+[node name="Grass31" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2807, 112)
+
+[node name="Grass32" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2801, 410)
+
+[node name="Grass33" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2311, 660)
+
+[node name="Grass34" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2439, 844)
+
+[node name="Grass35" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2745, 1038)
+
+[node name="Grass36" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2441, 1094)
+
+[node name="Grass37" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2605, 1170)
+
+[node name="Grass38" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2767, 1334)
+
+[node name="Flower A9" parent="Game/Background/Plants/Grass Group" instance=ExtResource("44_06knk")]
+position = Vector2(-2393, 1334)
+
+[node name="Grass39" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2585, 1454)
+
+[node name="Grass40" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2283, 1418)
+
+[node name="Grass41" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2779, 1592)
+
+[node name="Grass42" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2497, 1644)
+
+[node name="Grass43" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2801, 1981)
+
+[node name="Grass44" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2701, 2226)
+
+[node name="Grass45" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2814, 2146)
+
+[node name="Grass46" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2812, 2355)
+
+[node name="Grass47" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2645, 2501)
+
+[node name="Grass48" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2803, 2594)
+
+[node name="Grass49" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2575, 2659)
+
+[node name="Grass50" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2760, 2732)
+
+[node name="Grass51" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2598, 2841)
+
+[node name="Grass52" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2233, 2833)
+
+[node name="Grass53" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2120, 2636)
+
+[node name="Grass54" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2025, 2787)
+
+[node name="Grass55" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1787, 2459)
+
+[node name="Grass56" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1657, 2562)
+
+[node name="Grass57" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1723, 2730)
+
+[node name="Grass58" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1530, 2811)
+
+[node name="Grass59" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1293, 2683)
+
+[node name="Grass60" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1776, 1441)
+
+[node name="Grass61" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1995, 1441)
+
+[node name="Grass62" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1674, 1553)
+
+[node name="Grass63" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1303, 1531)
+
+[node name="Grass64" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1072, 1729)
+
+[node name="Grass65" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-468, 1712)
+
+[node name="Grass66" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-596, 1804)
+
+[node name="Grass67" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-389, 1822)
+
+[node name="Grass68" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-571, 1988)
+
+[node name="Grass69" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1388, 2135)
+
+[node name="Grass70" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1454, 1673)
+
+[node name="Grass71" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1848, 1637)
+
+[node name="Grass72" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1640, 1757)
+
+[node name="Grass73" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1390, 1823)
+
+[node name="Grass74" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1594, 1933)
+
+[node name="Grass75" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1078, 2799)
+
+[node name="Grass76" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-856, 2686)
+
+[node name="Grass77" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-808, 2838)
+
+[node name="Grass78" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-521, 2509)
+
+[node name="Grass79" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-455, 2187)
+
+[node name="Grass80" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-42, 1954)
+
+[node name="Grass81" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(131, 1810)
+
+[node name="Grass82" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(185, 1949)
+
+[node name="Grass83" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(373, 1850)
+
+[node name="Grass84" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(450, 1978)
+
+[node name="Grass85" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(697, 1951)
+
+[node name="Grass86" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(836, 1819)
+
+[node name="Grass87" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1045, 2007)
+
+[node name="Grass88" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(947, 2083)
+
+[node name="Grass89" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1109, 2137)
+
+[node name="Grass90" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1251, 2039)
+
+[node name="Grass91" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(991, 2477)
+
+[node name="Grass92" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-67, 2709)
+
+[node name="Grass93" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-337, 2795)
+
+[node name="Grass94" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(155, 2835)
+
+[node name="Grass95" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(439, 2707)
+
+[node name="Grass96" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(203, 2643)
+
+[node name="Grass97" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(575, 2859)
+
+[node name="Grass98" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(745, 2701)
+
+[node name="Grass99" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2106, 181)
+
+[node name="Grass100" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1650, 77)
+
+[node name="Grass101" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2028, 348)
+
+[node name="Grass102" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1857, 459)
+
+[node name="Grass103" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-2110, 476)
+
+[node name="Grass104" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1174, 278)
+
+[node name="Grass105" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-974, 159)
+
+[node name="Grass106" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-961, 320)
+
+[node name="Grass107" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-801, 673)
+
+[node name="Grass108" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1111, 794)
+
+[node name="Grass109" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-756, 926)
+
+[node name="Grass110" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-925, 965)
+
+[node name="Grass111" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-541, 834)
+
+[node name="Grass112" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-164, 852)
+
+[node name="Grass113" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(265, 626)
+
+[node name="Grass114" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(144, 385)
+
+[node name="Grass115" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(126, 96)
+
+[node name="Grass116" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-204, 248)
+
+[node name="Grass117" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-689, 125)
+
+[node name="Grass118" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-862, -34)
+
+[node name="Grass119" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1243, -456)
+
+[node name="Grass120" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1302, -620)
+
+[node name="Grass121" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1767, -935)
+
+[node name="Grass122" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1908, -1047)
+
+[node name="Grass123" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1834, -1422)
+
+[node name="Grass124" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-900, -2315)
+
+[node name="Grass125" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1243, -2322)
+
+[node name="Grass126" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1217, -2522)
+
+[node name="Grass127" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-945, -2805)
+
+[node name="Grass128" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-471, -2782)
+
+[node name="Grass129" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-700, -2854)
+
+[node name="Grass130" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-386, -2322)
+
+[node name="Grass131" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-631, -2284)
+
+[node name="Grass132" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-114, -2181)
+
+[node name="Grass133" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(27, -2591)
+
+[node name="Grass134" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(0, -2811)
+
+[node name="Grass135" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(431, -2805)
+
+[node name="Grass136" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(577, -2623)
+
+[node name="Grass137" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(741, -2827)
+
+[node name="Grass138" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1015, -2818)
+
+[node name="Grass139" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1145, -2670)
+
+[node name="Grass140" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1143, -940)
+
+[node name="Grass141" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-939, -844)
+
+[node name="Grass142" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-1125, -712)
+
+[node name="Grass143" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-744, -1012)
+
+[node name="Grass144" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-726, -820)
+
+[node name="Grass145" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-151, -1527)
+
+[node name="Grass146" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-361, -2157)
+
+[node name="Grass147" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(38, -1390)
+
+[node name="Grass148" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(-10, -1626)
+
+[node name="Grass149" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(296, -1836)
+
+[node name="Grass150" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(472, -1773)
+
+[node name="Grass151" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(351, -1433)
+
+[node name="Grass152" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(226, -1340)
+
+[node name="Grass153" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(561, -1376)
+
+[node name="Grass154" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(758, -1431)
+
+[node name="Grass155" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(932, -1272)
+
+[node name="Grass156" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1193, -1264)
+
+[node name="Grass157" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1241, -1056)
+
+[node name="Grass158" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1373, -1251)
+
+[node name="Grass159" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(450, -856)
+
+[node name="Grass160" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(267, -753)
+
+[node name="Grass161" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(143, -606)
+
+[node name="Grass162" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(97, -413)
+
+[node name="Grass163" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(322, -340)
+
+[node name="Grass164" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(575, -343)
+
+[node name="Grass165" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(444, -457)
+
+[node name="Grass166" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(321, -581)
+
+[node name="Grass167" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(243, -472)
+
+[node name="Grass168" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(549, -675)
+
+[node name="Grass169" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(721, -497)
+
+[node name="Grass170" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(865, -633)
+
+[node name="Grass171" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(959, -516)
+
+[node name="Grass172" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(868, -416)
+
+[node name="Grass173" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1143, -402)
+
+[node name="Grass174" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1005, -322)
+
+[node name="Grass175" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1118, -177)
+
+[node name="Grass176" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(935, -189)
+
+[node name="Grass177" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1303, -99)
+
+[node name="Grass178" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1643, -111)
+
+[node name="Grass179" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(953, 13)
+
+[node name="Grass180" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(823, -1891)
+
+[node name="Grass181" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(702, -1860)
+
+[node name="Grass182" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1012, -2031)
+
+[node name="Grass183" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1413, -1933)
+
+[node name="Grass184" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1591, -1826)
+
+[node name="Grass185" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1364, -1834)
+
+[node name="Grass186" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1712, -1634)
+
+[node name="Grass187" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1726, -1458)
+
+[node name="Grass188" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1707, -1240)
+
+[node name="Grass189" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1749, -1025)
+
+[node name="Grass190" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1354, -2452)
+
+[node name="Grass191" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1792, -2447)
+
+[node name="Grass192" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2314, -2575)
+
+[node name="Grass193" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2464, -2498)
+
+[node name="Grass194" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2483, -2634)
+
+[node name="Grass195" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2448, -2801)
+
+[node name="Grass196" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2123, -2865)
+
+[node name="Grass197" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2644, -2737)
+
+[node name="Grass198" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2651, -2488)
+
+[node name="Grass199" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2765, -2628)
+
+[node name="Grass200" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2758, -2288)
+
+[node name="Grass201" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2533, -2332)
+
+[node name="Grass202" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2662, -2158)
+
+[node name="Grass203" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2801, -2010)
+
+[node name="Grass204" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2599, -1796)
+
+[node name="Grass205" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2318, -1990)
+
+[node name="Grass206" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2054, -2005)
+
+[node name="Grass207" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2724, -1657)
+
+[node name="Grass208" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2352, -1734)
+
+[node name="Grass209" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2785, -1392)
+
+[node name="Grass210" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2489, -892)
+
+[node name="Grass211" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2213, -887)
+
+[node name="Grass212" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2793, -1089)
+
+[node name="Grass213" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2791, -709)
+
+[node name="Grass214" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2498, -760)
+
+[node name="Grass215" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2632, -630)
+
+[node name="Grass216" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2789, -471)
+
+[node name="Grass217" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2213, -358)
+
+[node name="Grass218" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2371, -240)
+
+[node name="Grass219" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2115, 454)
+
+[node name="Grass220" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1757, 419)
+
+[node name="Grass221" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1877, 598)
+
+[node name="Grass222" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1664, 673)
+
+[node name="Grass223" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1718, 861)
+
+[node name="Grass224" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1424, 792)
+
+[node name="Grass225" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1514, 951)
+
+[node name="Grass226" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1145, 876)
+
+[node name="Grass227" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1310, 1023)
+
+[node name="Grass228" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(972, 1017)
+
+[node name="Grass229" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(717, 1074)
+
+[node name="Grass230" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(885, 1284)
+
+[node name="Grass231" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1472, 1113)
+
+[node name="Grass232" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2157, 1198)
+
+[node name="Grass233" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2415, 873)
+
+[node name="Grass234" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2758, 893)
+
+[node name="Grass235" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2601, 1041)
+
+[node name="Grass236" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2733, 1111)
+
+[node name="Grass237" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2594, 1243)
+
+[node name="Grass238" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2368, 1319)
+
+[node name="Grass239" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2682, 1472)
+
+[node name="Grass240" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2403, 1472)
+
+[node name="Grass241" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2530, 1561)
+
+[node name="Grass242" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2145, 1465)
+
+[node name="Grass243" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1809, 1615)
+
+[node name="Grass244" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1984, 1824)
+
+[node name="Grass245" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1845, 1912)
+
+[node name="Grass246" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2092, 1855)
+
+[node name="Grass247" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2004, 2011)
+
+[node name="Grass248" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1803, 2115)
+
+[node name="Grass249" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2009, 2251)
+
+[node name="Grass250" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2496, 2282)
+
+[node name="Grass251" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2538, 2489)
+
+[node name="Grass252" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2719, 2305)
+
+[node name="Grass253" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2694, 1728)
+
+[node name="Grass254" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2046, 2783)
+
+[node name="Grass255" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(2380, 2681)
+
+[node name="Grass256" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(1285, 2772)
+
+[node name="Grass257" parent="Game/Background/Plants/Grass Group" instance=ExtResource("42_55qra")]
+position = Vector2(938, 2828)
+
+[node name="Plant Group" type="Node2D" parent="Game/Background/Plants"]
+
+[node name="Flower A" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-2622, -2566)
+
+[node name="Flower A2" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-1452, -2672)
+
+[node name="Flower A3" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(-1434, -2134)
+
+[node name="Flower A4" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(-2622, -2824)
+
+[node name="Flower A5" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-2632, -2010)
+
+[node name="Flower A6" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-1648, -2806)
+
+[node name="Flower A7" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-1767, -1877)
+
+[node name="Flower A8" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-2800, -1621)
+
+[node name="Flower A10" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(-1291, 1712)
+
+[node name="Flower A11" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-1523, 2699)
+
+[node name="Flower A12" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(-1236, 2174)
+
+[node name="Flower A13" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-1883, 1343)
+
+[node name="Flower A14" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-628, 2719)
+
+[node name="Flower A9" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-34, -1503)
+
+[node name="Flower A15" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-476, -2230)
+
+[node name="Flower A16" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-337, -2829)
+
+[node name="Flower A17" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(636, -2722)
+
+[node name="Flower A18" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(1284, -1168)
+
+[node name="Flower A19" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(2631, -2615)
+
+[node name="Flower A20" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(2628, -1977)
+
+[node name="Flower A21" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(2706, -858)
+
+[node name="Flower A22" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(1003, -413)
+
+[node name="Flower A23" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-811, -897)
+
+[node name="Flower A24" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-2568, -780)
+
+[node name="Flower A25" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-1942, 592)
+
+[node name="Flower A26" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-2626, 1628)
+
+[node name="Flower A27" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-1286, 2824)
+
+[node name="Flower A28" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(310, 1960)
+
+[node name="Flower A29" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(-818, 131)
+
+[node name="Flower A30" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(1651, 984)
+
+[node name="Flower A31" parent="Game/Background/Plants/Plant Group" instance=ExtResource("41_h5y8f")]
+position = Vector2(2568, 2393)
+
+[node name="Flower A32" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(-2102, -1341)
+
+[node name="Flower A33" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-1169, -556)
+
+[node name="Flower A34" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(-1664, -31)
+
+[node name="Flower A35" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-1607, 550)
+
+[node name="Flower A36" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(419, 662)
+
+[node name="Flower A37" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(1223, 1326)
+
+[node name="Flower A38" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(1230, -909)
+
+[node name="Flower A39" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-23, -2041)
+
+[node name="Flower A40" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(-127, 26)
+
+[node name="Flower A41" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(1837, 2862)
+
+[node name="Flower A42" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(2521, 1379)
+
+[node name="Flower A43" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(2592, 820)
+
+[node name="Flower A44" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(1619, 396)
+
+[node name="Flower A45" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(2225, -1753)
+
+[node name="Flower A46" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-452, 1998)
+
+[node name="Flower A47" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(316, 2793)
+
+[node name="Flower A48" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(560, -517)
+
+[node name="Flower A49" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(-2788, -1129)
+
+[node name="Flower A50" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(392, -691)
+
+[node name="Flower A51" parent="Game/Background/Plants/Plant Group" instance=ExtResource("44_06knk")]
+position = Vector2(1337, 925)
+
+[node name="Flower A52" parent="Game/Background/Plants/Plant Group" instance=ExtResource("43_yhhw0")]
+position = Vector2(1870, 2036)
+
+[node name="Wheat Mound" type="Node2D" parent="Game/Background"]
+
+[node name="Mound Group 1" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(2501, 204)
 rotation = 0.0436332
 
-[node name="DecalWheatMound" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+[node name="DecalWheatMound" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 1"]
 position = Vector2(-122.5, -148)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound2" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+[node name="DecalWheatMound2" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 1"]
 position = Vector2(130.5, -155)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound13" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+[node name="DecalWheatMound13" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 1"]
 position = Vector2(123, -410.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound3" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+[node name="DecalWheatMound3" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 1"]
 position = Vector2(134.5, 111)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound4" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+[node name="DecalWheatMound4" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 1"]
 position = Vector2(-122.5, 118)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound14" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+[node name="DecalWheatMound14" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 1"]
 position = Vector2(134.5, 362)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound15" type="Sprite2D" parent="Game/Background/Mound/Mound Group 1"]
+[node name="DecalWheatMound15" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 1"]
 position = Vector2(-122.5, 369)
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 2" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 2" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(-2502, 80)
 rotation = -0.0436332
 
-[node name="DecalWheatMound5" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound5" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(-101.5, -468.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound6" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound6" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(-101.5, -221.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound7" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound7" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(-101.5, 33.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound8" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound8" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(-101.5, 297.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound9" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound9" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(-101.5, 552.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound10" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound10" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(163.5, 360.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound11" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound11" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(163.5, 97.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound12" type="Sprite2D" parent="Game/Background/Mound/Mound Group 2"]
+[node name="DecalWheatMound12" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 2"]
 position = Vector2(96.5, -154.5)
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 3" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 3" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(-2230, 2256)
 rotation = -0.333358
 
-[node name="DecalWheatMound29" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound29" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(-243.262, -426.288)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound30" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound30" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(23.738, -344.288)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound31" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound31" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(-243.262, -193.288)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound32" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound32" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(22.7385, -99.2881)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound33" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound33" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(-243.261, 51.7119)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound34" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound34" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(21.7383, 167.712)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound35" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound35" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(229, -188)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound36" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound36" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(229, 54)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound38" type="Sprite2D" parent="Game/Background/Mound/Mound Group 3"]
+[node name="DecalWheatMound38" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 3"]
 position = Vector2(-243, 315)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 4" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 4" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(-407, 504)
 rotation = 0.0785398
 
-[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 4"]
 position = Vector2(-250.5, -35.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 4"]
 position = Vector2(4.5, -38.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 4"]
 position = Vector2(240.5, -38.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 4"]
 position = Vector2(-110.5, 133.5)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Mound/Mound Group 4"]
+[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 4"]
 position = Vector2(144.5, 127.5)
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 5" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 5" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(253, 2299)
 rotation = 0.0436332
 
-[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(-413.262, -112.288)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(-158.262, -112.288)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound23" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound23" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(86.7382, -112.288)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound24" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound24" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(329.738, -112.288)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound25" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound25" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(495.738, 149.712)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound26" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound26" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(236.738, 149.712)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound27" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound27" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(-26.2618, 149.712)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound28" type="Sprite2D" parent="Game/Background/Mound/Mound Group 5"]
+[node name="DecalWheatMound28" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 5"]
 position = Vector2(-283.262, 149.712)
 rotation = 0.00872665
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 6" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 6" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(866, -1537)
 rotation = 0.0785398
 scale = Vector2(1, 1)
 
-[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(-212.859, -69.5078)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(42.1406, -72.5078)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(278.141, -72.5078)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(321.827, 55.9783)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(145.492, 61.8257)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(576.827, 49.9783)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 6"]
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 6"]
 position = Vector2(458.34, -67.1176)
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 7" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 7" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(-1532, -1143)
 rotation = 0.0785398
 scale = Vector2(1, 1)
 
-[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(-204.861, -57.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(50.1392, -60.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(286.139, -60.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+[node name="DecalWheatMound19" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(92.319, -209.879)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+[node name="DecalWheatMound22" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(-84.0163, -204.031)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+[node name="DecalWheatMound20" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(347.319, -215.879)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 7"]
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 7"]
 position = Vector2(466.338, -54.7069)
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 8" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 8" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(1609, -2608)
 rotation = 0.0785398
 scale = Vector2(1, 1)
 
-[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 8"]
 position = Vector2(-204.861, -57.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 8"]
 position = Vector2(50.1392, -60.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 8"]
 position = Vector2(286.139, -60.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 8"]
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 8"]
 position = Vector2(466.338, -54.7069)
 texture = ExtResource("33_rwgty")
 
-[node name="Mound Group 9" type="Node2D" parent="Game/Background/Mound"]
+[node name="Mound Group 9" type="Node2D" parent="Game/Background/Wheat Mound"]
 position = Vector2(-771, -2490)
 rotation = 0.0279253
 scale = Vector2(1, 1)
 
-[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+[node name="DecalWheatMound16" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 9"]
 position = Vector2(-204.861, -57.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+[node name="DecalWheatMound17" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 9"]
 position = Vector2(50.1392, -60.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+[node name="DecalWheatMound18" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 9"]
 position = Vector2(286.139, -60.0971)
 texture = ExtResource("33_rwgty")
 
-[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Mound/Mound Group 9"]
+[node name="DecalWheatMound21" type="Sprite2D" parent="Game/Background/Wheat Mound/Mound Group 9"]
 position = Vector2(466.338, -54.7069)
 texture = ExtResource("33_rwgty")
 
+[node name="Dirt Stone" type="Node2D" parent="Game/Background"]
+
+[node name="Dirt Group" type="Node2D" parent="Game/Background/Dirt Stone"]
+
+[node name="DecalDirt01" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-1927, -1915)
+texture = ExtResource("45_njvo4")
+
+[node name="DecalDirt06" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-1913, -2457)
+texture = ExtResource("46_1jjwr")
+
+[node name="DecalDirt05" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-2464, -2745)
+texture = ExtResource("47_uvf3g")
+
+[node name="DecalDirt07" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-2459, -1838)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt08" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-1993, -1802)
+texture = ExtResource("49_i7q67")
+
+[node name="DecalDirt09" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(240, -1779)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt10" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1660, -1740)
+texture = ExtResource("46_1jjwr")
+
+[node name="DecalDirt11" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(2280, -1547)
+texture = ExtResource("47_uvf3g")
+
+[node name="DecalDirt12" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-533, -1763)
+texture = ExtResource("49_i7q67")
+
+[node name="DecalDirt13" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-630, -772)
+texture = ExtResource("47_uvf3g")
+
+[node name="DecalDirt14" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-694, -759)
+texture = ExtResource("46_1jjwr")
+
+[node name="DecalDirt15" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-1473, -381)
+texture = ExtResource("47_uvf3g")
+
+[node name="DecalDirt16" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-1224, 207)
+texture = ExtResource("46_1jjwr")
+
+[node name="DecalDirt03" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-1663, 646)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt04" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-2474, -1762)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt17" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1468, -16)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt18" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(712, 376)
+texture = ExtResource("51_hho0a")
+
+[node name="DecalDirt19" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(326, 517)
+texture = ExtResource("46_1jjwr")
+
+[node name="DecalDirt20" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-927, 86)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt02" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-627, 1266)
+texture = ExtResource("52_88bc8")
+
+[node name="DecalDirt21" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-954, 1039)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt22" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1663, 305)
+texture = ExtResource("49_i7q67")
+
+[node name="DecalDirt23" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-2242, 1031)
+texture = ExtResource("53_gd2ox")
+
+[node name="DecalDirt24" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-2163, 940)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt25" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-629, 2195)
+texture = ExtResource("46_1jjwr")
+
+[node name="DecalDirt26" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-1234, 2584)
+texture = ExtResource("51_hho0a")
+
+[node name="DecalDirt27" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-889, 2574)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt28" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-614, 1665)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt29" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1637, 1575)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt30" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(2412, 976)
+texture = ExtResource("49_i7q67")
+
+[node name="DecalDirt31" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(2030, -429)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt32" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(418, -2338)
+texture = ExtResource("51_hho0a")
+
+[node name="DecalDirt33" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(477, -2357)
+texture = ExtResource("45_njvo4")
+
+[node name="DecalDirt34" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(220, -2219)
+texture = ExtResource("52_88bc8")
+
+[node name="DecalDirt35" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(372, -910)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt36" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(944, -659)
+rotation = -0.445059
+texture = ExtResource("46_1jjwr")
+
+[node name="DecalDirt37" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1124, -1094)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt38" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1357, 1998)
+texture = ExtResource("49_i7q67")
+
+[node name="DecalDirt39" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1673, 2262)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt40" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1941, 2319)
+texture = ExtResource("50_i0qhx")
+
+[node name="DecalDirt41" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(2062, 2703)
+texture = ExtResource("49_i7q67")
+
+[node name="DecalDirt42" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(2512, 2740)
+texture = ExtResource("54_cn2k0")
+
+[node name="DecalDirt43" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(262, 1267)
+texture = ExtResource("53_gd2ox")
+
+[node name="DecalDirt44" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-2633, -969)
+texture = ExtResource("55_u5le6")
+
+[node name="DecalDirt45" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-2526, -870)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt46" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(232, 749)
+texture = ExtResource("56_qjtoj")
+
+[node name="DecalDirt47" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-361, 2562)
+texture = ExtResource("55_u5le6")
+
+[node name="DecalDirt48" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(-503, 2590)
+texture = ExtResource("48_ftvms")
+
+[node name="DecalDirt49" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(2073, 715)
+texture = ExtResource("57_jl554")
+
+[node name="DecalDirt50" type="Sprite2D" parent="Game/Background/Dirt Stone/Dirt Group"]
+position = Vector2(1966, 753)
+texture = ExtResource("48_ftvms")
+
+[node name="Stone Group" type="Node2D" parent="Game/Background/Dirt Stone"]
+
+[node name="DecalsRocks05" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2144, -2639)
+texture = ExtResource("58_tmfpg")
+
+[node name="DecalsRocks06" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1822, -2281)
+texture = ExtResource("59_0p36c")
+
+[node name="DecalsRocks07" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2291, -2043)
+texture = ExtResource("60_a1iji")
+
+[node name="DecalsRocks08" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2796, -2534)
+texture = ExtResource("61_i4bv2")
+
+[node name="DecalsRocks09" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1520, -2628)
+texture = ExtResource("62_8yip6")
+
+[node name="DecalsRocks10" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1462, -1780)
+texture = ExtResource("63_5q4j8")
+
+[node name="DecalsRocks11" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2652, -1844)
+texture = ExtResource("64_vodtd")
+
+[node name="DecalsRocks12" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2096, -1218)
+texture = ExtResource("65_kc1en")
+
+[node name="DecalsRocks13" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2462, -1222)
+texture = ExtResource("66_vvtji")
+
+[node name="DecalsRocks14" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1758, -677)
+texture = ExtResource("67_rc21c")
+
+[node name="DecalsRocks15" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1836, -234)
+texture = ExtResource("68_gl26f")
+
+[node name="DecalsRocks16" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2570, -1013)
+texture = ExtResource("69_88doa")
+
+[node name="DecalsStone01" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2699, -932)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone02" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-257, -2250)
+texture = ExtResource("71_mcthc")
+
+[node name="DecalsRocks17" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-100, -2620)
+texture = ExtResource("69_88doa")
+
+[node name="DecalsRocks18" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(359, -1933)
+texture = ExtResource("68_gl26f")
+
+[node name="DecalsRocks19" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1315, -2383)
+texture = ExtResource("67_rc21c")
+
+[node name="DecalsRocks20" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1926, -1984)
+texture = ExtResource("66_vvtji")
+
+[node name="DecalsRocks21" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(998, -1100)
+texture = ExtResource("64_vodtd")
+
+[node name="DecalsRocks22" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-530, -801)
+texture = ExtResource("66_vvtji")
+
+[node name="DecalsRocks23" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(343, -233)
+texture = ExtResource("62_8yip6")
+
+[node name="DecalsRocks24" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2135, 93)
+texture = ExtResource("61_i4bv2")
+
+[node name="DecalsRocks25" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2794, 611)
+texture = ExtResource("60_a1iji")
+
+[node name="DecalsRocks26" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2813, -574)
+texture = ExtResource("59_0p36c")
+
+[node name="DecalsRocks27" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-663, 1726)
+texture = ExtResource("58_tmfpg")
+
+[node name="DecalsRocks28" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-980, 2034)
+texture = ExtResource("59_0p36c")
+
+[node name="DecalsRocks29" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1724, 2418)
+texture = ExtResource("62_8yip6")
+
+[node name="DecalsRocks30" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1758, 782)
+texture = ExtResource("63_5q4j8")
+
+[node name="DecalsRocks31" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1828, 1189)
+texture = ExtResource("65_kc1en")
+
+[node name="DecalsRocks32" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1489, 354)
+texture = ExtResource("69_88doa")
+
+[node name="DecalsStone03" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-216, -963)
+texture = ExtResource("71_mcthc")
+
+[node name="DecalsStone04" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-723, -1348)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone05" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-467, -1697)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsRocks33" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-406, -1677)
+texture = ExtResource("69_88doa")
+
+[node name="DecalsRocks34" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2247, -1405)
+texture = ExtResource("68_gl26f")
+
+[node name="DecalsRocks35" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1512, -1905)
+texture = ExtResource("67_rc21c")
+
+[node name="DecalsRocks36" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1241, -2718)
+texture = ExtResource("66_vvtji")
+
+[node name="DecalsRocks37" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2774, -2451)
+texture = ExtResource("65_kc1en")
+
+[node name="DecalsRocks38" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2811, -1800)
+texture = ExtResource("64_vodtd")
+
+[node name="DecalsRocks39" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2069, -812)
+texture = ExtResource("62_8yip6")
+
+[node name="DecalsRocks40" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1572, -646)
+texture = ExtResource("63_5q4j8")
+
+[node name="DecalsRocks41" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2112, -273)
+texture = ExtResource("62_8yip6")
+
+[node name="DecalsRocks42" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2640, -449)
+texture = ExtResource("61_i4bv2")
+
+[node name="DecalsRocks43" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-238, 1281)
+texture = ExtResource("60_a1iji")
+
+[node name="DecalsRocks44" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1113, 592)
+texture = ExtResource("58_tmfpg")
+
+[node name="DecalsRocks45" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2355, 805)
+texture = ExtResource("66_vvtji")
+
+[node name="DecalsRocks46" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1335, 1869)
+texture = ExtResource("67_rc21c")
+
+[node name="DecalsRocks47" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1507, 2725)
+texture = ExtResource("68_gl26f")
+
+[node name="DecalsRocks48" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2403, 2305)
+texture = ExtResource("69_88doa")
+
+[node name="DecalsRocks49" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-612, 2293)
+texture = ExtResource("67_rc21c")
+
+[node name="DecalsRocks50" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-451, 2700)
+texture = ExtResource("66_vvtji")
+
+[node name="DecalsRocks51" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(626, 2705)
+texture = ExtResource("65_kc1en")
+
+[node name="DecalsRocks52" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(355, 1763)
+texture = ExtResource("62_8yip6")
+
+[node name="DecalsRocks53" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1000, 1468)
+texture = ExtResource("60_a1iji")
+
+[node name="DecalsRocks54" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(406, -1303)
+texture = ExtResource("58_tmfpg")
+
+[node name="DecalsRocks55" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-392, -396)
+texture = ExtResource("63_5q4j8")
+
+[node name="DecalsStone06" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2599, 2655)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone07" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2353, 2833)
+texture = ExtResource("71_mcthc")
+
+[node name="DecalsStone08" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2190, 1055)
+texture = ExtResource("71_mcthc")
+
+[node name="DecalsStone09" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2432, 1506)
+texture = ExtResource("71_mcthc")
+
+[node name="DecalsStone10" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1737, 1892)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone11" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2627, 1294)
+texture = ExtResource("72_ai3as")
+
+[node name="DecalsStone12" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(649, 926)
+texture = ExtResource("73_btgy0")
+
+[node name="DecalsStone13" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1938, -1272)
+texture = ExtResource("72_ai3as")
+
+[node name="DecalsStone14" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1083, -530)
+texture = ExtResource("72_ai3as")
+
+[node name="DecalsStone15" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1803, 1006)
+texture = ExtResource("73_btgy0")
+
+[node name="DecalsStone16" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(18, 771)
+texture = ExtResource("72_ai3as")
+
+[node name="DecalsRocks56" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-852, 322)
+texture = ExtResource("67_rc21c")
+
+[node name="DecalsStone17" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-722, -637)
+texture = ExtResource("71_mcthc")
+
+[node name="DecalsStone18" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1221, 763)
+texture = ExtResource("72_ai3as")
+
+[node name="DecalsStone19" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2723, 1599)
+texture = ExtResource("73_btgy0")
+
+[node name="DecalsStone20" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2331, 1627)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone21" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1731, 559)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone22" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1083, 1171)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone23" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1323, 2235)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone24" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1293, 311)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone25" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-1073, -1933)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone26" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(-2037, -2477)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone27" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1775, -1653)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone28" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2353, -2478)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone29" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1904, -2382)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone30" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(1031, 647)
+texture = ExtResource("70_nv5kq")
+
+[node name="DecalsStone31" type="Sprite2D" parent="Game/Background/Dirt Stone/Stone Group"]
+position = Vector2(2701, 2823)
+texture = ExtResource("70_nv5kq")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_ac0gi")
 
 [node name="Details" type="Node" parent="Game"]
