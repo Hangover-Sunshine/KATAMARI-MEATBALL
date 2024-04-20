@@ -23,11 +23,10 @@ var curr_num_of_entities:int = 0
 var out_of_lvl0:bool = false
 var made_it_to_3:bool = false
 var allow_rangers:bool = false
-var entity_displacement = [0.4, 0.5, 1]
+var entity_displacement = [0.4, 0.5, 0.8]
 
 func _ready():
 	GlobalSignals.connect("player_out_of_health", _player_out_of_health)
-	GlobalSignals.connect("ball_level_changed", _ball_level_changed)
 	GlobalSignals.connect("ball_escaped", _ball_escaped)
 	GlobalSignals.connect("entity_removed", _entity_removed)
 	spawn_timer.start(2 + randf_range(SpawnTimeOffset.x, SpawnTimeOffset.y))
@@ -132,27 +131,6 @@ func _player_out_of_health():
 	$PlayerDeathcry.play()
 	LWSave.Prefs["winner"] = false
 	GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
-##
-
-func _ball_level_changed(lvl:int):
-	if made_it_to_3:
-		if lvl == 0:
-			entity_displacement = [0.3, 0.5, 0.1]
-		elif lvl == 1:
-			entity_displacement = [0.3, 0.3, 0.7]
-		else:
-			entity_displacement = [0.3, 0.1, 0.4]
-		##
-	else:
-		if lvl == 0:
-			entity_displacement = [0.3, 0.5, 1]
-		elif lvl == 1:
-			entity_displacement = [0.3, 0.4, 0.9]
-		else:
-			made_it_to_3 = true
-			entity_displacement = [0.2, 0.3, 0.5]
-		##
-	##
 ##
 
 func _ball_escaped():

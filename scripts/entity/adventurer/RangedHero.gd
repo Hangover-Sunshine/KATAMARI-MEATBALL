@@ -40,11 +40,6 @@ func _process(_delta):
 ##
 
 func _physics_process(delta):
-	if attack:
-		$GraphicsController.play_idle()
-		return
-	##
-	
 	# check if we can actually SEE the target
 	if in_range_for_attack:
 		var space_state = get_world_2d().direct_space_state
@@ -102,13 +97,13 @@ func _on_spawn_projectile_timer_timeout():
 		var proj = RangerProjectile.instantiate()
 		projectile_spawner.add_child(proj)
 		proj.global_position = global_position
-		proj.rotation = dir.angle()
+		proj.look_at(target.global_position)
 		proj.velocity = dir * randf_range(ProjectileSpeed.x, ProjectileSpeed.y)
 	else:
 		var proj = MageProjectile.instantiate()
 		projectile_spawner.add_child(proj)
 		proj.global_position = global_position
-		proj.rotation = dir.angle()
+		proj.look_at(target.global_position)
 		proj.velocity = dir * (randf_range(ProjectileSpeed.x, ProjectileSpeed.y) + 200)
 	##
 ##
