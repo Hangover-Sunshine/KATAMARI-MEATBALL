@@ -155,6 +155,15 @@ func _ball_level_changed(lvl:int):
 ##
 
 func _ball_escaped():
-	LWSave.Prefs["winner"] = true
+	LWSave.Prefs["game"]["winner"] = true
+	GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
+##
+
+func _on_play_area_body_exited(body):
+	$CultistController.process_mode = Node.PROCESS_MODE_DISABLED
+	$ProjectileHolder.process_mode = Node.PROCESS_MODE_DISABLED
+	$CivilianController.process_mode = Node.PROCESS_MODE_DISABLED
+	$HeroController.process_mode = Node.PROCESS_MODE_DISABLED
+	LWSave.Prefs["game"]["winner"] = true
 	GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
 ##

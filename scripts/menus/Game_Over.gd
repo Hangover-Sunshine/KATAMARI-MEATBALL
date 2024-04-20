@@ -28,7 +28,6 @@ func _ready():
 	go_leave.button_down.connect(on_leave_pressed)
 	GlobalSignals.connect("scene_loaded", _scene_loaded)
 	
-	# TODO: fun animations for counting?
 	go_cult_kills.text = str(LWSave.Prefs["game"]["cult_roll"])
 	go_hero_kills.text = str(LWSave.Prefs["game"]["hero_roll"])
 	go_civil_kills.text = str(LWSave.Prefs["game"]["civy_roll"])
@@ -99,7 +98,7 @@ func on_cont_pressed() -> void:
 	go_stats_container.visible = true
 
 func gameover_visibility():
-	if LWSave.Prefs["winner"] == true:
+	if LWSave.Prefs["game"]["winner"] == true:
 		go_succ_container.visible = true
 		go_stats_container.visible = false
 		go_title_succ.visible = true
