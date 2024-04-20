@@ -16,12 +16,17 @@ var material
 var curr_level:int = 0
 
 func _ready():
-	dist_to_maintain = $Camera3D.global_position.distance_to(model.global_position) - min_ball_scale()
+	dist_to_maintain = $Camera3D.global_position.distance_to(model.global_position)
 	material = model.get_active_material(0)
 ##
 
 func set_ball_scale(size):
-	var lod = 1
+	if model.mesh.radius >= 2.65:
+		return
+	##
+	
+	var lod = 0
+	
 	while size > 100:
 		lod += 1
 		size -= 100
@@ -29,9 +34,9 @@ func set_ball_scale(size):
 	
 	var rod = (size / 100)
 	
-	model.scale.x = lod + rod
-	model.scale.y = lod + rod
-	model.scale.z = lod + rod
+	model.mesh.radius = lod + rod
+	model.mesh.height = 2 * model.mesh.radius
+	
 	$Camera3D.global_position = Vector3(0, 1, 0) * (lod + rod + dist_to_maintain)
 	
 	# swap textures here on different sizes
@@ -55,10 +60,6 @@ func set_ball_scale(size):
 
 func get_ball_scale():
 	return model.scale.x
-##
-
-func min_ball_scale() -> float:
-	return 1.65
 ##
 
 func _physics_process(delta):

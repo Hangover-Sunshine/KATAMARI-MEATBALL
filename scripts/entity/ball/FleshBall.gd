@@ -12,8 +12,10 @@ class_name FleshBall2D
 ## How fast the ball loses momentum. Time is in seconds.
 @export var MovementLossTime:float = 2.5
 
-@onready var influence = $Influence
+@onready var influence:Area2D = $Influence
 @onready var ball3d = $"BallView/Ball3D"
+@onready var actual_hitbox:CollisionShape2D = $ActualHitbox
+var influence_cs:CollisionShape2D
 
 var current_consumption:float
 var off:bool = true
@@ -25,6 +27,37 @@ func _ready():
 	ball3d.max_speed = MaxVelocity
 	current_consumption = StartingSize
 	ball3d.set_ball_scale(current_consumption)
+	
+	influence_cs = influence.get_child(0)
+	
+	print(ball3d.model.mesh.radius)
+	
+	actual_hitbox.shape.radius = 50
+	influence_cs.shape.radius = 70 + current_consumption
+##
+var i = 0
+func _input(event):
+	if event.is_action_pressed("ui_up"):
+		current_consumption += 10
+		ball3d.set_ball_scale(current_consumption)
+		print("BALL3D RAD: ", ball3d.model.mesh.radius)
+		actual_hitbox.shape.radius = 74.3 * ball3d.model.mesh.radius + 40.4
+	##
+	if event.is_action_pressed("ui_down"):
+		current_consumption -= 10
+		ball3d.set_ball_scale(current_consumption)
+		print("BALL3D RAD: ", ball3d.model.mesh.radius)
+		actual_hitbox.shape.radius = 74.3 * ball3d.model.mesh.radius + 40.4
+	##
+	
+	if event.is_action_pressed("WalkUp"):
+		actual_hitbox.shape.radius += 2
+		print("HITBOX RAD: ", actual_hitbox.shape.radius)
+	##
+	if event.is_action_pressed("WalkDown"):
+		actual_hitbox.shape.radius -= 2
+		print("HITBOX RAD: ", actual_hitbox.shape.radius)
+	##
 ##
 
 func _process(delta):
@@ -120,6 +153,11 @@ func _on_influence_body_entered(body):
 	##
 	
 	ball3d.set_ball_scale(current_consumption)
+	
+	actual_hitbox.scale = Vector2(current_consumption * ball3d.get_ball_scale(), current_consumption * ball3d.get_ball_scale())
+	#actual_hitbox.scale = Vector2(ball3d.get_ball_scale(), ball3d.get_ball_scale())
+	#actual_hitbox.shape.radius = current_consumption / 1.6
+	#influence_cs.shape.radius = 70 + current_consumption
 	
 	if velocity.length_squared() > 0:
 		body.rolled_over()

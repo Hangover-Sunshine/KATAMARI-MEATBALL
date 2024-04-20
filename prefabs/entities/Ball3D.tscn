@@ -9,6 +9,7 @@
 albedo_texture = ExtResource("2_81c5r")
 
 [sub_resource type="SphereMesh" id="SphereMesh_rfoca"]
+lightmap_size_hint = Vector2i(17, 9)
 
 [node name="Ball3DScene" type="Node3D"]
 script = ExtResource("1_fky82")
@@ -17,13 +18,12 @@ Tex2 = ExtResource("2_solbl")
 Tex3 = ExtResource("4_32ubq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 3.5, 0)
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, -1.06785e-07, 2.44296)
 
 [node name="Model" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 layers = 2
 material_override = SubResource("StandardMaterial3D_h7uk7")
 mesh = SubResource("SphereMesh_rfoca")

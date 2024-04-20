@@ -7,6 +7,8 @@ func _ready():
 	GlobalSignals.connect("scene_loaded", _scene_loaded)
 	GlobalSignals.connect("unpause", _unpause)
 	
+	LWSave.Prefs["game"] = {}
+	
 	# play information
 	LWSave.Prefs["game"]["cult_roll"] = 0
 	LWSave.Prefs["game"]["hero_roll"] = 0

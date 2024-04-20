@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkhqlhb2o75jk" path="res://prefabs/entities/Ball3D.tscn" id="3_1gaad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdqra"]
-radius = 50.0
+radius = 65.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f0duw"]
 radius = 150.0
@@ -39,5 +39,6 @@ debug_color = Color(0.984314, 0, 0.34902, 0.419608)
 transparent_bg = true
 
 [node name="Ball3D" parent="BallView" instance=ExtResource("3_1gaad")]
+MaxSpinSpeed = 5.0
 
 [connection signal="body_entered" from="Influence" to="." method="_on_influence_body_entered"]
