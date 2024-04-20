@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://covm1wlkrryrq"]
+
+[ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="1_ld5gr"]
+
+[sub_resource type="Curve" id="Curve_evey3"]
+_data = [Vector2(0, 0.516483), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_3lbkv"]
+colors = PackedColorArray(0.67451, 0.156863, 0.278431, 1, 0.419608, 0.14902, 0.262745, 1)
+
+[node name="fx_trail_blood_charge" type="CPUParticles2D"]
+amount = 100
+texture = ExtResource("1_ld5gr")
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_evey3")
+color_ramp = SubResource("Gradient_3lbkv")
