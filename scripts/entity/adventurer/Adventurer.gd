@@ -22,6 +22,7 @@ func _ready():
 ##
 
 func rolled_over():
+	LWSave.Prefs["game"]["hero_roll"] += 1
 	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##
@@ -38,9 +39,7 @@ func take_damage(dmg):
 	##
 	health -= dmg
 	if health <= 0:
-		if civilian != null:
-			civilian.stop_escorting()
-		##
+		LWSave.Prefs["game"]["hero_punch"] += 1
 		# do things
 		GlobalSignals.emit_signal("entity_removed")
 		queue_free()

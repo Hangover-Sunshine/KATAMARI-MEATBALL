@@ -68,6 +68,7 @@ func _physics_process(delta):
 ##
 
 func rolled_over():
+	LWSave.Prefs["game"]["cult_roll"] += 1
 	if civvy:
 		# release the civilian from death
 		civvy.stop_converting()
@@ -123,7 +124,10 @@ func _on_path_requery_timer_timeout():
 	##
 ##
 
-func take_damage(_dmg):
+func take_damage(dmg):
+	if dmg == 5:
+		LWSave.Prefs["game"]["cult_punch"] += 1
+	##
 	if civvy:
 		civvy.stop_converting()
 	##
