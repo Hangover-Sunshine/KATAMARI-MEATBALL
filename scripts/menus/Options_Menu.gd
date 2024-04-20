@@ -35,7 +35,7 @@ func load_data():
 ##
 
 func on_back_pressed() -> void:
-	LWSave.save_to_disk("user://options.json", ["game"])
+	LWSave.save_to_disk("user://options.json", ["game", "load"])
 	leave_options_menu.emit()
 ##
 

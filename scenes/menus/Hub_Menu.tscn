@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://clcvgrem1uax3"]
+[gd_scene load_steps=17 format=3 uid="uid://clcvgrem1uax3"]
 
 [ext_resource type="Script" path="res://scripts/menus/Hub_Menu.gd" id="1_7hbgn"]
 [ext_resource type="PackedScene" uid="uid://cjpdcltsjfr2m" path="res://scenes/Menus/Main_Menu.tscn" id="1_nfybi"]
-[ext_resource type="PackedScene" uid="uid://bm2frkhsku2i4" path="res://prefabs/particles/background_design.tscn" id="2_f2nr7"]
 [ext_resource type="PackedScene" uid="uid://3hktxq1p4qdr" path="res://scenes/Menus/Options_Menu.tscn" id="2_t1vus"]
 [ext_resource type="PackedScene" uid="uid://cgtj810lqgwsc" path="res://scenes/Menus/Splash_Menu.tscn" id="3_w588a"]
-[ext_resource type="Texture2D" uid="uid://cuagkhy6jqevj" path="res://assets/textures/Meatball_Menu.png" id="5_8kmqr"]
+[ext_resource type="Texture2D" uid="uid://dfi4fhu6ekv48" path="res://assets/temporary/Temp_Menu_Ball.png" id="5_rpn27"]
 
 [sub_resource type="Animation" id="Animation_n7r88"]
 resource_name = "Fade2Splash"
@@ -363,9 +362,7 @@ script = ExtResource("1_7hbgn")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.0627451, 0.0705882, 0.109804, 1)
-
-[node name="Background_Design" parent="." instance=ExtResource("2_f2nr7")]
+color = Color(0, 0, 0, 1)
 
 [node name="SplashMenu" parent="." instance=ExtResource("3_w588a")]
 visible = false
@@ -393,4 +390,4 @@ libraries = {
 
 [node name="Meatball" type="Sprite2D" parent="."]
 position = Vector2(-1152, 540)
-texture = ExtResource("5_8kmqr")
+texture = ExtResource("5_rpn27")
