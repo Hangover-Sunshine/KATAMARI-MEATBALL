@@ -75,6 +75,7 @@ func rolled_over():
 		# release the civilian from death
 		civvy.stop_converting()
 	##
+	get_parent().dead(global_position)
 	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##
@@ -82,6 +83,7 @@ func rolled_over():
 func get_absorbed():
 	jump_into_ball = true
 	# once jumping in, they're done -- ignore the world you mindless heathen
+	GlobalSignals.emit_signal("entity_removed")
 	$ConversionZone.queue_free()
 	$Sight.queue_free()
 ##
@@ -133,6 +135,7 @@ func take_damage(dmg):
 	if civvy:
 		civvy.stop_converting()
 	##
+	get_parent().dead(global_position)
 	GlobalSignals.emit_signal("entity_removed")
 	queue_free()
 ##

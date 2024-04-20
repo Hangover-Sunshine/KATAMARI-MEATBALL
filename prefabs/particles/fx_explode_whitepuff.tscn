@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcb4gm730ymlm"]
+[gd_scene load_steps=4 format=3 uid="uid://twhjn74me6x2"]
 
 [ext_resource type="Texture2D" uid="uid://ukq4espvatb2" path="res://assets/particle/Puff1.png" id="1_ncrla"]
+[ext_resource type="Script" path="res://scripts/particles/PlayAndDisappear.gd" id="2_qgl4l"]
 
 [sub_resource type="Curve" id="Curve_100yv"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.80342, 0.0, 0, 0]
@@ -19,3 +20,4 @@ initial_velocity_max = 75.0
 scale_amount_min = 0.25
 scale_amount_max = 0.25
 scale_amount_curve = SubResource("Curve_100yv")
+script = ExtResource("2_qgl4l")

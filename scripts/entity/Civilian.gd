@@ -123,6 +123,7 @@ func rolled_over():
 	
 	GlobalSignals.emit_signal("entity_removed")
 	# spawn particle
+	get_parent().dead(global_position)
 	
 	# spawn sound effect at location
 	
@@ -134,6 +135,7 @@ func take_damage(dmg):
 	stop_converting()
 	
 	LWSave.Prefs["game"]["civy_punch"] += 1
+	get_parent().dead(global_position)
 	
 	GlobalSignals.emit_signal("entity_removed")
 	queue_free()

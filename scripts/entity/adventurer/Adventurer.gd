@@ -24,6 +24,7 @@ func _ready():
 func rolled_over():
 	LWSave.Prefs["game"]["hero_roll"] += 1
 	GlobalSignals.emit_signal("entity_removed")
+	get_parent().dead(global_position)
 	queue_free()
 ##
 
@@ -40,6 +41,7 @@ func take_damage(dmg):
 	health -= dmg
 	if health <= 0:
 		LWSave.Prefs["game"]["hero_punch"] += 1
+		get_parent().dead(global_position)
 		# do things
 		GlobalSignals.emit_signal("entity_removed")
 		queue_free()

@@ -4,6 +4,8 @@ extends Node2D
 @export var ExitPoints:Node2D
 @export var CivilianPrefab:PackedScene
 
+const FX_EXPLODE_BLOOD = preload("res://prefabs/particles/fx_explode_blood.tscn")
+
 func _ready():
 	GlobalSignals.connect("request_new_flee_point", _new_flee_point_requested)
 	GlobalSignals.connect("request_escort_point", _request_escort_point)
@@ -33,4 +35,11 @@ func _request_escort_point(civy:Civilian, adventurer:Adventurer):
 	
 	civy.set_target_position(ExitPoints.get_child(bp_indx).global_position)
 	adventurer.target = ExitPoints.get_child(bp_indx)
+##
+
+func dead(pos):
+	var blood = FX_EXPLODE_BLOOD.instantiate()
+	add_child(blood)
+	blood.global_position = pos
+	blood.play()
 ##

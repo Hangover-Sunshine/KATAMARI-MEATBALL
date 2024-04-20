@@ -6,6 +6,8 @@ extends Node2D
 @export var Player:Lich
 @export var ProjectileHolder:Node2D
 
+const FX_EXPLODE_BLOOD = preload("res://prefabs/particles/fx_explode_blood.tscn")
+
 func spawn_hero(start_position, is_melee:bool):
 	var loaded:Adventurer
 	if is_melee:
@@ -21,4 +23,11 @@ func spawn_hero(start_position, is_melee:bool):
 	##
 	loaded.global_position = start_position
 	loaded.player = Player
+##
+
+func dead(pos):
+	var blood = FX_EXPLODE_BLOOD.instantiate()
+	add_child(blood)
+	blood.global_position = pos
+	blood.play()
 ##
