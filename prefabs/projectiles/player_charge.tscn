@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://r4q7hfvxwixv"]
+[gd_scene load_steps=7 format=3 uid="uid://r4q7hfvxwixv"]
 
+[ext_resource type="Script" path="res://scripts/entity/PlayerCharge.gd" id="1_hjx8t"]
 [ext_resource type="PackedScene" uid="uid://covm1wlkrryrq" path="res://prefabs/particles/fx_trail_blood_charge.tscn" id="1_uhn6n"]
 
 [sub_resource type="Animation" id="Animation_73ra6"]
@@ -41,6 +42,22 @@ tracks/2/keys = {
 "values": [0.0, 0.5]
 }
 
+[sub_resource type="Animation" id="Animation_r6hw2"]
+resource_name = "Dissapate"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Charge:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_hsdhw"]
 length = 0.001
 tracks/0/type = "value"
@@ -80,22 +97,6 @@ tracks/2/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_r6hw2"]
-resource_name = "Dissapate"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Charge:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m072k"]
 _data = {
 "Charge": SubResource("Animation_73ra6"),
@@ -104,6 +105,7 @@ _data = {
 }
 
 [node name="Player Charge" type="Node2D"]
+script = ExtResource("1_hjx8t")
 
 [node name="Charge" parent="." instance=ExtResource("1_uhn6n")]
 emitting = false

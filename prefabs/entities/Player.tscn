@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://myhbn6a4wked"]
+[gd_scene load_steps=15 format=3 uid="uid://myhbn6a4wked"]
 
 [ext_resource type="Script" path="res://scripts/entity/Player.gd" id="1_37j8s"]
 [ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="3_2rjrk"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b3h8l644juvw3" path="res://assets/sfx/punch_people/PunchWhiff.ogg" id="9_1podi"]
 [ext_resource type="AudioStream" uid="uid://bwp801leampbs" path="res://assets/sfx/punch_people/PunchPerson2.ogg" id="10_241q6"]
 [ext_resource type="AudioStream" uid="uid://b7vb788xrarj" path="res://assets/sfx/punch_people/PunchPerson3.ogg" id="11_bdsw7"]
+[ext_resource type="PackedScene" uid="uid://r4q7hfvxwixv" path="res://prefabs/projectiles/player_charge.tscn" id="13_m7xrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u0wk"]
 size = Vector2(82, 82)
@@ -98,6 +99,8 @@ stream = ExtResource("10_241q6")
 stream = ExtResource("11_bdsw7")
 
 [node name="HBTimer" type="Timer" parent="."]
+
+[node name="PlayerCharge" parent="." instance=ExtResource("13_m7xrs")]
 
 [connection signal="body_entered" from="Rotator/EntityPunchDetector" to="." method="_on_entity_punch_detector_body_entered"]
 [connection signal="body_exited" from="Rotator/EntityPunchDetector" to="." method="_on_entity_punch_detector_body_exited"]

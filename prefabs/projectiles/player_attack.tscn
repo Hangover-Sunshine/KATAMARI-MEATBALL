@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca4ci8fw6jw1w"]
+[gd_scene load_steps=9 format=3 uid="uid://ca4ci8fw6jw1w"]
 
 [ext_resource type="Texture2D" uid="uid://dv28st7f43j3j" path="res://assets/particle/body parts/PC_Limb_Attack.png" id="1_nth3o"]
+[ext_resource type="Script" path="res://scripts/entity/PlayerAttack.gd" id="1_qge86"]
 [ext_resource type="PackedScene" uid="uid://bn4mea0esy26a" path="res://prefabs/particles/fx_trail_blood_smoll.tscn" id="2_irh16"]
 [ext_resource type="PackedScene" uid="uid://bokhqhugg843l" path="res://prefabs/particles/fx_explode_blood.tscn" id="3_h2b8p"]
 
@@ -229,6 +230,7 @@ _data = {
 }
 
 [node name="Player Attack" type="Node2D"]
+script = ExtResource("1_qge86")
 
 [node name="Mage Limb" type="Node2D" parent="."]
 visible = false
@@ -262,3 +264,8 @@ position = Vector2(36, 0)
 libraries = {
 "": SubResource("AnimationLibrary_vfvun")
 }
+
+[node name="SendTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SendTimer" to="." method="_on_send_timer_timeout"]

@@ -31,6 +31,7 @@ func _ready():
 	GlobalSignals.connect("ball_escaped", _ball_escaped)
 	GlobalSignals.connect("entity_removed", _entity_removed)
 	spawn_timer.start(2 + randf_range(SpawnTimeOffset.x, SpawnTimeOffset.y))
+	Player.projectile_area = $ProjectileHolder
 ##
 
 func _entity_removed():

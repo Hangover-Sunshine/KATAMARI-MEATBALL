@@ -14,6 +14,9 @@ class_name Lich
 @onready var punch_people_pool = $PunchPeoplePool
 @onready var health_bar = $HealthBar
 @onready var hb_timer = $HBTimer
+@onready var player_charge = $PlayerCharge
+
+const PLAYER_ATTACK = preload("res://prefabs/projectiles/player_attack.tscn")
 
 var time_since_held:float = 0
 var mouse_pressed:bool = false
@@ -22,6 +25,8 @@ var health
 var enemies_in_way:Array = []
 
 var just_unpaused:bool = false
+
+var projectile_area
 
 func _ready():
 	health = MaxHealth
@@ -32,6 +37,14 @@ func _ready():
 ##
 
 func punch(dir_from_player_to_mouse):
+	var att = PLAYER_ATTACK.instantiate()
+	projectile_area.add_child(att)
+	att.global_position = global_position
+	att.dir = dir_from_player_to_mouse
+	att.look_at(get_global_mouse_position())
+	# play growth
+	att.play_growth()
+	
 	if ball == null and len(enemies_in_way) == 0:
 		punch_wiff.play_random_sound()
 		return
@@ -79,6 +92,7 @@ func _process(delta):
 	
 	if mouse_pressed:
 		time_since_held += delta
+		player_charge.scale_up(clampf(time_since_held / MaxWindupTime, 0, 1))
 	##
 ##
 
