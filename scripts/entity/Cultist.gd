@@ -41,6 +41,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	if jump_into_ball or converting:
+		$CultistSprite.play_idle()
 		return
 	##
 	
@@ -63,6 +64,7 @@ func _physics_process(delta):
 		travel_speed = ChaseSpeed
 	##
 	
+	$CultistSprite.play_waddle()
 	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * travel_speed
 	move_and_slide()
 ##

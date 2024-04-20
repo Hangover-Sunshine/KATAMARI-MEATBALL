@@ -101,8 +101,11 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, Speed)
 	##
 	
-	#if (x_dir or y_dir) and step_pool.is_playing() == false:
+	if (x_dir or y_dir):
+		$GraphicsController.play_waddle()
 		#step_pool.play_random_sound()
+	else:
+		$GraphicsController.play_idle()
 	##
 	
 	move_and_slide()

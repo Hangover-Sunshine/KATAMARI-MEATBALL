@@ -58,10 +58,11 @@ func set_target_position(pos:Vector2):
 ##
 
 func _physics_process(delta):
-	if being_converted or escort_under_attack or freeing_self:
+	if being_converted:
 		return
 	##
 	
+	$GraphicsControl.play_waddle()
 	velocity = wander_dir * MovementSpeed
 	
 	move_and_slide()
@@ -81,6 +82,7 @@ func _on_destination_wait_timer_timeout():
 		wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
 		wander_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 	##
+	$GraphicsControl.play_idle()
 ##
 
 func begin_conversion_by(cultist):

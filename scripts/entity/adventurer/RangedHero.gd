@@ -41,6 +41,7 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if attack:
+		$GraphicsController.play_idle()
 		return
 	##
 	
@@ -63,6 +64,8 @@ func _physics_process(delta):
 	if travel_brain.is_navigation_finished() and target != null:
 		travel_brain.target_position = target.global_position
 	##
+	
+	$GraphicsController.play_waddle()
 	
 	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * MovementSpeed
 	move_and_slide()

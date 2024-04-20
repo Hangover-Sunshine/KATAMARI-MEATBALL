@@ -93,4 +93,15 @@ func clear_character():
 	cult_heads.frame = 0
 	hero_heads.frame = 0
 	peon_heads.frame = 0
-	
+
+func play_idle():
+	if $AnimationPlayer.is_playing() == false or ($AnimationPlayer.is_playing() and $AnimationPlayer.current_animation != "Idle"):
+		$AnimationPlayer.play("Idle")
+	return true
+##
+
+func play_waddle():
+	if $AnimationPlayer.is_playing() == false or ($AnimationPlayer.is_playing() and $AnimationPlayer.current_animation != "Walk"):
+		$AnimationPlayer.play("Walk")
+	return true
+##
