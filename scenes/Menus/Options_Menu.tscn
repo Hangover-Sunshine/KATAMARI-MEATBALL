@@ -70,6 +70,7 @@ theme_override_icons/unchecked = ExtResource("4_6moat")
 button_pressed = true
 
 [node name="WindowMode2" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
@@ -85,6 +86,13 @@ horizontal_alignment = 1
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/OptionsMenu/O_VBoxContainer/WindowMode2"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "640 X 480"
+popup/item_2/id = 3
 
 [node name="Overall_Volume" type="HBoxContainer" parent="MarginContainer/OptionsMenu/O_VBoxContainer"]
 layout_mode = 2

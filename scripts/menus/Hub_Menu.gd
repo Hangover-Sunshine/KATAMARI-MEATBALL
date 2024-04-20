@@ -24,11 +24,11 @@ func _ready():
 				# game only has 1 window
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			##
-			DisplayServer.window_set_size(LWSave.Prefs["resolution"])
+			get_viewport().size_2d_override = LWSave.Prefs["resolution"]
+			get_viewport().size_2d_override_stretch = true
 		##
 	else:
 		LWSave.Prefs["windowed"] = true # Desktop-only
-		LWSave.Prefs["resolution"] = Vector2(1920, 1080) # Desktop only
 		LWSave.Prefs["master_vol"] = 0.8
 		LWSave.Prefs["music_vol"] = 1
 		LWSave.Prefs["sfx_vol"] = 1
