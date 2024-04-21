@@ -42,6 +42,12 @@ func is_playing() -> bool:
 	return false
 ##
 
+func play_random_sound_at(pos) -> bool:
+	var res = play_random_sound()
+	m_audio_stream_player[m_prev_index].global_position = pos
+	return res
+##
+
 func play_random_sound() -> bool:
 	var index:int = randi() % len(m_audio_stream_player)
 	var attempts:int = 0

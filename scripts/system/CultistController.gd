@@ -4,6 +4,7 @@ extends Node2D
 @export var CultistPrefab:PackedScene
 
 @onready var spawn_points = $SpawnPoints
+@onready var puff_pool = $PuffPool
 
 const EXPLODE_WHITEPUFF = preload("res://prefabs/particles/fx_explode_whitepuff.tscn")
 const FX_EXPLODE_BLOOD = preload("res://prefabs/particles/fx_explode_blood.tscn")
@@ -21,6 +22,7 @@ func make_cultist(start_pos):
 ##
 
 func _convert_citizen_to_cultist(civy:Civilian):
+	puff_pool.play_random_sound_at(civy.global_position)
 	var puff = EXPLODE_WHITEPUFF.instantiate()
 	var loaded:Cultist = CultistPrefab.instantiate()
 	add_child(loaded)
