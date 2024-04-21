@@ -15,6 +15,7 @@ radius = 707.12
 collision_layer = 4
 collision_mask = 34
 script = ExtResource("1_ud2tp")
+ProjectileSpawnTimer = 1.0
 MageProjectile = ExtResource("2_6hd5u")
 RangerProjectile = ExtResource("2_l88v2")
 MovementSpeed = 350.0
