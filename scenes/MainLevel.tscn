@@ -2144,7 +2144,7 @@ collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
 MinScoreThreshold = 600.0
-MinVelocityThreshold = 60.0
+MinVelocityThreshold = 0.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/LeftWall"]
 position = Vector2(23.885, 0)
@@ -2165,7 +2165,7 @@ collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
 MinScoreThreshold = 600.0
-MinVelocityThreshold = 60.0
+MinVelocityThreshold = 0.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/RightWall"]
 position = Vector2(23.885, 0)
@@ -2184,7 +2184,7 @@ collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
 MinScoreThreshold = 600.0
-MinVelocityThreshold = 60.0
+MinVelocityThreshold = 0.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/BottomWall"]
 tile_set = SubResource("TileSet_an1qr")
@@ -2201,7 +2201,7 @@ collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
 MinScoreThreshold = 600.0
-MinVelocityThreshold = 100.0
+MinVelocityThreshold = 0.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/TopWall"]
 tile_set = SubResource("TileSet_an1qr")
