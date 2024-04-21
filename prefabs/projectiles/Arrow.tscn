@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://beamqrjtg2mmh"]
+[gd_scene load_steps=9 format=3 uid="uid://beamqrjtg2mmh"]
 
 [ext_resource type="Script" path="res://scripts/projectile/Arrow.gd" id="1_d1lfn"]
 [ext_resource type="Texture2D" uid="uid://euwvkhqvhp5" path="res://assets/particle/Caret.png" id="1_kbpub"]
 [ext_resource type="Texture2D" uid="uid://br4yvlq0v6wsy" path="res://assets/particle/Line.png" id="2_5veu3"]
 [ext_resource type="PackedScene" uid="uid://dd4ejva4dsuu4" path="res://prefabs/particles/fx_trail_heroprojectile.tscn" id="2_e86ih"]
 [ext_resource type="Texture2D" uid="uid://di1wun67yfrta" path="res://assets/particle/Dash.png" id="3_vgkfy"]
+[ext_resource type="AudioStream" uid="uid://2jgtkccyamed" path="res://assets/sfx/projectile/ArrowHitMeat.ogg" id="6_pcexv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2fy5"]
 size = Vector2(33, 28)
@@ -90,4 +91,13 @@ position = Vector2(46.5, 0)
 shape = SubResource("RectangleShape2D_qgwrf")
 debug_color = Color(0.992157, 0, 0.231373, 0.419608)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_pcexv")
+bus = &"GameSFX"
+
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

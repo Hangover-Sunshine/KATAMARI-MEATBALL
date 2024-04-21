@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://8nio5o2tjs5l"]
+[gd_scene load_steps=11 format=3 uid="uid://8nio5o2tjs5l"]
 
 [ext_resource type="Script" path="res://scripts/entity/adventurer/MeleeHero.gd" id="1_22tij"]
 [ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="1_ico5n"]
 [ext_resource type="Texture2D" uid="uid://b7e4h8l2s1sum" path="res://assets/particle/Bracket1.png" id="3_61fqr"]
+[ext_resource type="Script" path="res://nodes/SoundPool/SoundPool2D.gd" id="4_tenh7"]
+[ext_resource type="AudioStream" uid="uid://bcwiv2y6skdv4" path="res://assets/sfx/punch_people/PunchPerson4.ogg" id="5_ghy7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74fi5"]
 size = Vector2(99, 108)
@@ -89,6 +91,20 @@ root_node = NodePath("../Melee")
 libraries = {
 "": SubResource("AnimationLibrary_0roox")
 }
+
+[node name="SoundPool2D" type="Node2D" parent="."]
+script = ExtResource("4_tenh7")
+randomizePitch = true
+allowPitchReroll = true
+pitchRandomization = Vector2(1.4, 1.9)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundPool2D"]
+stream = ExtResource("5_ghy7k")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundPool2D"]
+stream = ExtResource("5_ghy7k")
+bus = &"GameSFX"
 
 [connection signal="body_entered" from="Melee/HitArea" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_entered" from="EntityInRange" to="." method="_on_entity_in_range_body_entered"]

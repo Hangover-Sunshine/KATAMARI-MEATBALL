@@ -11,8 +11,9 @@ class_name RangedHero
 
 @onready var travel_brain = $TravelBrain
 @onready var spawn_projectile_timer = $SpawnProjectileTimer
+@onready var sound_pool_2d = $SoundPool2D
 
-@onready var ball:FleshBall2D
+var ball:FleshBall2D
 
 var ball_in_range:bool = false
 var in_range_for_attack:bool = false
@@ -101,6 +102,7 @@ func _on_spawn_projectile_timer_timeout():
 		proj.look_at(target.global_position)
 		proj.velocity = dir * randf_range(ProjectileSpeed.x, ProjectileSpeed.y)
 	else:
+		sound_pool_2d.play_random_sound()
 		var proj = MageProjectile.instantiate()
 		projectile_spawner.add_child(proj)
 		proj.global_position = global_position

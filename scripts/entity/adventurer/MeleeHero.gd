@@ -6,6 +6,7 @@ class_name MeleeHero
 @onready var melee = $Melee
 @onready var travel_brain = $TravelBrain
 @onready var attack_anim = $AttackAnim
+@onready var sound_pool_2d = $SoundPool2D
 
 func _ready():
 	venture_type = 2
@@ -29,6 +30,7 @@ func _process(delta):
 		##
 		
 		if attack_anim.is_playing() == false:
+			sound_pool_2d.play_random_sound()
 			attack_anim.play("melee_attack")
 		##
 	##

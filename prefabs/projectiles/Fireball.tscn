@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://duoq5pc1pwvqy"]
+[gd_scene load_steps=10 format=3 uid="uid://duoq5pc1pwvqy"]
 
 [ext_resource type="Script" path="res://scripts/projectile/Fireball.gd" id="1_ndps6"]
 [ext_resource type="PackedScene" uid="uid://dd4ejva4dsuu4" path="res://prefabs/particles/fx_trail_heroprojectile.tscn" id="2_ads44"]
 [ext_resource type="Texture2D" uid="uid://cxvliwl5nstnw" path="res://assets/particle/Diamond.png" id="2_cu00n"]
+[ext_resource type="AudioStream" uid="uid://dv6lkmbodjld1" path="res://assets/sfx/projectile/Boom.ogg" id="4_koylm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_na26w"]
 radius = 49.6488
@@ -92,6 +93,10 @@ libraries = {
 
 [node name="ExplodeTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_koylm")
+bus = &"GameSFX"
 
 [connection signal="body_entered" from="HitDetector" to="." method="_on_hit_detector_body_entered"]
 [connection signal="body_entered" from="DamageZone" to="." method="_on_damage_zone_body_entered"]

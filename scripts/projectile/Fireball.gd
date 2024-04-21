@@ -37,6 +37,8 @@ func _on_hit_detector_body_entered(body):
 	get_parent().add_child(expl)
 	expl.global_position = global_position
 	expl.emitting = true
+	$Explosion.pitch_scale = randf_range(0.5, 1.5)
+	$Explosion.play()
 ##
 
 func _on_damage_zone_body_entered(body):
