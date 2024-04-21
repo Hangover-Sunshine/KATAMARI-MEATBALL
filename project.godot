@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="GWJ 68"
+config/name="KATAMARI MEATBALL"
+config/description="KATAMARI MEATBALL is an action-arcade game where you forge a meatball out of the flesh of medieval citizenry. With you and your meat cult, cause havoc in the local peasant farmstead by rolling your ball all over their livelihoods. Do you have what it takes to forge the meatball?"
+config/version="1.0"
 run/main_scene="res://scenes/MainScene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0.0627451, 0.0705882, 0.109804, 1)
 config/icon="res://_SYSTEM/HS_DesktopIcon.png"
 config/windows_native_icon="res://_SYSTEM/Windows/icon.ico"
 

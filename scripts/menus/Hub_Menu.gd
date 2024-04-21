@@ -51,6 +51,7 @@ func _ready():
 
 func late_ready():
 	soundtrack_sound_pool.fade_in_menu()
+	$MainMenu.late_ready()
 ##
 
 #Managing which menu is visible 

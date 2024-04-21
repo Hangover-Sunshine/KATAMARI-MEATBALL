@@ -24,6 +24,12 @@ func _scene_loaded(new_scene:String):
 	##
 ##
 
+func late_ready():
+	if LWSave.Prefs["OS"] == "Web":
+		$MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer/MM_Exit.visible = false
+	##
+##
+
 #Managing which menu is visible / scene switching / leaving
 func on_start_pressed() -> void:
 	leaving = true
