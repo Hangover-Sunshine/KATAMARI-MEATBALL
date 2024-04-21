@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://p364hgcf8vms"]
+[gd_scene load_steps=20 format=3 uid="uid://p364hgcf8vms"]
 
 [ext_resource type="Script" path="res://scripts/entity/Cultist.gd" id="1_oplj2"]
 [ext_resource type="Script" path="res://prefabs/entities/all_character.gd" id="2_l1q4s"]
@@ -14,10 +14,6 @@
 min_value = 0.05
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.05), -3.00256, 3.25337, 0, 0]
 point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_1y67h"]
-offsets = PackedFloat32Array(0, 0.0935114, 0.316794)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gl5np"]
 shader = ExtResource("4_oid8k")
@@ -178,7 +174,7 @@ ConsumptionScore = 5.5
 script = ExtResource("2_l1q4s")
 
 [node name="Walk_Trail" type="CPUParticles2D" parent="CultistSprite"]
-position = Vector2(0, 46)
+position = Vector2(0, 25)
 emitting = false
 amount = 40
 texture = ExtResource("3_4yvfw")
@@ -192,7 +188,6 @@ angle_max = 50.0
 scale_amount_min = 0.05
 scale_amount_max = 0.1
 scale_amount_curve = SubResource("Curve_flos4")
-color_ramp = SubResource("Gradient_1y67h")
 
 [node name="All_Skeleton" type="Node2D" parent="CultistSprite"]
 
