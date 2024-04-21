@@ -75,28 +75,27 @@ alignment = 1
 
 [node name="SM_VBoxContainer" type="VBoxContainer" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/separation = -125
 
-[node name="SM_Title" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer/SM_VBoxContainer"]
+[node name="SM_Header" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer/SM_VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
-theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("3_yyuw1")
-theme_override_font_sizes/font_size = 340
-text = "KATAMARI
-"
+theme_override_font_sizes/font_size = 300
+text = "KATAMARI"
 horizontal_alignment = 1
 
-[node name="SM_Title2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer/SM_VBoxContainer"]
+[node name="SM_Header2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer/SM_VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
-theme_override_constants/line_spacing = -100
 theme_override_fonts/font = ExtResource("3_yyuw1")
-theme_override_font_sizes/font_size = 340
-text = "MEATBALL
-"
+theme_override_font_sizes/font_size = 300
+text = "MEATBALL"
 horizontal_alignment = 1
 
 [node name="SM_Title2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
