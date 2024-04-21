@@ -98,7 +98,6 @@ theme_override_font_sizes/font_size = 340
 text = "MEATBALL
 "
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="SM_Title2" type="Label" parent="MarginContainer/SplashMenu/SM_VBoxContainer"]
 layout_mode = 2
