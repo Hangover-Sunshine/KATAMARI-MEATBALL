@@ -37,23 +37,29 @@ func load_data():
 ##
 
 func on_back_pressed() -> void:
-	LWSave.save_to_disk("user://options.json", ["game", "load"])
+	LWSave.save_to_disk("user://options.json", ["game", "load", "OS"])
 	leave_options_menu.emit()
 ##
 
 func _on_o_overall_slider_value_changed(value):
 	o_overall_percent.text = str(value) + "%"
 	LWSave.Prefs["master_vol"] = value / 100
+	var master = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(master, linear_to_db(LWSave.Prefs["master_vol"]))
 ##
 
 func _on_o_fx_slider_value_changed(value):
 	o_fx_percent.text = str(value) + "%"
-	LWSave.Prefs["sfx_vol"] = value / 100
+	LWSave.Prefs["sfx_vol"] = value  / 100
+	var sfx = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(sfx, linear_to_db(LWSave.Prefs["sfx_vol"]))
 ##
 
 func _on_o_music_slider_value_changed(value):
 	o_music_percent.text = str(value) + "%"
 	LWSave.Prefs["music_vol"] = value / 100
+	var music = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(music, linear_to_db(LWSave.Prefs["music_vol"]))
 ##
 
 func _on_o_window_check_box_toggled(toggled_on):

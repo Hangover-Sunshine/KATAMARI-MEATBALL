@@ -16,8 +16,6 @@ func _ready():
 	
 	# Options
 	if !("load" in LWSave.Prefs.keys()):
-		LWSave.Prefs["load"] = true
-		LWSave.Prefs["OS"] = OS.get_name()
 		if FileAccess.file_exists("user://options.json"):
 			LWSave.load_from_disk("user://options.json")
 			
@@ -28,15 +26,26 @@ func _ready():
 			##
 		else:
 			LWSave.Prefs["windowed"] = true
-			LWSave.Prefs["master_vol"] = 0.8
-			LWSave.Prefs["music_vol"] = 1
-			LWSave.Prefs["sfx_vol"] = 1
+			LWSave.Prefs["master_vol"] = 1
+			LWSave.Prefs["music_vol"] = 0.6
+			LWSave.Prefs["sfx_vol"] = 0.5
 			
 			# Bindings
 			LWSave.Prefs["bindings"] = {}
 			
-			LWSave.save_to_disk("user://options.json", ["load"])
+			LWSave.save_to_disk("user://options.json", ["load", "OS"])
 		##
+		
+		LWSave.Prefs["load"] = true
+		LWSave.Prefs["OS"] = OS.get_name()
+		
+		var master = AudioServer.get_bus_index("Master")
+		var sfx = AudioServer.get_bus_index("SFX")
+		var music = AudioServer.get_bus_index("Music")
+		
+		AudioServer.set_bus_volume_db(master, linear_to_db(LWSave.Prefs["master_vol"]))
+		AudioServer.set_bus_volume_db(sfx, linear_to_db(LWSave.Prefs["sfx_vol"]))
+		AudioServer.set_bus_volume_db(music, linear_to_db(LWSave.Prefs["music_vol"]))
 	##
 ##
 
