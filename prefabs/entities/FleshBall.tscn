@@ -117,9 +117,11 @@ pitchRandomization = Vector2(1, 1.5)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlantBreak"]
 stream = ExtResource("11_c7efq")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="PlantBreak"]
 stream = ExtResource("12_p1ib1")
+bus = &"GameSFX"
 
 [connection signal="body_entered" from="Influence" to="." method="_on_influence_body_entered"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
