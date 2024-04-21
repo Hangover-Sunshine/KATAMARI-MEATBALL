@@ -402,9 +402,6 @@ libraries = {
 
 [node name="SoundPool" type="Node" parent="."]
 script = ExtResource("7_banju")
-randomizePitch = true
-allowPitchReroll = true
-pitchRandomization = Vector2(0.5, 1.4)
 
 [node name="SFX1" type="AudioStreamPlayer" parent="SoundPool"]
 stream = ExtResource("8_w11jt")
