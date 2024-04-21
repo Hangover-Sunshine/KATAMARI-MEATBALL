@@ -5,6 +5,8 @@ class_name LevelControl
 @onready var player = $Game/Player
 @onready var play_area = $Game/PlayArea
 
+var soundtrack_sound_pool
+
 func _ready():
 	GlobalSignals.connect("scene_loaded", _scene_loaded)
 	GlobalSignals.connect("unpause", _unpause)
@@ -24,6 +26,10 @@ func _ready():
 	LWSave.Prefs["game"]["winner"] = false
 ##
 
+func late_ready():
+	soundtrack_sound_pool.fade_in_game()
+##
+
 func _unpause():
 	player.just_unpaused = true
 	get_tree().paused = false
@@ -32,6 +38,7 @@ func _unpause():
 ##
 
 func _scene_loaded(new_scene:String):
+	soundtrack_sound_pool.fade_out_game()
 	if new_scene != name:
 		queue_free()
 	##

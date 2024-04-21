@@ -18,6 +18,7 @@ func _ready():
 ##
 
 func _scene_loaded(new_scene:String):
+	get_parent().soundtrack_sound_pool.fade_out_menu()
 	if new_scene != name:
 		get_parent().queue_free()
 	##

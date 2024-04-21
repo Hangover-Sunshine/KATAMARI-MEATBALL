@@ -6,6 +6,8 @@ extends Control
 
 var opened_before = false
 
+var soundtrack_sound_pool
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	menu_open()
@@ -36,6 +38,10 @@ func _ready():
 			LWSave.save_to_disk("user://options.json", ["load"])
 		##
 	##
+##
+
+func late_ready():
+	soundtrack_sound_pool.fade_in_menu()
 ##
 
 #Managing which menu is visible 

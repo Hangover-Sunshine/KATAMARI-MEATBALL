@@ -20,6 +20,8 @@ extends Control
 @onready var go_civil_score = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Civil_Score/GO_Civil_Score
 @onready var go_total_kills = $MarginContainer/GameOver/GO_Stats_Container/GO_TotalScore/GO_Total_Kills
 
+var soundtrack_sound_pool
+
 func _ready():
 	gameover_visibility()
 	go_retry.button_down.connect(on_retry_pressed)
@@ -66,6 +68,10 @@ func _ready():
 							(150 * LWSave.Prefs["game"]["civy_roll"]) +\
 							(meters * 10) -\
 							(time * 30))
+##
+
+func late_ready():
+	soundtrack_sound_pool.fade_in_menu()
 ##
 
 func _scene_loaded(new_scene:String):

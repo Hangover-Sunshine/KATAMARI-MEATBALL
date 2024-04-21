@@ -26,6 +26,8 @@ func _ready():
 	if scene_folder_path[scene_folder_path.length() - 1] != "/":
 		scene_folder_path += "/"
 	##
+	curr_scene.soundtrack_sound_pool = $BGMController
+	curr_scene.late_ready()
 	GlobalSignals.connect("load_scene", _load_scene)
 	set_process(false)
 	transition_player.play("Fade")
@@ -63,6 +65,8 @@ func _process(_delta):
 		# the new scene is our current scene, we don't care what happens with the other one
 		curr_scene = new_scene
 		add_child(new_scene)
+		curr_scene.soundtrack_sound_pool = $BGMController
+		curr_scene.late_ready()
 		
 		# play the animation player and make sure it knows we're fading in
 		fade_in = true
