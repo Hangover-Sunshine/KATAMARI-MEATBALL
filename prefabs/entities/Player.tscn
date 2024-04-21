@@ -1,11 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://myhbn6a4wked"]
+[gd_scene load_steps=14 format=3 uid="uid://myhbn6a4wked"]
 
 [ext_resource type="Script" path="res://scripts/entity/Player.gd" id="1_37j8s"]
 [ext_resource type="PackedScene" uid="uid://bjqb4w7t3q0yb" path="res://prefabs/entities/all_character.tscn" id="3_2rjrk"]
 [ext_resource type="Script" path="res://nodes/SoundPool/SoundPool2D.gd" id="3_ssnle"]
-[ext_resource type="AudioStream" uid="uid://lwko4ae3nyqk" path="res://assets/sfx/walk/Walk1.ogg" id="4_c6251"]
-[ext_resource type="AudioStream" uid="uid://bb10uk170xkef" path="res://assets/sfx/walk/Walk4.ogg" id="5_k3qxp"]
-[ext_resource type="AudioStream" uid="uid://c2cphqhohdxv8" path="res://assets/sfx/walk/Walk8.ogg" id="6_dstc4"]
+[ext_resource type="AudioStream" uid="uid://ctl6dx6umkiss" path="res://assets/sfx/player_hit/PlayerHit4.ogg" id="4_hr5xe"]
 [ext_resource type="AudioStream" uid="uid://cnb6h35jno0mr" path="res://assets/sfx/punch_meat/PunchMeat1.ogg" id="7_50eb4"]
 [ext_resource type="AudioStream" uid="uid://br8ndxinnearm" path="res://assets/sfx/punch_meat/PunchMeat3.ogg" id="8_sdx5a"]
 [ext_resource type="AudioStream" uid="uid://b3h8l644juvw3" path="res://assets/sfx/punch_people/PunchWhiff.ogg" id="9_1podi"]
@@ -49,22 +47,23 @@ collision_mask = 30
 position = Vector2(155, 0)
 shape = SubResource("RectangleShape2D_2vau6")
 
-[node name="StepPool" type="Node2D" parent="."]
+[node name="PlayerHit" type="Node2D" parent="."]
 script = ExtResource("3_ssnle")
-stopRepeatingSounds = true
-randomizePitch = null
-allowPitchReroll = null
-pitchRandomization = null
-threshold = null
+randomizePitch = true
+allowPitchReroll = true
+pitchRandomization = Vector2(0.5, 0.8)
 
-[node name="Walk1" type="AudioStreamPlayer2D" parent="StepPool"]
-stream = ExtResource("4_c6251")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlayerHit"]
+stream = ExtResource("4_hr5xe")
+bus = &"GameSFX"
 
-[node name="Walk2" type="AudioStreamPlayer2D" parent="StepPool"]
-stream = ExtResource("5_k3qxp")
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="PlayerHit"]
+stream = ExtResource("4_hr5xe")
+bus = &"GameSFX"
 
-[node name="Walk3" type="AudioStreamPlayer2D" parent="StepPool"]
-stream = ExtResource("6_dstc4")
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="PlayerHit"]
+stream = ExtResource("4_hr5xe")
+bus = &"GameSFX"
 
 [node name="PunchMeatPool" type="Node2D" parent="."]
 script = ExtResource("3_ssnle")
@@ -75,15 +74,19 @@ pitchRandomization = Vector2(0.5, 1.2)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PunchMeatPool"]
 stream = ExtResource("7_50eb4")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="PunchMeatPool"]
 stream = ExtResource("8_sdx5a")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="PunchMeatPool"]
 stream = ExtResource("7_50eb4")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="PunchMeatPool"]
 stream = ExtResource("8_sdx5a")
+bus = &"GameSFX"
 
 [node name="PunchWiff" type="Node2D" parent="."]
 script = ExtResource("3_ssnle")
@@ -111,18 +114,23 @@ pitchRandomization = Vector2(0.6, 1.4)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PunchPeoplePool"]
 stream = ExtResource("10_241q6")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="PunchPeoplePool"]
 stream = ExtResource("11_bdsw7")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="PunchPeoplePool"]
 stream = ExtResource("10_241q6")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="PunchPeoplePool"]
 stream = ExtResource("11_bdsw7")
+bus = &"GameSFX"
 
 [node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="PunchPeoplePool"]
 stream = ExtResource("12_3rd37")
+bus = &"GameSFX"
 
 [node name="HBTimer" type="Timer" parent="."]
 

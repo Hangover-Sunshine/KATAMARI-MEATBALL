@@ -8,13 +8,13 @@ class_name Lich
 @export var MaxWindupTime:float = 2.5
 @export var Damage:int = 5
 
-@onready var step_pool = $StepPool
 @onready var punch_meat_pool = $PunchMeatPool
 @onready var punch_wiff = $PunchWiff
 @onready var punch_people_pool = $PunchPeoplePool
 @onready var health_bar = $HealthBar
 @onready var hb_timer = $HBTimer
 @onready var player_charge = $PlayerCharge
+@onready var player_hit = $PlayerHit
 
 const PLAYER_ATTACK = preload("res://prefabs/projectiles/player_attack.tscn")
 
@@ -146,6 +146,7 @@ func take_damage(dmg):
 	health_bar.visible = true
 	health_bar.value -= dmg
 	hb_timer.start(3)
+	player_hit.play_random_sound()
 	if health <= 0:
 		# spawn death particles
 		GlobalSignals.emit_signal("player_out_of_health")

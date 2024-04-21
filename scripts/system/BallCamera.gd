@@ -26,15 +26,19 @@ func _ball_level_changed(lvl:int):
 ##
 
 func _process(delta):
-	var distance = Player.global_position.distance_to(Target.global_position)
-	
-	# bias the camera's position towards the ball, starting from the player's position
-	var dir:Vector2 = Player.global_position.direction_to(Target.global_position)
-	var noffset:Vector2 = dir * clampf((distance / 2), 0, MaxOffset)
-	
-	global_position = Player.global_position + noffset
-	
-	if zoom != new_zoom:
-		zoom = lerp(zoom, new_zoom, ZoomSpeed * delta)
+	if Target != null:
+		var distance = Player.global_position.distance_to(Target.global_position)
+		
+		# bias the camera's position towards the ball, starting from the player's position
+		var dir:Vector2 = Player.global_position.direction_to(Target.global_position)
+		var noffset:Vector2 = dir * clampf((distance / 2), 0, MaxOffset)
+		
+		global_position = Player.global_position + noffset
+		
+		if zoom != new_zoom:
+			zoom = lerp(zoom, new_zoom, ZoomSpeed * delta)
+		##
+	else:
+		global_position = Player.global_position
 	##
 ##

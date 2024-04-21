@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://p364hgcf8vms"]
+[gd_scene load_steps=22 format=3 uid="uid://p364hgcf8vms"]
 
 [ext_resource type="Script" path="res://scripts/entity/Cultist.gd" id="1_oplj2"]
 [ext_resource type="Script" path="res://prefabs/entities/all_character.gd" id="2_l1q4s"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bcaynjkdimu7g" path="res://assets/characters/Hero_Heads.png" id="7_i0n42"]
 [ext_resource type="Texture2D" uid="uid://bs2qgmbj5ftk1" path="res://assets/characters/Peon_Heads.png" id="8_urh28"]
 [ext_resource type="Texture2D" uid="uid://dpm5743pmyen" path="res://assets/characters/All_Body.png" id="9_tw35x"]
+[ext_resource type="Script" path="res://nodes/SoundQueue/SoundQueue2D.gd" id="10_3781g"]
+[ext_resource type="AudioStream" uid="uid://k2ctr4mamvtj" path="res://assets/sfx/environment/Chanting.ogg" id="11_cli05"]
 
 [sub_resource type="Curve" id="Curve_flos4"]
 min_value = 0.05
@@ -266,6 +268,16 @@ target_desired_distance = 150.0
 [node name="PathRequeryTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="ChantQueue" type="Node2D" parent="."]
+script = ExtResource("10_3781g")
+count = 2
+randomizePitch = true
+pitchRandomization = Vector2(0.7, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ChantQueue"]
+stream = ExtResource("11_cli05")
+bus = &"GameSFX"
 
 [connection signal="timeout" from="CultistSprite/FlashTimer" to="CultistSprite" method="_flash_over"]
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]

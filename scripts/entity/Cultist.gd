@@ -6,8 +6,9 @@ class_name Cultist
 
 @onready var travel_brain:NavigationAgent2D = $TravelBrain
 @onready var path_requery_timer = $PathRequeryTimer
+@onready var chant_queue = $ChantQueue
 
-@onready var fleshball
+var fleshball
 
 var jump_into_ball:bool = false
 
@@ -114,6 +115,7 @@ func _on_conversion_zone_body_entered(body):
 			path_requery_timer.stop()
 			velocity = Vector2.ZERO
 			converting = true
+			chant_queue.play_sound()
 		else:
 			_on_sight_body_exited(body) # just call this as a clean-up method lmao
 		##
