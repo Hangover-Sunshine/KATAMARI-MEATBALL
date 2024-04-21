@@ -4521,6 +4521,7 @@ one_shot = true
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
 [node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
+position = Vector2(1, 0)
 script = ExtResource("2_d8b1e")
 FleshBall = NodePath("../MysteryFleshBall")
 CultistPrefab = ExtResource("3_dqaxr")
