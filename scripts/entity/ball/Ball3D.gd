@@ -18,10 +18,6 @@ func _ready():
 ##
 
 func set_ball_scale(size, decrease):
-	if model.mesh.radius >= 2.65 and decrease == false:
-		return
-	##
-	
 	var lod = 0
 	
 	while size > 100:
@@ -30,11 +26,16 @@ func set_ball_scale(size, decrease):
 	##
 	
 	var rod = (size / 100)
+	var new_rad = lod + rod
 	
-	model.mesh.radius = lod + rod
+	if new_rad >= 2.65:
+		return
+	##
+	
+	model.mesh.radius = new_rad
 	model.mesh.height = 2 * model.mesh.radius
 	
-	$Camera3D.global_position = Vector3(0, 1, 0) * (lod + rod + dist_to_maintain)
+	$Camera3D.global_position = Vector3(0, 1, 0) * (new_rad + dist_to_maintain)
 ##
 
 func get_ball_scale():
