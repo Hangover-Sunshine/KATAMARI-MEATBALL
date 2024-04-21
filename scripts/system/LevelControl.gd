@@ -20,6 +20,7 @@ func _ready():
 	LWSave.Prefs["game"]["civy_punch"] = 0
 	LWSave.Prefs["game"]["time"] = 0
 	LWSave.Prefs["game"]["ball"] = 0
+	LWSave.Prefs["game"]["ball_real"] = $Game/MysteryFleshBall.current_consumption
 	LWSave.Prefs["game"]["winner"] = false
 ##
 

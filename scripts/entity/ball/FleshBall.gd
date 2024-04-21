@@ -124,6 +124,7 @@ func take_damage(damage):
 	flash()
 	current_consumption -= damage
 	ball3d.set_ball_scale(current_consumption)
+	LWSave.Prefs["game"]["ball_real"] = current_consumption
 	
 	# ball's gone, oops
 	if current_consumption <= 0:
@@ -141,6 +142,7 @@ func _on_influence_body_entered(body):
 	##
 	
 	ball3d.set_ball_scale(current_consumption)
+	LWSave.Prefs["game"]["ball_real"] = current_consumption
 	
 	actual_hitbox.shape.radius = 74.3 * ball3d.model.mesh.radius + 40.4
 	influence_cs.shape.radius = 74.3 * ball3d.model.mesh.radius + 40.4 + 70

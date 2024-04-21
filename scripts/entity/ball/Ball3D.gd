@@ -1,9 +1,6 @@
 extends Node3D
 
 @export var MaxSpinSpeed:float = 5.0
-@export var Tex1:Texture2D
-@export var Tex2:Texture2D
-@export var Tex3:Texture2D
 
 @onready var model = $Model
 

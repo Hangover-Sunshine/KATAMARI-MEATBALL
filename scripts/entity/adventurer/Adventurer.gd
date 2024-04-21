@@ -23,7 +23,7 @@ func _ready():
 
 func rolled_over():
 	LWSave.Prefs["game"]["hero_roll"] += 1
-	GlobalSignals.emit_signal("entity_removed")
+	GlobalSignals.emit_signal("entity_removed", global_position, true)
 	get_parent().dead(global_position)
 	queue_free()
 ##
@@ -44,7 +44,7 @@ func take_damage(dmg):
 		LWSave.Prefs["game"]["hero_punch"] += 1
 		get_parent().dead(global_position)
 		# do things
-		GlobalSignals.emit_signal("entity_removed")
+		GlobalSignals.emit_signal("entity_removed", global_position, false)
 		queue_free()
 	##
 ##
