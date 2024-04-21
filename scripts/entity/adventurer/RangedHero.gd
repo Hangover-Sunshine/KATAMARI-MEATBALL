@@ -45,13 +45,14 @@ func _physics_process(delta):
 		var space_state = get_world_2d().direct_space_state
 		# use global coordinates, not local to node
 		var query = PhysicsRayQueryParameters2D.create(global_position, target.global_position,
-														0b0010_0011, [self])
+														1 + 2 + 32)
 		var result = space_state.intersect_ray(query)
 		
-		if result:
+		if result and result["collider"].collision_layer == target.collision_layer:
 			attack = true
 			velocity = Vector2.ZERO
-			spawn_projectile_timer.start(ProjectileSpawnTimer)
+			if spawn_projectile_timer.is_stopped():
+				spawn_projectile_timer.start(ProjectileSpawnTimer)
 			return
 		##
 	##
