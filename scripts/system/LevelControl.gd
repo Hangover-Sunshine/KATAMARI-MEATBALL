@@ -3,6 +3,7 @@ class_name LevelControl
 
 @onready var pause_layer = $PauseLayer
 @onready var player = $Game/Player
+@onready var play_area = $Game/PlayArea
 
 func _ready():
 	GlobalSignals.connect("scene_loaded", _scene_loaded)
@@ -19,12 +20,14 @@ func _ready():
 	LWSave.Prefs["game"]["civy_punch"] = 0
 	LWSave.Prefs["game"]["time"] = 0
 	LWSave.Prefs["game"]["ball"] = 0
+	LWSave.Prefs["game"]["winner"] = false
 ##
 
 func _unpause():
 	player.just_unpaused = true
 	get_tree().paused = false
 	pause_layer.hide()
+	play_area.process_mode = Node.PROCESS_MODE_INHERIT
 ##
 
 func _scene_loaded(new_scene:String):
