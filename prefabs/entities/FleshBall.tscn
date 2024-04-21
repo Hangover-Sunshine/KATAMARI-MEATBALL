@@ -1,9 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2rldqippwrkr"]
+[gd_scene load_steps=16 format=3 uid="uid://b2rldqippwrkr"]
 
 [ext_resource type="Texture2D" uid="uid://dvg5oc3axuiqe" path="res://assets/particle/Circle1.png" id="1_11vk3"]
 [ext_resource type="Script" path="res://scripts/entity/ball/FleshBall.gd" id="1_amhv6"]
 [ext_resource type="Shader" path="res://shaders/flash.gdshader" id="2_ad1mm"]
 [ext_resource type="PackedScene" uid="uid://dkhqlhb2o75jk" path="res://prefabs/entities/Ball3D.tscn" id="3_1gaad"]
+[ext_resource type="Script" path="res://nodes/SoundPool/SoundPool2D.gd" id="5_2s0vn"]
+[ext_resource type="AudioStream" uid="uid://dbe8bj55hbr6c" path="res://assets/sfx/environment/ball_cant_break/BallHittingThingItCantBreak1.ogg" id="6_a6rhw"]
+[ext_resource type="AudioStream" uid="uid://crboxkstwmkec" path="res://assets/sfx/environment/ball_cant_break/BallHittingThingItCantBreak3.ogg" id="7_qhfhc"]
+[ext_resource type="AudioStream" uid="uid://dqw6ymiqqnt7k" path="res://assets/sfx/environment/ball_cant_break/BallHittingThingItCantBreak5.ogg" id="8_g2l4c"]
+[ext_resource type="AudioStream" uid="uid://d26kt2oeuc3bw" path="res://assets/sfx/environment/ball_cant_break/BallHittingThingItCantBreak4.ogg" id="9_q2m23"]
+[ext_resource type="AudioStream" uid="uid://dees8tuow0d8y" path="res://assets/sfx/environment/building_breaking/BuildingBreaking1.ogg" id="10_0a5kk"]
+[ext_resource type="AudioStream" uid="uid://3usjgh41os7t" path="res://assets/sfx/environment/PlantBreaking2.ogg" id="11_c7efq"]
+[ext_resource type="AudioStream" uid="uid://bt3qkib76cbbv" path="res://assets/sfx/environment/TreeSnapping1.ogg" id="12_p1ib1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5k42e"]
 shader = ExtResource("2_ad1mm")
@@ -49,6 +57,69 @@ transparent_bg = true
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="NoBreakPool" type="Node2D" parent="."]
+script = ExtResource("5_2s0vn")
+randomizePitch = true
+allowPitchReroll = true
+pitchRandomization = Vector2(0.8, 1.4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("6_a6rhw")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("7_qhfhc")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("8_g2l4c")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("9_q2m23")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("6_a6rhw")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("7_qhfhc")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("8_g2l4c")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="NoBreakPool"]
+stream = ExtResource("9_q2m23")
+bus = &"GameSFX"
+
+[node name="BreakPool" type="Node2D" parent="."]
+script = ExtResource("5_2s0vn")
+randomizePitch = true
+allowPitchReroll = true
+pitchRandomization = Vector2(0.5, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BreakPool"]
+stream = ExtResource("10_0a5kk")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="BreakPool"]
+stream = ExtResource("10_0a5kk")
+bus = &"GameSFX"
+
+[node name="PlantBreak" type="Node2D" parent="."]
+script = ExtResource("5_2s0vn")
+randomizePitch = true
+pitchRandomization = Vector2(1, 1.5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlantBreak"]
+stream = ExtResource("11_c7efq")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="PlantBreak"]
+stream = ExtResource("12_p1ib1")
 
 [connection signal="body_entered" from="Influence" to="." method="_on_influence_body_entered"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

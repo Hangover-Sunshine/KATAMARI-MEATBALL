@@ -40,7 +40,7 @@ func _on_hit_detector_body_entered(body):
 ##
 
 func _on_damage_zone_body_entered(body):
-	if body is Entity or body is FleshBall2D:
+	if body is Entity or body is FleshBall2D or body is Lich:
 		body.take_damage(4)
 	##
 ##

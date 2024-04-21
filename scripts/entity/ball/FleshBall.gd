@@ -12,9 +12,13 @@ class_name FleshBall2D
 ## How fast the ball loses momentum. Time is in seconds.
 @export var MovementLossTime:float = 2.5
 
+@onready var no_break_pool = $NoBreakPool
 @onready var influence:Area2D = $Influence
 @onready var ball3d = $"BallView/Ball3D"
 @onready var actual_hitbox:CollisionShape2D = $ActualHitbox
+@onready var break_pool = $BreakPool
+@onready var plant_break = $PlantBreak
+
 var influence_cs:CollisionShape2D
 
 var current_consumption:float
@@ -64,9 +68,17 @@ func _physics_process(delta):
 	if collision:
 		var obj = collision.get_collider()
 		if obj.can_be_destroyed(velocity.length(), current_consumption):
+			if obj is Destruct_Cottage or obj is Destruct_Wood:
+				break_pool.play_random_sound()
+			elif obj is Destruct_Tree or obj is Destruct_Plant:
+				plant_break.play_random_sound()
+			else:
+				pass
+			##
 			obj.destroy()
 			velocity *= (1 - obj.VelocityReduction)
 		else:
+			no_break_pool.play_random_sound()
 			obj.hit()
 			velocity = velocity.bounce(collision.get_normal()) * BounceVelocityRetain
 		##
