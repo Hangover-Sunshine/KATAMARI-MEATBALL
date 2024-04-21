@@ -375,7 +375,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
 alignment = 1
 
 [node name="GO_Title_Succ2" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container"]
@@ -391,15 +390,47 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
-[node name="GO_Para_Win" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Succ_Container"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="GO_Para_Win" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
 text = "After pounds and pounds of flesh forged into one, 
-the mighty MEATBALL now rolls on its own. 
-Soon, more mounds of mortal meat shall join us in union.
+"
+horizontal_alignment = 1
+
+[node name="GO_Para_Win2" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "the mighty MEATBALL now rolls on its own. 
+"
+horizontal_alignment = 1
+
+[node name="GO_Para_Win3" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Soon, more mounds of mortal meat shall join us in union.
 Thou sacrifice has destroyed all of humanity. Nice job!"
+horizontal_alignment = 1
+
+[node name="GO_Para_Win4" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Thou sacrifice has destroyed all of humanity. Nice job!"
 horizontal_alignment = 1
 
 [node name="Bot_Stats_Divide" type="ColorRect" parent="MarginContainer/GameOver/GO_Succ_Container"]
