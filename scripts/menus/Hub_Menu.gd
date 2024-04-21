@@ -35,6 +35,7 @@ func _ready():
 			
 			LWSave.save_to_disk("user://options.json", ["load"])
 		##
+	##
 ##
 
 #Managing which menu is visible 

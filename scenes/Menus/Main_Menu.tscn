@@ -107,3 +107,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ox4r2")
 theme_override_font_sizes/font_size = 100
 text = "Exit"
+
+[connection signal="mouse_entered" from="MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer/MM_Start" to="." method="_on_mm_start_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer/MM_Options" to="." method="_on_mm_options_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/MainMenu/MM_VBoxContainer/MM_HBoxContainer/MM_VBoxContainer/MM_Exit" to="." method="_on_mm_exit_mouse_entered"]

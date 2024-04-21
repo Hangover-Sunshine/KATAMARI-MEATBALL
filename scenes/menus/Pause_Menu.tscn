@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://brwbb64oj5yj4"]
+[gd_scene load_steps=9 format=3 uid="uid://brwbb64oj5yj4"]
 
 [ext_resource type="Script" path="res://scripts/menus/Pause_Menu.gd" id="1_vmxwa"]
 [ext_resource type="FontFile" uid="uid://sesjq0p2svxy" path="res://assets/fonts/Spinnaker.ttf" id="2_hhonm"]
@@ -6,8 +6,10 @@
 [ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_2dr2l"]
 [ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_cjxlq"]
 [ext_resource type="PackedScene" uid="uid://3hktxq1p4qdr" path="res://scenes/Menus/Options_Menu.tscn" id="5_80sc3"]
+[ext_resource type="Script" path="res://nodes/SoundPool/SoundPool.gd" id="7_nafq0"]
+[ext_resource type="AudioStream" uid="uid://ba2ikh20vd8ig" path="res://assets/sfx/ui/UISFX1.ogg" id="8_car08"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("SFXPool")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vmxwa")
+SFXPool = NodePath("SoundPool")
 
 [node name="Background_Design" parent="." instance=ExtResource("2_ubj3g")]
 modulate = Color(0.67451, 0.156863, 0.278431, 0.243137)
@@ -122,8 +125,37 @@ theme_override_fonts/font = ExtResource("4_cjxlq")
 theme_override_font_sizes/font_size = 100
 text = "Leave"
 
-[node name="OptionsMenu" parent="." instance=ExtResource("5_80sc3")]
+[node name="OptionsMenu" parent="." node_paths=PackedStringArray("SFXPool") instance=ExtResource("5_80sc3")]
 visible = false
 layout_mode = 1
+SFXPool = NodePath("../SoundPool")
 
+[node name="SoundPool" type="Node" parent="."]
+script = ExtResource("7_nafq0")
+randomizePitch = true
+allowPitchReroll = true
+
+[node name="SFX1" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_car08")
+bus = &"SFX"
+
+[node name="SFX2" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_car08")
+bus = &"SFX"
+
+[node name="SFX3" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_car08")
+bus = &"SFX"
+
+[node name="SFX4" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_car08")
+bus = &"SFX"
+
+[node name="SFX5" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_car08")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer/PM_Continue" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer/PM_Continue" to="." method="_on_pm_continue_pressed"]
+[connection signal="mouse_entered" from="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer/PM_Options" to="." method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="PauseMenu_Holder/MarginContainer/PauseMenu/PM_VBoxContainer/PM_HBoxContainer/PM_VBoxContainer/PM_Leave" to="." method="_on_mouse_entered"]

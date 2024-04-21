@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://clcvgrem1uax3"]
+[gd_scene load_steps=20 format=3 uid="uid://clcvgrem1uax3"]
 
 [ext_resource type="Script" path="res://scripts/menus/Hub_Menu.gd" id="1_7hbgn"]
 [ext_resource type="PackedScene" uid="uid://cjpdcltsjfr2m" path="res://scenes/Menus/Main_Menu.tscn" id="1_nfybi"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://3hktxq1p4qdr" path="res://scenes/Menus/Options_Menu.tscn" id="2_t1vus"]
 [ext_resource type="PackedScene" uid="uid://cgtj810lqgwsc" path="res://scenes/Menus/Splash_Menu.tscn" id="3_w588a"]
 [ext_resource type="Texture2D" uid="uid://cuagkhy6jqevj" path="res://assets/textures/Meatball_Menu.png" id="5_8kmqr"]
+[ext_resource type="Script" path="res://nodes/SoundPool/SoundPool.gd" id="7_banju"]
+[ext_resource type="AudioStream" uid="uid://ba2ikh20vd8ig" path="res://assets/sfx/ui/UISFX1.ogg" id="8_w11jt"]
 
 [sub_resource type="Animation" id="Animation_n7r88"]
 resource_name = "Fade2Splash"
@@ -372,14 +374,16 @@ position = Vector2(69, -76)
 visible = false
 layout_mode = 1
 
-[node name="MainMenu" parent="." instance=ExtResource("1_nfybi")]
+[node name="MainMenu" parent="." node_paths=PackedStringArray("SFXPool") instance=ExtResource("1_nfybi")]
 visible = false
 layout_mode = 1
+SFXPool = NodePath("../SoundPool")
 metadata/_edit_use_anchors_ = true
 
-[node name="OptionsMenu" parent="." instance=ExtResource("2_t1vus")]
+[node name="OptionsMenu" parent="." node_paths=PackedStringArray("SFXPool") instance=ExtResource("2_t1vus")]
 visible = false
 layout_mode = 1
+SFXPool = NodePath("../SoundPool")
 metadata/_edit_use_anchors_ = true
 
 [node name="Meatball" type="Sprite2D" parent="."]
@@ -395,3 +399,29 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_167vj")
 }
+
+[node name="SoundPool" type="Node" parent="."]
+script = ExtResource("7_banju")
+randomizePitch = true
+allowPitchReroll = true
+pitchRandomization = Vector2(0.5, 1.4)
+
+[node name="SFX1" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_w11jt")
+bus = &"SFX"
+
+[node name="SFX2" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_w11jt")
+bus = &"SFX"
+
+[node name="SFX3" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_w11jt")
+bus = &"SFX"
+
+[node name="SFX4" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_w11jt")
+bus = &"SFX"
+
+[node name="SFX5" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("8_w11jt")
+bus = &"SFX"

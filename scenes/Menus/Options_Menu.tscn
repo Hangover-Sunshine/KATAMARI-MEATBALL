@@ -193,3 +193,4 @@ text = "Back"
 [connection signal="value_changed" from="MarginContainer/OptionsMenu/O_VBoxContainer/Overall_Volume/O_OverallSlider" to="." method="_on_o_overall_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/OptionsMenu/O_VBoxContainer/FX_Volume/O_FXSlider" to="." method="_on_o_fx_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/OptionsMenu/O_VBoxContainer/Music_Volume/O_MusicSlider" to="." method="_on_o_music_slider_value_changed"]
+[connection signal="mouse_entered" from="MarginContainer/OptionsMenu/O_VBoxContainer/O_LEAVE" to="." method="_on_o_leave_mouse_entered"]

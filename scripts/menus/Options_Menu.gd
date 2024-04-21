@@ -1,6 +1,8 @@
 class_name OptionsMenu
 extends Control
 
+@export var SFXPool:SoundPool
+
 @onready var o_leave = $MarginContainer/OptionsMenu/O_VBoxContainer/O_LEAVE as Button
 
 @onready var o_overall_slider = $MarginContainer/OptionsMenu/O_VBoxContainer/Overall_Volume/O_OverallSlider
@@ -64,4 +66,8 @@ func _on_o_window_check_box_toggled(toggled_on):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	##
+##
+
+func _on_o_leave_mouse_entered():
+	SFXPool.play_random_sound()
 ##
