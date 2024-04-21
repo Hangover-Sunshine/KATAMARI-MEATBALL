@@ -78,7 +78,20 @@ func play_random_sound() -> bool:
 ##
 
 func play_sound(index:int) -> bool:
+	var pitch = 1
+	if randomizePitch:
+		pitch = randf_range(pitchRandomization.x, pitchRandomization.y)
+		if allowPitchReroll:
+			while abs(pitch - m_last_pitch) < threshold:
+				randomize()
+				pitch = randf_range(pitchRandomization.x, pitchRandomization.y)
+			##
+			m_last_pitch = pitch
+		##
+	##
+	
 	if m_audio_stream_player[index].playing == false:
+		m_audio_stream_player[index].pitch_scale = pitch
 		m_audio_stream_player[index].play()
 		return true
 	##
