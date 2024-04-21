@@ -20,8 +20,6 @@ extends Control
 @onready var go_civil_score = $MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Civil_Score/GO_Civil_Score
 @onready var go_total_kills = $MarginContainer/GameOver/GO_Stats_Container/GO_TotalScore/GO_Total_Kills
 
-var winner = true
-
 func _ready():
 	gameover_visibility()
 	go_retry.button_down.connect(on_retry_pressed)
@@ -98,7 +96,7 @@ func on_cont_pressed() -> void:
 	go_stats_container.visible = true
 
 func gameover_visibility():
-	if LWSave.Prefs["game"]["winner"] == true:
+	if LWSave.Prefs["game"]["winner"]:
 		go_succ_container.visible = true
 		go_stats_container.visible = false
 		go_title_succ.visible = true

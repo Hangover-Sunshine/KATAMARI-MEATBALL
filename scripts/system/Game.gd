@@ -18,6 +18,9 @@ extends Node2D
 @onready var hero_controller = $HeroController
 @onready var civilian_controller = $CivilianController
 
+var player_dead:bool = false
+var quitting:bool = false
+
 var curr_num_of_entities:int = 0
 
 var out_of_lvl0:bool = false
@@ -27,10 +30,17 @@ var entity_displacement = [0.4, 0.5, 0.8]
 
 func _ready():
 	GlobalSignals.connect("player_out_of_health", _player_out_of_health)
-	GlobalSignals.connect("ball_escaped", _ball_escaped)
 	GlobalSignals.connect("entity_removed", _entity_removed)
 	spawn_timer.start(2 + randf_range(SpawnTimeOffset.x, SpawnTimeOffset.y))
 	Player.projectile_area = $ProjectileHolder
+	#GlobalSignals.emit_signal("load_scene", "Menus/Hub_Menu")
+	GlobalSignals.connect("load_scene", _load_scene)
+##
+
+func _load_scene(level):
+	if level == "Menus/Hub_Menu":
+		quitting = true
+	##
 ##
 
 func _entity_removed():
@@ -135,18 +145,17 @@ func _on_spawn_timer_timeout():
 ##
 
 func _player_out_of_health():
+	player_dead = true
 	$PlayerDeathcry.global_position = Player.global_position
 	$PlayerDeathcry.play()
-	LWSave.Prefs["winner"] = false
-	GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
-##
-
-func _ball_escaped():
-	LWSave.Prefs["game"]["winner"] = true
+	LWSave.Prefs["game"]["winner"] = false
 	GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
 ##
 
 func _on_play_area_body_exited(body):
+	if player_dead or quitting:
+		return
+	##
 	$CultistController.process_mode = Node.PROCESS_MODE_DISABLED
 	$ProjectileHolder.process_mode = Node.PROCESS_MODE_DISABLED
 	$CivilianController.process_mode = Node.PROCESS_MODE_DISABLED

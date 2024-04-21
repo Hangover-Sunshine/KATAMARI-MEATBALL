@@ -4584,6 +4584,7 @@ position = Vector2(-1493, -190)
 position = Vector2(1644, -2012)
 
 [node name="Player" parent="Game" instance=ExtResource("9_lvcpf")]
+MaxHealth = 12
 
 [node name="MysteryFleshBall" parent="Game" instance=ExtResource("10_4k167")]
 position = Vector2(264, 0)
