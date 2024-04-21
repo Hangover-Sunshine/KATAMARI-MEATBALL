@@ -31,7 +31,7 @@ func _ready():
 	$Influence.collision_mask = 0b0001_0000
 	ball3d.max_speed = MaxVelocity
 	current_consumption = StartingSize
-	ball3d.set_ball_scale(current_consumption)
+	ball3d.set_ball_scale(current_consumption, false)
 	
 	influence_cs = influence.get_child(0)
 	
@@ -123,7 +123,7 @@ func take_damage(damage):
 	
 	flash()
 	current_consumption -= damage
-	ball3d.set_ball_scale(current_consumption)
+	ball3d.set_ball_scale(current_consumption, true)
 	LWSave.Prefs["game"]["ball_real"] = current_consumption
 	
 	# ball's gone, oops
@@ -141,7 +141,7 @@ func _on_influence_body_entered(body):
 		LWSave.Prefs["game"]["ball"] = current_consumption
 	##
 	
-	ball3d.set_ball_scale(current_consumption)
+	ball3d.set_ball_scale(current_consumption, false)
 	LWSave.Prefs["game"]["ball_real"] = current_consumption
 	
 	actual_hitbox.shape.radius = 74.3 * ball3d.model.mesh.radius + 40.4

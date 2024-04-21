@@ -17,8 +17,8 @@ func _ready():
 	material = model.get_active_material(0)
 ##
 
-func set_ball_scale(size):
-	if model.mesh.radius >= 2.65:
+func set_ball_scale(size, decrease):
+	if model.mesh.radius >= 2.65 and decrease == false:
 		return
 	##
 	
