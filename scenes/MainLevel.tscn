@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bqq1rok0sh6kd"]
+[gd_scene load_steps=82 format=3 uid="uid://bqq1rok0sh6kd"]
 
 [ext_resource type="Script" path="res://scripts/system/LevelControl.gd" id="1_qklo4"]
 [ext_resource type="Script" path="res://scripts/system/Game.gd" id="2_5l63h"]
@@ -62,7 +62,9 @@
 [ext_resource type="Texture2D" uid="uid://la7cans3vgdf" path="res://assets/props/decals/Decals_Rocks08.png" id="61_i4bv2"]
 [ext_resource type="Texture2D" uid="uid://b0dvt6uuyavdl" path="res://assets/props/decals/Decals_Rocks09.png" id="62_8yip6"]
 [ext_resource type="Texture2D" uid="uid://jta30w7j0nj1" path="res://assets/props/decals/Decals_Rocks10.png" id="63_5q4j8"]
+[ext_resource type="Script" path="res://nodes/SoundPool/SoundPool2D.gd" id="63_iu0tg"]
 [ext_resource type="Texture2D" uid="uid://df5q38jcvxdew" path="res://assets/props/decals/Decals_Rocks11.png" id="64_vodtd"]
+[ext_resource type="AudioStream" uid="uid://bqpes5s7g04lp" path="res://assets/sfx/conversion/FinishedConversion.ogg" id="64_yjfed"]
 [ext_resource type="Texture2D" uid="uid://c876c5vvivlsi" path="res://assets/props/decals/Decals_Rocks12.png" id="65_kc1en"]
 [ext_resource type="Texture2D" uid="uid://b3aqn60d2bvo5" path="res://assets/props/decals/Decals_Rocks13.png" id="66_vvtji"]
 [ext_resource type="Texture2D" uid="uid://bg6coi3cuodld" path="res://assets/props/decals/Decals_Rocks14.png" id="67_rc21c"]
@@ -4657,6 +4659,20 @@ position = Vector2(1, 0)
 script = ExtResource("2_d8b1e")
 FleshBall = NodePath("../MysteryFleshBall")
 CultistPrefab = ExtResource("3_dqaxr")
+
+[node name="PuffPool" type="Node2D" parent="Game/CultistController"]
+script = ExtResource("63_iu0tg")
+randomizePitch = true
+allowPitchReroll = true
+pitchRandomization = Vector2(1, 1.4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Game/CultistController/PuffPool"]
+stream = ExtResource("64_yjfed")
+bus = &"GameSFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Game/CultistController/PuffPool"]
+stream = ExtResource("64_yjfed")
+bus = &"GameSFX"
 
 [node name="SpawnPoints" type="Node2D" parent="Game/CultistController"]
 

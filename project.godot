@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://_SYSTEM/HS_DesktopIcon.png"
 config/windows_native_icon="res://_SYSTEM/Windows/icon.ico"
 
+[audio]
+
+buses/default_bus_layout="res://assets/AudioBusLayout.tres"
+
 [autoload]
 
 RandUtilities="*res://autoloads/RandUtilities.gd"
