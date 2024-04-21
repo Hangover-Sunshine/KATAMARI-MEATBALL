@@ -1,7 +1,7 @@
 extends Control
 
 @onready var giu_label_score = $GIU_MarginContainer/GIU_VBoxContainer/GIU_Label_Score
-@onready var giu_warning1 = $GIU_MarginContainer/GIU_VBoxContainer/GIU_Warning
+@onready var giu_warning1 = $GIU_MarginContainer/GIU_VBoxContainer/GIU_Warning1
 @onready var animation_player = $AnimationPlayer
 @onready var giu_warning2 = $GIU_MarginContainer/GIU_VBoxContainer/GIU_Warning2
 
