@@ -2143,7 +2143,7 @@ position = Vector2(-3000, 0)
 collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
-MinScoreThreshold = 0.0
+MinScoreThreshold = 600.0
 MinVelocityThreshold = 60.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/LeftWall"]
@@ -2164,7 +2164,7 @@ scale = Vector2(1, -1)
 collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
-MinScoreThreshold = 0.0
+MinScoreThreshold = 600.0
 MinVelocityThreshold = 60.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/RightWall"]
@@ -2183,7 +2183,7 @@ position = Vector2(0, 3000)
 collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
-MinScoreThreshold = 0.0
+MinScoreThreshold = 600.0
 MinVelocityThreshold = 60.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/BottomWall"]
@@ -2200,7 +2200,7 @@ position = Vector2(0, -3000)
 collision_layer = 32
 collision_mask = 31
 script = ExtResource("3_imnub")
-MinScoreThreshold = 0.0
+MinScoreThreshold = 600.0
 MinVelocityThreshold = 100.0
 
 [node name="Wall" type="TileMap" parent="Game/Map/TopWall"]
@@ -2218,154 +2218,227 @@ shape = SubResource("RectangleShape2D_ym76a")
 
 [node name="Cottage A" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-189, -337)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A2" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-1061, 700)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A3" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(760, -143)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A4" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-2271, -524)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A5" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(1305, 700)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A6" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-343, 226)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A7" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-2084, 856)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A13" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-1144, 2042)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A14" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-113, 1854)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A15" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(1833, 1524)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A16" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(1175, 2491)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A8" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(-1865, -1547)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A9" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(197, -1506)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A10" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(907, -2525)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A11" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(2199, -456)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage A12" parent="Game/Map/Buildings/Cottage A Group" instance=ExtResource("24_ylm67")]
 position = Vector2(1425, -910)
-MinScoreThreshold = 300.0
+MinScoreThreshold = 350.0
 MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage B Group" type="Node2D" parent="Game/Map/Buildings"]
 
 [node name="Cottage B" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
 position = Vector2(-1061, 76)
+MinScoreThreshold = 400.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage B2" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
 position = Vector2(-562, -1858)
+MinScoreThreshold = 400.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage B3" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
 position = Vector2(1147, 1936)
+MinScoreThreshold = 400.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage B5" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
 position = Vector2(-1701, 2341)
+MinScoreThreshold = 400.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage B4" parent="Game/Map/Buildings/Cottage B Group" instance=ExtResource("25_8n8u2")]
 position = Vector2(1209, -1791)
+MinScoreThreshold = 400.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage C Group" type="Node2D" parent="Game/Map/Buildings"]
 
 [node name="Cottage C" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
 position = Vector2(1496, -143)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage C2" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
 position = Vector2(-458, -937)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage C3" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
 position = Vector2(-428, 1239)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage C4" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
 position = Vector2(-1488, -2241)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Cottage C5" parent="Game/Map/Buildings/Cottage C Group" instance=ExtResource("23_f5pey")]
 position = Vector2(2219, -2083)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill A Group" type="Node2D" parent="Game/Map/Buildings"]
 
 [node name="Windmill A5" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
 position = Vector2(2039, 361)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill A" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
 position = Vector2(632, -797)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill A2" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
 position = Vector2(-1865, 310)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill A3" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
 position = Vector2(461, 1375)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill A4" parent="Game/Map/Buildings/Windmill A Group" instance=ExtResource("22_uhlxy")]
 position = Vector2(-2461, -2090)
+MinScoreThreshold = 450.0
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill B Group" type="Node2D" parent="Game/Map/Buildings"]
 
 [node name="Windmill B" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
 position = Vector2(519, 515)
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill B2" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
 position = Vector2(-1509, -689)
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill B3" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
 position = Vector2(-1471, 1463)
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill B4" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
 position = Vector2(241, -2282)
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill B5" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
 position = Vector2(2445, -1102)
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Windmill B6" parent="Game/Map/Buildings/Windmill B Group" instance=ExtResource("26_hjsxw")]
 position = Vector2(2377, 2166)
+MinVelocityThreshold = 0.0
+VelocityReduction = 0.01
 
 [node name="Trees" type="Node2D" parent="Game/Map"]
 
@@ -2415,77 +2488,77 @@ MinVelocityThreshold = 0.0
 
 [node name="Tree A" parent="Game/Map/Trees/Tree Group" instance=ExtResource("28_4gkrr")]
 position = Vector2(-894, -496)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree B" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
 position = Vector2(131, 710)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree C" parent="Game/Map/Trees/Tree Group" instance=ExtResource("30_n2dcs")]
 position = Vector2(1117, 151)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree D" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
 position = Vector2(803, 944)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree C2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("30_n2dcs")]
 position = Vector2(-2134, -185)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree D2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
 position = Vector2(-867, -1365)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree B2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
 position = Vector2(686, -1944)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree A2" parent="Game/Map/Trees/Tree Group" instance=ExtResource("28_4gkrr")]
 position = Vector2(-1048, -2068)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree B3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
 position = Vector2(-2651, -1344)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree D3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
 position = Vector2(2268, 2617)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree A3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("28_4gkrr")]
 position = Vector2(2288, 1175)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree C3" parent="Game/Map/Trees/Tree Group" instance=ExtResource("30_n2dcs")]
 position = Vector2(-1978, -2626)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree B4" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
 position = Vector2(-770, 2521)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree D4" parent="Game/Map/Trees/Tree Group" instance=ExtResource("31_g5hkq")]
 position = Vector2(519, 1889)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Tree B5" parent="Game/Map/Trees/Tree Group" instance=ExtResource("29_yrqma")]
 position = Vector2(-2064, 1756)
-MinScoreThreshold = 250.0
+MinScoreThreshold = 300.0
 MinVelocityThreshold = 0.0
 
 [node name="Breakables" type="Node2D" parent="Game/Map"]
