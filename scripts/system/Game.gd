@@ -19,6 +19,7 @@ extends Node2D
 @onready var civilian_controller = $CivilianController
 @onready var death_sounds_pool = $DeathSoundsPool
 @onready var squish_pool = $SquishPool
+@onready var rebake_timer = $Details/RebakeTimer
 
 var player_dead:bool = false
 var quitting:bool = false
@@ -36,6 +37,7 @@ func _ready():
 	spawn_timer.start(2 + randf_range(SpawnTimeOffset.x, SpawnTimeOffset.y))
 	Player.projectile_area = $ProjectileHolder
 	GlobalSignals.connect("load_scene", _load_scene)
+	rebake_timer.start(15)
 ##
 
 func _load_scene(level):
@@ -108,4 +110,9 @@ func _on_play_area_body_exited(body):
 	$HeroController.process_mode = Node.PROCESS_MODE_DISABLED
 	LWSave.Prefs["game"]["winner"] = true
 	GlobalSignals.emit_signal("load_scene", "Menus/Game_Over")
+##
+
+func _on_rebake_timer_timeout():
+	$Map.bake_navigation_polygon()
+	rebake_timer.start(10)
 ##

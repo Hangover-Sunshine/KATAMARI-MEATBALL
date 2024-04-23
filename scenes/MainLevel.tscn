@@ -4710,6 +4710,9 @@ position = Vector2(-881, -2095)
 [node name="SpawnTimer" type="Timer" parent="Game/Details"]
 one_shot = true
 
+[node name="RebakeTimer" type="Timer" parent="Game/Details"]
+one_shot = true
+
 [node name="ProjectileHolder" type="Node2D" parent="Game"]
 
 [node name="CultistController" type="Node2D" parent="Game" node_paths=PackedStringArray("FleshBall")]
@@ -4829,4 +4832,5 @@ visible = false
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Game/Details/SpawnTimer" to="Game" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Game/Details/RebakeTimer" to="Game" method="_on_rebake_timer_timeout"]
 [connection signal="body_exited" from="Game/PlayArea" to="Game" method="_on_play_area_body_exited"]

@@ -27,7 +27,7 @@ func _on_damage_area_body_entered(body):
 	##
 	$AudioStreamPlayer2D.pitch_scale = randf_range(0.5, 1.5)
 	$AudioStreamPlayer2D.play()
-	$Timer.start()
+	queue_free()
 ##
 
 
