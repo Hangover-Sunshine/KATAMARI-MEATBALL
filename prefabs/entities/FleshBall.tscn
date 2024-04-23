@@ -32,6 +32,7 @@ StartingSize = 65.0
 BounceVelocityRetain = 0.9
 MovementLoss = 0.1
 MovementLossTime = 1.5
+VelImpactMultiplier = 9.0
 
 [node name="BallDisplay" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5k42e")
