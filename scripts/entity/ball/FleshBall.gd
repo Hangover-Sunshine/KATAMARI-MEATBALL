@@ -11,6 +11,8 @@ class_name FleshBall2D
 @export_range(0.01, 0.6) var MovementLoss:float = 0.2
 ## How fast the ball loses momentum. Time is in seconds.
 @export var MovementLossTime:float = 2.5
+## Impact of damage on velocity. Default was 10 for the jam, but proved too punishing.
+@export var VelImpactMultiplier:float = 10
 
 @onready var no_break_pool = $NoBreakPool
 @onready var influence:Area2D = $Influence
@@ -104,7 +106,7 @@ func smacked(dir, force):
 
 func take_damage(damage):
 	if velocity.length_squared() > 2000:
-		var vel_impact = damage * 10
+		var vel_impact = damage * VelImpactMultiplier
 		
 		if velocity.x > 0:
 			velocity.x -= vel_impact
