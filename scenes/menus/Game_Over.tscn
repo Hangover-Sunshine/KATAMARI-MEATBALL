@@ -115,6 +115,7 @@ layout_mode = 2
 [node name="GO_HBox_Stats" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container"]
 layout_mode = 2
 theme_override_constants/separation = 50
+alignment = 1
 
 [node name="GO_VBox_Killed" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
 layout_mode = 2
@@ -186,6 +187,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="GO_VBox_Multi" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
+visible = false
 layout_mode = 2
 
 [node name="GO_x50" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi"]
@@ -227,6 +229,7 @@ text = "x 150"
 horizontal_alignment = 1
 
 [node name="GO_VBox_KillScore" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
+visible = false
 layout_mode = 2
 
 [node name="GO_Cult_Score" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore"]
@@ -398,7 +401,7 @@ theme_override_constants/separation = 0
 [node name="GO_Para_Win" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
-theme_override_constants/line_spacing = 0
+theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
 text = "After pounds and pounds of flesh forged into one, 
@@ -408,17 +411,17 @@ horizontal_alignment = 1
 [node name="GO_Para_Win2" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
-theme_override_constants/line_spacing = 0
+theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
-text = "the mighty MEATBALL now rolls on its own. 
+text = "the mighty MEATBALL now rolls on its own.
 "
 horizontal_alignment = 1
 
 [node name="GO_Para_Win3" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
-theme_override_constants/line_spacing = 0
+theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
 text = "Soon, more mounds of mortal meat shall join us in union."
@@ -427,7 +430,7 @@ horizontal_alignment = 1
 [node name="GO_Para_Win4" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
-theme_override_constants/line_spacing = 0
+theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("4_gs1r7")
 theme_override_font_sizes/font_size = 100
 text = "Thou sacrifice has destroyed all of humanity. Nice job!"
