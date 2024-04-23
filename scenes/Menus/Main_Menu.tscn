@@ -55,7 +55,7 @@ size_flags_vertical = 8
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("3_rsijs")
 theme_override_font_sizes/font_size = 30
-text = "VERSION 1.0
+text = "VERSION 1.1
 HANGOVER SUNSHINE"
 horizontal_alignment = 2
 vertical_alignment = 2
