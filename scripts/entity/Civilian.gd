@@ -6,6 +6,9 @@ class_name Civilian
 @export var WaitTime:Vector2 = Vector2(0.8, 1.8)
 @export var WanderTime:Vector2 = Vector2(1.5, 4)
 
+## x/y = x range, w/z = y range
+@export var FleePointOffset:Vector4 = Vector4(-10, 10, -10, 10)
+
 @export_group("Conversion")
 @export var ConversionSpeed:float = 3.5
 @export var ConversionAmount:Vector2 = Vector2(20.0, 30.0)
@@ -30,12 +33,14 @@ var freeing_self:bool = false
 var escort_under_attack:bool = false
 var escort:Adventurer
 
+var just_finished:bool = false
+
 func _ready():
 	$GraphicsControl.character = 5
 	$GraphicsControl.generate_character()
 	
-	wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
-	wander_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+	#wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
+	#wander_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 	
 	# swap
 	if WaitTime.x > WaitTime.y:
@@ -53,8 +58,9 @@ func _ready():
 ##
 
 func set_target_position(pos:Vector2):
-	travel_brain.target_position = pos
-	destination_wait_timer.stop()
+	travel_brain.target_position = pos + Vector2(randf_range(FleePointOffset.x, FleePointOffset.y),
+													randf_range(FleePointOffset.w, FleePointOffset.z))
+	just_finished = false
 ##
 
 func _physics_process(delta):
@@ -62,8 +68,18 @@ func _physics_process(delta):
 		return
 	##
 	
+	if travel_brain.is_navigation_finished():
+		if just_finished == false:
+			just_finished = true
+			destination_wait_timer.start(randf_range(WaitTime.x, WaitTime.y))
+		##
+		
+		$GraphicsControl.play_idle()
+		return
+	##
+	
 	$GraphicsControl.play_waddle()
-	velocity = wander_dir * MovementSpeed
+	velocity = global_position.direction_to(travel_brain.get_next_path_position()) * MovementSpeed
 	
 	move_and_slide()
 ##
@@ -79,8 +95,9 @@ func _on_destination_wait_timer_timeout():
 		##
 	else:
 		# pick a new direction and go in it for X seconds
-		wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
-		wander_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+		#wander_timer.start(randf_range(WanderTime.x, WanderTime.y))
+		#wander_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+		GlobalSignals.emit_signal("request_new_flee_point", self)
 	##
 	$GraphicsControl.play_idle()
 ##
@@ -124,8 +141,6 @@ func rolled_over():
 	GlobalSignals.emit_signal("entity_removed", global_position, true)
 	# spawn particle
 	get_parent().dead(global_position)
-	
-	# spawn sound effect at location
 	
 	# die
 	queue_free()

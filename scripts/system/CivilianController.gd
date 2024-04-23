@@ -5,6 +5,7 @@ extends Node2D
 @export var CivilianPrefab:PackedScene
 
 @onready var spawn_points = $SpawnPoints
+@onready var flee_points = $FleePoints
 
 const FX_EXPLODE_BLOOD = preload("res://prefabs/particles/fx_explode_blood.tscn")
 
@@ -20,7 +21,7 @@ func make_new_civilian(start_pos):
 ##
 
 func _new_flee_point_requested(civy):
-	var rand_point = FleePoints.get_child(randi() % FleePoints.get_child_count())
+	var rand_point = flee_points.get_child(randi() % flee_points.get_child_count())
 	civy.set_target_position(rand_point.global_position)
 ##
 
