@@ -23,6 +23,15 @@ extends Control
 var soundtrack_sound_pool
 
 func _ready():
+	LWSave.Prefs["game"] = {}
+	LWSave.Prefs["game"]["winner"] = false
+	
+	LWSave.Prefs["game"]["cult_roll"] = 1
+	LWSave.Prefs["game"]["hero_roll"] = 1
+	LWSave.Prefs["game"]["civy_roll"] = 1
+	LWSave.Prefs["game"]["ball"] = 65
+	LWSave.Prefs["game"]["time"] = 60.95 * 6
+	
 	gameover_visibility()
 	go_retry.button_down.connect(on_retry_pressed)
 	go_leave.button_down.connect(on_leave_pressed)
@@ -42,32 +51,26 @@ func _ready():
 		time -= 60
 	##
 	
-	var decimal:String = "%01.2f" % time
+	go_time.text = str(min) + ":" + "%05.2f" % time
 	
-	go_time.text = str(min) + ":" + decimal
-	
-	var ball_size:float = LWSave.Prefs["game"]["ball"]
-	
-	var meters:float = 0
-	var leading_zeros:int = 6
-	while ball_size > 100:
-		meters += 1
-		ball_size -= 100
-	##
-	
-	decimal = "%.2f" % ball_size
-	var meter_string = "%*d" % [leading_zeros, meters]
-	
-	go_size.text = meter_string + decimal
+	go_size.text = "%07.2f" % LWSave.Prefs["game"]["ball"]
 	
 	go_cult_score.text = str(50 * LWSave.Prefs["game"]["cult_roll"])
 	go_hero_score.text = str(100 * LWSave.Prefs["game"]["hero_roll"])
 	go_civil_score.text = str(150 * LWSave.Prefs["game"]["hero_roll"])
-	go_total_kills.text = str((50 * LWSave.Prefs["game"]["cult_roll"]) +\
-							(100 * LWSave.Prefs["game"]["hero_roll"]) +\
-							(150 * LWSave.Prefs["game"]["civy_roll"]) +\
-							(meters * 10) -\
-							(time * 30))
+	
+	var score = (50 * LWSave.Prefs["game"]["cult_roll"]) +\
+					(100 * LWSave.Prefs["game"]["hero_roll"]) +\
+					(150 * LWSave.Prefs["game"]["civy_roll"]) +\
+					(LWSave.Prefs["game"]["ball"] * 10) -\
+					(LWSave.Prefs["game"]["time"] * 30)
+					
+	if LWSave.Prefs["game"]["time"] * 30 < 0 or LWSave.Prefs["game"]["time"] > 60 * 15 or score < -9000:
+		$MarginContainer/GameOver/GO_Stats_Container/GO_TotalScore/GO_Total.visible = false
+		go_total_kills.text = "You're a really bad lich. Try harder! :("
+	else:
+		go_total_kills.text = "%.2f" % score
+	##
 ##
 
 func late_ready():

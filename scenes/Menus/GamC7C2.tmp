@@ -1,0 +1,456 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi513it7jfsm0"]
+
+[ext_resource type="Script" path="res://scripts/menus/Game_Over.gd" id="1_f26fg"]
+[ext_resource type="PackedScene" uid="uid://bm2frkhsku2i4" path="res://prefabs/particles/background_design.tscn" id="2_pg3ki"]
+[ext_resource type="FontFile" uid="uid://bq3ebwt2pq467" path="res://assets/fonts/PirataOne.ttf" id="3_emsji"]
+[ext_resource type="FontFile" uid="uid://bscormhptftiq" path="res://assets/fonts/MedulaOne.ttf" id="4_gs1r7"]
+
+[sub_resource type="Animation" id="Animation_5bcja"]
+resource_name = "Button_Flash"
+length = 1.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/GameOver/GO_Succ_Container/SM_Title_Cont:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.117647), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nxecq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/GameOver/GO_Succ_Container/SM_Title_Cont:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3cmv"]
+_data = {
+"Button_Flash": SubResource("Animation_5bcja"),
+"RESET": SubResource("Animation_nxecq")
+}
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f26fg")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0627451, 0.0705882, 0.109804, 1)
+
+[node name="Background_Design" parent="." instance=ExtResource("2_pg3ki")]
+position = Vector2(82, -90)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="GameOver" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GO_Stats_Container" type="VBoxContainer" parent="MarginContainer/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="GO_Title_Succ" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("3_emsji")
+theme_override_font_sizes/font_size = 200
+text = "SUCCESS"
+horizontal_alignment = 1
+
+[node name="GO_Title_Fail" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("3_emsji")
+theme_override_font_sizes/font_size = 200
+text = "FAILURE"
+horizontal_alignment = 1
+
+[node name="Top_Stats_Divide" type="ColorRect" parent="MarginContainer/GameOver/GO_Stats_Container"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="GO_HBox_Stats" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="GO_VBox_Killed" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
+layout_mode = 2
+
+[node name="GO_Cultists" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="GO_Cult" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Cultists"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Cultists Killed"
+horizontal_alignment = 1
+
+[node name="GO_Cult_Kills" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Cultists"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="GO_Heroes" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="GO_Hero" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Heroes"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Heroes Killed"
+horizontal_alignment = 1
+
+[node name="GO_Hero_Kills" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Heroes"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="GO_Civilians" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="GO_Civil" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Civilians"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Civilians Killed"
+horizontal_alignment = 1
+
+[node name="GO_Civil_Kills" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Killed/GO_Civilians"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="GO_VBox_Multi" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
+visible = false
+layout_mode = 2
+
+[node name="GO_x50" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GO_Cult" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi/GO_x50"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "x 50"
+
+[node name="GO_x100" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GO_Hero" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi/GO_x100"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "x 100"
+horizontal_alignment = 1
+
+[node name="GO_x150" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GO_Civil" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Multi/GO_x150"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "x 150"
+horizontal_alignment = 1
+
+[node name="GO_VBox_KillScore" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
+visible = false
+layout_mode = 2
+
+[node name="GO_Cult_Score" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GO_Cult_Score" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Cult_Score"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "00000000"
+
+[node name="GO_Hero_Score" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GO_Hero_Score" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Hero_Score"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "00000000"
+horizontal_alignment = 1
+
+[node name="GO_Civil_Score" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GO_Civil_Score" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_KillScore/GO_Civil_Score"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "00000000"
+horizontal_alignment = 1
+
+[node name="GO_Mid_Divide" type="ColorRect" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="GO_VBox_Travel" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats"]
+layout_mode = 2
+
+[node name="GO_Cult_Score" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GO_Title_Time" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Time Spent"
+
+[node name="GO_Time" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "00:00.00"
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="GO_Title_Time" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "MEATBALL Radius"
+
+[node name="GO_Cult_Score3" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GO_Size" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "000000.00"
+
+[node name="GO_Units" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBox_Stats/GO_VBox_Travel/GO_Cult_Score3"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "meters"
+
+[node name="Bot_Stats_Divide" type="ColorRect" parent="MarginContainer/GameOver/GO_Stats_Container"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="GO_TotalScore" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="GO_Total" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_TotalScore"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Total Score"
+horizontal_alignment = 1
+
+[node name="GO_Total_Kills" type="Label" parent="MarginContainer/GameOver/GO_Stats_Container/GO_TotalScore"]
+layout_mode = 2
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="GO_HBoxContainer" type="HBoxContainer" parent="MarginContainer/GameOver/GO_Stats_Container"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GO_Retry" type="Button" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBoxContainer"]
+modulate = Color(0.92549, 0.152941, 0.247059, 1)
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Retry"
+
+[node name="GO_Leave" type="Button" parent="MarginContainer/GameOver/GO_Stats_Container/GO_HBoxContainer"]
+modulate = Color(0.92549, 0.152941, 0.247059, 1)
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Leave"
+
+[node name="GO_Succ_Container" type="VBoxContainer" parent="MarginContainer/GameOver"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="GO_Title_Succ2" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("3_emsji")
+theme_override_font_sizes/font_size = 200
+text = "SUCCESS"
+horizontal_alignment = 1
+
+[node name="Top_Stats_Divide" type="ColorRect" parent="MarginContainer/GameOver/GO_Succ_Container"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameOver/GO_Succ_Container"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="GO_Para_Win" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "After pounds and pounds of flesh forged into one, 
+"
+horizontal_alignment = 1
+
+[node name="GO_Para_Win2" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "the mighty MEATBALL now rolls on its own.
+"
+horizontal_alignment = 1
+
+[node name="GO_Para_Win3" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Soon, more mounds of mortal meat shall join us in union."
+horizontal_alignment = 1
+
+[node name="GO_Para_Win4" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67451, 0.156863, 0.278431, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Thou sacrifice has destroyed all of humanity. Nice job!"
+horizontal_alignment = 1
+
+[node name="Bot_Stats_Divide" type="ColorRect" parent="MarginContainer/GameOver/GO_Succ_Container"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="SM_Title_Cont" type="Label" parent="MarginContainer/GameOver/GO_Succ_Container"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = -100
+theme_override_fonts/font = ExtResource("4_gs1r7")
+theme_override_font_sizes/font_size = 100
+text = "Press ANY BUTTON to CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextFlash_Player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m3cmv")
+}
