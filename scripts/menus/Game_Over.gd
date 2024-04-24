@@ -23,15 +23,6 @@ extends Control
 var soundtrack_sound_pool
 
 func _ready():
-	LWSave.Prefs["game"] = {}
-	LWSave.Prefs["game"]["winner"] = false
-	
-	LWSave.Prefs["game"]["cult_roll"] = 1
-	LWSave.Prefs["game"]["hero_roll"] = 1
-	LWSave.Prefs["game"]["civy_roll"] = 1
-	LWSave.Prefs["game"]["ball"] = 65
-	LWSave.Prefs["game"]["time"] = 60.95 * 6
-	
 	gameover_visibility()
 	go_retry.button_down.connect(on_retry_pressed)
 	go_leave.button_down.connect(on_leave_pressed)
