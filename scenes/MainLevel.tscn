@@ -4870,6 +4870,7 @@ current = true
 
 [node name="PlayerDeathcry" type="AudioStreamPlayer2D" parent="Game"]
 stream = ExtResource("16_s4jjy")
+bus = &"GameSFX"
 
 [node name="PlayArea" type="Area2D" parent="Game"]
 visible = false

@@ -60,7 +60,8 @@ func _ready():
 		$MarginContainer/GameOver/GO_Stats_Container/GO_TotalScore/GO_Total.visible = false
 		go_total_kills.text = "You're a really bad lich. Try harder! :("
 	else:
-		go_total_kills.text = "%.2f" % score
+		#go_total_kills.text = "%.2f" % score
+		go_total_kills.text = str(int(floor(score)))
 	##
 ##
 

@@ -31,6 +31,7 @@ func _on_pm_continue_pressed():
 func on_options_pressed():
 	pause_menu_holder.visible = false
 	options_menu.visible = true
+	$OptionsMenu.load_data()
 
 func back_to_pause():
 	pause_menu_holder.visible = true

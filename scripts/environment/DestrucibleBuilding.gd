@@ -7,12 +7,6 @@ class_name DestructibleBuilding
 
 @onready var audio_stream_player = $AudioStreamPlayer
 
-func _input(event):
-	if event.is_action_pressed("Pause"):
-		audio_stream_player.play()
-	##
-##
-
 func destroy():
 	audio_stream_player.play()
 	# can't interact with the world

@@ -28,6 +28,7 @@ func load_data():
 		window_mode_2.visible = false
 	##
 	
+	print(LWSave.Prefs["sfx_vol"])
 	o_fx_slider.value = LWSave.Prefs["sfx_vol"] * 100
 	o_fx_percent.text = str(o_fx_slider.value) + "%"
 	o_music_slider.value = LWSave.Prefs["music_vol"] * 100
